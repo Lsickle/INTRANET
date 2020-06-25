@@ -26,7 +26,7 @@ class AddColumnReqSrcToRequisitosTable extends Migration
     public function down()
     {
         Schema::table('requisitos', function (Blueprint $table) {
-            //
+            $table->dropColumn('ReqSrc');
         });
     }
 }

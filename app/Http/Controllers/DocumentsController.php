@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Documents;
 use App\Areas;
+use App\User;
 /*use App\User;*/
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+/*use Spatie\Permission\Models\User;*/
 
 class DocumentsController extends Controller
 {
@@ -21,11 +23,15 @@ class DocumentsController extends Controller
     {
        /*$Documents = DB::table('documents')->get();*/
        $Documents = Documents::with('areas')->paginate(10);
+       $publicadodocumentos = Documents::where('DocPublisher', 1)->get();/*Muestra los publicados*/
+       /*return $borradordocumentos;*/
        /*return $Documents;*/
+       $user = User::where('id', [1, 2, 22])->first();
+       $user->givePermissionTo('indexDocuments');
        /*$users = User::with('roles')->paginate(10);*/
 
 
-       return view('documents.index', compact('Documents'));
+       return view('documents.index', compact('Documents', 'publicadodocumentos', 'user'));
     }
 
     /**
@@ -39,7 +45,10 @@ class DocumentsController extends Controller
         // $array = (array) $permisos;
         // return $array;
 
-        if (auth()->user()->can('crearDocumentos')) {
+        $user = User::where('id', '22')->first();
+        $user->givePermissionTo('createDocuments');
+
+        if (auth()->user()->can('createDocuments')) {
             # code...
             $areas = Areas::get();
             /*$areas = Documents::with('areas')->get();*/
@@ -59,8 +68,12 @@ class DocumentsController extends Controller
     public function store(Request $request, Documents $document)
     {
         /*$areas = Areas::whereIn('id', $request->input('areas'))->get();*/
-        $areaid = $request->input('areas');
-        /*return $areaid;*/
+        if ($request->input('DocGeneral') == 1) {
+            $areaid = Areas::pluck('id');
+        }else{
+            $areaid = $request->input('areas');
+        }
+       
         // se almacena el archivo
         $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 
@@ -74,6 +87,7 @@ class DocumentsController extends Controller
         $document = new Documents();
         $document->DocName = $request->input('DocName');
         $document->DocVersion = $request->input('DocVersion');
+        $document->DocCodigo  = $request->input('DocCodigo ');
         $document->DocType = $request->input('DocType');
         $document->DocPublisher = $request->input('DocPublisher');
         $document->DocGeneral = $request->input('DocGeneral');
@@ -110,9 +124,16 @@ class DocumentsController extends Controller
      */
     public function edit(Documents $document)
     {
-        $areas = Areas::get();
-        /*return $document->areas;*/
-        return view('documents.edit', compact('document', 'areas'));
+        $user = User::where('id', '22')->first();
+        $user->givePermissionTo('updateDocuments');
+        if (auth()->user()->can('updateDocuments')) {
+            $areas = Areas::get();
+            /*return $document->areas;*/
+            return view('documents.edit', compact('document', 'areas'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear documentos');
+        }
+        
     }
 
     /**
@@ -125,11 +146,15 @@ class DocumentsController extends Controller
     public function update(Request $request, Documents $document)
     {
         /*return $document;*/
+        if ($request->input('DocGeneral') == 1) {
+            $areaid = Areas::pluck('id');
+        }else{
+            $areaid = $request->input('areas');
+        }
+        // return $areaid;
         if ($request->hasFile('DocSrc')) {
             $docActual = $document->DocSrc;
             Storage::disk('local')->delete($docActual);
-
-            // $document->update($request->except('DocSrc'));
 
             $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 
@@ -137,12 +162,13 @@ class DocumentsController extends Controller
             $mime = $archivo->getClientMimeType();
             $nombreorigi = $archivo->getClientOriginalName();
             $tamaño = ceil(($archivo->getClientSize())/1024);
-            $areaid = $request->input('areas');
+            
 
             $document->update([
                 'DocName' => $request->input('DocName'), 
                 'DocSrc' => $path, 
                 'DocVersion' => $request->input('DocVersion'), 
+                'DocCodigo' => $request->input('DocCodigo'), 
                 'DocType' => $request->input('DocType'), 
                 'DocMime' => $mime, 
                 'DocOriginalName' => $nombreorigi, 
@@ -151,14 +177,12 @@ class DocumentsController extends Controller
                 'DocPublisher' => $request->input('DocPublisher'), 
                 'users_id' => auth()->user()->id,
             ]);
-            $document->areas()->sync($areaid);
-
         }else{
             $document->update($request->except('DocSrc'));
-            $areaid = $request->input('areas');
-            $document->areas()->sync($areaid);
         }
-        /*$tratamiento = Tratamiento::find($id);*/
+
+        $document->areas()->sync($areaid);
+        
         return redirect()->route('documents.index')->withStatus(__('Documento actualizado correctamente'));
     }
 

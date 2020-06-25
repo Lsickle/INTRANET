@@ -2133,7 +2133,7 @@ textarea.form-control {
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
-  color: #ffde72;
+  color: #f5365c;
 }
 
 .invalid-tooltip {
@@ -2155,14 +2155,14 @@ textarea.form-control {
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
-  border-color: #ffde72;
+  border-color: #f5365c;
 }
 
 .was-validated .form-control:invalid:focus,
 .form-control.is-invalid:focus,
 .was-validated .custom-select:invalid:focus,
 .custom-select.is-invalid:focus {
-  border-color: #ffde72;
+  border-color: #f5365c;
   box-shadow: 0 0 0 0 rgba(255, 141, 114, 0.25);
 }
 
@@ -2186,7 +2186,7 @@ textarea.form-control {
 
 .was-validated .form-check-input:invalid~.form-check-label,
 .form-check-input.is-invalid~.form-check-label {
-  color: #ffde72;
+  color: #f5365c;
 }
 
 .was-validated .form-check-input:invalid~.invalid-feedback,
@@ -2198,7 +2198,7 @@ textarea.form-control {
 
 .was-validated .custom-control-input:invalid~.custom-control-label,
 .custom-control-input.is-invalid~.custom-control-label {
-  color: #ffde72;
+  color: #f5365c;
 }
 
 .was-validated .custom-control-input:invalid~.custom-control-label::before,
@@ -2225,7 +2225,7 @@ textarea.form-control {
 
 .was-validated .custom-file-input:invalid~.custom-file-label,
 .custom-file-input.is-invalid~.custom-file-label {
-  border-color: #ffde72;
+  border-color: #f5365c;
 }
 
 .was-validated .custom-file-input:invalid~.custom-file-label::after,
@@ -2311,7 +2311,7 @@ textarea.form-control {
   vertical-align: middle;
   user-select: none;
   border: 1px solid transparent;
-  padding: 11px 40px;
+  padding: 10px 20px;
   font-size: 0.875rem;
   line-height: 1.35em;
   border-radius: 0.25rem;
@@ -4333,9 +4333,11 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #525f7f;
-  background-color: #1e1e2f;
-  border-color: #e3e3e3 #e3e3e3 #1e1e2f;
+  color: #555555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
 }
 
 .nav-tabs .dropdown-menu {
@@ -12027,7 +12029,7 @@ fieldset[disabled] .btn-link.active {
   -ms-transform: translate3d(0, -20px, 0) !important;
   transform: translate3d(0, -20px, 0) !important;
   visibility: hidden;
-  display: block;
+  /* display: block; */
   opacity: 0;
   filter: alpha(opacity=0);
   top: 100% !important;
@@ -18247,6 +18249,28 @@ Copyright (c) 2015 Daniel Eden
 
 .breadcrumb-item.active {
   color: rgba(34, 42, 66, 0.7);
+}
+
+.eliminarpolitica {
+  border: 0px solid #ffffff;
+}
+
+.eliminarpolitica button {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -1px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+
+@media only screen and (max-width : 768px) {
+    .dropdown-menu .show {
+      top: 0;
+      right: auto;
+      left: 100%;
+      margin-top: 0;
+      margin-left: 0.125rem;
+    }
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */

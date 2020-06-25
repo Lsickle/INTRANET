@@ -61,6 +61,20 @@ class permissionsTableSeeder extends Seeder
         Permission::create(['guard_name' => 'web', 'name' => 'deletePermissions']);
 
 
+        Permission::create(['guard_name' => 'web', 'name' => 'readRole']);
+        Permission::create(['guard_name' => 'web', 'name' => 'createRole']);
+        Permission::create(['guard_name' => 'web', 'name' => 'updateRole']);
+        Permission::create(['guard_name' => 'web', 'name' => 'deleteRole']);
+
+        Permission::create(['guard_name' => 'web', 'name' => 'readRequisito']);
+        Permission::create(['guard_name' => 'web', 'name' => 'createRequisito']);
+        Permission::create(['guard_name' => 'web', 'name' => 'updateRequisito']);
+        Permission::create(['guard_name' => 'web', 'name' => 'deleteRequisito']);
+
+        Permission::create(['guard_name' => 'web', 'name' => 'indexDocuments']);
+
+
+
         $role = Role::findByName('Gerente');
         $role->syncPermissions(['readAreas',
             'readComites',
@@ -69,12 +83,31 @@ class permissionsTableSeeder extends Seeder
             'readReleases',
             'readUser',
             'readProcess',
-            'updatePermissions']);
+            'updatePermissions',
+            'createAreas', 
+            'updateAreas',
+            'readAreas',
+            'createUser',
+            'updateUser',
+            'deleteUser',
+            'readRole',
+            'createRole',
+            'updateRole',
+            'deleteRole',
+            'createComites',
+            'updateComites',
+            'deleteComites',
+            'readRequisito',
+            'createRequisito',
+            'updateRequisito',
+            'deleteRequisito',
+            'createComites',
+            'updateComites',
+            'deleteComites']);
 
 
         $role = Role::findByName('Director');
-        $role->syncPermissions(['readAreas',
-            'readComites',
+        $role->syncPermissions(['readComites',
             'readDocuments',
             'readIndicators',
             'readReleases',
@@ -83,8 +116,7 @@ class permissionsTableSeeder extends Seeder
 
 
         $role = Role::findByName('JefeArea');
-        $role->syncPermissions(['readAreas',
-            'readComites',
+        $role->syncPermissions(['readComites',
             'readDocuments',
             'readIndicators',
             'createIndicators',
@@ -94,12 +126,18 @@ class permissionsTableSeeder extends Seeder
             'readUser',
             'readProcess',
             'updateProcess',
-            'createProcess']);
+            'createProcess',
+            'readRequisito',
+            'createRequisito',
+            'updateRequisito',
+            'deleteRequisito',
+            'createComites',
+            'updateComites',
+            'deleteComites']);
 
 
         $role = Role::findByName('User');
-        $role->syncPermissions(['readAreas',
-            'readComites',
+        $role->syncPermissions(['readComites',
             'readDocuments',
             'readIndicators',
             'readReleases',

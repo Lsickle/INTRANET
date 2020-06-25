@@ -3,16 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Activity extends Model
 {
+    use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'ActiName', 
+        'ActiName', 'ActiType'
     ];
 
     public function procesos()
@@ -38,4 +42,8 @@ class Activity extends Model
     protected $casts = [
         
     ];
+
+    
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }

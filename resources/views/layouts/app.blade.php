@@ -10,21 +10,28 @@
         {{-- <title>{{ config('app.name', 'White Dashboard') }}</title> --}}
         <title>INTRANET - @yield('htmlheader_title', 'section header title here') </title>
         <!-- Favicon -->
+        
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('white') }}/img/apple-icon.png">
         <link rel="icon" type="image/png" href="{{ asset('white') }}@yield('htmlheader_titleicon', '/img/favicon.png')">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+        @auth
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet"/>
+        @endauth
 
         {{-- Link correspndiente a los nuevos tipos de letra --}}
-        <link href="https://fonts.googleapis.com/css?family=Inria+Serif:300,300i,400,400i,700,700i|Lora:400,400i,700,700i&display=swap" rel="stylesheet"> 
-
+        @auth
+        <link href="https://fonts.googleapis.com/css?family=Inria+Serif:300,300i,400,400i,700,700i|Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+        @endauth 
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet"/>
         <!-- CSS -->
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet"/>
+        @auth
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet"/>
         <link href="{{ asset('css') }}/all.css" rel="stylesheet"/>
+        @endauth
+        
 
         {{-- stack de hojas de estilo css --}}
         @stack('css')
@@ -36,53 +43,54 @@
     <body class="white-content {{ $class ?? '' }} tipo-letra">
         @auth()
             <div class="wrapper">
-                    @include('layouts.navbars.sidebar')
-                    @php
-                    $colorsidebar="";
-                    @endphp
-                    @switch(Auth::user()->ColorUser)
-                        @case(0)
-                            @php
-                            $colormainpanel="primary";
-                            @endphp
-                            @break
-                        @case(1)
-                            @php
-                            $colormainpanel="blue";
-                            @endphp
-                            @break
-                        @case(2)
-                            @php
-                            $colormainpanel="green";
-                            @endphp
-                            @break
-                        @case(3)
-                            @php
-                            $colormainpanel="red";
-                            @endphp
-                            @break
-                        @case(4)
-                            @php
-                            $colormainpanel="yellow";
-                            @endphp
-                            @break
-                        @default
-                            @php
-                            $colormainpanel="green";
-                            @endphp
-                    @endswitch
+                @php
+                $colorsidebar="";
+                @endphp
+                @switch(Auth::user()->ColorUser)
+                    @case(0)
+                        @php
+                        $colormainpanel="primary";
+                        @endphp
+                        @break
+                    @case(1)
+                        @php
+                        $colormainpanel="blue";
+                        @endphp
+                        @break
+                    @case(2)
+                        @php
+                        $colormainpanel="green";
+                        @endphp
+                        @break
+                    @case(3)
+                        @php
+                        $colormainpanel="red";
+                        @endphp
+                        @break
+                    @case(4)
+                        @php
+                        $colormainpanel="yellow";
+                        @endphp
+                        @break
+                    @default
+                        @php
+                        $colormainpanel="green";
+                        @endphp
+                @endswitch
+                
+                @include('layouts.navbars.sidebar')
+                <div class="main-panel" data="{{$colormainpanel}}">
+                    @include('layouts.navbars.navbar')
 
-                <div class="wrapper">
-                        @include('layouts.navbars.sidebar')
-                    <div class="main-panel" data="{{$colormainpanel}}">
-                        @include('layouts.navbars.navbar')
-
-                        <div class="content">
+                    {{-- estructura de contenido --}}
+                    {{-- @include('layouts.partials.loading') --}}
+                    <div class="content" id="contenido" style="display: none;">
+                        <div class="container">
                             @yield('content')
                         </div>
-
-                        @include('layouts.footer')
                     </div>
+
+                    @include('layouts.footer')
                 </div>
             </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -133,9 +141,11 @@
         </div>
         @endauth
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
+        @auth
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
 
         {{-- <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script> --}}
 
@@ -153,6 +163,7 @@
         {{-- incluido el secript de app.js para el codigo de laravel echo --}}
         <script src="{{ asset('js') }}/app.js"></script>
         <script src="{{ asset('js') }}/all.js"></script>
+        @endauth
 
         @stack('js')
 
@@ -228,7 +239,7 @@
 
                         switch(new_color) {
                             case "primary":
-                            $iconolapiz.css('background',"#fc4fff");
+                            $iconolapiz.css('background',"#86db3e");
                             break;
                             case "blue":
                             $iconolapiz.css('background',"#359fe9");
@@ -257,13 +268,13 @@
 
                         switch(new_color) {
                           case "primary":
-                            colorespañol ="lila";                                
+                            colorespañol ="verde";                                
                             break;
                           case "blue":
                             colorespañol ="azul";
                             break;
                           case "green":
-                            colorespañol ="verde";                                
+                            colorespañol ="turquesa";                                
                             break;
                           case "red":
                             colorespañol ="rojo";                                
@@ -280,7 +291,7 @@
                             message: "Su color a sido actualizado correctamente por el color "+colorespañol
 
                           }, {
-                            type: 'danger',
+                            type: 'info',
                             timer: 8000,
                             placement: {
                               from: 'top',
@@ -346,25 +357,22 @@
             });
         </script>
         <script type="text/javascript">
-            // Echo.private('user-login').notification((notification) => {
-            //    console.log(notification.type);
-            // });
             
             Echo.private(`user-login`)
                 .listen('Userlogin', (e) => {
                     console.log(e.user.name);
                     $.notify({
-                        icon: "tim-icons icon-single-02",
-                        message: "El Usuario <b>"+e.user.name+" - "+e.user.email+"</b> - a ha iniciado sesión."
+                    icon: "tim-icons icon-single-02",
+                    message: "El Usuario <b>"+e.user.name+" - "+e.user.email+"</b> - a ha iniciado sesión."
 
-                      }, {
-                        type: 'info',
-                        timer: 4000,
-                        placement: {
-                          from: 'top',
-                          align: 'left'
-                        }
-                      });
+                    }, {
+                    type: 'info',
+                    timer: 4000,
+                    placement: {
+                        from: 'top',
+                        align: 'left'
+                    }
+                    });
             });
 
             Echo.channel(`channel-message`)
@@ -404,7 +412,7 @@
         });
         </script>        
         <script type="text/javascript">
-            $(document).ready(function(){
+            /*$(document).ready(function(){
                 $("#searchallmodelinput").change(function(e){
                     id=$("#searchallmodelinput").val();
                     e.preventDefault();
@@ -446,8 +454,34 @@
                         }
                     })
                 });
-            });
+            });*/
         </script>
+        @auth
+        <script type="text/javascript">
+            window.onload =function(){
+                $('#my-slider').resize();
+                $('#contenedor_carga').css('opacity', '0');
+                $('#contenido').fadeIn(2000);
+                setTimeout(function(){
+                $('#contenedor_carga').remove();
+                }, 2000);
+            }
+        </script>
+        @endauth
+        @auth
+        <script type="text/javascript">
+            $(document).ready(function() {
+                popover();
+            });
+            function popover(){
+                $('[data-toggle="popover"]').popover({
+                    container: 'body',
+                    html: true,
+                    placement: 'auto',
+                });
+            }
+        </script>
+        @endauth
 
         @stack('scripts')
     </body>

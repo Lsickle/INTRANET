@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 // use Laravel\Scout\Searchable;
 
 class Indicators extends Model
 {
+    use SoftDeletes;
+
     // use Searchable;
     
     /**
@@ -15,7 +19,14 @@ class Indicators extends Model
      * @var array
      */
     protected $fillable = [
-        'IndName', 'IndObjective', 'IndQueMide', 'IndGraphic', 'IndTable', 'IndDateFrom', 'IndDateUntil', 
+        'IndName', 'IndObjective', 'IndDescripcion', 'IndFormula', 'IndGraphic', 'IndTable', 'IndAnalysis',  'IndDateFrom', 'IndDateUntil', 'IndFrecuencia', 'IndMeta', 'IndFicha'
+    ];
+
+    protected $attributes = [
+        'IndDescripcion' => 'Sin definir',
+        'IndFormula' => 'Sin definir',
+        'IndMeta' => 'Sin definir',
+        'IndFicha' => 'Sin definir',
     ];
 
     public function areas()
@@ -53,4 +64,7 @@ class Indicators extends Model
     protected $casts = [
         
     ];
+
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }

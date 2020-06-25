@@ -18,9 +18,11 @@ Comités
 		<div class="card-title text-center">
 			<h2>Cómites de Prosarc</h2>
 		</div>
+        @can('createComites')
 		<div class="float-right">
 			<a href="{{ route('comites.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
 		</div>
+        @endcan
         @include('alerts.success')
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
@@ -28,7 +30,6 @@ Comités
 		      <thead>
 		        <th class="text-center">Nombre del Cómite</th>
 		        <th class="text-center">Telefono de contacto</th>
-		        <th class="text-center">Email de contacto</th>
 		        <th class="text-center">Ver más..</th>
 		      </thead>
 		      <tbody>
@@ -36,7 +37,6 @@ Comités
 		          <tr>
 		            <td class="text-center"><strong>{{$comite->ComiName}}</strong></td>
 		            <td class="text-center">{{$comite->ComiTelefono}}</td>
-		            <td class="text-center">{{$comite->ComiEmail}}</td>
 		            <td class="text-center"><a href="comites/{{$comite->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver más..</a></td>
 		          </tr>
 		        @endforeach

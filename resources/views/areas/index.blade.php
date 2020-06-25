@@ -14,9 +14,12 @@
 		  <h4 class="card-title">Listado de Áreas</h4>
 		</div>
 		<div>
-			<button class="fas fa-plus btn btn-sm btn-fill btn-success b-create" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
 
-			{{-- Parate del documento de la creación de áreas --}}
+			@can('createAreas')
+				<button class="fas fa-plus btn btn-sm btn-fill btn-success b-create" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
+			@endcan
+
+			{{-- Parte del documento de la creación de áreas --}}
 
 			<div class="modal fade" id="createmodalarea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
@@ -38,7 +41,7 @@
 			              <input name="AreaName" type="text" placeholder="Ej: Sistemas" class="text-center form-control" required="">
 			            </div>
 			            <div class="form-group">
-			                <label>Sede del Área</label>
+			                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Sede del Área</b>" data-content="Sede a la que corresponde el área en cuestión."><i class="far fa-question-circle"></i> Sede del Área</label>
 			            	<select class="text-center form-control" required="" name="AreaSede" id="sedeedit">
 	                    		<option value="Planta">Planta</option>
 	                    		<option value="Bogota">Bogota</option>
@@ -56,7 +59,7 @@
 		</div>
 
 
-		{{-- Parate del documento del index  --}}
+		{{-- Parte del documento del index  --}}
 		@include('alerts.success')
 
 		<div class="card-body">
@@ -102,7 +105,7 @@
 		                      <input name="AreaName" type="text" placeholder="Ej: Sistemas" id="nameedit" value="" class="text-center form-control" required="">
 		                    </div>
 		                    <div class="box-body form-group">
-		                        <label>Sede del Área</label>
+		                        <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Sede del Área</b>" data-content="Sede a la que corresponde el área en cuestión."><i class="far fa-question-circle"></i> Sede del Área</label>
 		                    	<select class="text-center form-control" required="" name="AreaSede" id="sedeedit">
 		                    		<option value="Planta">Planta</option>
 		                    		<option value="Bogota">Bogota</option>
@@ -111,12 +114,12 @@
 		              </div>
 		              <div class="modal-footer">
 		                <button type="submit" class="btn btn-fill btn-primary ">Guardar</button>
-		                </form>
+		                {{-- </form>
 		                	<form id="eliminararea" action="" method="POST" class="pull-right">
 		                		@method('DELETE')
 		                		@csrf
 		                  	<button type="submit" class="btn btn-danger fas fa-trash" onclick="eliminarArea({{$Area->id}})"> Eliminar</button>
-		                  	</form>
+		                  	</form> --}}
 		              </div>
 		            </div>
 		          </div>

@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 // use Laravel\Scout\Searchable;
 
 class Documents extends Model
 {
+    use SoftDeletes;
+
 
     // use Searchable;
     /**
@@ -15,12 +19,12 @@ class Documents extends Model
      * @var array
      */
     protected $fillable = [
-        'DocName', 'DocSrc', 'DocVersion', 'DocType', 'DocMime', 'DocOriginalName', 'DocSize', 'DocGeneral', 'DocPublisher',  
+        'DocName', 'DocSrc', 'DocVersion', 'DocType', 'DocMime', 'DocOriginalName', 'DocSize', 'DocGeneral', 'DocPublisher', 'DocCodigo'
     ];
 
     public function areas()
     {
-        return $this->belongsToMany('App\Areas')->withTimestamps();
+        return $this->belongsToMany('App\Areas','areas_documents');
         //Relación de la tabla areas y la tabla documentos 
     }
 
@@ -53,4 +57,7 @@ class Documents extends Model
     protected $casts = [
         
     ];
+
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }

@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Traits\HasRoles;
 
 
 class Process extends Model
 {
+    use SoftDeletes;
 	use HasRoles;
 	/**
 	 * The attributes that are mass assignable.
@@ -21,12 +23,23 @@ class Process extends Model
 	    'ProcImage',
 	    'ProcObjetivo',
 	    'ProcResponsable',
-	    'ProcAutoridad',
-	    'ProcRecursos',
+	    'ProcParticipantes',
 	    'ProcElaboro',
 	    'ProcReviso',
-	    'ProcAprobo'
-	];
+        'ProcAprobo',
+        'ProcDate',
+        'ProcAlcance',
+        'ProcAmbienTrabajo',
+        'ProcPolitOperacion',
+        'ProcRiesgos'
+    ];
+    
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['recursos', 'gseguridads', 'gambientals', 'requisitos', 'procesosDeSoporte', 'indicadores', 'clientes', 'proveedores', 'entradas', 'salidas', 'documentos', 'actividades', 'documentos', 'areas', ];
 
 	/**
 	 * The attributes that should be cast to native types.
@@ -34,6 +47,20 @@ class Process extends Model
 	 * @var array
 	 */
 	protected $table = 'processes';
+
+
+    public function clientes()
+    {
+        return $this->belongsToMany('App\Cliente','clientes_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
+    
+    public function proveedores()
+    {
+        return $this->belongsToMany('App\Proveedor','processes_proveedors');
+        //Relación de la tabla processes y la tabla inputs 
+    }
 
 	public function entradas()
     {
@@ -89,10 +116,28 @@ class Process extends Model
         //Relación de la tabla processes y la tabla inputs 
     }
 
-    public function seguimientos()
+    // public function seguimientos()
+    // {
+    //     return $this->belongsToMany('App\Seguimiento','processes_seguimientos');
+    //     //Relación de la tabla processes y la tabla inputs 
+    // }
+
+    public function gambientals()
     {
-        return $this->belongsToMany('App\Seguimiento','processes_seguimientos');
-        //Relación de la tabla processes y la tabla inputs 
+        return $this->belongsToMany('App\Gambiental','gambientals_processes');
+        //Relación de la tabla processes y la tabla gambiental 
+    }
+
+    public function gseguridads()
+    {
+        return $this->belongsToMany('App\Gseguridad','gseguridads_processes');
+        //Relación de la tabla processes y la tabla gseguridad 
+    }
+
+    public function recursos()
+    {
+        return $this->belongsToMany('App\Recursos','processes_recursos');
+        //Relación de la tabla processes y la tabla recursos 
     }
 
 
@@ -111,6 +156,12 @@ class Process extends Model
 	 * @var array
 	 */
 	protected $casts = [
-	    
-	];
+	    'ProcResponsable' => 'array',
+        'ProcPolitOperacion' => 'array',
+        'ProcRiesgos' => 'array',
+        'ProcParticipantes' => 'array'
+    ];
+    
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }
