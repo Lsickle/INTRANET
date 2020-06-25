@@ -23,7 +23,7 @@ class Process extends Model
 	    'ProcImage',
 	    'ProcObjetivo',
 	    'ProcResponsable',
-	    'ProcAutoridad',
+	    'ProcParticipantes',
 	    'ProcElaboro',
 	    'ProcReviso',
         'ProcAprobo',
@@ -32,7 +32,14 @@ class Process extends Model
         'ProcAmbienTrabajo',
         'ProcPolitOperacion',
         'ProcRiesgos'
-	];
+    ];
+    
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['recursos', 'gseguridads', 'gambientals', 'requisitos', 'procesosDeSoporte', 'indicadores', 'clientes', 'proveedores', 'entradas', 'salidas', 'documentos', 'actividades', 'documentos', 'areas', ];
 
 	/**
 	 * The attributes that should be cast to native types.
@@ -151,7 +158,8 @@ class Process extends Model
 	protected $casts = [
 	    'ProcResponsable' => 'array',
         'ProcPolitOperacion' => 'array',
-	    'ProcRiesgos' => 'array'
+        'ProcRiesgos' => 'array',
+        'ProcParticipantes' => 'array'
     ];
     
     protected $dates = ['deleted_at', 'updated_at', 'created_at'];

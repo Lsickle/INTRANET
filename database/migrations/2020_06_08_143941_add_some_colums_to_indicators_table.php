@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnIndefeToIndicatorsTable extends Migration
+class AddSomeColumsToIndicatorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,9 @@ class AddColumnIndefeToIndicatorsTable extends Migration
     public function up()
     {
         Schema::table('indicators', function (Blueprint $table) {
-            $table->string('IndEfe', 24)->default('0');  /*Este campo corresponde a la clasificación de la caracterización de proceso es decir
-                0 = Eficacia
-                1 = Eficiencia
-                2 = Efectividad  */
+            $table->string('IndFrecuencia', 24);/*->se espera('mensual/trimestral/semestral')*/
+            $table->string('IndMeta', 24)->default('Sin definir');/*->se espera('valor o porcentaje')*/
+            $table->string('IndFormula', 255)->default('Sin definir');
         });
     }
 
@@ -29,7 +28,9 @@ class AddColumnIndefeToIndicatorsTable extends Migration
     public function down()
     {
         Schema::table('indicators', function (Blueprint $table) {
-            //
+            $table->dropColumn('IndFrecuencia');
+            $table->dropColumn('IndMeta');
+            $table->dropColumn('IndFormula');
         });
     }
 }

@@ -56,14 +56,14 @@ class ProcessController extends Controller
             $areas = Areas::all(['id', 'AreaName']);
             $requisitos = Requisitos::all(['id', 'ReqName']);
             $documentos = Documents::all(['id', 'DocName']);
-            $entradas = Input::all(['id', 'InputName']);
-            $salidas = Output::all(['id', 'OutputName']);
-            $actividades = Activity::all(['id', 'ActiName']);
+            $entradas = Input::all(['id', 'InputName', 'InputType']);
+            $salidas = Output::all(['id', 'OutputName', 'OutputType']);
+            $actividades = Activity::all(['id', 'ActiName', 'ActiType']);
             $indicadores = Indicators::all(['id', 'IndName']);
             $soportes = Process::all(['id', 'ProcName']);
             // $seguimientos = Seguimiento::all(['id', 'SeguiName']);
-            $clientes = Cliente::all(['id', 'CliName']);
-            $proveedores = Proveedor::all(['id', 'ProvName']);
+            $clientes = Cliente::all(['id', 'CliName', 'CliType']);
+            $proveedores = Proveedor::all(['id', 'ProvName', 'ProvType']);
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
@@ -111,7 +111,7 @@ class ProcessController extends Controller
         $process->ProcAlcance = $request->input('ProcAlcance');
         $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcResponsable = $request->input('ProcResponsable');
-        $process->ProcAutoridad = $request->input('ProcAutoridad');
+        $process->ProcParticipantes = $request->input('ProcParticipantes');
         // $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
 
@@ -156,28 +156,12 @@ class ProcessController extends Controller
      */
     public function show(Process $proceso)
     {
-        $proceso['entradas'] = $proceso->entradas()->get();
-        $proceso['salidas'] = $proceso->salidas()->get();
-        $proceso['actividades'] = $proceso->actividades()->get();
-        $proceso['documentos'] = $proceso->documentos()->get();
-        $proceso['areas'] = $proceso->areas()->get();
-        $proceso['indicadores'] = $proceso->indicadores()->get();
-        $proceso['procesosDeSoporte'] = $proceso->procesosDeSoporte()->get();
-        $proceso['requisitos'] = $proceso->requisitos()->get();
-        // $proceso['seguimientos'] = $proceso->seguimientos()->get();
-        $proceso['clientes'] = $proceso->clientes()->get();
-        $proceso['proveedores'] = $proceso->proveedores()->get();
-        $proceso['recursos'] = $proceso->recursos()->get();
-        $proceso['gambientals'] = $proceso->gambientals()->get();
-        $proceso['gseguridads'] = $proceso->gseguridads()->get();
-
-        /*return $proceso->proveedores;*/
-
         $roles = Role::all(['id', 'name']);
 
+        // return $proceso->ProcRiesgos;
 
         $usuario = Auth::user()->id;
-        return view('process.show', compact('proceso', 'usuario', 'roles'));
+        return view('process.showcopy', compact('proceso', 'usuario', 'roles'));
     }
 
     /**
