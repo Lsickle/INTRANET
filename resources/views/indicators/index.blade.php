@@ -35,7 +35,7 @@ Indicadores Estrategicos
 								<img src="{{Storage::url($indicator->IndGraphic)}}" class="card-img" alt="Imagen no disponible">
 							@endif
 							<div class="card-img-overlay">
-								<h5 class="card-title"><strong><a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-sm btn-secondary"> {{$indicator->IndName}}</a></strong></h5>
+								<h5 class="card-title pull-right"><strong><a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-sm btn-secondary">Ver</a></strong></h5>
 							</div>
 						</div>
 					@else
@@ -56,7 +56,7 @@ Indicadores Estrategicos
 								<img src="{{Storage::url($indicator->IndGraphic)}}" class="card-img" alt="Imagen no disponible">
 							@endif
 							<div class="card-img-overlay">
-								<h5 class="card-title"><strong><a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-sm btn-secondary"> {{$indicator->IndName}}</a></strong></h5>
+								<h5 class="card-title pull-right"><strong><a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-sm btn-secondary">Ver</a></strong></h5>
 							</div>
 						</div>
 					
