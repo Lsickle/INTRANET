@@ -27,7 +27,7 @@ class InformeController extends Controller
      */
     public function create()
     {
-        //
+        return view('informes.create');
     }
 
     /**
@@ -38,7 +38,13 @@ class InformeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $informe = new Informe();
+        $informe->InfoName = $request->input('InfoName');
+        $informe->InfoLink = $request->input('InfoLink');
+        $informe->save();
+
+        return redirect()->route('informes.index')->withStatus(__('informe cargado correctamente'));
+
     }
 
     /**
