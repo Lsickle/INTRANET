@@ -164,7 +164,7 @@
                         </li>
                         <li class=" {{ $pageSlug == 'Informes' ? 'active' : '' }}">
                             <a href="{{ route('informes.index') }}">
-                                <i class="far fa-chart-line"></i>
+                                <i class="fas fa-chart-line"></i>
                                 <p>{{ __('Informes') }}</p> 
                             </a>
                         </li>

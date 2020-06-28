@@ -17,10 +17,18 @@ informes
 
 	<div class="card">
 		<div class="card-header text-center">
-		  <h3 class="card-title"><strong>Informes
-		<div class="col-md-12">
-			<a href="{{ route('informes.create') }}" class="float-right fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
-		</div>
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Informes</strong></h3>
+                </div>
+                <div class="col-md-2">
+                    <a href="{{ route('informes.create') }}" class="btn btn-sm btn-success float-right"> Crear</a>
+                </div>
+            </div>
+        </div>
 
         @include('alerts.success')
 		<div class="card-body">

@@ -22,7 +22,7 @@
                     <h3 class="card-title"><strong>{{$informe->InfoName}}</strong></h3>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('informes.index') }}" class="btn btn-sm btn-success float-right"> volver</a>
+                    <a href="{{ route('informes.index') }}" class="btn btn-sm btn-success float-right"> Volver</a>
                 </div>
             </div>
         </div>
