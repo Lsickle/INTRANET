@@ -28,11 +28,11 @@ Indicadores
                 <input maxlength="800" name="IndDescripcion" type="text" value="{{ old('IndDescripcion') ? old('IndDescripcion') : $indicator->IndDescripcion}}" class="text-center form-control form-control-alternative{{ $errors->has('IndDescripcion') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndDescripcion'])
               </div>
-              <div class="form-group{{ $errors->has('IndFormula') ? ' has-danger' : '' }}">
-                <label>Descripción</label>
+              {{-- <div class="form-group{{ $errors->has('IndFormula') ? ' has-danger' : '' }}">
+                <label>Formula</label>
                 <input maxlength="200" name="IndFormula" type="text" value="{{ old('IndFormula') ? old('IndFormula') : $indicator->IndFormula}}" class="text-center form-control form-control-alternative{{ $errors->has('IndFormula') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndFormula'])
-              </div>
+              </div> --}}
               <div class="form-group{{ $errors->has('IndFrecuencia') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Frecuencia del Indicador</b>" data-content="Seleccione la frecuencia del indicador"><i class="far fa-question-circle"></i> Frecuencia del Indicador</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndFrecuencia') ? ' is-invalid' : '' }}" required="" name="IndFrecuencia" id="IndFrecuencia">

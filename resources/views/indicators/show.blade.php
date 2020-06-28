@@ -96,14 +96,14 @@ Indicadores
 						<p>{{$indicator->IndMeta}}</p>
 					</div>
 				</div>
-				<div class="row mx-auto">
+				{{-- <div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Formula</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$indicator->IndFormula}}</p>
 					</div>
-				</div>
+				</div> --}}
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">N° de ficha</h4>
