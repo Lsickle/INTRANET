@@ -1,11 +1,11 @@
-@extends('layouts.app', ['page' => __('Indicadores'), 'pageSlug' => 'Generales'])
+@extends('layouts.app', ['page' => __('Informes'), 'pageSlug' => 'Informes'])
 
 @section('htmlheader_titleicon')
 /img/LogoProsarc.ico
 @endsection
 
 @section('htmlheader_title')
-Indicadores Generales
+informes
 @endsection
 
 @push('css')
@@ -17,10 +17,9 @@ Indicadores Generales
 
 	<div class="card">
 		<div class="card-header text-center">
-		  <h3 class="card-title"><strong>Indicadores Generales</strong></h3>
-		</div>
+		  <h3 class="card-title"><strong>Informes
 		<div class="col-md-12">
-			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
+			<a href="{{ route('informes.create') }}" class="float-right fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
 		</div>
 
         @include('alerts.success')
@@ -28,27 +27,16 @@ Indicadores Generales
 			<table class="table table-bordered table-striped" id="tabledata">
 			  <thead>
 			    <th class="text-center">Nombre</th>
-			    <th class="text-center">Objetivo</th>
-			    <th class="text-center">Área</th>
 			    <th class="text-center">Ver más... </th>
 			  </thead>
-			  <tbody>
-			  @foreach($Indicators as $indicator)
-				  @if($indicator->IndType === 1)
-				  <tr>
-					<td class="text-center">{{$indicator->IndName}}</td>
-				  	<td class="text-center">{{$indicator->IndObjective}}</td>
-				  	<td class="text-center">
-				  		@foreach($indicator->areas as $area)
-				  		<font color="#525f7f">{{$area->AreaName}}</font>
-				  		@endforeach
-				  	</td>
-				  	<td class="text-center"><a target="_blank" method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a></td>
-				  </tr>
-				  	@else
-				@endif
-				@endforeach
-			</tbody>
+			  	<tbody>
+			  @foreach($informes as $informe)
+					<tr>
+						<td class="text-center">{{$informe->InfoName}}</td>
+						<td class="text-center"><a target="_blank" method='GET' href="informes/{{$informe->id}}" class="btn btn-secondary"> Ver Más.</a></td>
+					</tr>
+					@endforeach
+				</tbody>
 			</table>
 		</div>
 	</div>
@@ -61,9 +49,7 @@ Indicadores Generales
 
 @push('scripts')
 <script type="text/javascript">
-    /*$(document).ready( function () {
-        $('#tabledocuments').DataTable();
-    } );*/
+
 
     $(document).ready(function() {
     	// /*var rol defino el rol del usuario*/

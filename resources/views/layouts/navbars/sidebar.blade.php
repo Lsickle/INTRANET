@@ -162,6 +162,12 @@
                                 <p>{{ __('Generales') }}</p> 
                             </a>
                         </li>
+                        <li class=" {{ $pageSlug == 'Informes' ? 'active' : '' }}">
+                            <a href="{{ route('informes.index') }}">
+                                <i class="far fa-chart-line"></i>
+                                <p>{{ __('Informes') }}</p> 
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
