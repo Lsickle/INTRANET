@@ -49,7 +49,7 @@ class InformeController extends Controller
      */
     public function show(Informe $informe)
     {
-        //
+        return view('informes.show', compact('informe'));
     }
 
     /**

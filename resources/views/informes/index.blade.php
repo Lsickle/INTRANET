@@ -33,7 +33,7 @@ informes
 			  @foreach($informes as $informe)
 					<tr>
 						<td class="text-center">{{$informe->InfoName}}</td>
-						<td class="text-center"><a target="_blank" method='GET' href="informes/{{$informe->id}}" class="btn btn-secondary"> Ver Más.</a></td>
+						<td class="text-center"><a method='GET' href="informes/{{$informe->id}}" class="btn btn-secondary"> Ver Más.</a></td>
 					</tr>
 					@endforeach
 				</tbody>
