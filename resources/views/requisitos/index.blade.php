@@ -11,15 +11,21 @@ Requisitos y Documentos Legales
 @section('content')
 
 	<div class="card col-md-12">
-		<div class="card-title text-center col-md-12">
-			<br>
-			<h1>Requisitos y Documentos Legales</h1>
-		</div>
-		@can('createRequisitos')
-		<div class="pull-left">
-			<a href="{{ route('requisitos.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success"> Crear</a>
-		</div>
-		@endcan
+		<div class="card-header text-center">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Requisitos y Documentos Legales</strong></h3>
+                </div>
+                <div class="col-md-2">
+					@can('createRequisitos')
+						<a href="{{ route('requisitos.create') }}" class="btn btn-success float-right"> Crear</a>
+					@endcan
+                </div>
+            </div>
+        </div>
 		@include('alerts.success')
 		<div class="card-body">
 			<div class="row">

@@ -538,3 +538,5 @@ estilo de imput para input personalizade del documentos.edit*/
 @media (min-width: 1200px) {
     .text-responsive { font-size: 1.5rem; }
 }
+
+.not-allowed {cursor: not-allowed !important;}

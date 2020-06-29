@@ -15,18 +15,21 @@ Alertas
 
 @section('content')
 	<div class="card">
-		<div class="card-title text-center">
-			<br>
-			<h2>Alertas Tempranas</h2>
-		</div>
-		<div class="col-md-12 row">
-			<div class="col-md-6 text-center">
-				<a href="{{ route('alerts.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success" style="margin: 0em 0em 1em 2em;"> Crear</a>
-			</div>
-			<div class="col-md-6 text-center">
-				<a href="{{ route('alerts.calendario') }}" class="far fa-calendar-alt btn btn-sm btn-fill btn-success" style="margin: 0em 0em 1em 2em;"> Calendario</a>
-			</div>
-		</div>
+		<div class="card-header text-center">
+            <div class="row">
+                <div class="col-md-2">
+					<a href="{{ route('alerts.calendario') }}" class="far fa-calendar-alt btn btn-success"> Calendario</a>
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Alertas Tempranas</strong></h3>
+                </div>
+                <div class="col-md-2">
+					@can('createAlerts')
+						<a href="{{ route('alerts.create') }}" class="btn btn-success float-right"> Crear</a>
+					@endcan
+                </div>
+            </div>
+        </div>
         @include('alerts.success')
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
@@ -85,7 +88,7 @@ Alertas
                                 <i><strong>NO Realizado</strong>
 									@else
 									@if($alert->AlertRealizado === 0)
-                                    <button class="btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
+                                    <button class="btn btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
 									@else
                                     <i><strong>Realizado</strong></i>
 									@endif

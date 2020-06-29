@@ -76,6 +76,11 @@ class permissionsTableSeeder extends Seeder
         Permission::create(['guard_name' => 'web', 'name' => 'updateRequisito']);
         Permission::create(['guard_name' => 'web', 'name' => 'deleteRequisito']);
 
+        Permission::create(['guard_name' => 'web', 'name' => 'readAlerts']);
+        Permission::create(['guard_name' => 'web', 'name' => 'createAlerts']);
+        Permission::create(['guard_name' => 'web', 'name' => 'updateAlerts']);
+        Permission::create(['guard_name' => 'web', 'name' => 'deleteAlerts']);
+
         Permission::create(['guard_name' => 'web', 'name' => 'indexDocuments']);
 
 
