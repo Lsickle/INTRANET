@@ -83,7 +83,6 @@ class permissionsTableSeeder extends Seeder
         $role = Role::findByName('Gerente');
         $role->syncPermissions(['readAreas',
             'readComites',
-            'readDocuments',
             'readIndicators',
             'readReleases',
             'readUser',
@@ -106,6 +105,9 @@ class permissionsTableSeeder extends Seeder
             'createRequisito',
             'updateRequisito',
             'deleteRequisito',
+            'readDocuments',
+            'createDocuments',
+            'updateDocuments',
             'readInformes',
             'createInformes',
             'updateInformes',
@@ -117,10 +119,12 @@ class permissionsTableSeeder extends Seeder
 
         $role = Role::findByName('Director');
         $role->syncPermissions(['readComites',
-            'readDocuments',
             'readIndicators',
             'readReleases',
             'readUser',
+            'readDocuments',
+            'createDocuments',
+            'updateDocuments',
             'readInformes',
             'createInformes',
             'updateInformes',
@@ -130,7 +134,6 @@ class permissionsTableSeeder extends Seeder
 
         $role = Role::findByName('JefeArea');
         $role->syncPermissions(['readComites',
-            'readDocuments',
             'readIndicators',
             'createIndicators',
             'updateIndicators',
@@ -144,17 +147,21 @@ class permissionsTableSeeder extends Seeder
             'createRequisito',
             'updateRequisito',
             'deleteRequisito',
-            'createComites',
-            'updateComites',
+            'readDocuments',
+            'createDocuments',
+            'updateDocuments',
             'readInformes',
             'createInformes',
             'updateInformes',
             'deleteInformes',
+            'createComites',
+            'updateComites',
             'deleteComites']);
 
 
         $role = Role::findByName('User');
         $role->syncPermissions(['readComites',
+            'readDocuments',
             'readDocuments',
             'readIndicators',
             'readReleases',
