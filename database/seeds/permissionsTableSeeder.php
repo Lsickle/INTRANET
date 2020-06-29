@@ -36,6 +36,11 @@ class permissionsTableSeeder extends Seeder
         Permission::create(['guard_name' => 'web', 'name' => 'updateIndicators']);
         Permission::create(['guard_name' => 'web', 'name' => 'deleteIndicators']);
 
+        Permission::create(['guard_name' => 'web', 'name' => 'readInformes']);
+        Permission::create(['guard_name' => 'web', 'name' => 'createInformes']);
+        Permission::create(['guard_name' => 'web', 'name' => 'updateInformes']);
+        Permission::create(['guard_name' => 'web', 'name' => 'deleteInformes']);
+
 
         Permission::create(['guard_name' => 'web', 'name' => 'readReleases']);
         Permission::create(['guard_name' => 'web', 'name' => 'createReleases']);
@@ -101,6 +106,10 @@ class permissionsTableSeeder extends Seeder
             'createRequisito',
             'updateRequisito',
             'deleteRequisito',
+            'readInformes',
+            'createInformes',
+            'updateInformes',
+            'deleteInformes',
             'createComites',
             'updateComites',
             'deleteComites']);
@@ -112,6 +121,10 @@ class permissionsTableSeeder extends Seeder
             'readIndicators',
             'readReleases',
             'readUser',
+            'readInformes',
+            'createInformes',
+            'updateInformes',
+            'deleteInformes',
             'readProcess']);
 
 
@@ -133,6 +146,10 @@ class permissionsTableSeeder extends Seeder
             'deleteRequisito',
             'createComites',
             'updateComites',
+            'readInformes',
+            'createInformes',
+            'updateInformes',
+            'deleteInformes',
             'deleteComites']);
 
 

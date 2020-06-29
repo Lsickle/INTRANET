@@ -66,7 +66,7 @@ class InformeController extends Controller
      */
     public function edit(Informe $informe)
     {
-        return view('informes.edit');
+        return view('informes.edit', compact('informe'));
     }
 
     /**
@@ -81,8 +81,6 @@ class InformeController extends Controller
         $informe->update($request->all());
 
         return redirect()->route('informes.index')->withStatus(__('informe actualizado correctamente'));
-
-
     }
 
     /**
@@ -96,7 +94,5 @@ class InformeController extends Controller
         $informe->delete();
 
         return redirect()->route('informes.index')->withStatus(__('informe eliminado correctamente'));
-
-
     }
 }

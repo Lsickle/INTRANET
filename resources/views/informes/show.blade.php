@@ -16,7 +16,9 @@
 		<div class="card-header text-center">
             <div class="row">
                 <div class="col-md-2">
+                    @can('updateInformes')
                     <a href="{{$informe->id}}/edit" class="btn btn-sm btn-warning float-left"> Editar</a>
+                    @endcan
                 </div>
                 <div class="col-md-8">
                     <h3 class="card-title"><strong>{{$informe->InfoName}}</strong></h3>
