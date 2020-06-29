@@ -116,17 +116,6 @@ class AlertsController extends Controller
                 break;
         }
 
-        /*$jefearea = User::with(['areas', 'roles' => function ($query) {
-            $query->where('name', 'JefeArea');
-        }])
-        ->whereHas('roles')
-        ->where('areas_id', $areadelusuario->id)->get();*/
-
-        /*return $jefearea;*/
-
-        /*$users = User::where('id', $alert->user_id)->get('email');
-        Mail::to($users)->send(new sendAlert($alert));*/
-
         return redirect()->route('alerts.index')->withStatus(__('Alerta creada correctamente'));
     }
 
@@ -149,12 +138,6 @@ class AlertsController extends Controller
      */
     public function edit(Alerts $alert)
     {
-        /*$fechaEvento = date_parse($alert->AlertDateEvent);
-        $FechaNotification = date_parse($alert->AlertDateNotifi);*/
-        /*$diferencia = $FechaNotification->diff($fechaEvento);*/
-        /*$date = $alert->AlertDateEvent->diffInDays($alert->AlertDateNotifi);*/
-
-        // return $alert;
         return view('alertas.edit', compact('alert'));
     }
 
@@ -167,8 +150,6 @@ class AlertsController extends Controller
      */
     public function update(Request $request, Alerts $alert)
     {
-        /*return $request;*/
-
         $validatedData = $request->validate([
             'AlertDateEvent' => 'after_or_equal:AlertDateNotifi',
         ], ['AlertDateEvent.after_or_equal' => 'El campo Fecha Evento debe ser una fecha posterior o igual a Fecha de notificación.'
@@ -190,16 +171,4 @@ class AlertsController extends Controller
         return redirect()->route('alerts.index')->withStatus(__('Alerta eliminada correctamente'));
     }
 
-
-    /**
-     * Enviar correos de alerta.
-     *
-     * @param  \App\Alerts  $alerts
-     * @return \Illuminate\Http\Response
-     */
-    /*public function sendMail(Alerts $alert)
-    {
-        $users = User::where('id', $alert->user_id)->get('email');
-        Mail::to($users)->send(new sendAlertRealizado($alert));
-    }*/
 }
