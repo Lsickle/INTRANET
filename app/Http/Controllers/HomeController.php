@@ -36,7 +36,7 @@ class HomeController extends Controller
         $comites = Comites::all('id', 'ComiName');
         $requisito = Requisitos::orderBy('created_at', 'DESC')->get()->first();
         $proceso = Process::orderBy('updated_at', 'DESC')->get()->first();
-        /*return $requisito;*/
+        // return $indicator;
         return view('dashboard', compact('comites', 'indicator', 'comitesCarousel', 'document', 'release', 'requisito', 'proceso'));
     }
 }

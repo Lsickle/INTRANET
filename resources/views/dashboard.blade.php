@@ -30,7 +30,7 @@ Home
             </div>
             <!-- Slide 3 -->
             <div class="sp-slide">
-              <img class="sp-image" style="border-radius: 5px !important;" src="{{(Storage::url($indicator->IndGraphic) == '') || (Storage::url($indicator->IndGraphic) == Null) ? Storage::url($indicator->IndGraphic) : 'white/img/no_image.png'}}">
+              <img class="sp-image" style="border-radius: 5px !important;" src="{{(($indicator->IndGraphic == '') || ($indicator->IndGraphic == Null)) ? 'white/img/no_image.png' : Storage::url($indicator->IndGraphic)}}">
               <a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                 Indicador Actualizado
                 </p>
@@ -43,7 +43,7 @@ Home
             </div>
             <!-- Slide 4 -->
             <div class="sp-slide">
-              <img class="sp-image" style="border-radius: 5px !important;" src="{{(Storage::url($comitesCarousel->ComiImage) == '') || (Storage::url($comitesCarousel->ComiImage) == Null) ? Storage::url($comitesCarousel->ComiImage) : 'white/img/no_image.png'}}" alt="Fourth slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="{{($comitesCarousel->ComiImage == '') || ($comitesCarousel->ComiImage == Null) ? 'white/img/no_image.png' : Storage::url($comitesCarousel->ComiImage)}}" alt="Fourth slide">
               <a href="comites/{{$comitesCarousel->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                 Comite Actualizado
                 </p>
@@ -56,7 +56,7 @@ Home
             </div>
             <!-- Slide 5 -->
             <div class="sp-slide">
-              <img class="sp-image" style="border-radius: 5px !important;" src="{{(Storage::url($release->RelSrc) == '') || (Storage::url($release->RelSrc) == Null) ? Storage::url($release->RelSrc) : 'white/img/no_image.png'}}" alt="Five slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="{{($release->RelSrc == '') || ($release->RelSrc == Null) ? 'white/img/no_image.png' : Storage::url($release->RelSrc)}}" alt="Five slide">
                 <a href="releases/{{$release->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                   @if($release->RelType === 'Comunicado')
                       ¡¡Nuevo {{$release->RelType}}!!
@@ -100,7 +100,7 @@ Home
             <!-- Slide 8 -->
             <div class="sp-slide">
               <img class="sp-image" style="border-radius: 5px !important;"
-                @if($proceso->ProcImage === "")
+                @if($proceso->ProcImage == "")
                   src="/white/img/no_image.png" 
                 @else
                   src="{{Storage::url($proceso->ProcImage)}}"
@@ -132,19 +132,19 @@ Home
 
             <!-- thumbnail 3 -->
             <div class="sp-thumbnail">
-              <img class="sp-thumbnail-image" src="{{(Storage::url($indicator->IndGraphic) == '') || (Storage::url($indicator->IndGraphic) == Null) ? 'white/img/no_image.png' : Storage::url($indicator->IndGraphic)}}"/>
+              <img class="sp-thumbnail-image" src="{{($indicator->IndGraphic == '') || ($indicator->IndGraphic == Null) ? 'white/img/no_image.png' : Storage::url($indicator->IndGraphic)}}"/>
               <p class="sp-thumbnail-text">Indicador Actualizado</p>
             </div>
 
             <!-- thumbnail 4 -->
             <div class="sp-thumbnail">
-              <img class="sp-thumbnail-image" src="{{(Storage::url($comitesCarousel->ComiImage) == '') || (Storage::url($comitesCarousel->ComiImage) == Null) ? 'white/img/no_image.png' : Storage::url($comitesCarousel->ComiImage)}}"/>
+              <img class="sp-thumbnail-image" src="{{($comitesCarousel->ComiImage == '') || ($comitesCarousel->ComiImage == Null) ? 'white/img/no_image.png' : Storage::url($comitesCarousel->ComiImage)}}"/>
               <p class="sp-thumbnail-text">Comite Actualizado</p>
             </div>
 
             <!-- thumbnail 5 -->
             <div class="sp-thumbnail">
-              <img class="sp-thumbnail-image" src="{{(Storage::url($release->RelSrc) == '') || (Storage::url($release->RelSrc) == Null) ? 'white/img/no_image.png' : Storage::url($release->RelSrc)}}"/>
+              <img class="sp-thumbnail-image" src="{{($release->RelSrc == '') || ($release->RelSrc == Null) ? 'white/img/no_image.png' : Storage::url($release->RelSrc)}}"/>
               <p class="sp-thumbnail-text">¡¡{{ $release->RelType === 'Comunicado' ? "Nuevo" : "Nueva" }}{{$release->RelType}}!!</p>
             </div>
 
