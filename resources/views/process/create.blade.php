@@ -173,6 +173,13 @@ Procesos
 							</select>
 						</div>
 					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group{{ $errors->has('ProcLink') ? ' has-danger' : '' }}">
+							<label>Link PHVA</label>
+							<input placeholder="https://onedrive.live.com/embed?cid=C2421B24BB4BB872&resid=C2421B24BB4BB872%216887&authkey=AH-eik6VViNfZDQ&em=2" maxlength="200" value="{{ old('ProcLink') }}" name="ProcLink" type="text" class="text-center form-control form-control-alternative{{ $errors->has('ProcLink') ? ' is-invalid' : '' }}" required>
+							@include('alerts.feedback', ['field' => 'ProcLink'])
+						</div>
+					</div>
 				</div>
 					
 				<div class="form-row">

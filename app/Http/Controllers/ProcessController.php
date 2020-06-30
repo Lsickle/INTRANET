@@ -124,6 +124,7 @@ class ProcessController extends Controller
         $process->ProcAlcance = $request->input('ProcAlcance');
         $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
+        $process->ProcLink = $request->input('ProcLink');
         $process->ProcChangesDescription = 'creado el '.now();
         $process->save();
 
@@ -157,10 +158,10 @@ class ProcessController extends Controller
     {
         $roles = Role::all(['id', 'name']);
 
-        // return $proceso->ProcRiesgos;
+        // return $proceso;
 
         $usuario = Auth::user()->id;
-        return view('process.iframe', compact('proceso', 'usuario', 'roles'));
+        return view('process.showWithIframe', compact('proceso', 'usuario', 'roles'));
     }
 
     /**
