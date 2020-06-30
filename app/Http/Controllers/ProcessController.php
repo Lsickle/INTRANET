@@ -56,35 +56,34 @@ class ProcessController extends Controller
             $areas = Areas::all(['id', 'AreaName']);
             $requisitos = Requisitos::all(['id', 'ReqName']);
             $documentos = Documents::all(['id', 'DocName']);
-            $entradas = Input::all(['id', 'InputName', 'InputType']);
-            $salidas = Output::all(['id', 'OutputName', 'OutputType']);
+            //$entradas = Input::all(['id', 'InputName', 'InputType']);
+            //$salidas = Output::all(['id', 'OutputName', 'OutputType']);
             $actividades = Activity::all(['id', 'ActiName', 'ActiType']);
             $indicadores = Indicators::all(['id', 'IndName']);
             $soportes = Process::all(['id', 'ProcName']);
             // $seguimientos = Seguimiento::all(['id', 'SeguiName']);
-            $clientes = Cliente::all(['id', 'CliName', 'CliType']);
-            $proveedores = Proveedor::all(['id', 'ProvName', 'ProvType']);
+            //$clientes = Cliente::all(['id', 'CliName', 'CliType']);
+            //$proveedores = Proveedor::all(['id', 'ProvName', 'ProvType']);
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
             $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
 
             /* variables para los formularios de destroy */
-            $salidasDrop = Output::doesntHave('procesos')->get();
-            $entradasDrop = Input::doesntHave('procesos')->get();
-            $actividadesDrop = Activity::doesntHave('procesos')->get();
+            //$salidasDrop = Output::doesntHave('procesos')->get();
+            //$entradasDrop = Input::doesntHave('procesos')->get();
+            //$actividadesDrop = Activity::doesntHave('procesos')->get();
             // $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
-            $clientesDrop = Cliente::doesntHave('procesos')->get();
-            $proveedoresDrop = Proveedor::doesntHave('procesos')->get();
+            //$clientesDrop = Cliente::doesntHave('procesos')->get();
+            //$proveedoresDrop = Proveedor::doesntHave('procesos')->get();
             $recursosDrop = Recursos::doesntHave('procesos')->get();
             $gambientalesDrop = Gambiental::doesntHave('procesos')->get();
             $gseguridadesDrop = Gseguridad::doesntHave('procesos')->get();
 
             $usuario = Auth::user()->id;
 
-
-            // return $actividades;
-            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop', 'cargos']));
+            // return view('process.createwithIframe', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop', 'cargos']));
+            return view('process.create', compact(['roles', 'requisitos', 'documentos', 'indicadores', 'soportes', 'areas', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop', 'cargos']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }
