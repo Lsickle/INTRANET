@@ -10,17 +10,18 @@ Comités
 
 @section('content')
 	<div class="card">
-		<div class="container">
-			<div class="col-md-12">
-				<div class="col-md-12">
-					<br><br>
-					<h3 class="card-title text-center"><strong>Cómites</strong></h3>
-				</div>
-				<div class="row">
+		<div class="card-header text-center">
+            <div class="row">
+                <div class="col-md-2">
+					<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Cómites</strong></h3>
+                </div>
+                <div class="col-md-2">
 					@can('deleteComites')
-					<div class="col-md-6 text-center">
 						<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$comite->id}}">
-						  Eliminar
+						Eliminar
 						</button>
 						@component('layouts.partials.modal')
 							@slot('id')
@@ -31,23 +32,16 @@ Comités
 							@endslot
 							@slot('botonModal')
 								<form action="{{ route('comites.destroy', $comite) }}" method="POST">
-								  @method('DELETE')
-								  @csrf 
-								    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+								@method('DELETE')
+								@csrf 
+									<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
 								</form>
 							@endslot
 						@endcomponent
-					</div>
 					@endcan
-					@can('updateComites')
-					<div class="col-md-6 text-center">
-						<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
-					</div>
-					@endcan
-				</div>
-			</div>
-		</div>
-
+                </div>
+            </div>
+        </div>
 		<div class="container">
 			<div class="col-md-12">
 				<div class="row mx-auto">

@@ -25,6 +25,7 @@ class CreateProcessesTable extends Migration
             $table->string('ProcElaboro'); /*rol del usuario que elaboro el proceso*/
             $table->string('ProcReviso'); /*rol del usuario que reviso el proceso*/
             $table->string('ProcAprobo'); /*rol del usuario que aprobo el proceso*/
+            $table->string('ProcLink')->nullable(); /*url para src del iframe PHVA*/
             $table->softDeletes();
             $table->timestamps();
             $table->engine = 'InnoDB';

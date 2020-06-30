@@ -31,7 +31,8 @@ class Process extends Model
         'ProcAlcance',
         'ProcAmbienTrabajo',
         'ProcPolitOperacion',
-        'ProcRiesgos'
+        'ProcRiesgos',
+        'ProcLink'
     ];
     
     /**

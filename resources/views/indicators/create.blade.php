@@ -27,11 +27,11 @@ Indicadores
                 <input placeholder="% de Ausencias de los trabajadores por faltas, permisos o retrasos en cada area de trabajo. Este indicador nos conduce a la motivación de los trabajadores y su compromiso con la Empresa." maxlength="800" value="{{ old('IndDescripcion') }}" name="IndDescripcion" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndDescripcion') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndDescripcion'])
               </div>
-              <div class="form-group{{ $errors->has('IndFormula') ? ' has-danger' : '' }}">
+              {{-- <div class="form-group{{ $errors->has('IndFormula') ? ' has-danger' : '' }}">
                 <label>Formula</label>
                 <input placeholder="(Horas de ausentismo del mes / Horas laborados del mes)* 100" maxlength="200" value="{{ old('IndFormula') }}" name="IndFormula" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndFormula') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndFormula'])
-              </div>
+              </div> --}}
               <div class="form-group{{ $errors->has('IndFrecuencia') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Frecuencia del Indicador</b>" data-content="Seleccione la frecuencia del indicador"><i class="far fa-question-circle"></i> Frecuencia del Indicador</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndFrecuencia') ? ' is-invalid' : '' }}" required="" name="IndFrecuencia" id="IndFrecuencia">

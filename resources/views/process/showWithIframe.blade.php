@@ -99,8 +99,8 @@ Proceso de {{$proceso->ProcName}}
 				<p>{{$proceso->ProcObjetivo}}</p>
 			</div>
 			<div class="col-md-3 margen">
-				<h4>LIDER</h4><br>
-				<p>{{$proceso->ProcAutoridad}}</p>
+				<h4>PARTICIPANTES</h4><br>
+				<p>{{$proceso->ProcParticipantes}}</p>
 			</div>
 			<div class="col-md-3 margen">
 				<h4>RESPONSABLES</h4><br>
@@ -123,249 +123,12 @@ Proceso de {{$proceso->ProcName}}
 		<div class="col-md-12">
 			<br><br>
 		</div>
-		<div class="row">
-			<div class="col-md-3 text-center margen color">
-				<h4>PLANEAR</h4>
-			</div>
-			<div class="col-md-3 text-center margen color">
-				<h4>HACER</h4> 
-			</div>
-			<div class="col-md-3 text-center margen color">
-				<h4>VERIFICAR</h4> 
-			</div>
-			<div class="col-md-3 text-center margen color">
-				<h4>ACTUAR</h4> 
-			</div>
-		</div>
-
-
-
 
 		<div class="row">
-			<div class="col-md-12 margen text-center color1">
-				<h4>PROVEEDOR</h4>
-			</div>
-			{{-- <div class="col-md-12 row">
-				<div class="col-md-3 margen">
-					PLANEAR
-				</div>
-				<div class="col-md-3 margen">
-					HACER
-				</div>
-				<div class="col-md-3 margen">
-					VERIFICAR
-				</div>
-				<div class="col-md-3 margen">
-					ACTUAR
-				</div>
-			</div> --}}
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->proveedores as $proveedor)
-						@if($proveedor->ProvType == 'Planear')
-							<li>{{$proveedor->ProvName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->proveedores as $proveedor)
-						@if($proveedor->ProvType == 'Hacer')
-							<li>{{$proveedor->ProvName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->proveedores as $proveedor)
-						@if($proveedor->ProvType == 'Verificar')
-							<li>{{$proveedor->ProvName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->proveedores as $proveedor)
-						@if($proveedor->ProvType == 'Actuar')
-							<li>{{$proveedor->ProvName}}</li>
-						@endif
-					@endforeach
-				</ul>
+			<div class="border embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" src="{{$proceso->ProcLink}}" width="1024" height="600" frameborder="1" scrolling="yes"></iframe>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-12 margen text-center color1">
-				<h4>ENTRADA</h4>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->entradas as $entrada)
-						@if($entrada->InputType == 'Planear')
-							<li>{{$entrada->InputName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->entradas as $entrada)
-						@if($entrada->InputType == 'Hacer')
-							<li>{{$entrada->InputName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->entradas as $entrada)
-						@if($entrada->InputType == 'Verificar')
-							<li>{{$entrada->InputName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->entradas as $entrada)
-						@if($entrada->InputType == 'Actuar')
-							<li>{{$entrada->InputName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 margen text-center color1">
-				<h4>ACTIVIDAD / ETAPA</h4>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->actividades as $actividad)
-						@if($actividad->ActiType == 'Planear')
-							<li>{{$actividad->ActiName}}
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->actividades as $actividad)
-						@if($actividad->ActiType == 'Hacer')
-							<li>{{$actividad->ActiName}}
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->actividades as $actividad)
-						@if($actividad->ActiType == 'Verificar')
-							<li>{{$actividad->ActiName}}
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->actividades as $actividad)
-						@if($actividad->ActiType == 'Actuar')
-							<li>{{$actividad->ActiName}}
-						@endif
-					@endforeach
-				</ul>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 margen text-center color1">
-				<h4>RESULTADOS / SALIDAS</h4>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->salidas as $salida)
-						@if($salida->OutputType == 'Planear')
-							<li>{{$salida->OutputName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->salidas as $salida)
-						@if($salida->OutputType == 'Hacer')
-							<li>{{$salida->OutputName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->salidas as $salida)
-						@if($salida->OutputType == 'Verificar')
-							<li>{{$salida->OutputName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->salidas as $salida)
-						@if($salida->OutputType == 'Actuar')
-							<li>{{$salida->OutputName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 margen text-center color1">
-				<h4>CLIENTE</h4>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->clientes as $cliente)
-						@if($cliente->CliType == 'Planear')
-							<li>{{$cliente->CliName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->clientes as $cliente)
-						@if($cliente->CliType == 'Hacer')
-							<li>{{$cliente->CliName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->clientes as $cliente)
-						@if($cliente->CliType == 'Verificar')
-							<li>{{$cliente->CliName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="col-md-3 margen">
-				<ul>
-					@foreach($proceso->clientes as $cliente)
-						@if($cliente->CliType == 'Actuar')
-							<li>{{$cliente->CliName}}</li>
-						@endif
-					@endforeach
-				</ul>
-			</div>
-		</div>
-
-
-
-
-
-
 
 		<div class="col-md-12">
 			<br><br>
@@ -477,7 +240,7 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-4 margen">
 				<h4 class="text-center">ASPECTOS AMBIENTALES</h4>
-				@foreach($proceso->ambientales as $gambiental)
+				@foreach($proceso->gambientals as $gambiental)
 					@if($gambiental->GesType == 0)
 						<li>{{$gambiental->GesName}}</li>
 					@endif
@@ -485,7 +248,7 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-4 margen">
 				<h4 class="text-center">IMPACTOS AMBIENTALES</h4>
-				@foreach($proceso->ambientales as $gambiental)
+				@foreach($proceso->gambientals as $gambiental)
 					@if($gambiental->GesType == 1)
 						<li>{{$gambiental->GesName}}</li>
 					@endif
@@ -493,7 +256,7 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-4 margen">
 				<h4 class="text-center">CONTROLES OPERACIONALES</h4>
-				@foreach($proceso->ambientales as $gambiental)
+				@foreach($proceso->gambientals as $gambiental)
 					@if($gambiental->GesType == 2)
 						<li>{{$gambiental->GesName}}</li>
 					@endif
@@ -570,7 +333,7 @@ Proceso de {{$proceso->ProcName}}
 								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div>
 							<div class="col-md-6">
-								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndMeta}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -591,7 +354,7 @@ Proceso de {{$proceso->ProcName}}
 								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div><hr>
 							<div class="col-md-6">
-								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndMeta}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -612,7 +375,7 @@ Proceso de {{$proceso->ProcName}}
 								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div>
 							<div class="col-md-6">
-								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndMeta}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach

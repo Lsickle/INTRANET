@@ -14,6 +14,7 @@ use App\Mail\sendAlertNoRealizado;
 use Spatie\Permission\Models\Role;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
+use App\Mail\NewAlert;
 
 class AlertsController extends Controller
 {
@@ -61,12 +62,10 @@ class AlertsController extends Controller
     public function store(Request $request)
     {
 
-
         $validatedData = $request->validate([
             'AlertDateEvent' => 'after_or_equal:AlertDateNotifi',
         ], ['AlertDateEvent.after_or_equal' => 'El campo Fecha Evento debe ser una fecha posterior o igual a Fecha de notificación.'
         ]);
-
 
         /*return $request;*/
         $alert = new Alerts();
@@ -89,18 +88,33 @@ class AlertsController extends Controller
         ->role('JefeArea')
         ->where('areas_id', $areadelusuario->id)->first();
 
+        switch ($alert->AlertType) {
+            case 'Global':
+                Mail::to(User::all())->queue(new NewAlert($alert));
+                break;
 
+            case 'Sede':
+                $areaUsuario = Areas::where('id', Auth::user()->id)->first();
+                $areasdeSede = Areas::where('AreaSede', $areaUsuario->AreaSede)->get('id');
+                $destinatariosSede = User::whereIn('areas_id', $areasdeSede)
+                ->with('areas')
+                ->get();
+                Mail::to($destinatariosSede)->queue(new NewAlert($alert));
+                break;
 
-        /*$jefearea = User::with(['areas', 'roles' => function ($query) {
-            $query->where('name', 'JefeArea');
-        }])
-        ->whereHas('roles')
-        ->where('areas_id', $areadelusuario->id)->get();*/
+            case 'Area':
+                $area = Areas::where('id', Auth::user()->id)->with('users')->first();
+                Mail::to($area->users)->queue(new NewAlert($alert));
+                break;
 
-        /*return $jefearea;*/
-
-        /*$users = User::where('id', $alert->user_id)->get('email');
-        Mail::to($users)->send(new sendAlert($alert));*/
+            case 'Personal':
+                Mail::to($request->user())->queue(new NewAlert($alert));
+                break;
+            
+            default:
+                Mail::to($request->user())->queue(new NewAlert($alert));
+                break;
+        }
 
         return redirect()->route('alerts.index')->withStatus(__('Alerta creada correctamente'));
     }
@@ -124,12 +138,6 @@ class AlertsController extends Controller
      */
     public function edit(Alerts $alert)
     {
-        /*$fechaEvento = date_parse($alert->AlertDateEvent);
-        $FechaNotification = date_parse($alert->AlertDateNotifi);*/
-        /*$diferencia = $FechaNotification->diff($fechaEvento);*/
-        /*$date = $alert->AlertDateEvent->diffInDays($alert->AlertDateNotifi);*/
-
-        // return $alert;
         return view('alertas.edit', compact('alert'));
     }
 
@@ -142,8 +150,6 @@ class AlertsController extends Controller
      */
     public function update(Request $request, Alerts $alert)
     {
-        /*return $request;*/
-
         $validatedData = $request->validate([
             'AlertDateEvent' => 'after_or_equal:AlertDateNotifi',
         ], ['AlertDateEvent.after_or_equal' => 'El campo Fecha Evento debe ser una fecha posterior o igual a Fecha de notificación.'
@@ -165,16 +171,4 @@ class AlertsController extends Controller
         return redirect()->route('alerts.index')->withStatus(__('Alerta eliminada correctamente'));
     }
 
-
-    /**
-     * Enviar correos de alerta.
-     *
-     * @param  \App\Alerts  $alerts
-     * @return \Illuminate\Http\Response
-     */
-    /*public function sendMail(Alerts $alert)
-    {
-        $users = User::where('id', $alert->user_id)->get('email');
-        Mail::to($users)->send(new sendAlertRealizado($alert));
-    }*/
 }

@@ -15,14 +15,23 @@ Comités
 
 @section('content')
 	<div class="card">
-		<div class="card-title text-center">
-			<h2>Cómites de Prosarc</h2>
-		</div>
-        @can('createComites')
-		<div class="float-right">
-			<a href="{{ route('comites.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
-		</div>
-        @endcan
+		<div class="card-header text-center">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Cómites de Prosarc</strong></h3>
+                </div>
+                <div class="col-md-2">
+					@can('createComites')
+					<div class="float-right">
+						<a href="{{ route('comites.create') }}" class="fas fa-plus btn btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
+					</div>
+					@endcan
+                </div>
+            </div>
+        </div>        
         @include('alerts.success')
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
@@ -37,7 +46,7 @@ Comités
 		          <tr>
 		            <td class="text-center"><strong>{{$comite->ComiName}}</strong></td>
 		            <td class="text-center">{{$comite->ComiTelefono}}</td>
-		            <td class="text-center"><a href="comites/{{$comite->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver más..</a></td>
+		            <td class="text-center"><a href="comites/{{$comite->id}}" class="btn btn-secondary">Ver más..</a></td>
 		          </tr>
 		        @endforeach
 		      </tbody>

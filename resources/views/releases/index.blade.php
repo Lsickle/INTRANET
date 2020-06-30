@@ -15,12 +15,19 @@ Comunicados
 
 @section('content')
 	<div class="card">
-		<div class="card-title text-center">
-			<h2>Comunicados</h2>
-		</div>
-		<div class="float-right">
-			<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
-		</div>
+		<div class="card-header text-center">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Comunicados</strong></h3>
+                </div>
+                <div class="col-md-2">
+					<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-success float-right"> Crear</a>
+                </div>
+            </div>
+        </div>
         @include('alerts.success')
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
@@ -47,7 +54,7 @@ Comunicados
                         @endif
                     </td>
 		            <td class="text-center">{{$release->RelType}}</td>
-		            <td class="text-center"><a href="releases/{{$release->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más..</a></td>
+		            <td class="text-center"><a href="releases/{{$release->id}}" class="btn btn-secondary">Ver Más..</a></td>
 		          </tr>
 		        @endforeach
 		      </tbody>
