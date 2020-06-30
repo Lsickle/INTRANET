@@ -18,7 +18,7 @@ Alertas
 		<div class="card-header text-center">
             <div class="row">
                 <div class="col-md-2">
-					<a href="{{ route('alerts.calendario') }}" class="far fa-calendar-alt btn btn-success"> Calendario</a>
+					<a href="{{ route('alerts.calendario') }}" class="far fa-calendar-alt btn btn-default disabled"> Calendario</a>
                 </div>
                 <div class="col-md-8">
                     <h3 class="card-title"><strong>Alertas Tempranas</strong></h3>
