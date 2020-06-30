@@ -184,33 +184,19 @@ class ProcessController extends Controller
             $areas = Areas::all(['id', 'AreaName']);
             $requisitos = Requisitos::all(['id', 'ReqName']);
             $documentos = Documents::all(['id', 'DocName']);
-            $entradas = Input::all(['id', 'InputName']);
-            $salidas = Output::all(['id', 'OutputName']);
-            $actividades = Activity::all(['id', 'ActiName']);
             $indicadores = Indicators::all(['id', 'IndName']);
             $soportes = Process::all(['id', 'ProcName']);
-            // $seguimientos = Seguimiento::all(['id', 'SeguiName']);
-            $clientes = Cliente::all(['id', 'CliName']);
-            $proveedores = Proveedor::all(['id', 'ProvName']);
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
             $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
 
-
-            /* variables para los formularios de destroy */
-            $salidasDrop = Output::doesntHave('procesos')->get();
-            $entradasDrop = Input::doesntHave('procesos')->get();
-            $actividadesDrop = Activity::doesntHave('procesos')->get();
-            // $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
-            $clientesDrop = Cliente::doesntHave('procesos')->get();
-            $proveedoresDrop = Proveedor::doesntHave('procesos')->get();
             $recursosDrop = Recursos::doesntHave('procesos')->get();
             $gambientalesDrop = Gambiental::doesntHave('procesos')->get();
             $gseguridadesDrop = Gseguridad::doesntHave('procesos')->get();
 
             /*return $proceso->entradas;*/
-            return view('process.edit', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop', 'cargos']));
+            return view('process.edit', compact(['roles', 'requisitos', 'documentos', 'indicadores', 'soportes', 'areas', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop', 'cargos']));
 
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar Procesos');
@@ -234,11 +220,11 @@ class ProcessController extends Controller
         $path = $request->file('ProcImage')->store('public/Procesos');
         $proceso->update(['ProcImage' => $path]);
 
-        $proceso->entradas()->sync($request->input('Entradas'));
-        $proceso->salidas()->sync($request->input('Salidas'));
-        $proceso->actividades()->sync($request->input('Actividades'));
-        $proceso->clientes()->sync($request->input('Clientes'));
-        $proceso->proveedores()->sync($request->input('Provedores'));
+        // $proceso->entradas()->sync($request->input('Entradas'));
+        // $proceso->salidas()->sync($request->input('Salidas'));
+        // $proceso->actividades()->sync($request->input('Actividades'));
+        // $proceso->clientes()->sync($request->input('Clientes'));
+        // $proceso->proveedores()->sync($request->input('Provedores'));
         $proceso->documentos()->sync($request->input('Docs'));
         $proceso->areas()->sync($request->input('Areas'));
         $proceso->indicadores()->sync($request->input('Indicadores'));
@@ -258,15 +244,15 @@ class ProcessController extends Controller
      */
     public function destroy(Process $proceso)
     {
-        $proceso->Actividades()->detach();
+        // $proceso->Actividades()->detach();
+        // $proceso->Entradas()->detach();
+        // $proceso->Salidas()->detach();
+        
         $proceso->Areas()->detach();
         $proceso->Documentos()->detach();
         $proceso->Indicadores()->detach();
-        $proceso->Entradas()->detach();
-        $proceso->Salidas()->detach();
         $proceso->procesosDeSoporte()->detach();
         $proceso->Requisitos()->detach();
-        // $proceso->Seguimientos()->detach();
         $proceso->delete();
         return redirect()->route('proceso.index')->withStatus(__('Proceso eliminado correctamente'));
     }

@@ -99,8 +99,8 @@ Proceso de {{$proceso->ProcName}}
 				<p>{{$proceso->ProcObjetivo}}</p>
 			</div>
 			<div class="col-md-3 margen">
-				<h4>LIDER</h4><br>
-				<p>{{$proceso->ProcAutoridad}}</p>
+				<h4>PARTICIPANTES</h4><br>
+				<p>{{$proceso->ProcParticipantes}}</p>
 			</div>
 			<div class="col-md-3 margen">
 				<h4>RESPONSABLES</h4><br>
@@ -125,7 +125,9 @@ Proceso de {{$proceso->ProcName}}
 		</div>
 
 		<div class="row">
-            <iframe src="{{$proceso->ProcLink}}" width="1024" height="600" frameborder="0" scrolling="yes"></iframe>
+			<div class="border embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" src="{{$proceso->ProcLink}}" width="1024" height="600" frameborder="1" scrolling="yes"></iframe>
+			</div>
 		</div>
 
 		<div class="col-md-12">
@@ -331,7 +333,7 @@ Proceso de {{$proceso->ProcName}}
 								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div>
 							<div class="col-md-6">
-								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndMeta}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -352,7 +354,7 @@ Proceso de {{$proceso->ProcName}}
 								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div><hr>
 							<div class="col-md-6">
-								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndMeta}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -373,7 +375,7 @@ Proceso de {{$proceso->ProcName}}
 								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div>
 							<div class="col-md-6">
-								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndMeta}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach

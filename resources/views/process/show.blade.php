@@ -570,7 +570,7 @@ Proceso de {{$proceso->ProcName}}
 								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div>
 							<div class="col-md-6">
-								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndMeta}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach

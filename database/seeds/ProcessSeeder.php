@@ -47,14 +47,17 @@ class ProcessesSeeder extends Seeder
         $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAlcance = 'Inicia con la gestión para la  vinculación de personal ya sea de forma directa o por la temporal, de acuerdo a la estructura administrativa de PROSARC S.A ESP; continúa con la capacitación a los trabajadores, según la necesidad de la Empresa, entrenamiento, estímulos, seguridad y salud en el trabajo, compensaciones, evaluación de desempeño, administración de las historias laborales, procesos disciplinarios, liquidación de nomina, trámites de incapacidades, licencias, permisos y vacaciones, actividades enmarcadas en el reglamento Interno de Trabajo y termina con el retiro definitivo del trabajador.';
         $process->ProcParticipantes = ['Gerente General'];
-        // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         $process->ProcPolitOperacion = ["oficina", "Computador", "Tlf", "Fax", "Vehiculo"];
-        // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
+        $process->ProcLink = "https://onedrive.live.com/embed?resid=C2421B24BB4BB872%216893&authkey=%21ADmKx9rE-721hL4&em=2&wdAllowInteractivity=False&Item='Hoja1'!A10%3AJ22&wdInConfigurator=True";
         $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
-
         $process->save();
+        $process->recursos()->sync(['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']);
+        $process->gambientals()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']);
+        $process->gseguridads()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']);
+        $process->requisitos()->sync(['1', '2', '3', '4', '5', '6']);
+
 
         // id = 03
         $process = new Process();
@@ -98,14 +101,14 @@ class ProcessesSeeder extends Seeder
         $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
 
         $process->save();
-        $process->salidas()->sync(['3', '4', '5', '6', '7', '8', '9', '10']);
-        $process->entradas()->sync(['4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']);
-        $process->proveedores()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
+        // $process->salidas()->sync(['3', '4', '5', '6', '7', '8', '9', '10']);
+        // $process->entradas()->sync(['4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']);
+        // $process->proveedores()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
+        // $process->clientes()->sync(['1', '2', '3', '4']);
+        // $process->actividades()->sync(['4', '5', '6', '7', '8', '9']);
         $process->recursos()->sync(['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']);
-        $process->clientes()->sync(['1', '2', '3', '4']);
         $process->gambientals()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']);
         $process->gseguridads()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']);
-        $process->actividades()->sync(['4', '5', '6', '7', '8', '9']);
         $process->requisitos()->sync(['1', '2', '3', '4', '5', '6']);
     }
 }
