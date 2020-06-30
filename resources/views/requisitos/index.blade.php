@@ -11,13 +11,21 @@ Requisitos y Documentos Legales
 @section('content')
 
 	<div class="card col-md-12">
-		<div class="card-title text-center col-md-12">
-			<br>
-			<h1>Requisitos y Documentos Legales</h1>
-		</div>
-		<div class="pull-left">
-			<a href="{{ route('requisitos.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success"> Crear</a>
-		</div>
+		<div class="card-header text-center">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Requisitos y Documentos Legales</strong></h3>
+                </div>
+                <div class="col-md-2">
+					@can('createRequisitos')
+						<a href="{{ route('requisitos.create') }}" class="btn btn-success float-right"> Crear</a>
+					@endcan
+                </div>
+            </div>
+        </div>
 		@include('alerts.success')
 		<div class="card-body">
 			<div class="row">
@@ -114,9 +122,12 @@ Requisitos y Documentos Legales
 					      	<div class="col-md-12"><br></div>
 					      	<div class="row">
 					      	      <div class="col-md-12">
+					      	      	@can('updateRequisto')
 					      	            <a href="requisitos/{{$requisito->id}}/edit" class="btn btn-fill btn-warning far fa-edit"></a>
+					      	        @endcan
 					      	      {{-- </div>
 					      	      <div class="col-md-6"> --}}
+					      	      	@can('deleteRequisito')
 					      	            <button type="button" class="btn btn-danger fas fa-trash pull-right" data-toggle="modal" data-target="#eliminar{{$requisito->id}}">
 					      	            </button>
 					      	            @component('layouts.partials.modal')
@@ -134,6 +145,7 @@ Requisitos y Documentos Legales
 					      	                        </form>
 					      	                  @endslot
 					      	            @endcomponent
+					      	        @endcan
 					      	      </div>
 					      	</div>
 						</div>

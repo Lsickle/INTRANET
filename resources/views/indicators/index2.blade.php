@@ -5,7 +5,7 @@
 @endsection
 
 @section('htmlheader_title')
-Indicadores
+Indicadores Generales
 @endsection
 
 @push('css')
@@ -17,10 +17,10 @@ Indicadores
 
 	<div class="card">
 		<div class="card-header text-center">
-		  <h3 class="card-title"><strong>INDICADORES</strong></h3>
+		  <h3 class="card-title"><strong>Indicadores Generales</strong></h3>
 		</div>
 		<div class="col-md-12">
-			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
+			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
 		</div>
 
         @include('alerts.success')
@@ -32,21 +32,23 @@ Indicadores
 			    <th class="text-center">Área</th>
 			    <th class="text-center">Ver más... </th>
 			  </thead>
+			  <tbody>
 			  @foreach($Indicators as $indicator)
-			  	@if($indicator->IndType === 1)
-				  <tbody>
-				  	<td class="text-center">{{$indicator->IndName}}</td>
+				  @if($indicator->IndType === 1)
+				  <tr>
+					<td class="text-center">{{$indicator->IndName}}</td>
 				  	<td class="text-center">{{$indicator->IndObjective}}</td>
 				  	<td class="text-center">
 				  		@foreach($indicator->areas as $area)
 				  		<font color="#525f7f">{{$area->AreaName}}</font>
 				  		@endforeach
 				  	</td>
-				  	<td class="text-center"><a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a></td>
-				  </tbody>
-				@else
+				  	<td class="text-center"><a target="_blank" method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a></td>
+				  </tr>
+				  	@else
 				@endif
-			  @endforeach
+				@endforeach
+			</tbody>
 			</table>
 		</div>
 	</div>

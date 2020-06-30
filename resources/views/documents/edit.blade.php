@@ -10,33 +10,40 @@ Documentos
 
 @section('content')
 	<div class="card">
+		<div class="card-header text-center">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Editar Documento</strong></h3>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$document->id}}">
+					Eliminar
+					</button>
+					@component('layouts.partials.modal')
+						@slot('id')
+							{{$document->id}}
+						@endslot
+						@slot('textModal')
+							{{$document->DocName}}
+						@endslot
+						@slot('botonModal')
+							<form id="eliminardocument" action="{{ route('documents.destroy', $document) }}" method="POST" class="pull-right">
+								@method('DELETE')
+								@csrf
+								<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+							</form>
+						@endslot
+					@endcomponent
+                </div>
+            </div>
+        </div>
 		<div class="card-body">
-			<div class="text-right">
-				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$document->id}}">
-				  Eliminar
-				</button>
-				@component('layouts.partials.modal')
-					@slot('id')
-						{{$document->id}}
-					@endslot
-					@slot('textModal')
-						{{$document->DocName}}
-					@endslot
-					@slot('botonModal')
-						<form id="eliminardocument" action="{{ route('documents.destroy', $document) }}" method="POST" class="pull-right">
-							@method('DELETE')
-							@csrf
-							<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-						</form>
-					@endslot
-				@endcomponent
-			</div>
 			<form id="formudeediciondocu" role="form" method="POST" action="{{ route('documents.update', $document) }}" enctype="multipart/form-data">
 				@method('PUT')
 				@csrf
-				<div class="box-body">
-					<h3 class="card-title">Editar Documento</h3>
-				</div>
 				<div class="form-group">
 					<label class="col-form-label">Nombre del documento</label>
 					<input name="DocName" type="text" placeholder="{{$document->DocName}}" id="DocName" class="text-center form-control" required="" value="{{$document->DocName}}">
@@ -51,6 +58,16 @@ Documentos
 
 					<input name="DocVersion" type="text" placeholder="{{$document->DocVersion}}" id="DocVersion" class="text-center form-control" required="" value="{{$document->DocVersion}}">
 				</div>
+
+
+				<div class="form-group">
+
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Código</b>" data-content="Ingresar el código referencia al cual corresponde el documento."><i class="far fa-question-circle"></i> Código</label>
+
+					<input name="DocCodigo" type="text" placeholder="{{$document->DocCodigo}}" id="DocCodigo" class="text-center form-control" required="" value="{{$document->DocCodigo}}">
+				</div>
+
+
 				<div class="form-group">
 
 					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de documento</b>" data-content="Ingresa la categoria a la cual pertenece dicho documento."><i class="far fa-question-circle"></i> Tipo de documento</label>

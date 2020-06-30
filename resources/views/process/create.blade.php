@@ -9,8 +9,6 @@ Procesos
 @endsection
 
 @push('css')
-        {{-- <link href="{{ asset('css') }}/datatable-depen.css" rel="stylesheet"/>
-		<link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/> --}}
         <link href="{{ asset('css') }}/select2.css" rel="stylesheet"/>
 @endpush
 
@@ -45,51 +43,11 @@ Procesos
 								</ul>
 							</li>
 							<li class="dropdown-submenu dropleft">
-								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Proveedores</a>
-								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateProveedores">Nuevo</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditProveedores">Actualizar</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteProveedores">Eliminar</a>
-								</ul>
-							</li>
-							<li class="dropdown-submenu dropleft">
-								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Entradas</a>
-								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteEntradas">Eliminar</a>
-								</ul>
-							</li>
-							<li class="dropdown-submenu dropleft">
-								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Actividades</a>
-								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteActividad">Eliminar</a>
-								</ul>
-							</li>
-							<li class="dropdown-submenu dropleft">
-								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Salidas</a>
-								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSalidas">Eliminar</a>
-								</ul>
-							</li>
-							<li class="dropdown-submenu dropleft">
 								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Gestión Ambiental</a>
 								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGambiental">Nuevo</a>
 									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditGambiental">Actualizar</a>
 									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGambiental">Eliminar</a>
-								</ul>
-							</li>
-							<li class="dropdown-submenu dropleft">
-								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Clientes</a>
-								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateClientes">Nuevo</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditClientes">Actualizar</a>
-									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteClientes">Eliminar</a>
 								</ul>
 							</li>
 							<li class="dropdown-submenu dropleft">
@@ -138,17 +96,14 @@ Procesos
 						<div class="custom-input-file">
 							<label class="input-label" for="ProcImage">Imagen de referencia</label>
 							<input type="file" required class="form-control" id="ProcImage" placeholder="Imagen de Referencia" name="ProcImage">
+							<img id="ProcImageOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/>
 						</div>
 					</div>
 
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
-							<select id="ProcResponsable" class="form-control selectmultiple" name="ProcResponsable[]" placeholder="seleccione" multiple>
-								@foreach($cargos as $cargo)
-								<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-							</select>
+							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
+							   <input class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 						</div>
 					</div>
 				</div>
@@ -156,15 +111,46 @@ Procesos
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
-							<select id="ProcAutoridad" class="form-control select" name="ProcAutoridad" placeholder="seleccione">
+							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
+							<input max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcTipo">Tipo de Proceso</label>
+							<select multiple id="ProcTipo" class="form-control selectmultiple" name="ProcTipo" placeholder="seleccione">
+								<option value="1">De Apoyo</option>
+								<option value="2">Básico</option>
+								<option value="3">Estratégico</option>
+							</select>
+						</div>
+					</div>
+				</div>
+					
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcResponsable">Responsable</label>
+							<select id="ProcResponsable" class="form-control selectmultiple" name="ProcResponsable[]" placeholder="seleccione" multiple>
+								@foreach($cargos as $cargo)
+								<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcParticipantes">Participantes</label>
+							<select multiple id="ProcParticipantes" class="form-control selectmultiple" name="ProcParticipantes" placeholder="seleccione">
 								@foreach($cargos as $cargo)
 									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
-
+				</div>
+					
+				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRecursos">Recursos</label>
@@ -187,59 +173,11 @@ Procesos
 							</select>
 						</div>
 					</div>
-				</div>
-					
-				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
-							<select id="ProcElaboro" class="form-control select" name="ProcElaboro" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-								{{-- @foreach($users as $user)
-									<option value="{{$user->id}}">{{$user->name}}</option>
-								@endforeach --}}
-							</select>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcReviso">Revisado Por</label>
-							<select id="ProcReviso" class="form-control select" name="ProcReviso" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-								{{-- @foreach($users as $user)
-									<option value="{{$user->id}}">{{$user->name}}</option>
-								@endforeach --}}
-							</select>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
-							<select id="ProcAprobo" class="form-control select" name="ProcAprobo" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Clientes">Clientes</label>
-							<select multiple id="Clientes" class="form-control selectmultiple" name="Clientes[]" placeholder="seleccione">
-								@foreach($clientes as $cliente)
-									<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
-								@endforeach
-							</select>
+						<div class="form-group{{ $errors->has('ProcLink') ? ' has-danger' : '' }}">
+							<label>Link PHVA</label>
+							<input placeholder="https://onedrive.live.com/embed?cid=C2421B24BB4BB872&resid=C2421B24BB4BB872%216887&authkey=AH-eik6VViNfZDQ&em=2" maxlength="200" value="{{ old('ProcLink') }}" name="ProcLink" type="text" class="text-center form-control form-control-alternative{{ $errors->has('ProcLink') ? ' is-invalid' : '' }}" required>
+							@include('alerts.feedback', ['field' => 'ProcLink'])
 						</div>
 					</div>
 				</div>
@@ -247,89 +185,16 @@ Procesos
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="Entradas">Entradas</label>
-							<select multiple id="Entradas" class="form-control selectmultiple" name="Entradas[]" placeholder="seleccione">
-								@foreach($entradas as $entrada)
-									<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Actividades">Actividades</label>
-							<select multiple id="Actividades" class="form-control selectmultiple" name="Actividades[]" placeholder="seleccione">
-								@foreach($actividades as $actividad)
-									<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Salidas">Salidas</label>
-							<select multiple id="Salidas" class="form-control selectmultiple" name="Salidas[]" placeholder="seleccione">
-								@foreach($salidas as $salida)
-									<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
-								@endforeach
-							</select>
+							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
+							<input class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
-							   <input class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Indicadores">Indicadores</label>
-							<select multiple id="Indicadores" class="form-control selectmultiple" name="Indicadores[]" placeholder="seleccione">
-								@foreach($indicadores as $indicador)
-									<option value="{{$indicador->id}}">{{$indicador->IndName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Soporte">Procesos de Soporte</label>
-							<select multiple id="Soporte" class="form-control selectmultiple" name="Soporte[]" placeholder="seleccione">
-								@foreach($soportes as $soporte)
-									<option value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Docs">Documentación aplicable</label>
-							<select multiple id="Docs" class="form-control selectmultiple" name="Docs[]" placeholder="seleccione">
-								@foreach($documentos as $documento)
-									<option value="{{$documento->id}}">{{$documento->DocName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Areas">Areas Que participan</label>
-							<select multiple id="Areas" class="form-control selectmultiple" name="Areas[]" placeholder="seleccione">
-								@foreach($areas as $area)
-									<option value="{{$area->id}}">{{$area->AreaName}}</option>
+							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
+							  <select multiple class="form-control" name="ProcRequsitos[] selectmultiple" placeholder="seleccione" id="ProcRequsitos">
+								@foreach($requisitos as $requisito)
+									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -337,13 +202,6 @@ Procesos
 				</div>
 					
 				<div class="form-row" id="containerDeRiesgos">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
-							<input max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
-						</div>
-					</div>
-
 					<div class="col-md-6 col-xs-12" id="riesgos0">
 						<div class="form-group">
 							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
@@ -355,35 +213,6 @@ Procesos
 							</div>
 						</div>
 					</div>
-					
-				</div>
-					
-				<div class="form-row" id="containerDePoliticas">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Provedores">Provedores</label>
-							  <select multiple id="Provedores" class="form-control selectmultiple" name="Provedores[]" placeholder="seleccione">
-								@foreach($proveedores as $proveedor)
-									<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
-						<div class="form-group">
-							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
-							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gambiental">Gestión Ambiental</label>
@@ -406,6 +235,9 @@ Procesos
 							</select>
 						</div>
 					</div>
+				</div>
+					
+				<div class="form-row" id="containerDePoliticas">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gseguridad">Gestión de Seguridad y Salud en el Trabajo</label>
@@ -428,28 +260,79 @@ Procesos
 							</select>
 						</div>
 					</div>
+					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
+						<div class="form-group">
+							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-
-				<div class="form-row">
+					
+				<div class="form-row" >
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
-							<input class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
+							<label class="input-label" for="Indicadores">Indicadores</label>
+							<select multiple id="Indicadores" class="form-control selectmultiple" name="Indicadores[]" placeholder="seleccione">
+								@foreach($indicadores as $indicador)
+									<option value="{{$indicador->id}}">{{$indicador->IndName}}</option>
+								@endforeach
+							</select>
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							  <select multiple class="form-control" name="ProcRequsitos[] selectmultiple" placeholder="seleccione" id="ProcRequsitos">
-								@foreach($requisitos as $requisito)
-									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
+							<label class="input-label" for="Docs">Documentación aplicable</label>
+							<select multiple id="Docs" class="form-control selectmultiple" name="Docs[]" placeholder="seleccione">
+								@foreach($documentos as $documento)
+									<option value="{{$documento->id}}">{{$documento->DocName}}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
+							<select id="ProcElaboro" class="form-control select" name="ProcElaboro" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+								{{-- @foreach($users as $user)
+									<option value="{{$user->id}}">{{$user->name}}</option>
+								@endforeach --}}
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcReviso">Revisado Por</label>
+							<select id="ProcReviso" class="form-control select" name="ProcReviso" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
+							<select id="ProcAprobo" class="form-control select" name="ProcAprobo" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRequsitos">Fecha</label>
@@ -555,114 +438,6 @@ Procesos
 			</div>
 		@endslot
 	@endcomponent
-
-
-	{{-- Este modal corresponde a los Proveedores --}}
-	@component('layouts.partials.modalCreate')
-		@slot('idModal')
-			modalCreateProveedores
-		@endslot
-		@slot('titulo')
-			Nuevo Proveedor
-		@endslot
-		@slot('action')
-			{{ route('proveedor.store')}}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<label>Nombre del proveedor</label>	      
-				<input type="text" name="ProvName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-	{{-- Este modal corresponde a los seguimientos --}}
-	@component('layouts.partials.modalCreate')
-		@slot('idModal')
-			modalCreateEntradas
-		@endslot
-		@slot('titulo')
-			Nueva Entrada
-		@endslot
-		@slot('action')
-			{{ route('entrada.store')}}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<label>Nombre de la entrada</label>	      
-				<input type="text" name="InputName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-
-	{{-- Este modal corresponde a las actividades --}}
-	@component('layouts.partials.modalCreate')
-		@slot('idModal')
-			modalCreateActividades
-		@endslot
-		@slot('titulo')
-			Nueva Actividad
-		@endslot
-		@slot('action')
-			{{ route('actividad.store')}}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<label>Nombre de la actividad</label>	      
-				<input type="text" name="ActiName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-
-	{{-- Este modal corresponde a las Salidas --}}
-	@component('layouts.partials.modalCreate')
-		@slot('idModal')
-			modalCreateSalidas
-		@endslot
-		@slot('titulo')
-			Nueva Salida
-		@endslot
-		@slot('action')
-			{{ route('salida.store')}}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<label>Nombre de la salida</label>	      
-				<input type="text" name="OutputName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-
-	{{-- Este modal corresponde a los clientes --}}
-	@component('layouts.partials.modalCreate')
-		@slot('idModal')
-			modalCreateClientes
-		@endslot
-		@slot('titulo')
-			Nuevo Cliente
-		@endslot
-		@slot('action')
-			{{ route('cliente.store')}}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<label>Nombre del cliente</label>	      
-				<input type="text" name="CliName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-
-	{{-- Parte del documento donde se encuentran los modales de EDIT --}}
-
 
 
 	{{-- Modal de edición de Gestión de Seguridad y Salud en el Trabajo --}}
@@ -793,214 +568,6 @@ Procesos
 		@endslot
 	@endcomponent
 
-	
-	{{-- Modal de edición de proveedores --}}
-	@component('layouts.partials.modalEdit')
-		@slot('idModal')
-			modalEditProveedores
-		@endslot
-		@slot('titulo')
-			Editar Proveedor
-		@endslot
-		@slot('action')
-			{{ route('proveedor.actualizar') }}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<select id="IdSelectProveedor" class="form-control select" onchange="cambiarProveedorId()">
-					@foreach($proveedores as $proveedor)
-					<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
-					@endforeach
-				</select>
-			</div>
-			<input id="idocultoProv" type="text" value="
-			@foreach($proveedores as $proveedor)
-				@if($loop->first)
-					{{$proveedor->id}}
-				@endif
-			@endforeach
-			" name="idocultoProv" style="display:none;">
-			<div class="form-group">
-				<label>Nuevo Nombre</label>
-				<input type="text" name="ProvName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-
-	{{-- Modal de edición de Entradas --}}
-	@component('layouts.partials.modalEdit')
-		@slot('idModal')
-			modalEditEntradas
-		@endslot
-		@slot('titulo')
-			Editar Entrada
-		@endslot
-		@slot('action')
-			{{ route('entrada.actualizar') }}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<select id="IdSelectEntrada" class="form-control select" onchange="cambiarEntradaId()">
-					@foreach($entradas as $entrada)
-					<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
-					@endforeach
-				</select>
-			</div>
-			<input id="idoculto" type="text" value="
-			@foreach($entradas as $entrada)
-				@if($loop->first)
-					{{$entrada->id}}
-				@endif
-			@endforeach
-			" name="idoculto" style="display:none;">
-			<div class="form-group">
-				<label>Nuevo Nombre</label>
-				<input type="text" name="InputName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-
-	{{-- Modal de edición de Actividades --}}
-	@component('layouts.partials.modalEdit')
-		@slot('idModal')
-			modalEditActividades
-		@endslot
-		@slot('titulo')
-			Editar Actividad
-		@endslot
-		@slot('action')
-			{{ route('actividad.actualizar') }}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<select id="IdSelectActividad" class="form-control select" onchange="cambiarActividadId()">
-					@foreach($actividades as $actividad)
-						<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
-					@endforeach
-				</select>
-			</div>
-			<input id="idocultoActi" type="text" value="
-			@foreach($actividades as $actividad)
-				@if($loop->first)
-					{{$actividad->id}}
-				@endif
-			@endforeach
-			" name="idocultoActi" style="display:none;">
-			<div class="form-group">
-				<label>Nuevo Nombre</label>
-				<input type="text" name="ActiName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-
-	{{-- Modal de edición de Salidas --}}
-	@component('layouts.partials.modalEdit')
-		@slot('idModal')
-			modalEditSalidas
-		@endslot
-		@slot('titulo')
-			Editar Salidas
-		@endslot
-		@slot('action')
-			{{ route('salida.actualizar') }}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<select id="IdSelectSalida" class="form-control select" onchange="cambiarSalidaId()">
-					@foreach($salidas as $salida)
-						<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
-					@endforeach
-				</select>
-			</div>
-			<input id="idocultoSali" type="text" value="
-			@foreach($salidas as $salida)
-				@if($loop->first)
-					{{$salida->id}}
-				@endif
-			@endforeach
-			" name="idocultoSali" style="display:none;">
-			<div class="form-group">
-				<label>Nuevo Nombre</label>
-				<input type="text" name="OutputName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-	{{-- Modal de edición de clientes --}}
-	@component('layouts.partials.modalEdit')
-		@slot('idModal')
-			modalEditClientes
-		@endslot
-		@slot('titulo')
-			Editar Cliente
-		@endslot
-		@slot('action')
-			{{ route('cliente.actualizar') }}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<select id="IdSelectCliente" class="form-control select" onchange="cambiarClienteId()">
-					@foreach($clientes as $cliente)
-					<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
-					@endforeach
-				</select>
-			</div>
-			<input id="idocultoCli" type="text" value="
-			@foreach($clientes as $cliente)
-				@if($loop->first)
-					{{$cliente->id}}
-				@endif
-			@endforeach
-			" name="idocultoCli" style="display:none;">
-			<div class="form-group">
-				<label>Nuevo Nombre</label>
-				<input type="text" name="CliName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
-
-
-	{{-- Sección de modales de DELETE --}}
-
-	{{-- Modal de eliminar proveedores --}}
-	@component('layouts.partials.modalDelete')
-		@slot('idModal')
-			modalDeleteProveedores
-		@endslot
-		@slot('idform')
-			formDeleteProveedores
-		@endslot
-		@slot('titulo')
-			Eliminar Proveedores
-			@endslot
-		@slot('action')
-			{{ route('gambiental.destroy', 0) }}
-		@endslot
-		@slot('form')
-	         	@method('DELETE')
-				@csrf
-				<div class="form-group">
-					<select id="SelectEliminarProveedores" class="form-control select" onchange="eliminarProveedor()">
-						<option value="0" selected>Seleccionar proveedor a Eliminar</option>
-						@foreach($proveedoresDrop as $proveedorDrop)
-						<option value="{{$proveedorDrop->id}}">{{$proveedorDrop->ProvName}}
-						</option>
-						@endforeach
-					</select>
-				</div>
-		@endslot
-		@slot('submitbutton')
-		<button form="formDeleteProveedores" disabled id="eliminarSubmitProveedores" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
-		@endslot
-	@endcomponent
 
 
 	{{-- Modal de eliminar recursos --}}
@@ -1130,138 +697,7 @@ Procesos
 		<button form="formDeleteGambientales" disabled id="eliminarSubmitGambientales" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
 		@endslot
 	@endcomponent
-
-
-	{{-- Modal de eliminar Salidas --}}
-	@component('layouts.partials.modalDelete')
-		@slot('idModal')
-			modalDeleteSalidas
-		@endslot
-		@slot('idform')
-			formDeleteSalidas
-		@endslot
-		@slot('titulo')
-			Eliminar Salidas
-			@endslot
-		@slot('action')
-			{{ route('salida.destroy', 0) }}
-		@endslot
-		@slot('form')
-	         	@method('DELETE')
-				@csrf
-				<div class="form-group">
-					<select id="SelectEliminarSalidas" class="form-control select" onchange="eliminarSalida()">
-						<option value="0" selected>Seleccionar salida a Eliminar</option>
-						@foreach($salidasDrop as $salidaDrop)
-						<option value="{{$salidaDrop->id}}">{{$salidaDrop->OutputName}}</option>
-						@endforeach
-					</select>
-				</div>
-		@endslot
-		@slot('submitbutton')
-		<button form="formDeleteSalidas" disabled id="eliminarSubmitSalidas" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
-		@endslot
-	@endcomponent
-
-
-	{{-- Modal de eliminar entradas --}}
-	@component('layouts.partials.modalDelete')
-		@slot('idModal')
-			modalDeleteEntradas
-		@endslot
-		@slot('idform')
-			formDeleteEntradas
-		@endslot
-		@slot('titulo')
-			Eliminar Entradas
-		@endslot
-		@slot('action')
-			{{ route('entrada.destroy', 0) }}
-		@endslot
-		@slot('form')
-	         	@method('DELETE')
-				@csrf
-				<div class="form-group">
-					<select id="SelectEliminarEntradas" class="form-control select" onchange="eliminarEntrada()">
-						<option value="0" selected>Seleccionar entrada a Eliminar</option>
-						@foreach($entradasDrop as $entradaDrop)
-						<option value="{{$entradaDrop->id}}">{{$entradaDrop->InputName}}</option>
-						@endforeach
-					</select>
-				</div>
-		@endslot
-		@slot('submitbutton')
-		<button form="formDeleteEntradas" disabled id="eliminarSubmitEntradas" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
-		@endslot
-	@endcomponent
-
-
-	{{-- Modal de eliminar actividades --}}
-	@component('layouts.partials.modalDelete')
-		@slot('idModal')
-			modalDeleteActividad
-		@endslot
-		@slot('idform')
-			formDeleteActividad
-		@endslot
-		@slot('titulo')
-			Eliminar Actividad
-		@endslot
-		@slot('action')
-			{{ route('actividad.destroy', 0) }}
-		@endslot
-		@slot('form')
-				@method('DELETE')
-				@csrf
-				<div class="form-group">
-					<select id="SelectEliminarActividad" class="form-control select" onchange="eliminarActividad()">
-						<option value="0" selected>Seleccionar actividad a Eliminar</option>
-						@foreach($actividadesDrop as $actividadDrop)
-						<option value="{{$actividadDrop->id}}">{{$actividadDrop->ActiName}}</option>
-						@endforeach
-					</select>
-				</div>
-		@endslot
-		@slot('submitbutton')
-			<button form="formDeleteActividad" disabled id="eliminarSubmitActividad" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
-		@endslot
-	@endcomponent
-
-
-	{{-- Modal de eliminar clientes --}}
-	@component('layouts.partials.modalDelete')
-		@slot('idModal')
-			modalDeleteClientes
-		@endslot
-		@slot('idform')
-			formDeleteClientes
-		@endslot
-		@slot('titulo')
-			Eliminar Clientes
-			@endslot
-		@slot('action')
-			{{ route('cliente.destroy', 0) }}
-		@endslot
-		@slot('form')
-	         	@method('DELETE')
-				@csrf
-				<div class="form-group">
-					<select id="SelectEliminarClientes" class="form-control select" onchange="eliminarCliente()">
-						<option value="0" selected>Seleccionar cliente a Eliminar</option>
-						@foreach($clientesDrop as $clienteDrop)
-						<option value="{{$clienteDrop->id}}">{{$clienteDrop->CliName}}</option>
-						@endforeach
-					</select>
-				</div>
-		@endslot
-		@slot('submitbutton')
-		<button form="formDeleteClientes" disabled id="eliminarSubmitClientes" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
-		@endslot
-	@endcomponent
 @endsection
-
-
-
 
 {{-- librerias adicionales para el funcionmiento de la vista --}}
 @push('js')
@@ -1270,257 +706,165 @@ Procesos
 
 {{-- scripts adicionales para el funcionmiento de la vista --}}
 @push('scripts')
-<script>
+	<script>
 
-	/*script para activar el select 2*/
-	$(document).ready(function() {
-		$('select').select2({
-			placeholder: 'Selecciona...',
+		/*script para activar el select 2*/
+		$(document).ready(function() {
+			$('select').select2({
+				placeholder: 'Selecciona...',
+			});
+			$('.select2-container').width('100%');
 		});
+
+		//Parte de los script de actualizar
+		function cambiarRecursoId(){
+			var id = $('#IdSelectRecurso').val();
+			var inputoculto = $('#idocultoRec');
+			inputoculto.attr('value', id);
+			// console.log(id);
+		};
+
+		function cambiarGambientalId(){
+			var id = $('#IdSelectGambiental').val();
+			var inputoculto = $('#idocultoGambi');
+			inputoculto.attr('value', id);
+			// console.log(id);
+		};
+
+		function cambiarGseguridadId(){
+			var id = $('#IdSelectGseguridad').val();
+			var inputoculto = $('#idocultoGsegu');
+			inputoculto.attr('value', id);
+			// console.log(id);
+		};
+
+		/*Parte de los scripts de ELIMINAR*/
+
+		function eliminarRecurso(){
+			let formulario = $('#formDeleteRecursos');
+			let botonsubmit = $('#eliminarSubmitRecursos');
+			var id = $('#SelectEliminarRecursos').val();
+			formulario.attr('action', '{{ url('recursos') }}/'+id);
+			if (id > 0) {
+				botonsubmit.attr('disabled', false);
+			}else{
+				botonsubmit.attr('disabled', true);
+			}
+			// console.log(id);
+		};
+
+		function eliminarGambiental(){
+			let formulario = $('#formDeleteGambientales');
+			let botonsubmit = $('#eliminarSubmitGambientales');
+			var id = $('#SelectEliminarGambi').val();
+			formulario.attr('action', '{{ url('gambiental') }}/'+id);
+			if (id > 0) {
+				botonsubmit.attr('disabled', false);
+			}else{
+				botonsubmit.attr('disabled', true);
+			}
+			// console.log(id);
+		};
+
+		function eliminarGseguridad(){
+			let formulario = $('#formDeleteGseguridades');
+			let botonsubmit = $('#eliminarSubmitGseguridades');
+			var id = $('#SelectEliminarGsegu').val();
+			formulario.attr('action', '{{ url('gseguridad') }}/'+id);
+			if (id > 0) {
+				botonsubmit.attr('disabled', false);
+			}else{
+				botonsubmit.attr('disabled', true);
+			}
+			// console.log(id);
+		};
+	</script>
+	<script>
+		$(document).ready( function(){
+			$('option:selected').each(function(){ $(this).prop('selected',true); });
+		})
+
+		var contadorPoliticas = 0;
+		function addPolitica(){
+			contadorPoliticas++
+			container = $('#containerDePoliticas')
+			container.append(`<div class="col-md-6 col-xs-12" id="politicaOperacion`+contadorPoliticas+`">
+							<div class="form-group">
+								<label class="input-label" for="ProcPolitOperacion`+contadorPoliticas+`">Politica de Operación</label>
+								<div class="input-group">
+									<input type="text" required id="ProcPolitOperacioninput`+contadorPoliticas+`" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+									<div class="input-group-append eliminarpolitica">
+									<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(`+contadorPoliticas+`)">Borrar</button>
+									</div>
+								</div>
+							</div>
+						</div>`)
+		};
+
+		function dropPolitica(id){
+			var id = $('#politicaOperacion'+id).remove();
+		};
+
+		
+	</script>
+	<script type="text/javascript">
+		var contadorRiesgos = 0;
+		function addRiesgo(){
+			contadorRiesgos++
+			container = $('#containerDeRiesgos')
+			container.append(`<div class="col-md-6 col-xs-12" id="riesgos`+contadorRiesgos+`">
+							<div class="form-group">
+								<label class="input-label" for="ProcRiesgos`+contadorRiesgos+`">Riesgos</label>
+								<div class="input-group">
+									<input type="text" required id="ProcRiesgosinput`+contadorRiesgos+`" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+									<div class="input-group-append eliminarpolitica">
+									<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(`+contadorRiesgos+`)">Borrar</button>
+									</div>
+								</div>
+							</div>
+						</div>`)
+		};
+
+		function dropRiesgo(id){
+			var id = $('#riesgos'+id).remove();
+		};
+	</script>
+	<script>
+		// ------------------------------------------------------- //
+		// Multi Level dropdowns
+		// ------------------------------------------------------ //
+		$(function() {
+			$("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				$(this).siblings().toggleClass("show");
+				if (!$(this).next().hasClass('show')) {
+					$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+				}
+				$(this).parents('div.dropdown.show').on('hidden.bs.dropdown', function(e) {
+					$('.dropdown-submenu .show').removeClass("show");
+				});
+			});
+		});
+	</script>
+	<script type="text/javascript">
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+			var output = $('#'+input.id+'Output');
+			output.attr('src', e.target.result);
+			output.attr('class', 'd-block');
+		}
+
+		reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+	$('input[type="file"]').change(function(){
+		readURL(this);
 	});
-
-	//Parte de los script de actualizar
-	function cambiarClienteId(){
-		var id = $('#IdSelectCliente').val();
-		var inputoculto = $('#idocultoCli');
-		inputoculto.attr('value', id);
-		// console.log(id);
-	};
-
-	function cambiarProveedorId(){
-		var id = $('#IdSelectProveedor').val();
-		var inputoculto = $('#idocultoProv');
-		inputoculto.attr('value', id);
-		// console.log(id);
-	};
-
-	function cambiarRecursoId(){
-		var id = $('#IdSelectRecurso').val();
-		var inputoculto = $('#idocultoRec');
-		inputoculto.attr('value', id);
-		// console.log(id);
-	};
-
-	function cambiarGambientalId(){
-		var id = $('#IdSelectGambiental').val();
-		var inputoculto = $('#idocultoGambi');
-		inputoculto.attr('value', id);
-		// console.log(id);
-	};
-
-	function cambiarGseguridadId(){
-		var id = $('#IdSelectGseguridad').val();
-		var inputoculto = $('#idocultoGsegu');
-		inputoculto.attr('value', id);
-		// console.log(id);
-	};
-
-	function cambiarEntradaId(){
-		var id = $('#IdSelectEntrada').val();
-		var inputoculto = $('#idoculto');
-		inputoculto.attr('value', id);
-		// console.log(id);
-	};
-
-	/*Parte de los scripts de ELIMINAR*/
-
-	function eliminarSalida(){
-		let formulario = $('#formDeleteSalidas');
-		let botonsubmit = $('#eliminarSubmitSalidas');
-		var id = $('#SelectEliminarSalidas').val();
-		formulario.attr('action', '{{ url('salida') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
-
-	function eliminarCliente(){
-		let formulario = $('#formDeleteClientes');
-		let botonsubmit = $('#eliminarSubmitClientes');
-		var id = $('#SelectEliminarClientes').val();
-		formulario.attr('action', '{{ url('cliente') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
-
-	function eliminarProveedor(){
-		let formulario = $('#formDeleteProveedores');
-		let botonsubmit = $('#eliminarSubmitProveedores');
-		var id = $('#SelectEliminarProveedores').val();
-		formulario.attr('action', '{{ url('proveedor') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
-
-	function eliminarRecurso(){
-		let formulario = $('#formDeleteRecursos');
-		let botonsubmit = $('#eliminarSubmitRecursos');
-		var id = $('#SelectEliminarRecursos').val();
-		formulario.attr('action', '{{ url('recursos') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
-
-	function eliminarGambiental(){
-		let formulario = $('#formDeleteGambientales');
-		let botonsubmit = $('#eliminarSubmitGambientales');
-		var id = $('#SelectEliminarGambi').val();
-		formulario.attr('action', '{{ url('gambiental') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
-
-	function eliminarGseguridad(){
-		let formulario = $('#formDeleteGseguridades');
-		let botonsubmit = $('#eliminarSubmitGseguridades');
-		var id = $('#SelectEliminarGsegu').val();
-		formulario.attr('action', '{{ url('gseguridad') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
-
-	function eliminarActividad(){
-		let formulario = $('#formDeleteActividad');
-		let botonsubmit = $('#eliminarSubmitActividad');
-		var id = $('#SelectEliminarActividad').val();
-		formulario.attr('action', '{{ url('actividad') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
-
-	function eliminarEntrada(){
-		let formulario = $('#formDeleteEntradas');
-		let botonsubmit = $('#eliminarSubmitEntradas');
-		var id = $('#SelectEliminarEntradas').val();
-		formulario.attr('action', '{{ url('entrada') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
-</script>
-<script>
-	$(document).ready( function(){
-		$('option:selected').each(function(){ $(this).prop('selected',true); });
-	})
-	function cambiarActividadId(){
-		var id = $('#IdSelectActividad').val();
-		var inputoculto = $('#idocultoActi');
-			inputoculto.attr('value', id);
-			console.log(id);
-	};
-
-	function cambiarSalidaId(){
-		var id = $('#IdSelectSalida').val();
-		var inputoculto = $('#idocultoSali');
-			inputoculto.attr('value', id);
-			console.log(id);
-	};
-
-
-	var contadorPoliticas = 0;
-	function addPolitica(){
-		contadorPoliticas++
-		container = $('#containerDePoliticas')
-		container.append(`<div class="col-md-6 col-xs-12" id="politicaOperacion`+contadorPoliticas+`">
-						<div class="form-group">
-							<label class="input-label" for="ProcPolitOperacion`+contadorPoliticas+`">Politica de Operación</label>
-							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacioninput`+contadorPoliticas+`" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(`+contadorPoliticas+`)">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div>`)
-	};
-
-	function dropPolitica(id){
-		var id = $('#politicaOperacion'+id).remove();
-	};
-
-	
-</script>
-
-
-
-
-<script type="text/javascript">
-	var contadorRiesgos = 0;
-	function addRiesgo(){
-		contadorRiesgos++
-		container = $('#containerDeRiesgos')
-		container.append(`<div class="col-md-6 col-xs-12" id="riesgos`+contadorRiesgos+`">
-						<div class="form-group">
-							<label class="input-label" for="ProcRiesgos`+contadorRiesgos+`">Riesgos</label>
-							<div class="input-group">
-								<input type="text" required id="ProcRiesgosinput`+contadorRiesgos+`" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(`+contadorRiesgos+`)">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div>`)
-	};
-
-	function dropRiesgo(id){
-		var id = $('#riesgos'+id).remove();
-	};
-</script>
-
-
-
-
-
-<script>
-$(function() {
-  // ------------------------------------------------------- //
-  // Multi Level dropdowns
-  // ------------------------------------------------------ //
-  $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    $(this).siblings().toggleClass("show");
-
-
-    if (!$(this).next().hasClass('show')) {
-      $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
-    }
-    $(this).parents('div.dropdown.show').on('hidden.bs.dropdown', function(e) {
-      $('.dropdown-submenu .show').removeClass("show");
-    });
-
-  });
-});
-</script>
+	</script>
 @endpush

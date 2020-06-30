@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	/*Rutas a controladores resource*/
 	Route::resource('areas','AreasController');
+	Route::resource('informes','InformeController');
 	Route::resource('documents','DocumentsController');
 	Route::resource('indicators','IndicatorsController');
 	Route::resource('comites','ComitesController');
