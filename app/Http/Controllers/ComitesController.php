@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 
 class ComitesController extends Controller
 {
@@ -17,11 +18,8 @@ class ComitesController extends Controller
      */
     public function index()
     {
-        /*$comites = DB::table('comites')->get();*/
         $comites = Comites::all();
-        /*$comites = User::with('comites')->get();*/
 
-        /*return $comites;*/
         return view('comites.index', compact('comites'));
     }
 
@@ -52,8 +50,7 @@ class ComitesController extends Controller
         $path = $request->file('ComiSrc')->store('public/Comites');
 
         $pathimg = $request->file('ComiImage')->store('public/Comites');
-
-        /*return $request;*/
+        
         $comite = new Comites();
         $comite->ComiName = $request->input('ComiName');
         $comite->ComiSrc = $path;
@@ -61,7 +58,14 @@ class ComitesController extends Controller
         $comite->ComiParaQueSirve = $request->input('ComiParaQueSirve');
         $comite->ComiTelefono = $request->input('ComiTelefono');
         $comite->ComiEmail = $request->input('ComiEmail');
-        $comite->ComiDateLast = '1576/03/01';
+
+        if ($request->input('ComiDateLast') == "") {
+            $ultimareunion = Carbon::now();
+            $comite->ComiDateLast = $ultimareunion->subYears(1);
+        }else {
+            $comite->ComiDateLast = $request->input('ComiDateLast');
+        }
+
         $comite->ComiObservations = $request->input('ComiObservations');
         $comite->ComiDateNext = $request->input('ComiDateNext');
         $comite->ComiIntegrantes = $request->input('ComiIntegrantes');

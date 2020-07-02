@@ -56,7 +56,7 @@ Comités
 			<div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 mx-auto recuadro">
-						<h4 class="text-center negrilla">Imagen del cómite</h4>
+						<h4 class="text-center negrilla">Logo del cómite</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<div class="col-md-12">
@@ -72,7 +72,7 @@ Comités
 			<div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 mx-auto recuadro">
-						<h4 class="text-center negrilla">Foto del cómite</h4>
+						<h4 class="text-center negrilla">Integrantes del cómite</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<div class="col-md-12">

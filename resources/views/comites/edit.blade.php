@@ -9,22 +9,22 @@ Comités
 @endsection
 
 @section('content')
-	<div class="card" style="padding: 1.5em 1.5em 1.5em 1.5em;">
-	    <div class="box-body">
+	<div class="card">
+		<div class="card-header text-center">
+			<h3 class="card-title"><strong>Editar Cómite</strong></h3>
+		</div>
+		<div class="card-body">
 	        <form role="form" method="POST" action="{{ route('comites.update', $comite) }}" enctype="multipart/form-data">
 	          	@method('PUT')
 	            @csrf
 
-	            <div>
-	              <h3 class="card-title">Editar Cómite</h3>
-	            </div>
 	            <div class="form-group">
 	              <label>Nombre</label>
 	              <input name="ComiName" type="text" value="{{$comite->ComiName}}" id="ComiName" class="text-center form-control">
 	            </div>
 				<div class="custom-input-file {{ $errors->has('ComiSrc') ? ' has-danger' : '' }}">
 					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Logo del Comite</b>" data-content="Imagen representativa o Logo del cómite. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Logo</label>
-					<input id="ComiSrc" name="ComiSrc" type="file" class="form-control form-control-alternative{{ $errors->has('ComiSrc') ? ' is-invalid' : '' }}" required>
+					<input id="ComiSrc" name="ComiSrc" type="file" class="form-control form-control-alternative{{ $errors->has('ComiSrc') ? ' is-invalid' : '' }}">
 					@include('alerts.feedback', ['field' => 'IndAnalysis'])
 						@if($comite->ComiSrc === "")
 						<a href="#"><img id="ComiSrcOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
@@ -34,7 +34,7 @@ Comités
 				</div>
 				<div class="custom-input-file {{ $errors->has('ComiImage') ? ' has-danger' : '' }}">
 					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Foto de los integrantes del Comite</b>" data-content="Adjuntar foto de los integrantes del cómite. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Foto de los integrantes</label>
-					<input id="ComiImage" name="ComiImage" type="file" class="form-control form-control-alternative{{ $errors->has('ComiImage') ? ' is-invalid' : '' }}" required>
+					<input id="ComiImage" name="ComiImage" type="file" class="form-control form-control-alternative{{ $errors->has('ComiImage') ? ' is-invalid' : '' }}">
 					@include('alerts.feedback', ['field' => 'IndAnalysis'])
 						@if($comite->ComiImage === "")
 						<a href="#"><img id="ComiImageOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
@@ -44,7 +44,6 @@ Comités
 				</div>
 	            <div class="form-group">
 	                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Función del cómite</b>" data-content="Objetivo y/o función principal del cómite."><i class="far fa-question-circle"></i> Función</label>
-
 	            	<input type="text" name="ComiParaQueSirve" value="{{$comite->ComiParaQueSirve}}" id="ComiParaQueSirve" class="text-center form-control">
 	            </div>
 	            <div class="form-group">
@@ -75,7 +74,6 @@ Comités
 	            <div class="form-group">
 	            	<button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-success"> Actualizar</button>
 	            </div>
-
 	        </form>
 	    </div>
 	</div>
