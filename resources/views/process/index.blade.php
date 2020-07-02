@@ -20,7 +20,7 @@ Procesos
 		  <h3 class="card-title"> 
 		  		<strong>Procesos</strong> 
 		  		@can('createProcess')
-		  		<a href="{{ route('proceso.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
+		  			<a href="{{ route('proceso.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
 		  		@endcan
 		  </h3>
 		</div>

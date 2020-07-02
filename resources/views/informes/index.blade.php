@@ -25,7 +25,9 @@ informes
                     <h3 class="card-title"><strong>Informes</strong></h3>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('informes.create') }}" class="btn btn-success float-right"> Crear</a>
+					@can('createInformes')
+						<a href="{{ route('informes.create') }}" class="btn btn-success float-right"> Crear</a>
+					@endcan
                 </div>
             </div>
         </div>
