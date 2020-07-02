@@ -101,7 +101,7 @@ class ReleasesController extends Controller
     public function edit(Releases $release)
     {
 
-        if ($release->user_id == Auth::user()->id) {
+        if (auth()->user()->can('updateReleases')) {
             $users = User::get();
             return view('releases.edit', compact('release', 'users'));
         }else{
@@ -120,11 +120,6 @@ class ReleasesController extends Controller
     public function update(storeUpdateReleasesRequest $request, Releases $release)
     {
 
-
-
-        /*Cambios para envio de correo por el update. NO LOS HE VERIFICADO*/
-
-
         $usuarios = $request->input('users');
 
         $general = User::all('email');
@@ -134,10 +129,6 @@ class ReleasesController extends Controller
         }else{
             Mail::to($usuarios)->queue(new ReleaseUpdate($release));
         }
-
-
-
-
 
 
         $release->update($request->except(['RelSrc']));
