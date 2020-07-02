@@ -134,17 +134,52 @@ class permissionsTableSeeder extends Seeder
         // 'indexDocuments'
 
         $allpermisos = Permission::pluck('name');
+        $allWithoutUserCrud = [
+        'readComites',
+        'createComites',
+        'updateComites',
+        'deleteComites',
+        'readDocuments',
+        'createDocuments',
+        'updateDocuments',
+        'deleteDocuments',
+        'readIndicators',
+        'createIndicators',
+        'updateIndicators',
+        'deleteIndicators',
+        'readInformes',
+        'createInformes',
+        'updateInformes',
+        'deleteInformes',
+        'readReleases',
+        'createReleases',
+        'updateReleases',
+        'deleteReleases',
+        'readUser',
+        'readProcess',
+        'createProcess',
+        'updateProcess',
+        'deleteProcess',
+        'readRequisito',
+        'createRequisito',
+        'updateRequisito',
+        'deleteRequisito',
+        'readAlerts',
+        'createAlerts',
+        'updateAlerts',
+        'deleteAlerts',
+        'indexDocuments'];
 
         $role = Role::findByName('Gerente');
-        $role->syncPermissions($allpermisos);
+        $role->syncPermissions($allWithoutUserCrud);
 
 
         $role = Role::findByName('Director');
-        $role->syncPermissions($allpermisos);
+        $role->syncPermissions($allWithoutUserCrud);
 
 
         $role = Role::findByName('JefeArea');
-        $role->syncPermissions($allpermisos);
+        $role->syncPermissions($allWithoutUserCrud);
 
 
 

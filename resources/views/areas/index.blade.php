@@ -11,16 +11,22 @@
 @section('content')
 	<div class="card">
 		<div class="card-header text-center">
-		  <h4 class="card-title">Listado de Áreas</h4>
-		</div>
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <h3 class="card-title"><strong>Listado de Áreas</strong></h3>
+                </div>
+                <div class="col-md-2">
+					@can('createAreas')
+						<button class="btn btn-fill btn-success" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
+					@endcan
+                </div>
+            </div>
+        </div>  
 		<div>
-
-			@can('createAreas')
-				<button class="fas fa-plus btn btn-sm btn-fill btn-success b-create" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
-			@endcan
-
 			{{-- Parte del documento de la creación de áreas --}}
-
 			<div class="modal fade" id="createmodalarea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
@@ -78,9 +84,6 @@
 		            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}, {{"'".$Area->AreaName."'"}}, {{"'".$Area->AreaSede."'"}})" class="btn btn-fill btn-warning far fa-edit" data-toggle="modal" data-target="#editmodalarea"> Editar</button></td>
 		          </tr>
 		        @endforeach
-
-
-
 		        {{-- Parate del documento de la edición de áreas --}}
 
 
