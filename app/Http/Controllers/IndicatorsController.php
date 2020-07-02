@@ -22,32 +22,14 @@ class IndicatorsController extends Controller
      */
     public function index()
     {
-        /*$indicators = Indicators::with('user.areas')->get();*/
-        /*$users = User::with('areas')->get();*/
-        /*return $indicators;*/
-
         $Indicators = Indicators::with('user')->orderBy('updated_at', 'desc')->get();
-        /*return $Indicators;*/
-
-        // $indicadorconarea = $Indicators->map(function ($item){
-        //     $area = Areas::find($item->user->areas_id);
-
-        //     $item->arearelacionada = $area;
-        //     return $item;
-        // });
-
-        /*return $indicadorconarea;*/
-        /*$Areas = Areas::with('users')->get();*/
+ 
         return view('indicators.index', compact('Indicators'));
     }
 
     public function index2()
     {
         $Indicators = Indicators::with('user.areas')->get();
-
-        /*$usuario = User::find($indicator->user_id);
-        $area = Areas::find($usuario->areas_id);*/
-        /*return $Indicators;*/
 
         return view('indicators.index2', compact('Indicators'));
     }
@@ -59,7 +41,11 @@ class IndicatorsController extends Controller
      */
     public function create()
     {
-        return view('indicators.create');
+        if (auth()->user()->can('createIndicators')) {
+            return view('indicators.create');
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear indicadores');
+        }
     }
 
     /**
@@ -153,8 +139,11 @@ class IndicatorsController extends Controller
      */
     public function edit(Indicators $indicator)
     {
-        // return $indicator;
-        return view('indicators.edit', compact('indicator'));
+        if (auth()->user()->can('updateIndicators')) {
+            return view('indicators.edit', compact('indicator'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar indicadores');
+        }
     }
 
     /**
@@ -223,22 +212,22 @@ class IndicatorsController extends Controller
      */
     public function destroy(Indicators $indicator)
     {
-        /*$indicator->delete();*/
-        $indicator->Areas()->detach();
+        if (auth()->user()->can('deleteIndicators')) {
+            $indicator->Areas()->detach();
         
+            $graphicActual = $indicator->IndGraphic;
+            Storage::disk('local')->delete($graphicActual);
+            $tableActual = $indicator->IndTable;
+            Storage::disk('local')->delete($tableActual);
+            $indicator->delete();
 
-        $graphicActual = $indicator->IndGraphic;
-        Storage::disk('local')->delete($graphicActual);
-        $tableActual = $indicator->IndTable;
-        Storage::disk('local')->delete($tableActual);
-        $indicator->delete();
-
-
-        if ($indicator->IndType === 0) {
-            return redirect()->route('indicators.index')->withStatus(__('Indicador eliminado correctamente'));
-        } else {
-            return redirect()->route('indicators.index2')->withStatus(__('Indicador eliminado correctamente'));
+            if ($indicator->IndType === 0) {
+                return redirect()->route('indicators.index')->withStatus(__('Indicador eliminado correctamente'));
+            } else {
+                return redirect()->route('indicators.index2')->withStatus(__('Indicador eliminado correctamente'));
         }
-        /*return redirect()->route('indicators.index')->withStatus(__('Indicador eliminado correctamente'));*/
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para eliminar indicadores');
+        }
     }
 }

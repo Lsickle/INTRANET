@@ -49,7 +49,7 @@ class ReleasesController extends Controller
     public function store(storeUpdateReleasesRequest $request)
     {
         $usuarios = $request->input('users');
-        /*return $usuarios;*/
+        
         $path = $request->file('RelSrc')->store('public/Anuncios');
 
         $releases = new Releases();
@@ -62,12 +62,6 @@ class ReleasesController extends Controller
         $releases->user_id = Auth::user()->id;
         $releases->save();
 
-        // $usuariocreador = $releases->user;
-        // $releases['user'] = $usuariocreador;
-        /*return $releases;*/
-
-        /*$correos = $releases->areas();*/
-
         $general = User::all('email');
 
         if ($releases->RelGeneral == 0) {
@@ -75,8 +69,6 @@ class ReleasesController extends Controller
         }else{
             Mail::to($usuarios)->queue(new ReleaseStored($releases));
         }
-
-        /*Notification::send($users->email, new MailReleases($releases));*/
 
         return redirect()->route('releases.index')->withStatus(__('Comunicado creado correctamente'));
     }

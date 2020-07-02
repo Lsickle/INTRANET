@@ -50,7 +50,11 @@ class AlertsController extends Controller
      */
     public function create()
     {
-        return view('alertas.create');
+        if (auth()->user()->can('createAlerts')) {
+            return view('alertas.create');
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear alertas');
+        }
     }
 
     /**
@@ -138,7 +142,11 @@ class AlertsController extends Controller
      */
     public function edit(Alerts $alert)
     {
-        return view('alertas.edit', compact('alert'));
+        if (auth()->user()->can('updateAlerts')) {
+            return view('alertas.edit', compact('alert'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar alertas');
+        }
     }
 
     /**
@@ -167,8 +175,12 @@ class AlertsController extends Controller
      */
     public function destroy(Alerts $alert)
     {
-        $alert->delete();
-        return redirect()->route('alerts.index')->withStatus(__('Alerta eliminada correctamente'));
+        if (auth()->user()->can('deleteAlerts')) {
+            $alert->delete();
+            return redirect()->route('alerts.index')->withStatus(__('Alerta eliminada correctamente'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar alertas');
+        }
     }
 
 }

@@ -247,13 +247,17 @@ class ProcessController extends Controller
         // $proceso->Actividades()->detach();
         // $proceso->Entradas()->detach();
         // $proceso->Salidas()->detach();
+        if (auth()->user()->can('deleteProcess')) {
+            $proceso->Areas()->detach();
+            $proceso->Documentos()->detach();
+            $proceso->Indicadores()->detach();
+            $proceso->procesosDeSoporte()->detach();
+            $proceso->Requisitos()->detach();
+            $proceso->delete();
+            return redirect()->route('proceso.index')->withStatus(__('Proceso eliminado correctamente'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para eliminar Procesos');
+        }
         
-        $proceso->Areas()->detach();
-        $proceso->Documentos()->detach();
-        $proceso->Indicadores()->detach();
-        $proceso->procesosDeSoporte()->detach();
-        $proceso->Requisitos()->detach();
-        $proceso->delete();
-        return redirect()->route('proceso.index')->withStatus(__('Proceso eliminado correctamente'));
     }
 }

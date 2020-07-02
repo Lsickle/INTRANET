@@ -29,7 +29,11 @@ class AreasController extends Controller
      */
     public function create()
     {
-        /*return view('areas.create');*/
+        if (auth()->user()->can('createAlerts')) {
+            return view('areas.create');
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear áreas');
+        }
     }
 
     /**
@@ -68,7 +72,7 @@ class AreasController extends Controller
      */
     public function edit(Areas $areas)
     {
-        //
+        
     }
 
     /**
@@ -80,9 +84,6 @@ class AreasController extends Controller
      */
     public function update(Request $request, Areas $area)
     {
-        /*return $request;*/
-        /*$Area = Areas::where($id)->first();
-        $Area = new Areas();*/
         $area->update($request->all());
         return redirect()->route('areas.index')->withStatus(__('Área actualizada correctamente'));
     }

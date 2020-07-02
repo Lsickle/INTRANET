@@ -27,7 +27,11 @@ class InformeController extends Controller
      */
     public function create()
     {
-        return view('informes.create');
+        if (auth()->user()->can('createInformes')) {
+                return view('informes.create');
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear informes');
+        }
     }
 
     /**
@@ -66,8 +70,13 @@ class InformeController extends Controller
      */
     public function edit(Informe $informe)
     {
-        return view('informes.edit', compact('informe'));
+        if (auth()->user()->can('updateInformes')) {
+                return view('informes.edit', compact('informe'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar informes');
+        }
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -91,8 +100,11 @@ class InformeController extends Controller
      */
     public function destroy(Informe $informe)
     {
-        $informe->delete();
-
-        return redirect()->route('informes.index')->withStatus(__('informe eliminado correctamente'));
+        if (auth()->user()->can('deleteInformes')) {
+            $informe->delete();
+            return redirect()->route('informes.index')->withStatus(__('informe eliminado correctamente'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para eliminar informes');
+        }
     }
 }
