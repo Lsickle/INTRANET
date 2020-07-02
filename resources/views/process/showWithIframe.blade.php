@@ -14,29 +14,33 @@ Proceso de {{$proceso->ProcName}}
 	<div class="col-md-12 card degradado-procesos">
 		<div class="row">
 			<div class="col-md-2">
-				<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
+				@can('updateProcess')
+					<a href="{{$proceso->id}}/edit" class="btn btn-sm btn-warning float-left"> Editar</a>
+				@endcan
 			</div>
 			<div class="col-md-8">
 			</div>
 			<div class="col-md-2">
-				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
-				  Eliminar
-				</button>
-				@component('layouts.partials.modal')
-					@slot('id')
-						{{$proceso->id}}
-					@endslot
-					@slot('textModal')
-						{{$proceso->ProcName}}
-					@endslot
-					@slot('botonModal')
-						<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
-						    @method('DELETE')
-						    @csrf 
-						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-						</form>
-					@endslot
-				@endcomponent
+				@can('deleteProcess')
+					<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
+						Eliminar
+					</button>
+					@component('layouts.partials.modal')
+						@slot('id')
+							{{$proceso->id}}
+						@endslot
+						@slot('textModal')
+							{{$proceso->ProcName}}
+						@endslot
+						@slot('botonModal')
+							<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
+								@method('DELETE')
+								@csrf 
+								<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+							</form>
+						@endslot
+					@endcomponent
+				@endcan
 			</div>
 		</div>
 		<div class="col-md-12">

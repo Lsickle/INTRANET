@@ -24,7 +24,13 @@
                     <h3 class="card-title"><strong>{{$informe->InfoName}}</strong></h3>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('informes.index') }}" class="btn btn-sm btn-success float-right"> Volver</a>
+                    @can('deleteInformes')
+                        <form action="{{ route('informes.destroy', $informe) }}" method="POST">
+                            @method('DELETE')
+                            @csrf 
+                            <button type="submit" class="fas fa-backspace btn btn-danger"> Eliminar</button>
+                        </form>
+                    @endcan
                 </div>
             </div>
         </div>

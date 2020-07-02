@@ -13,7 +13,9 @@ Comités
 		<div class="card-header text-center">
             <div class="row">
                 <div class="col-md-2">
-					<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
+					@can('updateComites')
+						<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
+					@endcan
                 </div>
                 <div class="col-md-8">
                     <h3 class="card-title"><strong>Cómites</strong></h3>
