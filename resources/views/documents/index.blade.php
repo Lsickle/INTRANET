@@ -53,10 +53,7 @@ Documentos
                                     @endif
                                 </td>
             		        	<td class="text-center">{{$Document->DocVersion}}</td>
-            		        	{{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
-                                @can('indexDocuments')
-            		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
-                                @endcan
+            		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "Borrador" : "Publicado" }}</td>
             		        	<td class="text-center">{{$Document->DocType}}</td>
             		        	<td class="text-center">
             		        		<ul class="list-group list-group-flush">
@@ -87,10 +84,6 @@ Documentos
                                     @endif
                                 </td>
                                 <td class="text-center">{{$publicadodocumento->DocVersion}}</td>
-                                {{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
-                                @can('indexDocuments')
-                                <td class="text-center">{{ $publicadodocumento->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
-                                @endcan
                                 <td class="text-center">{{$publicadodocumento->DocType}}</td>
                                 <td class="text-center">
                                     <ul class="list-group list-group-flush">
