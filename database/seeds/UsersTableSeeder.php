@@ -97,7 +97,7 @@ class UsersTableSeeder extends Seeder
         $user->ColorUser = 1;
         $user->areas_id = 13;
         $user->save();
-        $user->assignRole('User');
+        $user->assignRole('JefeArea');
         $user->cargos()->sync('13');
 
         $user = new User();
@@ -109,7 +109,7 @@ class UsersTableSeeder extends Seeder
         $user->ColorUser = 1;
         $user->areas_id = 12;
         $user->save();
-        $user->assignRole('User');
+        $user->assignRole('JefeArea');
         $user->cargos()->sync('20');
 
         $user = new User();
@@ -313,7 +313,7 @@ class UsersTableSeeder extends Seeder
         $user->ColorUser = 1;
         $user->areas_id = 9;
         $user->save();
-        $user->assignRole('User');
+        $user->assignRole('JefeArea');
         $user->cargos()->sync('32');
 
     }
