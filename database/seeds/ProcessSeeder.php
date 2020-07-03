@@ -30,18 +30,10 @@ class ProcessesSeeder extends Seeder
         $process->ProcReviso = 'Lider Comunicaciones e Informatica';
         $process->ProcAprobo = 'Lider Comunicaciones e Informatica';
         $process->ProcLink = "https://onedrive.live.com/embed?resid=C2421B24BB4BB872%216893&authkey=%21ADmKx9rE-721hL4&em=2&wdAllowInteractivity=False&Item='Hoja1'!A10%3AJ22&wdInConfigurator=True";
-        $process->ProcRiesgos = [
-            'Incumplimiento de metas  propuestas en los indicadores de gestión',
-            'Perdida de la documentación de los expedientes (historias Laborales)',
-            'Favorecimiento por acción u omisión en las actuaciones en el proceso disciplinario',
-            'Ascenso o reubicación de trabajadores  sin cumplir requisitos',
-            'Error en la liquidación de pagos de cualquier indole prestacional (Nomina, vacaciones, seguridad social, parafiscales,etc)',
-            'No acatar las disposiciones judiciales que pueda interponer las entidades del gobierno como el Ministerio de trabajo en los tiempos indicados o prestablecidos',
-            'Acoso Laboral',
-            'Falsedad en títulos académicos o demas documentos presentados por los candidatos a ocupar un cargo - Personal con antecedentes Judiciales'
-        ];
+        $process->ProcRiesgos = ['Incumplimiento de metas  propuestas en los indicadores de gestión', 'Perdida de la documentación de los expedientes (historias Laborales)', 'Favorecimiento por acción u omisión en las actuaciones en el proceso disciplinario', 'Ascenso o reubicación de trabajadores  sin cumplir requisitos', 'Error en la liquidación de pagos de cualquier indole prestacional (Nomina, vacaciones, seguridad social, parafiscales,etc)', 'No acatar las disposiciones judiciales que pueda interponer las entidades del gobierno como el Ministerio de trabajo en los tiempos indicados o prestablecidos', 'Acoso Laboral', 'Falsedad en títulos académicos o demas documentos presentados por los candidatos a ocupar un cargo - Personal con antecedentes Judiciales'];
         $process->ProcTipo = 'De Apoyo'
         $process->save();
+
         $process->recursos()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']);
         $process->gambientals()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']);
         $process->gseguridads()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']);
