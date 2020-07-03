@@ -3,10 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-class Gambiental extends Model
+class Riesgo extends Model
 {
     use SoftDeletes;
 
@@ -17,17 +15,15 @@ class Gambiental extends Model
      * @var array
      */
     protected $fillable = [
-        'GesName',
-        'GesImpact',
-        'GesDescrip',
-        'GesControl'
+        'RiesgDescrip',
+        'RiesgAction'
     ];
 
 
     public function procesos()
     {
-        return $this->belongsToMany('App\Process','gambientals_processes');
-        //Relación de la tabla processes y la tabla gambiental 
+        return $this->belongsToMany('App\Process', 'processes_riesgos');
+        //Relación de la tabla processes y la tabla gseguridad 
     }
 
 
@@ -51,5 +47,4 @@ class Gambiental extends Model
     ];
 
     protected $dates = ['deleted_at', 'updated_at', 'created_at'];
-
 }

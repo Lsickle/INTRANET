@@ -15,12 +15,11 @@ class CreateGseguridadsTable extends Migration
     {
         Schema::create('gseguridads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->string('SeguName');
-            $table->string('SeguType');  /*En  este campo correspoden los tres campos de la caracterización de proceso de Gestión de seguridad y salud en el trabajo, es decir
-                0 = Peligros
-                1 = Riesgos
-                2 = Controles Operacionales  */
+            $table->string('SeguImpact');
+            $table->string('SeguDescrip');
+            $table->string('SeguControl');
+            $table->timestamps();
             $table->softDeletes();  
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';

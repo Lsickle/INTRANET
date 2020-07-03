@@ -142,6 +142,12 @@ class Process extends Model
         //Relación de la tabla processes y la tabla recursos 
     }
 
+    public function riesgos()
+    {
+        return $this->belongsToMany('App\Recursos','processes_riesgos');
+        //Relación de la tabla processes y la tabla recursos 
+    }
+
 
 	/**
 	 * The attributes that should be hidden for arrays.
