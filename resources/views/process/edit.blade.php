@@ -232,7 +232,15 @@ Procesos
 					</div>
 				</div>
 				<div class="form-row">
-
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcTipo">Tipo de Proceso</label>
+							<select id="ProcTipo" required class="form-control" name="ProcTipo[]" placeholder="seleccione">
+								<option {{$proceso->ProcTipo =='De Apoyo' ? 'selected' : ''}} value="De Apoyo">De Apoyo</option>
+								<option {{$proceso->ProcTipo =='Estratégico' ? 'selected' : ''}} value="Estratégico">Estratégico</option>
+							</select>
+						</div>
+					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>

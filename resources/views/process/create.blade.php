@@ -118,10 +118,9 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcTipo">Tipo de Proceso</label>
-							<select multiple id="ProcTipo" class="form-control selectmultiple" name="ProcTipo" placeholder="seleccione">
-								<option value="1">De Apoyo</option>
-								<option value="2">Básico</option>
-								<option value="3">Estratégico</option>
+							<select id="ProcTipo" class="form-control" name="ProcTipo" placeholder="seleccione">
+								<option value="De Apoyo">De Apoyo</option>
+								<option value="Estratégico">Estratégico</option>
 							</select>
 						</div>
 					</div>

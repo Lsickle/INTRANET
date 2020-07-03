@@ -32,7 +32,8 @@ class Process extends Model
         'ProcAmbienTrabajo',
         'ProcPolitOperacion',
         'ProcRiesgos',
-        'ProcLink'
+        'ProcLink',
+        'ProcTipo'
     ];
     
     /**

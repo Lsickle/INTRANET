@@ -12,103 +12,40 @@ class ProcessesSeeder extends Seeder
      */
     public function run()
     {
+        
         // id = 01
-        $process = new Process();
-        $process->ProcName = 'GESTIÓN ESTRATEGICA';
-        $process->ProcRevVersion = '1';
-        /*$process->ProcChangesDescription = '';*/
-        $process->ProcImage = '';
-        $process->ProcObjetivo = 'Establecer los lineamientos estratégicos que orienten y guíen la gestión de PROSARC S.A ESP, para garantizar el cumplimiento de la Misión y la Visión en el marco de la normatividad vigente.';
-        $process->ProcElaboro = 'Grupo Asesor';
-        $process->ProcResponsable = ['Gerente General', 'Subgerente Comercial', 'Director de Operaciones', 'Director de Planta'];
-        $process->ProcAmbienTrabajo = 'Condiciones ergonómicas adecuadas en las oficinas y seguras - Condiciones de elementos de protección y seguridad para la planta';
-        $process->ProcAlcance = 'Inicia con el análisis situacional de PROSARC S.A. ESP, continúa con la definición de lineamientos estratégicos, su despliegue, ejecución y termina con el seguimiento, evaluación, retroalimentación y acciones de mejora.';
-        $process->ProcParticipantes = ['Gerente General'];
-        // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcReviso = 'Asesor HSEQ';
-        $process->ProcAprobo = 'Gerente General';
-        $process->ProcPolitOperacion = ['Atendiendo los parámetros establecidos en la legislación y normatividad en materia en ambiental y Empresarial, la Gerencia elaborará los lineamientos estratégicos que orienten la formulación, implementación y evaluación de los instrumentos de planeación de la Empresa para garantizar el cumplimiento de la Misión y la Visión de PROSARC S.A. ESP.', 'Se debe garantizar que en la formulación de los instrumentos de planeación de PROSARC S.A. ESP, se tengan en cuenta de manera expresa, los lineamientos Estratégicos emitidos por la Junta Directiva y el Gerente General', 'Para la formulación de los instrumentos de Planeación de PROSARC S.A. ESP, se deberá verificar la vigencia y validez de los “normagramas” de los diferentes procesos y realizar un sondeo normativo que garantice la vigencia de la base legal del instrumento adoptado'];
-        $process->ProcDate = '2020/01/29';
-        $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
-        // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
-        $process->save();
-
-
-
-        // id = 02
         $process = new Process();
         $process->ProcName = 'GESTION DEL TALENTO HUMANO';
         $process->ProcRevVersion = 'HSEQ-04 - REV. 1 - Ene 20';
         $process->ProcChangesDescription = 'Actualizado por seeder de procesos';
         $process->ProcImage = 'https://i.picsum.photos/id/475/536/354.jpg';
-        $process->ProcObjetivo = 'Planear, organizar, ejecutar y controlar las acciones tendientes a la vinculación, evaluación y retiro del personal  de planta y temporal   contribuyendo al desarrollo de sus potencialidades, destrezas y habilidades  encaminadas al fortalecimiento continuo de las competencias, mejoramiento del clima organizacional y bienestar, reconociendo los derechos laborales, promoviendo los valores y principios éticos dentro del marco costitucional y legal, que contribuya al logro de las metas de PROSARC S.A ESP.';
-        $process->ProcElaboro = 'SuperIntendente de planta';
-        $process->ProcResponsable = ['Jefe de Talento Humano'];
-        $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
+        $process->ProcObjetivo = 'Planear, organizar, ejecutar y controlar las acciones tendientes a la vinculación, evaluación y retiro del personal de planta y temporal contribuyendo al desarrollo de sus potencialidades, destrezas y habilidades encaminadas al fortalecimiento continuo de las competencias, mejoramiento del clima organizacional y bienestar, reconociendo los derechos laborales, promoviendo los valores y principios éticos dentro del marco costitucional y legal, que contribuya al logro de las metas de PROSARC S.A ESP.';
+        $process->ProcElaboro = 'Lider Comunicaciones e Informatica';
+        $process->ProcResponsable = ['Responsable de Gestión Humana'];
+        $process->ProcAmbienTrabajo = 'Condiciones favorables y/o adecuadas en cuanto a temperatura, ambiente, ruido, iluminacion, ventilacion, ergonomia, relaciones interpersonales y trabajo en equipo. No requiere condiciones ambientales especiales';
         $process->ProcAlcance = 'Inicia con la gestión para la  vinculación de personal ya sea de forma directa o por la temporal, de acuerdo a la estructura administrativa de PROSARC S.A ESP; continúa con la capacitación a los trabajadores, según la necesidad de la Empresa, entrenamiento, estímulos, seguridad y salud en el trabajo, compensaciones, evaluación de desempeño, administración de las historias laborales, procesos disciplinarios, liquidación de nomina, trámites de incapacidades, licencias, permisos y vacaciones, actividades enmarcadas en el reglamento Interno de Trabajo y termina con el retiro definitivo del trabajador.';
-        $process->ProcParticipantes = ['Gerente General'];
-        $process->ProcPolitOperacion = ["oficina", "Computador", "Tlf", "Fax", "Vehiculo"];
-        $process->ProcReviso = 'Gerente General';
-        $process->ProcAprobo = 'Presidencia';
+        $process->ProcParticipantes = ['Subgerente'];
+        $process->ProcPolitOperacion = ['Con el propósito de asegurar que PROSARC S.A ESP cuente con trabajadores directos / temporales y contratistas que garanticen el cumplimiento de la misión de la Empresa, el proceso de Gestión Humana, con el concurso y compromiso de los demás procesos y dando cumplimiento a la normatividad vigente y el Reglamento Interno de Trabajo para la vinculación, permanencia y retiro del personal, deberá: 1. Aplicar programas de inducción, reinducción y capacitación, que garanticen el conocimiento de la Entidad, la permanente actualización y el desarrollo de las competencias laborales de sus servidores. 2. Desarrollar estrategias orientadas al mejoramiento continuo de la calidad de vida laboral, mediante la ejecución de programas de bienestar social e incentivos y seguridad y salud en el trabajo. 3. Diseñar y aplicar un adecuado sistema de evaluación del desempeño laboral, que permita el cumplimiento de las metas de la Empresa y el reconocimiento a las labores desarrolladas por los trabajadores directos / temporales y contratistas de la Empresa.'];
+        $process->ProcElaboro = 'Lider Comunicaciones e Informatica';
+        $process->ProcReviso = 'Lider Comunicaciones e Informatica';
+        $process->ProcAprobo = 'Lider Comunicaciones e Informatica';
         $process->ProcLink = "https://onedrive.live.com/embed?resid=C2421B24BB4BB872%216893&authkey=%21ADmKx9rE-721hL4&em=2&wdAllowInteractivity=False&Item='Hoja1'!A10%3AJ22&wdInConfigurator=True";
-        $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
+        $process->ProcRiesgos = [
+            'Incumplimiento de metas  propuestas en los indicadores de gestión',
+            'Perdida de la documentación de los expedientes (historias Laborales)',
+            'Favorecimiento por acción u omisión en las actuaciones en el proceso disciplinario',
+            'Ascenso o reubicación de trabajadores  sin cumplir requisitos',
+            'Error en la liquidación de pagos de cualquier indole prestacional (Nomina, vacaciones, seguridad social, parafiscales,etc)',
+            'No acatar las disposiciones judiciales que pueda interponer las entidades del gobierno como el Ministerio de trabajo en los tiempos indicados o prestablecidos',
+            'Acoso Laboral',
+            'Falsedad en títulos académicos o demas documentos presentados por los candidatos a ocupar un cargo - Personal con antecedentes Judiciales'
+        ];
+        $process->ProcTipo = 'De Apoyo'
         $process->save();
-        $process->recursos()->sync(['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']);
+        $process->recursos()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']);
         $process->gambientals()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']);
         $process->gseguridads()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']);
         $process->requisitos()->sync(['1', '2', '3', '4', '5', '6']);
 
-
-        // id = 03
-        $process = new Process();
-        $process->ProcName = 'transporte y recoleccion';
-        $process->ProcRevVersion = '0';
-        $process->ProcChangesDescription = 'Actualizado por seeder de procesos';
-        $process->ProcImage = 'https://i.picsum.photos/id/475/536/354.jpg';
-        $process->ProcObjetivo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-        $process->ProcElaboro = 'SuperIntendente de planta';
-        $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
-        $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
-        $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
-        $process->ProcParticipantes = ['Gerente General'];
-        // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcPolitOperacion = ["oficina", "Computador", "Tlf", "Fax", "Vehiculo"];
-        // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
-        $process->ProcReviso = 'Gerente General';
-        $process->ProcAprobo = 'Presidencia';
-        $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
-
-        $process->save();
-
-
-        // id = 04
-        $process = new Process();
-        $process->ProcName = 'almacen';
-        $process->ProcRevVersion = '0';
-        $process->ProcChangesDescription = 'Actualizado por seeder de procesos';
-        $process->ProcImage = 'https://i.picsum.photos/id/475/536/354.jpg';
-        $process->ProcObjetivo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-        $process->ProcElaboro = 'SuperIntendente de planta';
-        $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
-        $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
-        $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
-        $process->ProcParticipantes = ['Gerente General'];
-        // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcPolitOperacion = ["oficina", "Computador", "Tlf", "Fax", "Vehiculo"];
-        // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
-        $process->ProcReviso = 'Gerente General';
-        $process->ProcAprobo = 'Presidencia';
-        $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
-
-        $process->save();
-        // $process->salidas()->sync(['3', '4', '5', '6', '7', '8', '9', '10']);
-        // $process->entradas()->sync(['4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']);
-        // $process->proveedores()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
-        // $process->clientes()->sync(['1', '2', '3', '4']);
-        // $process->actividades()->sync(['4', '5', '6', '7', '8', '9']);
-        $process->recursos()->sync(['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']);
-        $process->gambientals()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']);
-        $process->gseguridads()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']);
-        $process->requisitos()->sync(['1', '2', '3', '4', '5', '6']);
     }
 }

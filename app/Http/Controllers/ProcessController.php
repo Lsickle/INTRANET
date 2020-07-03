@@ -126,6 +126,7 @@ class ProcessController extends Controller
         $process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
         $process->ProcLink = $request->input('ProcLink');
         $process->ProcChangesDescription = 'creado el '.now();
+        $process->ProcTipo = $request->input('ProcTipo');
         $process->save();
 
         $process->entradas()->attach($request->input('Entradas'));
