@@ -17,7 +17,7 @@ class Requisitos extends Model
      * @var array
      */
     protected $fillable = [
-        'ReqName', 'ReqType', 'ReqDate', 'ReqEnte', 'ReqQueDice',  
+        'ReqName', 'ReqType', 'ReqDate', 'ReqEnte', 'ReqQueDice', 'ReqSrc'
     ];
 
 
