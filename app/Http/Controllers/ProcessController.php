@@ -247,9 +247,9 @@ class ProcessController extends Controller
         $proceso->procesosDeSoporte()->sync($request->input('Soporte'));
         $proceso->requisitos()->sync($request->input('ProcRequsitos'));
         $proceso->recursos()->sync($request->input('ProcRecursos'));
-        $proceso->gambientals()->attach($request->input('Gambiental'));
-        $proceso->gseguridads()->attach($request->input('Gseguridad'));
-        $proceso->riesgos()->attach($request->input('Riesgo'));
+        $proceso->gambientals()->sync($request->input('Gambiental'));
+        $proceso->gseguridads()->sync($request->input('Gseguridad'));
+        $proceso->riesgos()->sync($request->input('Riesgo'));
 
 
         return redirect()->route('proceso.index')->withStatus(__('Proceso actualizado correctamente'));
