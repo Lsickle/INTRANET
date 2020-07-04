@@ -56,7 +56,7 @@
                             @if (auth()->user()->Avatar == 'robot400x400.gif')
                             <img src="{{asset('white/img/robot400x400.gif') }}" alt="{{ __('Profile Photo') }}">
                             @else
-                            <img src="{{ auth()->user()->Avatar }}" alt="{{ __('Profile Photo') }}">
+                            <img src="{{ Storage::url(auth()->user()->Avatar) }}" alt="{{ __('Profile Photo') }}">
                             @endif
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
