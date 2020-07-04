@@ -62,7 +62,7 @@ class UserController extends Controller
         $user->email_verified_at = now();
         $user->password= Hash::make($request->get('password'));
         $user->ColorUser= 2;
-        $user->Avatar= 'images/robot400x400.gif';
+        $user->Avatar= 'robot400x400.gif';
         $user->save();
 
 

@@ -31,8 +31,8 @@ class Process extends Model
         'ProcAlcance',
         'ProcAmbienTrabajo',
         'ProcPolitOperacion',
-        'ProcRiesgos',
-        'ProcLink'
+        'ProcLink',
+        'ProcTipo'
     ];
     
     /**
@@ -40,7 +40,7 @@ class Process extends Model
      *
      * @var array
      */
-    protected $with = ['recursos', 'gseguridads', 'gambientals', 'requisitos', 'procesosDeSoporte', 'indicadores', 'clientes', 'proveedores', 'entradas', 'salidas', 'documentos', 'actividades', 'documentos', 'areas', ];
+    protected $with = ['recursos', 'gseguridads', 'gambientals', 'requisitos', 'procesosDeSoporte', 'indicadores', 'clientes', 'proveedores', 'entradas', 'salidas', 'documentos', 'actividades', 'documentos', 'areas', 'riesgos'];
 
 	/**
 	 * The attributes that should be cast to native types.
@@ -141,6 +141,12 @@ class Process extends Model
         //Relación de la tabla processes y la tabla recursos 
     }
 
+    public function riesgos()
+    {
+        return $this->belongsToMany('App\Riesgo','processes_riesgos');
+        //Relación de la tabla processes y la tabla recursos 
+    }
+
 
 	/**
 	 * The attributes that should be hidden for arrays.
@@ -159,7 +165,6 @@ class Process extends Model
 	protected $casts = [
 	    'ProcResponsable' => 'array',
         'ProcPolitOperacion' => 'array',
-        'ProcRiesgos' => 'array',
         'ProcParticipantes' => 'array'
     ];
     

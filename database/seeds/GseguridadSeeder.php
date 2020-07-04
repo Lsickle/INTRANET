@@ -14,92 +14,44 @@ class GseguridadSeeder extends Seeder
     {
         // id = 01
         $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Físico';
-        $gseguridad->SeguType = '0'; /*0 = Peligros 1 = Riesgos 2 = Programas asociados al proceso*/
+        $gseguridad->SeguName = 'Posturas Prolongadas';
+        $gseguridad->SeguImpact = 'Ergonómico';
+        $gseguridad->SeguDescrip = 'Desarrollo de la labor mediante posturas sentados durante su jornada';
+        $gseguridad->SeguControl = 'Implementación de actividades del programa de posturas adecuadas ';
         $gseguridad->save();
 
         // id = 02
         $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Químico';
-        $gseguridad->SeguType = '0';
+        $gseguridad->SeguName = 'Radiaciones no ionizantes';
+        $gseguridad->SeguImpact = 'Físico';
+        $gseguridad->SeguDescrip = 'Utilización del computador la cual genera radiaciones';
+        $gseguridad->SeguControl = 'Implementación de pausas activas orientadas a la protecciòn visual';
         $gseguridad->save();
 
         // id = 03
         $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Biológico';
-        $gseguridad->SeguType = '0';
+        $gseguridad->SeguName = 'Exposición de Polvos y Humos';
+        $gseguridad->SeguImpact = 'Químico';
+        $gseguridad->SeguDescrip = 'La oficina de Talento Humano se encuentra cerca a las zonas de incineración';
+        $gseguridad->SeguControl = 'Controles medicos y uso de protecciòn respiratoria';
         $gseguridad->save();
 
         // id = 04
         $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Eléctrico';
-        $gseguridad->SeguType = '0';
+        $gseguridad->SeguName = 'Exposición a vectores, roedores, virus y bacterias';
+        $gseguridad->SeguImpact = 'Biologico';
+        $gseguridad->SeguDescrip = 'La actividad propia de la planta genera la presencia de los agentes mencionados';
+        $gseguridad->SeguControl = 'Implementación de as actividades del programa de bioseguridad';
         $gseguridad->save();
 
         // id = 05
         $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Público';
-        $gseguridad->SeguType = '0';
+        $gseguridad->SeguName = 'Gestión de personal';
+        $gseguridad->SeguImpact = 'Psicologico';
+        $gseguridad->SeguDescrip = 'La atención de trabajadores, resolver conflictos y carga de trabajo';
+        $gseguridad->SeguControl = 'Desarrollo de actividades de bienestar y manejo del estrés';
         $gseguridad->save();
 
-        // id = 06
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Locativo';
-        $gseguridad->SeguType = '0';
-        $gseguridad->save();
 
-        // id = 07
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Ergonómico';
-        $gseguridad->SeguType = '0';
-        $gseguridad->save();
-
-        // id = 08
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Natural ';
-        $gseguridad->SeguType = '0';
-        $gseguridad->save();
-
-        // id = 09
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Psicosocial';
-        $gseguridad->SeguType = '0';
-        $gseguridad->save();
-
-        // id = 10
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Lesiones';
-        $gseguridad->SeguType = '1';
-        $gseguridad->save();
-
-        // id = 11
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Enfermedades';
-        $gseguridad->SeguType = '1';
-        $gseguridad->save();
-
-        // id = 12
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Programa Estilos de vida y trabajo saludable';
-        $gseguridad->SeguType = '2';
-        $gseguridad->save();
-
-        // id = 13
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Programa de Seguridad Industrial';
-        $gseguridad->SeguType = '2';
-        $gseguridad->save();
-
-        // id = 14
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Programa de Higiene Industrial';
-        $gseguridad->SeguType = '2';
-        $gseguridad->save();
-
-        // id = 15
-        $gseguridad = new Gseguridad();
-        $gseguridad->SeguName = 'Programa de Medicina Preventiva y del Trabajo';
-        $gseguridad->SeguType = '2';
-        $gseguridad->save();
     }
 }

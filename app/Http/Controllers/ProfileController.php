@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 
 class ProfileController extends Controller
@@ -30,15 +31,14 @@ class ProfileController extends Controller
         // return $request;
         auth()->user()->update($request->except('Avatar'));
 
-            if ($request->hasFile('Avatar')){
-            $file = $request->file('Avatar');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $name);
+        if ($request->hasFile('Avatar')){
+            $avatarActual = auth()->user()->Avatar;
+            Storage::disk('local')->delete($avatarActual);
+            $pathimg = $request->file('Avatar')->store('public/Avatar');
+            auth()->user()->update(['Avatar' => $pathimg]);
+        }else{
             
-            auth()->user()->update(['Avatar' => '/images/'.$name]);
-
-                /*auth()->user()->update($request->all());*/
-            }
+        }
 
             return back()->withStatus(__('Profile successfully updated.'));
     }

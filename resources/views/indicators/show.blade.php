@@ -130,54 +130,22 @@ Indicadores
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12 text-center">
-						@php
-						$userid = Auth::user()->id;
-						@endphp
-
-						@hasrole('Super Admin')
 						<div class="row">
 							<div class="col-md-6 col-sm-12 text-center">
-								<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
-									@method('DELETE')
-									@csrf 
-									<button type="submit" class="fas fa-backspace btn btn-danger"> Eliminar</button>
-								</form>
-							</div>
-							<div class="col-md-6 col-sm-12 text-center">
-								<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
-							</div>
-						</div>
-						@else
-							@if(auth()->user()->can('updateIndicators') && $indicator->user_id === $userid)
-								<div class="row">
-									<div class="col-md-6 col-sm-12 text-center">
-										<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
-											@method('DELETE')
-											@csrf 
-											<button type="submit" class="btn btn-default sw-btn-prev disabled"> Eliminar</button>
-										</form>
-									</div>
-									
-									<div class="col-md-6 col-sm-12 text-center">
-										<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
-									</div>
-								</div>
-							@else
-								<div class="row">
-									<div class="col-md-6 col-sm-12 text-center">
-										<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
+								@can('deleteIndicators')
+									<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
 										@method('DELETE')
 										@csrf 
-										<button type="submit" class="btn btn-default sw-btn-prev disabled"> Eliminar</button>
-										</form>
-									</div>
-									<div class="col-md-6 col-sm-12 text-center">
-										<button class="btn btn-default sw-btn-prev disabled" type="button">Editar</button><br><br><br>
-									</div>
-								</div>
-							@endif
-						@endhasrole
-						
+										<button type="submit" class="fas fa-backspace btn btn-danger"> Eliminar</button>
+									</form>
+                                @endcan
+							</div>
+							<div class="col-md-6 col-sm-12 text-center">
+								@can('updateIndicators')
+									<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
+                                @endcan
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

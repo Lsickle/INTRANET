@@ -17,7 +17,10 @@ class Gambiental extends Model
      * @var array
      */
     protected $fillable = [
-        'GesName', 'GesType', 
+        'GesName',
+        'GesImpact',
+        'GesDescrip',
+        'GesControl'
     ];
 
 

@@ -14,68 +14,35 @@ class GambientalSeeder extends Seeder
     {
     	// id = 01
         $gambiental = new Gambiental();
-        $gambiental->GesName = 'Consumo de Energía';
-        $gambiental->GesType = '0'; /*0 = Aspectos Ambientales  1 = Impactos Ambientales 2 = Programas asociados al proceso*/
+        $gambiental->GesName = 'Consumo y utilización de agua';
+        $gambiental->GesImpact = 'Recurso Agua';
+        $gambiental->GesDescrip = 'Generación de vertimientos y disminución del recurso natural';
+        $gambiental->GesControl = 'Implementación de actividades del programa de uso racional del agua';
         $gambiental->save();
 
         // id = 02
         $gambiental = new Gambiental();
-        $gambiental->GesName = 'Consumo de Insumos de Oficina y Papel';
-        $gambiental->GesType = '0';
+        $gambiental->GesName = 'Consumo de energía';
+        $gambiental->GesImpact = 'Recursos Naturales';
+        $gambiental->GesDescrip = 'Agotamiento de los recursos no renovables';
+        $gambiental->GesControl = 'Implementación de actividades del programa de ahorro de energia';
         $gambiental->save();
 
         // id = 03
         $gambiental = new Gambiental();
-        $gambiental->GesName = 'Generación de Residuos Sólidos, Sólidos Reciclables, Ordinarios y Biodegradables';
-        $gambiental->GesType = '0';
+        $gambiental->GesName = 'Consumo de papel normal';
+        $gambiental->GesImpact = 'Recurso Flora';
+        $gambiental->GesDescrip = 'Agotamiento del recurso natural ';
+        $gambiental->GesControl = 'Campañas orientadas al uso de herramientas informáticas';
         $gambiental->save();
 
         // id = 04
         $gambiental = new Gambiental();
-        $gambiental->GesName = 'Generación de Residuos Peligrosos';
-        $gambiental->GesType = '0';
+        $gambiental->GesName = 'Generación de residuos';
+        $gambiental->GesImpact = 'Recurso Suelo';
+        $gambiental->GesDescrip = 'Contaminaciòn al aire por su tratamiento por incineraciòn';
+        $gambiental->GesControl = 'Implementación del programa ambiental de las 3R';
         $gambiental->save();
 
-        // id = 05
-        $gambiental = new Gambiental();
-        $gambiental->GesName = 'Agotamiento de Recursos Naturales';
-        $gambiental->GesType = '1';
-        $gambiental->save();
-
-        // id = 06
-        $gambiental = new Gambiental();
-        $gambiental->GesName = 'Contaminación de Suelos';
-        $gambiental->GesType = '1';
-        $gambiental->save();
-
-        // id = 07
-        $gambiental = new Gambiental();
-        $gambiental->GesName = 'Contaminación de Agua';
-        $gambiental->GesType = '1';
-        $gambiental->save();
-
-        // id = 08
-        $gambiental = new Gambiental();
-        $gambiental->GesName = 'Contaminación Aire';
-        $gambiental->GesType = '1';
-        $gambiental->save();
-
-        // id = 09
-        $gambiental = new Gambiental();
-        $gambiental->GesName = 'Programa de ahorro y uso eficiente de Energía';
-        $gambiental->GesType = '2';
-        $gambiental->save();
-
-        // id = 10
-        $gambiental = new Gambiental();
-        $gambiental->GesName = 'Consumo Responsable del papel';
-        $gambiental->GesType = '2';
-        $gambiental->save();
-
-        // id = 11
-        $gambiental = new Gambiental();
-        $gambiental->GesName = 'Programa de Gestión de Residuos Sólidos';
-        $gambiental->GesType = '2';
-        $gambiental->save();
     }
 }

@@ -10,36 +10,37 @@ Alertas
 
 @section('content')
 	<div class="card">
+		<div class="card-header row">
+			<div class="col-md-10">
+				<h3 class="card-title">Editar Alerta</h3>
+			</div>
+			<div class="col-md-2">
+				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$alert->id}}">
+				Eliminar
+				</button>
+				@component('layouts.partials.modal')
+				@slot('id')
+					{{$alert->id}}
+				@endslot
+				@slot('textModal')
+					{{$alert->AlertName}}
+				@endslot
+				@slot('botonModal')
+					<form id="eliminaralert" action="{{ route('alerts.destroy', $alert) }}" method="POST" class="pull-right">
+						@method('DELETE')
+						@csrf
+						<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+					</form>
+				@endslot
+				@endcomponent
+			</div>
+		</div>
 		<div class="card-body">
 			@include('alerts.danger')
-			<form role="form" method="POST" action="{{ route('alerts.update', $alert) }}" enctype="multipart/form-data">
-				@csrf
+			<form role="form" method="POST" action="{{ route('alerts.update', $alert) }}">
 				@method('PUT')
-				<div class="row">
-					<div class="col-md-10">
-					  <h3 class="card-title">Editar Alerta</h3>
-					</div>
-					<div class="col-md-2">
-					  <button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$alert->id}}">
-					    Eliminar
-					  </button>
-					  @component('layouts.partials.modal')
-					  	@slot('id')
-					  		{{$alert->id}}
-					  	@endslot
-					  	@slot('textModal')
-					  		{{$alert->AlertName}}
-					  	@endslot
-					  	@slot('botonModal')
-					  		<form id="eliminaralert" action="{{ route('alerts.destroy', $alert) }}" method="POST" class="pull-right">
-					  			@method('DELETE')
-					  			@csrf
-					  			<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-					  		</form>
-					  	@endslot
-					  @endcomponent
-					</div>
-				</div>
+				@csrf
+				
 				<div class="form-group">
 				  <label>Nombre de la alerta</label>
 				  <input name="AlertName" type="text" id="AlertName" class="text-center form-control" value="{{$alert->AlertName}}">

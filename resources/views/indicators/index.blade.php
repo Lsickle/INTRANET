@@ -16,7 +16,9 @@ Indicadores Estrategicos
 			<h3 class="mb-0">Indicadores Estrategicos</h3>
 		</div>
 		<div class="col-md-2 mb-2">
-			<a href="{{ route('indicators.create') }}" class="fas fa-plus btn btn-success"> Crear</a>
+			@can('createIndicators')
+				<a href="{{ route('indicators.create') }}" class="fas fa-plus btn btn-success"> Crear</a>
+            @endcan
 		</div>
 		<div class="col-md-12">
 			@include('alerts.success')

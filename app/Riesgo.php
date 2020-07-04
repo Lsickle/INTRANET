@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Requisitos extends Model
+class Riesgo extends Model
 {
     use SoftDeletes;
 
@@ -17,22 +17,17 @@ class Requisitos extends Model
      * @var array
      */
     protected $fillable = [
-        'ReqName', 'ReqType', 'ReqDate', 'ReqEnte', 'ReqQueDice', 'ReqSrc'
+        'RiesgDescrip',
+        'RiesgAction'
     ];
-
-
-    public function areas()
-    {
-        return $this->belongsToMany('App\Areas')->withTimestamps();
-        //Relación de la tabla areas y la tabla requisitos 
-    }
 
 
     public function procesos()
     {
-        return $this->belongsToMany('App\Process', 'processes_requisitos')->withTimestamps();
-        //Relación de la tabla processes y la tabla requisitos 
+        return $this->belongsToMany('App\Process', 'processes_riesgos');
+        //Relación de la tabla processes y la tabla gseguridad 
     }
+
 
 
     /**
@@ -54,5 +49,4 @@ class Requisitos extends Model
     ];
 
     protected $dates = ['deleted_at', 'updated_at', 'created_at'];
-
 }

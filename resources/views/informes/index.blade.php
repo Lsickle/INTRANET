@@ -25,7 +25,9 @@ informes
                     <h3 class="card-title"><strong>Informes</strong></h3>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('informes.create') }}" class="btn btn-success float-right"> Crear</a>
+					@can('createInformes')
+						<a href="{{ route('informes.create') }}" class="btn btn-success float-right"> Crear</a>
+					@endcan
                 </div>
             </div>
         </div>
@@ -33,16 +35,16 @@ informes
         @include('alerts.success')
 		<div class="card-body">
 			<table class="table table-bordered table-striped" id="tabledata">
-			  <thead>
-			    <th class="text-center">Nombre</th>
-			    <th class="text-center">Ver más... </th>
-			  </thead>
-			  	<tbody>
-			  @foreach($informes as $informe)
-					<tr>
-						<td class="text-center">{{$informe->InfoName}}</td>
-						<td class="text-center"><a method='GET' href="informes/{{$informe->id}}" class="btn btn-secondary"> Ver Más.</a></td>
-					</tr>
+				<thead>
+					<th class="text-center">Nombre</th>
+					<th class="text-center">Ver más... </th>
+				</thead>
+				<tbody>
+					@foreach($informes as $informe)
+						<tr>
+							<td class="text-center">{{$informe->InfoName}}</td>
+							<td class="text-center"><a method='GET' href="informes/{{$informe->id}}" class="btn btn-secondary"> Ver Más.</a></td>
+						</tr>
 					@endforeach
 				</tbody>
 			</table>

@@ -24,7 +24,9 @@ Comunicados
                     <h3 class="card-title"><strong>Comunicados</strong></h3>
                 </div>
                 <div class="col-md-2">
-					<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-success float-right"> Crear</a>
+					@can('createReleases')
+						<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-success float-right"> Crear</a>
+					@endcan
                 </div>
             </div>
         </div>

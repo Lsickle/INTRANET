@@ -60,19 +60,22 @@
                                 <p>{{ __('Lista de Usuarios') }}</p>
                             </a>
                         </li>
+                        @can('readRole')
                         <li @if ($pageSlug == 'roles') class="active " @endif>
                             <a href="{{ route('roles.index')  }}">
                                 <i class="tim-icons icon-tag"></i>
                                 <p>{{ __('Roles') }}</p>
                             </a>
                         </li>
+                        @endcan
+                        @can('readPermissions')
                         <li @if ($pageSlug == 'permisos') class="active " @endif>
                             <a href="{{ route('permissions.index')  }}">
                                 <i class="tim-icons icon-badge"></i>
                                 <p>{{ __('Permisos') }}</p>
                             </a>
                         </li>
-
+                        @endcan
                         @can('readAreas')
                         <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
                             <a href="{{ route('areas.index') }}">

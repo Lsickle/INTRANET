@@ -22,9 +22,11 @@ Documentos
 				  <label>Nombre del documento</label>
 				  <input name="DocName" type="text" placeholder="" id="DocName" class="text-center form-control" required="">
 				</div>
-				<div class="custom-input-file">
-					<label>Archivo</label>
-					<input name="DocSrc" type="file" id="DocSrc">
+
+				<div class="custom-input-file {{ $errors->has('DocSrc') ? ' has-danger' : '' }}">
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Archivo</b>" data-content="Adjuntar Archivo"><i class="far fa-question-circle"></i> Archivo</label>
+					<input id="DocSrc" name="DocSrc" type="file" class="form-control form-control-alternative{{ $errors->has('DocSrc') ? ' is-invalid' : '' }}">
+					@include('alerts.feedback', ['field' => 'DocSrc'])
 				</div>
 				{{-- <div class="custom-input-file">
 					<label>Archivo</label>

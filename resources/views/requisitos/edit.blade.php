@@ -28,9 +28,10 @@ Requisitos y Documentos Legales
 					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo</b>" data-content="Tipo de requisito y/o documento legal."><i class="far fa-question-circle"></i> Tipo de requisito legal</label>
 					{{-- <input name="ReqType" type="text" id="ReqType" class="text-center form-control" value="{{$requisito->ReqType}}"> --}}
 					<select name="ReqType" id="ReqType" class="text-center form-control">
-						<option value="0">Legales</option>
-						<option value="1">Empresariales</option>
-						<option value="2">Otras - Cliente</option>
+						<option {{$requisito->ReqType == 0 ? 'selected': ''}} value="0">Legales</option>
+						<option {{$requisito->ReqType == 1 ? 'selected': ''}} value="1">Empresariales</option>
+						<option {{$requisito->ReqType == 2 ? 'selected': ''}} value="2">Otras - Cliente</option>
+						<option {{$requisito->ReqType == 3 ? 'selected': ''}} value="3">NORMAS TECNICAS COLOMBIANAS ISO</option>
 					</select>
 				</div>
 				<div class="form-group">
