@@ -53,7 +53,11 @@
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
-                            <img src="{{ auth()->user()->Avatar }}" alt="{{ __('Profile Photo') }}">
+                            @if (auth()->user()->Avatar == 'robot400x400.gif')
+                            <img src="{{asset('white/img/robot400x400.gif') }}" alt="{{ __('Profile Photo') }}">
+                            @else
+                            <img src="{{ Storage::url(auth()->user()->Avatar) }}" alt="{{ __('Profile Photo') }}">
+                            @endif
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
                         <p class="d-lg-none">{{ __('Log out') }}</p>

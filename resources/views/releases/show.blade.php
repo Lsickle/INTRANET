@@ -15,12 +15,6 @@ Comunicados
                 <div class="col-md-2">
 					@can('updateReleases')
 						<a href="{{$release->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
-					@else
-						@if($release->user_id == Auth::user()->id)
-							<a href="{{$release->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
-						@else
-							<a href="#" class="btn btn-default sw-btn-prev disabled not-allowed"> Editar</a>
-						@endif
 					@endcan
                 </div>
                 <div class="col-md-8">
@@ -28,49 +22,24 @@ Comunicados
                 </div>
                 <div class="col-md-2">
 					@can('deleteReleases')
-							<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$release->id}}">
-							  Eliminar
-							</button>
-							@component('layouts.partials.modal')
-								@slot('id')
-									{{$release->id}}
-								@endslot
-								@slot('textModal')
-									{{$release->RelName}}
-								@endslot
-								@slot('botonModal')
-									<form action="{{ route('releases.destroy', $release) }}" method="POST">
-									  @method('DELETE')
-									  @csrf 
-									    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-									</form>
-								@endslot
-							@endcomponent
-					@else
-						@if($release->user_id == Auth::user()->id)
-							<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$release->id}}">
+						<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$release->id}}">
 							Eliminar
-							</button>
-							@component('layouts.partials.modal')
-								@slot('id')
-									{{$release->id}}
-								@endslot
-								@slot('textModal')
-									{{$release->RelName}}
-								@endslot
-								@slot('botonModal')
-									<form action="{{ route('releases.destroy', $release) }}" method="POST">
-									  @method('DELETE')
-									  @csrf 
-									    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-									</form>
-								@endslot
-							@endcomponent
-						@else
-						<button type="button" class="btn btn-default disabled not-allowed fas fa-trash" data-toggle="modal" data-target="#">
-						Eliminar
 						</button>
-						@endif
+						@component('layouts.partials.modal')
+							@slot('id')
+								{{$release->id}}
+							@endslot
+							@slot('textModal')
+								{{$release->RelName}}
+							@endslot
+							@slot('botonModal')
+								<form action="{{ route('releases.destroy', $release) }}" method="POST">
+									@method('DELETE')
+									@csrf 
+									<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+								</form>
+							@endslot
+						@endcomponent
 					@endcan
                 </div>
             </div>

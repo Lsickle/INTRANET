@@ -13,7 +13,9 @@ Comités
 		<div class="card-header text-center">
             <div class="row">
                 <div class="col-md-2">
-					<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
+					@can('updateComites')
+						<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
+					@endcan
                 </div>
                 <div class="col-md-8">
                     <h3 class="card-title"><strong>Cómites</strong></h3>
@@ -56,7 +58,7 @@ Comités
 			<div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 mx-auto recuadro">
-						<h4 class="text-center negrilla">Imagen del cómite</h4>
+						<h4 class="text-center negrilla">Logo del cómite</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<div class="col-md-12">
@@ -72,7 +74,7 @@ Comités
 			<div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 mx-auto recuadro">
-						<h4 class="text-center negrilla">Foto del cómite</h4>
+						<h4 class="text-center negrilla">Integrantes del cómite</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<div class="col-md-12">

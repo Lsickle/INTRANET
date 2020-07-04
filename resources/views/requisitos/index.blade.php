@@ -46,15 +46,18 @@ Requisitos y Documentos Legales
 					      	      </div>
 					      	      <div class="col-md-6">
 					      	            @switch($requisito->ReqType)
-					      	                  @case(1)
-					      	                  Legal<
-					      	                        @break
-					      	                  @case(2)
-					      	                  Empresarial
-					      	                        @break
-					      	                  @case(3)
-					      	                  Otro - Cliente
-					      	                        @break
+											@case(0)
+											Legal
+												@break
+											@case(1)
+											Empresarial
+												@break
+											@case(2)
+											Otro - Cliente
+												@break
+											@case(3)
+											NORMAS TECNICAS COLOMBIANAS ISO
+												@break
 					      	            @endswitch
 					      	      </div>
 					      	</div>
@@ -106,16 +109,16 @@ Requisitos y Documentos Legales
 					      	<div class="col-md-12"><br></div>
 					      	<div class="row">
 					      	      <div class="col-md-12">
-					      	            <strong>Aplicable:</strong>
+					      	            <strong>Áreas en las que aplica:</strong>
 					      	      </div>
 					      	</div>
 					      	<div class="col-md-12"><br></div>
 					      	<div class="row">
 					      	      <div class="col-md-12">
 					      	            <ul>
-					      	                  @foreach($requisito->areas as $area)
-					      	                  <li style="background-color: #ffffff;"><font color="#525f7f">{{$area->AreaName}}</font></li><br>
-					      	                  @endforeach
+											@foreach($requisito->areas as $area)
+											<li>{{$area->AreaName}}</li>
+											@endforeach
 					      	            </ul>
 					      	      </div>
 					      	</div>

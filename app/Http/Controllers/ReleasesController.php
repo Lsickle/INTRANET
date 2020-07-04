@@ -49,7 +49,7 @@ class ReleasesController extends Controller
     public function store(storeUpdateReleasesRequest $request)
     {
         $usuarios = $request->input('users');
-        /*return $usuarios;*/
+        
         $path = $request->file('RelSrc')->store('public/Anuncios');
 
         $releases = new Releases();
@@ -62,12 +62,6 @@ class ReleasesController extends Controller
         $releases->user_id = Auth::user()->id;
         $releases->save();
 
-        // $usuariocreador = $releases->user;
-        // $releases['user'] = $usuariocreador;
-        /*return $releases;*/
-
-        /*$correos = $releases->areas();*/
-
         $general = User::all('email');
 
         if ($releases->RelGeneral == 0) {
@@ -75,8 +69,6 @@ class ReleasesController extends Controller
         }else{
             Mail::to($usuarios)->queue(new ReleaseStored($releases));
         }
-
-        /*Notification::send($users->email, new MailReleases($releases));*/
 
         return redirect()->route('releases.index')->withStatus(__('Comunicado creado correctamente'));
     }
@@ -101,7 +93,7 @@ class ReleasesController extends Controller
     public function edit(Releases $release)
     {
 
-        if ($release->user_id == Auth::user()->id) {
+        if (auth()->user()->can('updateReleases')) {
             $users = User::get();
             return view('releases.edit', compact('release', 'users'));
         }else{
@@ -120,11 +112,6 @@ class ReleasesController extends Controller
     public function update(storeUpdateReleasesRequest $request, Releases $release)
     {
 
-
-
-        /*Cambios para envio de correo por el update. NO LOS HE VERIFICADO*/
-
-
         $usuarios = $request->input('users');
 
         $general = User::all('email');
@@ -136,13 +123,11 @@ class ReleasesController extends Controller
         }
 
 
-
-
-
-
         $release->update($request->except(['RelSrc']));
 
         if ($request->hasFile('RelSrc')){
+            $RelSrcActual = $release->RelSrc;
+            Storage::disk('local')->delete($RelSrcActual);
             $path = $request->file('RelSrc')->store('public/Anuncios');
             $release->update(['RelSrc' => $path]);
         }else{

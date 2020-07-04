@@ -94,7 +94,7 @@ class CargoSeeder extends Seeder
 
         // id = 17
         $cargo = new Cargo();
-        $cargo->CargoName = 'Subgerente Comercial';
+        $cargo->CargoName = 'Subgerente';
         $cargo->save();
 
         // id = 18

@@ -17,12 +17,8 @@ Documentos
 	<div class="card">
 		<div class="card-header pull-left">
 		    <h4 class="card-title"><strong>Documentos</strong>
-
             @can('createDocuments')
-    		    {{-- @hasrole('Super Admin') --}}
-    		  	   <a href="{{ route('documents.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
-    		    {{-- @else
-    		    @endhasrole --}}
+				<a href="{{ route('documents.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
             @endcan
 		  </h4>
 		</div>
@@ -57,10 +53,7 @@ Documentos
                                     @endif
                                 </td>
             		        	<td class="text-center">{{$Document->DocVersion}}</td>
-            		        	{{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
-                                @can('indexDocuments')
-            		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
-                                @endcan
+            		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "Borrador" : "Publicado" }}</td>
             		        	<td class="text-center">{{$Document->DocType}}</td>
             		        	<td class="text-center">
             		        		<ul class="list-group list-group-flush">
@@ -91,10 +84,6 @@ Documentos
                                     @endif
                                 </td>
                                 <td class="text-center">{{$publicadodocumento->DocVersion}}</td>
-                                {{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
-                                @can('indexDocuments')
-                                <td class="text-center">{{ $publicadodocumento->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
-                                @endcan
                                 <td class="text-center">{{$publicadodocumento->DocType}}</td>
                                 <td class="text-center">
                                     <ul class="list-group list-group-flush">

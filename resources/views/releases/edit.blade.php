@@ -25,10 +25,15 @@ Comunicados
 				  @include('alerts.feedback', ['field' => 'RelName'])
 				</div>
 				<div class="custom-input-file {{ $errors->has('RelSrc') ? ' has-danger' : '' }}">
-					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Imagen del anuncio</b>" data-content="Imagen referencia a la noticia o comunicado emitido. Este archivo debe ser de tipo: jpeg,jpg,png."><i class="far fa-question-circle"></i>Imagen del anuncio</label>
-					<input name="RelSrc" type="file" id="RelSrc" value="{{Storage::url($release->RelSrc)}}" class="form-control-alternative{{ $errors->has('RelSrc') ? ' is-invalid' : '' }}">
-					@include('alerts.feedback', ['field' => 'RelSrc'])
-				</div>
+                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Imagen del anuncio</b>" data-content="Ingresar la imagen correspondiente al Anuncio. Este archivo debe ser de tipo: jpg, jpeg, png"><i class="far fa-question-circle"></i> Imagen del anuncio</label>
+                <input id="RelSrc" name="RelSrc" type="file" class="form-control form-control-alternative{{ $errors->has('RelSrc') ? ' is-invalid' : '' }}">
+                @include('alerts.feedback', ['field' => 'RelSrc'])
+                @if($release->RelSrc === "")
+                  <a href="#"><img id="RelSrcOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
+                @else
+                  <a href="{{Storage::url($release->RelSrc)}}" target="_blank"> <img id="RelSrcOutput" src="{{Storage::url($release->RelSrc)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
+                @endif
+              </div>
 				<div class="form-group{{ $errors->has('RelMessage') ? ' has-danger' : '' }}">
 				    <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Mensaje del anuncio</b>" data-content="Ingresar el mensaje que quiere comunicar en dicho anuncio. Máximo 512 caracteres."><i class="far fa-question-circle"></i> Mensaje del anuncio</label>
 					<input type="text" name="RelMessage" id="RelMessage" class="text-center form-control form-control-alternative{{ $errors->has('RelMessage') ? ' is-invalid' : '' }}" value="
@@ -68,20 +73,6 @@ Comunicados
 				  </select>
 				  @include('alerts.feedback', ['field' => 'RelGeneral'])
 				</div>
-				{{-- @if($release->RelGeneral == 1)
-					<div class="form-group">
-						<label class="form-control-label">Anuncio emitido para:</label>
-						<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('users[]') }}"  required>
-							@foreach($users as $user)
-							<option value="{{$user->email}}"
-								@if ($release->RelGeneral == $user->email)
-									selected
-								@endif
-							>{{$user->name}}  -  {{$user->email}}</option>
-							@endforeach
-						</select>
-					</div>
-				@endif --}}
 
 				<div class="col-md-12" id="div-contenedor">
 					
@@ -121,6 +112,27 @@ Comunicados
 				`);
 			}
 		}
+	</script>
+
+	<script type="text/javascript">
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+			var output = $('#'+input.id+'Output');
+			output.attr('src', e.target.result);
+			output.attr('class', 'd-block');
+		}
+
+		reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+	$('input[type="file"]').change(function(){
+		readURL(this);
+	});
 	</script>
 
 @endpush

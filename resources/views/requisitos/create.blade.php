@@ -30,6 +30,7 @@ Requisitos y Documentos Legales
 						<option value="0">Legales</option>
 						<option value="1">Empresariales</option>
 						<option value="2">Otras - Cliente</option>
+						<option value="3">NORMAS TECNICAS COLOMBIANAS ISO</option>
 					</select>
 				</div>
 				<div class="form-group">

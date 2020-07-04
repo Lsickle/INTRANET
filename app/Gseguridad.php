@@ -17,7 +17,10 @@ class Gseguridad extends Model
      * @var array
      */
     protected $fillable = [
-        'SeguName', 'SeguType', 
+        'SeguName',
+        'SeguImpact',
+        'SeguDescrip',
+        'SeguControl'
     ];
 
 
