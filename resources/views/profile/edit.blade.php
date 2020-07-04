@@ -136,8 +136,11 @@ Perfil de usuario
                             <div class="block block-two-{{$colorblock}}" id="colors2"></div>
                             <div class="block block-three-{{$colorblock}}" id="colors3"></div>
                             <div class="block block-four-{{$colorblock}}" id="colors4"></div>
-                            
-                                <img class="avatar" style="width: 20em; height: 15em;" src="{{ auth()->user()->Avatar }}">
+                            @if (auth()->user()->Avatar == 'robot400x400.gif')
+                            <img class="avatar" style="width: 20em; height: 15em;" src="{{ asset('white/img/robot400x400.gif') }}" alt="{{ __('Profile Photo')}}">
+                            @else
+                            <img class="avatar" style="width: 20em; height: 15em;" src="{{ auth()->user()->Avatar }}" alt="{{ __('Profile Photo')}}">
+                            @endif
                             <a href="#">
                                 @auth
                                     @php
