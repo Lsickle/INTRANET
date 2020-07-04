@@ -146,8 +146,10 @@ class RequisitosController extends Controller
 
 
         if ($request->hasFile('ReqSrc')){
+            $ReqSrcActual = $requisito->ReqSrc;
+            Storage::disk('local')->delete($ReqSrcActual);
             $path = $request->file('ReqSrc')->store('public/Requisitos');
-            $comite->update(['ReqSrc' => $path]);
+            $requisito->update(['ReqSrc' => $path]);
         }else{
            
         }

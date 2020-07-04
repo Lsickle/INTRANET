@@ -223,6 +223,8 @@ class ProcessController extends Controller
         $proceso->update($request->except(['ProcImage']));
 
         if ($request->hasFile('ComiSrc')){
+            $ComiSrcActual = $proceso->ComiSrc;
+            Storage::disk('local')->delete($ComiSrcActual);
             $path = $request->file('ProcImage')->store('public/Procesos');
             $proceso->update(['ProcImage' => $path]);
         }else{

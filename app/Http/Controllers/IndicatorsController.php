@@ -180,18 +180,24 @@ class IndicatorsController extends Controller
         }
 
         if ($request->hasFile('IndGraphic')){
+            $IndGraphicActual = $indicator->IndGraphic;
+            Storage::disk('local')->delete($IndGraphicActual);
             $path = $request->file('IndGraphic')->store('public/Graphic');
             $indicator->update(['IndGraphic' => $path]);
         }else{
         }
 
         if ($request->hasFile('IndTable')){
+            $IndTableActual = $indicator->IndTable;
+            Storage::disk('local')->delete($IndTableActual);
             $pathimg = $request->file('IndTable')->store('public/Archivos');
             $indicator->update(['IndTable' => $pathimg]);
         }else{
         }
         
         if ($request->hasFile('IndAnalysis')){
+            $IndAnalysisActual = $indicator->IndAnalysis;
+            Storage::disk('local')->delete($IndAnalysisActual);
             $pathAnalisis = $request->file('IndAnalysis')->store('public/Graphic');
             $indicator->update(['IndAnalysis' => $pathAnalisis]);
         }else{

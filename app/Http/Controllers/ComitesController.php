@@ -119,6 +119,8 @@ class ComitesController extends Controller
 
 
         if ($request->hasFile('ComiSrc')){
+            $ComiSrcActual = $comite->ComiSrc;
+            Storage::disk('local')->delete($ComiSrcActual);
             $path = $request->file('ComiSrc')->store('public/Comites');
             $comite->update(['ComiSrc' => $path]);
         }else{
@@ -127,6 +129,8 @@ class ComitesController extends Controller
 
 
         if ($request->hasFile('ComiImage')){
+            $ComiImageActual = $comite->ComiImage;
+            Storage::disk('local')->delete($ComiImageActual);
             $pathimg = $request->file('ComiImage')->store('public/Comites');
             $comite->update(['ComiImage' => $pathimg]);
         }else{

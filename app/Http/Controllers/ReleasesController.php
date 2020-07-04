@@ -126,6 +126,8 @@ class ReleasesController extends Controller
         $release->update($request->except(['RelSrc']));
 
         if ($request->hasFile('RelSrc')){
+            $RelSrcActual = $release->RelSrc;
+            Storage::disk('local')->delete($RelSrcActual);
             $path = $request->file('RelSrc')->store('public/Anuncios');
             $release->update(['RelSrc' => $path]);
         }else{
