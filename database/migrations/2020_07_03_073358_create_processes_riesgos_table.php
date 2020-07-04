@@ -16,7 +16,7 @@ class CreateProcessesRiesgosTable extends Migration
         Schema::create('processes_riesgos', function (Blueprint $table) {
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla processes*/
             $table->foreign('process_id')->references('id')->on('processes');
-            $table->unsignedBigInteger('recursos_id');  /*Relación con la tabla recursos*/
+            $table->unsignedBigInteger('riesgo_id');  /*Relación con la tabla recursos*/
             $table->foreign('riesgo_id')->references('id')->on('riesgos');
         });
     }

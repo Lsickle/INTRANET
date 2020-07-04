@@ -37,7 +37,9 @@ class GambientalController extends Controller
     {
         $gambiental = new Gambiental();
         $gambiental->GesName = $request->input('GesName');
-        $gambiental->GesType = $request->input('GesType');
+        $gambiental->GesImpact = $request->input('GesImpact');
+        $gambiental->GesDescrip = $request->input('GesDescrip');
+        $gambiental->GesControl = $request->input('GesControl');
         $gambiental->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Gestión Ambiental creada correctamente'));
@@ -80,7 +82,9 @@ class GambientalController extends Controller
         $gambiental = Gambiental::find($request->input('idocultoGambi'));
         /*return $gambiental;*/
         $gambiental->GesName = $request->input('GesName');
-        $gambiental->GesType = $request->input('GesType');
+        $gambiental->GesImpact = $request->input('GesImpact');
+        $gambiental->GesDescrip = $request->input('GesDescrip');
+        $gambiental->GesControl = $request->input('GesControl');
         $gambiental->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Gestión Ambiental actualizada correctamente'));

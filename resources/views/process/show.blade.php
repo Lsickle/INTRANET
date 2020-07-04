@@ -412,7 +412,7 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-12 text-center margen color1">
 				<h4>REQUISITOS Y REGULACIONES</h4>
 			</div>
-			<div class="col-md-4 margen">
+			<div class="col-md-3 margen">
 				<h4 class="text-center">LEGALES</h4><br>
 				@foreach($proceso->requisitos as $requisito)
 					@if($requisito->ReqType == 0)
@@ -426,7 +426,7 @@ Proceso de {{$proceso->ProcName}}
 					@endif
 				@endforeach
 			</div>
-			<div class="col-md-4 margen">
+			<div class="col-md-3 margen">
 				<h4 class="text-center">EMPRESARIALES</h4><br>
 				@foreach($proceso->requisitos as $requisito)
 					@if($requisito->ReqType == 1)
@@ -440,7 +440,21 @@ Proceso de {{$proceso->ProcName}}
 					@endif
 				@endforeach
 			</div>
-			<div class="col-md-4 margen">
+			<div class="col-md-3 margen">
+				<h4 class="text-center">NORMAS TECNICAS COLOMBIANAS ISO</h4><br>
+				@foreach($proceso->requisitos as $requisito)
+					@if($requisito->ReqType == 3)
+						<li>
+							@if($requisito->ReqLink == "N" || $requisito->ReqLink == "")
+								<a href='{{$requisito->ReqSrc}}'>{{$requisito->ReqName}}</a>
+							@else
+								<a href='{{$requisito->ReqLink}}'>{{$requisito->ReqName}}</a>
+							@endif
+						</li>
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-3 margen">
 				<h4 class="text-center">OTRAS - CLIENTE</h4><br>
 				@foreach($proceso->requisitos as $requisito)
 					@if($requisito->ReqType == 2)
@@ -461,11 +475,18 @@ Proceso de {{$proceso->ProcName}}
 		<div class="row">
 			<div class="col-md-12 text-center margen">
 				<h4>RIESGOS</h4><hr>
-				<p>
-					@foreach($proceso->ProcRiesgos as $riesgo)
-						<li>{{$riesgo}}</li>
-					@endforeach
-				</p>
+				@foreach($proceso->riesgos as $riesgo)
+				<div class="row">
+					<div class="col-md-6 margen">
+						<h4 class="text-center">DESCRIPCION DEL RIESGO</h4>
+						<p>{{$riesgo->RiesgDescrip}}</p>
+					</div>
+					<div class="col-md-6 margen">
+						<h4 class="text-center">ACCIONES AIMPLEMENTAR</h4>
+						<p>{{$riesgo->RiesgAction}}</p>
+					</div>
+				</div>
+				@endforeach
 			</div>
 		</div>
 		<div class="col-md-12">
@@ -475,30 +496,26 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-12 margen color">
 				<h4 class="text-center">GESTIÓN AMBIENTAL</h4>
 			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">ASPECTOS AMBIENTALES</h4>
-				@foreach($proceso->ambientales as $gambiental)
-					@if($gambiental->GesType == 0)
-						<li>{{$gambiental->GesName}}</li>
-					@endif
-				@endforeach
+			@foreach($proceso->gambientals as $gambiental)
+			<div class="row">
+				<div class="col-md-3 margen">
+					<h4 class="text-center">ASPECTOS AMBIENTALES</h4>
+					<p>{{$gambiental->GesName}}</p>
+				</div>
+				<div class="col-md-3 margen">
+					<h4 class="text-center">IMPACTOS AMBIENTALES</h4>
+					<p>{{$gambiental->GesImpact}}</p>
+				</div>
+				<div class="col-md-3 margen">
+					<h4 class="text-center">DESCRIPCIÓN</h4>
+					<p>{{$gambiental->GesDescrip}}</p>
+				</div>
+				<div class="col-md-3 margen">
+					<h4 class="text-center">CONTROLES OPERACIONALES</h4>
+					<p>{{$gambiental->GesControl}}</p>
+				</div>
 			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">IMPACTOS AMBIENTALES</h4>
-				@foreach($proceso->ambientales as $gambiental)
-					@if($gambiental->GesType == 1)
-						<li>{{$gambiental->GesName}}</li>
-					@endif
-				@endforeach
-			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">CONTROLES OPERACIONALES</h4>
-				@foreach($proceso->ambientales as $gambiental)
-					@if($gambiental->GesType == 2)
-						<li>{{$gambiental->GesName}}</li>
-					@endif
-				@endforeach
-			</div>
+			@endforeach
 		</div>
 		<div class="col-md-12">
 			<br><br>
@@ -507,33 +524,26 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-12 margen color1">
 				<h4 class="text-center">GESTIÓN EN SEGURIDAD Y SALUD EN EL TRABAJO</h4>
 			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">PELIGROS</h4>
-				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gseguridad->SeguType == 0)
-						<li>{{$gseguridad->SeguName}}</li>
-					@else
-					@endif
-				@endforeach
+			@foreach($proceso->gseguridads as $gseguridad)
+			<div class="row">
+				<div class="col-md-3 margen">
+					<h4 class="text-center">PELIGRO</h4>
+					<p>{{$gseguridad->SeguName}}</p>
+				</div>
+				<div class="col-md-3 margen">
+					<h4 class="text-center">RIESGO</h4>
+					<p>{{$gseguridad->SeguImpact}}</p>
+				</div>
+				<div class="col-md-3 margen">
+					<h4 class="text-center">DESCRIPCIÓN</h4>
+					<p>{{$gseguridad->SeguDescrip}}</p>
+				</div>
+				<div class="col-md-3 margen">
+					<h4 class="text-center">CONTROLES OPERACIONALES</h4>
+					<p>{{$gseguridad->SeguControl}}</p>
+				</div>
 			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">RIESGOS</h4>
-				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gseguridad->SeguType == 1)
-						<li>{{$gseguridad->SeguName}}</li>
-					@else
-					@endif
-				@endforeach
-			</div>
-			<div class="col-md-4 margen">
-				<h5 class="text-center">CONTROLES OPERACIONALES</h5>
-				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gseguridad->SeguType == 2)
-						<li>{{$gseguridad->SeguName}}</li>
-					@else
-					@endif
-				@endforeach
-			</div>
+			@endforeach
 		</div>
 		<div class="col-md-12">
 			<br><br>

@@ -51,6 +51,14 @@ Procesos
 								</ul>
 							</li>
 							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Riesgos</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateRiesgo">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditRiesgo">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteRiesgo">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
 								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Politicas</a>
 								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 									<button class="dropdown-item" id="addpoliticbutton" onclick="addPolitica()">
@@ -58,14 +66,14 @@ Procesos
 									</button>
 								</ul>
 							</li>
-							<li class="dropdown-submenu dropleft">
+							{{-- <li class="dropdown-submenu dropleft">
 								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Riesgos</a>
 								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 									<button class="dropdown-item" id="addriesgobutton" onclick="addRiesgo()">
 									Añadir riesgo
 									</button>
 								</ul>
-							</li>
+							</li> --}}
 						</ul>
 					</div>
 				</div>
@@ -140,7 +148,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcParticipantes">Participantes</label>
-							<select multiple id="ProcParticipantes" class="form-control selectmultiple" name="ProcParticipantes" placeholder="seleccione">
+							<select multiple id="ProcParticipantes" class="form-control selectmultiple" name="ProcParticipantes[]" placeholder="seleccione">
 								@foreach($cargos as $cargo)
 									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
@@ -200,8 +208,31 @@ Procesos
 					</div>
 				</div>
 					
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Riesgo">Riesgos</label>
+							  <select multiple id="Riesgo" class="form-control selectmultiple" name="Riesgo[]" placeholder="seleccione">
+								@foreach($riesgos as $riesgo)
+									<option value="{{$riesgo->id}}">{{$riesgo->RiesgDescrip}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Gambiental">Gestión Ambiental</label>
+							  <select multiple id="Gambiental" class="form-control selectmultiple" name="Gambiental[]" placeholder="seleccione">
+								@foreach($gambientales as $gambiental)
+									<option value="{{$gambiental->id}}">{{$gambiental->GesName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div>
+
 				<div class="form-row" id="containerDeRiesgos">
-					<div class="col-md-6 col-xs-12" id="riesgos0">
+					{{-- <div class="col-md-6 col-xs-12" id="riesgos0">
 						<div class="form-group">
 							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
 							<div class="input-group">
@@ -211,29 +242,7 @@ Procesos
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Gambiental">Gestión Ambiental</label>
-							  <select multiple id="Gambiental" class="form-control selectmultiple" name="Gambiental[]" placeholder="seleccione">
-								@foreach($gambientales as $gambiental)
-									<option value="{{$gambiental->id}}">{{$gambiental->GesName}} - 
-										@switch($gambiental->GesType)
-											@case(0)
-												Aspectos Ambientales
-												@break
-											@case(1)
-												Impactos Ambientales
-												@break
-											@case(2)
-												Controles Operacionales
-												@break
-										@endswitch
-									</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
+					</div> --}}
 				</div>
 					
 				<div class="form-row" id="containerDePoliticas">
@@ -242,19 +251,7 @@ Procesos
 							<label class="input-label" for="Gseguridad">Gestión de Seguridad y Salud en el Trabajo</label>
 							  <select multiple id="Gseguridad" class="form-control selectmultiple" name="Gseguridad[]" placeholder="seleccione">
 								@foreach($gseguridades as $gseguridad)
-									<option value="{{$gseguridad->id}}">{{$gseguridad->SeguName}} - 
-										@switch($gseguridad->SeguType)
-											@case(0)
-												Peligros
-												@break
-											@case(1)
-												Riesgos
-												@break
-											@case(2)
-												Controles Operacionales
-												@break
-										@endswitch
-									</option>
+									<option value="{{$gseguridad->id}}">{{$gseguridad->SeguName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -262,12 +259,14 @@ Procesos
 					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
 						<div class="form-group">
 							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
-							<div class="input-group">
+							<input name="ProcPolitOperacion[]" id="ProcPolitOperacioninput0" type="text" required placeholder="Politica de Operación" maxlength="200" value="{{ old('ProcPolitOperacion[]') }}" class="form-control form-control-alternative{{ $errors->has('ProcPolitOperacion[]') ? ' is-invalid' : '' }}">
+							@include('alerts.feedback', ['field' => 'ProcPolitOperacion'])
+							{{-- <div class="input-group">
 								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
 								<div class="input-group-append eliminarpolitica">
 								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 				</div>
@@ -339,6 +338,31 @@ Procesos
 						</div>
 					</div>
 				</div>
+
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Soporte">Procesos de Soporte</label>
+							<select multiple id="Soporte" class="form-control" name="Soporte[]" placeholder="seleccione">
+								@foreach($soportes as $soporte)
+									<option value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Areas">Areas Que participan</label>
+							<select multiple id="Areas" class="form-control" name="Areas[]" placeholder="seleccione">
+								@foreach($areas as $area)
+									<option value="{{$area->id}}">{{$area->AreaName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</form> 
 		<div class="card-footer">
@@ -352,7 +376,31 @@ Procesos
 	{{-- Esta es la sección de los modal --}}
 
 
-	{{-- Este modal corresponde a los Gestión de seguridad y salud en el trabajo--}}
+	{{-- Este modal corresponde a los riesgos--}}
+	@component('layouts.partials.modalCreate')
+		@slot('idModal')
+			modalCreateRiesgo
+		@endslot
+		@slot('titulo')
+			Nuevo Riesgo
+		@endslot
+		@slot('action')
+			{{ route('riesgo.store')}}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<label>DESCRIPCION  DEL RIESGO</label>
+				<input type="text" name="RiesgDescrip" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>ACCIONES AIMPLEMENTAR</label>
+				<input type="text" name="RiesgAction" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
+
+	{{-- Este modal corresponde a los Seguridad y Salud en el Trabajo--}}
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateGseguridad
@@ -366,16 +414,20 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<label>Nombre de la Gestión de SST</label>	      
+				<label>ASPECTO AMBIENTAL</label>
 				<input type="text" name="SeguName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-				<label>Tipo de Gestión SST</label>
-				<select name="SeguType" class="text-center form-control select" required="">
-					<option value="0">Peligros</option>
-					<option value="1">Riesgos</option>
-					<option value="2">Controles Operacionales</option>
-				</select>
+				<label>IMPACTO</label>
+				<input type="text" name="SeguImpact" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>DESCRIPCIÓN</label>
+				<input type="text" name="SeguDescrip" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>CONTROLES OPERACIONALES</label>
+				<input type="text" name="SeguControl" class="text-center form-control" required="">
 			</div>
 		@endslot
 	@endcomponent
@@ -395,16 +447,20 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<label>Nombre de la Gestión Ambiental</label>	      
+				<label>PELIGRO</label>
 				<input type="text" name="GesName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-				<label>Tipo de Gestión Ambiental</label>
-				<select name="GesType" class="text-center form-control select" required="">
-					<option value="0">Aspectos Ambientales</option>
-					<option value="1">Impactos Ambientales</option>
-					<option value="2">Controles Operacionales</option>
-				</select>
+				<label>IMPACTO</label>
+				<input type="text" name="GesImpact" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>DESCRIPCIÓN</label>
+				<input type="text" name="GesDescrip" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>CONTROLES OPERACIONALES</label>
+				<input type="text" name="GesControl" class="text-center form-control" required="">
 			</div>
 		@endslot
 	@endcomponent
@@ -438,6 +494,44 @@ Procesos
 		@endslot
 	@endcomponent
 
+	{{-- Modal de edición de Gestión de Seguridad y Salud en el Trabajo --}}
+	@component('layouts.partials.modalEdit')
+		@slot('idModal')
+			modalEditRiesgo
+		@endslot
+		@slot('titulo')
+			Editar Riesgo
+		@endslot
+		@slot('action')
+			{{ route('riesgo.actualizar') }}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<select id="IdSelectRiesgo" class="form-control select" onchange="cambiarRiesgoId()">
+					@foreach($riesgos as $riesgo)
+						<option value="{{$riesgo->id}}">{{$riesgo->RiesgDescrip}}</option>
+					@endforeach
+				</select>
+			</div>
+			<input id="idocultoRiesgo" type="text" value="
+			@foreach($riesgos as $riesgo)
+				@if($loop->first)
+					{{$riesgo->id}}
+				@endif
+			@endforeach
+			" name="idocultoRiesgo" style="display:none;">
+			<div class="form-group">
+				<label>DESCRIPCION DEL RIESGO</label>
+				<input type="text" name="RiesgDescrip" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>ACCIONES A IMPLEMENTAR</label>
+				<input type="text" name="RiesgAction" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
+
 
 	{{-- Modal de edición de Gestión de Seguridad y Salud en el Trabajo --}}
 	@component('layouts.partials.modalEdit')
@@ -467,16 +561,20 @@ Procesos
 			@endforeach
 			" name="idocultoGsegu" style="display:none;">
 			<div class="form-group">
-				<label>Nuevo Nombre</label>
+				<label>ASPECTO AMBIENTAL</label>
 				<input type="text" name="SeguName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-				<label>Nuevo Tipo</label>
-				<select name="SeguType" class="text-center form-control select" required="">
-					<option value="0">Peligros</option>
-					<option value="1">Riesgos</option>
-					<option value="2">Controles Operacionales</option>
-				</select>
+				<label>IMPACTO</label>
+				<input type="text" name="SeguImpact" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>DESCRIPCIÓN</label>
+				<input type="text" name="SeguDescrip" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>CONTROLES OPERACIONALES</label>
+				<input type="text" name="SeguControl" class="text-center form-control" required="">
 			</div>
 		@endslot
 	@endcomponent
@@ -510,16 +608,20 @@ Procesos
 			@endforeach
 			" name="idocultoGambi" style="display:none;">
 			<div class="form-group">
-				<label>Nuevo Nombre</label>
+				<label>PELIGRO</label>
 				<input type="text" name="GesName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-				<label>Nuevo Tipo</label>
-				<select name="GesType" class="text-center form-control select" required="">
-					<option value="0">Aspectos Ambientales</option>
-					<option value="1">Impactos Ambientales</option>
-					<option value="2">Controles Operacionales</option>
-				</select>
+				<label>IMPACTO</label>
+				<input type="text" name="GesImpact" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>DESCRIPCIÓN</label>
+				<input type="text" name="GesDescrip" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>CONTROLES OPERACIONALES</label>
+				<input type="text" name="GesControl" class="text-center form-control" required="">
 			</div>
 		@endslot
 	@endcomponent
@@ -631,25 +733,44 @@ Procesos
 					<select id="SelectEliminarGsegu" class="form-control select" onchange="eliminarGseguridad()">
 						<option value="0" selected>Seleccionar Gestión de SST a Eliminar</option>
 						@foreach($gseguridadesDrop as $gseguridadDrop)
-						<option value="{{$gseguridadDrop->id}}">{{$gseguridadDrop->SeguName}} -
-							@switch($gseguridadDrop->SeguType)
-								@case(0)
-									Peligros
-									@break
-								@case(1)
-									Riesgos
-									@break
-								@case(2)
-									Controles Operacionales
-									@break
-							@endswitch
-						</option>
+						<option value="{{$gseguridadDrop->id}}">{{$gseguridadDrop->SeguName}}</option>
 						@endforeach
 					</select>
 				</div>
 		@endslot
 		@slot('submitbutton')
 		<button form="formDeleteGseguridades" disabled id="eliminarSubmitGseguridades" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
+		@endslot
+	@endcomponent
+
+	{{-- Modal de eliminar riesgos --}}
+	@component('layouts.partials.modalDelete')
+		@slot('idModal')
+			modalDeleteRiesgo
+		@endslot
+		@slot('idform')
+			formDeleteRiesgos
+		@endslot
+		@slot('titulo')
+			Eliminar Riesgo
+			@endslot
+		@slot('action')
+			{{ route('riesgo.destroy', 0) }}
+		@endslot
+		@slot('form')
+	         	@method('DELETE')
+				@csrf
+				<div class="form-group">
+					<select id="SelectEliminarRiesgo" class="form-control select" onchange="eliminarRiesgo()">
+						<option value="0" selected>Seleccionar Gestión de SST a Eliminar</option>
+						@foreach($riesgosDrop as $riesgoDrop)
+						<option value="{{$riesgoDrop->id}}">{{$riesgoDrop->RiesgDescrip}}</option>
+						@endforeach
+					</select>
+				</div>
+		@endslot
+		@slot('submitbutton')
+		<button form="formDeleteRiesgos" disabled id="eliminarSubmitRiesgos" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
 		@endslot
 	@endcomponent
 
@@ -675,19 +796,7 @@ Procesos
 					<select id="SelectEliminarGambi" class="form-control select" onchange="eliminarGambiental()">
 						<option value="0" selected>Seleccionar Gestión Ambiental a Eliminar</option>
 						@foreach($gambientalesDrop as $gambientalDrop)
-						<option value="{{$gambientalDrop->id}}">{{$gambientalDrop->GesName}} -
-							@switch($gambientalDrop->GesType)
-								@case(0)
-									Aspectos Ambientales
-									@break
-								@case(1)
-									Impactos Ambientales
-									@break
-								@case(2)
-									Controles Operacionales
-									@break
-							@endswitch
-						</option>
+						<option value="{{$gambientalDrop->id}}">{{$gambientalDrop->GesName}}</option>
 						@endforeach
 					</select>
 				</div>
@@ -737,6 +846,13 @@ Procesos
 			// console.log(id);
 		};
 
+		function cambiarRiesgoId(){
+			var id = $('#IdSelectRiesgo').val();
+			var inputoculto = $('#idocultoRiesgo');
+			inputoculto.attr('value', id);
+			// console.log(id);
+		};
+
 		/*Parte de los scripts de ELIMINAR*/
 
 		function eliminarRecurso(){
@@ -770,6 +886,19 @@ Procesos
 			let botonsubmit = $('#eliminarSubmitGseguridades');
 			var id = $('#SelectEliminarGsegu').val();
 			formulario.attr('action', '{{ url('gseguridad') }}/'+id);
+			if (id > 0) {
+				botonsubmit.attr('disabled', false);
+			}else{
+				botonsubmit.attr('disabled', true);
+			}
+			// console.log(id);
+		};
+
+		function eliminarRiesgo(){
+			let formulario = $('#formDeleteRiesgos');
+			let botonsubmit = $('#eliminarSubmitRiesgos');
+			var id = $('#SelectEliminarRiesgo').val();
+			formulario.attr('action', '{{ url('riesgo') }}/'+id);
 			if (id > 0) {
 				botonsubmit.attr('disabled', false);
 			}else{

@@ -15,8 +15,8 @@ class CreateRiesgosTable extends Migration
     {
         Schema::create('riesgos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('RiesgDescrip', 240); /*nombre del informe*/
-            $table->string('RiesgAction');  /*descripcion del riesgo*/
+            $table->text('RiesgDescrip'); /*nombre del informe*/
+            $table->text('RiesgAction');  /*descripcion del riesgo*/
             $table->timestamps();
             $table->softDeletes();
         });

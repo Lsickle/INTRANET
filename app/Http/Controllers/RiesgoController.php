@@ -35,7 +35,13 @@ class RiesgoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $riesgo = new Riesgo();
+        $riesgo->RiesgDescrip = $request->input('RiesgDescrip');
+        $riesgo->RiesgAction = $request->input('RiesgAction');
+        $riesgo->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Riesgo creado correctamente'));
+    
     }
 
     /**
@@ -72,6 +78,17 @@ class RiesgoController extends Controller
         //
     }
 
+    public function actualizar(Request $request)
+    {
+         // return $request;
+        $riesgo = Riesgo::find($request->input('idocultoRiesgo'));
+        $riesgo->RiesgDescrip = $request->input('RiesgDescrip');
+        $riesgo->RiesgAction = $request->input('RiesgAction');
+        $riesgo->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Riesgo actualizado correctamente'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -80,6 +97,12 @@ class RiesgoController extends Controller
      */
     public function destroy(Riesgo $riesgo)
     {
-        //
+        if ($riesgo->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('la gestión de seguridad y salud en el trabajo no fue eliminada... intente nuevamente escogiendo una salida existente'));
+        }
+        $riesgo->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Gestión de Seguridad y Salud en el Trabajo Eliminada correctamente'));
+   
     }
 }

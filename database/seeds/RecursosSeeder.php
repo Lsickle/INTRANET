@@ -72,7 +72,7 @@ class RecursosSeeder extends Seeder
         $recurso->RecType = '1';
         $recurso->save();
 
-        // id = 1
+        // id = 11
         $recurso = new Recursos();
         $recurso->RecName = 'Gerente General';
         $recurso->RecType = '1';

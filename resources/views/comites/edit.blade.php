@@ -25,7 +25,7 @@ Comités
 				<div class="custom-input-file {{ $errors->has('ComiSrc') ? ' has-danger' : '' }}">
 					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Logo del Comite</b>" data-content="Imagen representativa o Logo del cómite. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Logo</label>
 					<input id="ComiSrc" name="ComiSrc" type="file" class="form-control form-control-alternative{{ $errors->has('ComiSrc') ? ' is-invalid' : '' }}">
-					@include('alerts.feedback', ['field' => 'IndAnalysis'])
+					@include('alerts.feedback', ['field' => 'ComiSrc'])
 						@if($comite->ComiSrc === "")
 						<a href="#"><img id="ComiSrcOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
 					@else
@@ -35,7 +35,7 @@ Comités
 				<div class="custom-input-file {{ $errors->has('ComiImage') ? ' has-danger' : '' }}">
 					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Foto de los integrantes del Comite</b>" data-content="Adjuntar foto de los integrantes del cómite. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Foto de los integrantes</label>
 					<input id="ComiImage" name="ComiImage" type="file" class="form-control form-control-alternative{{ $errors->has('ComiImage') ? ' is-invalid' : '' }}">
-					@include('alerts.feedback', ['field' => 'IndAnalysis'])
+					@include('alerts.feedback', ['field' => 'ComiImage'])
 						@if($comite->ComiImage === "")
 						<a href="#"><img id="ComiImageOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
 					@else

@@ -63,7 +63,7 @@ class RequisitosController extends Controller
 
 
         if ($request->hasFile('ReqSrc')) {
-            $path = $request->file('ReqSrc')->store('public/'.'Requisitos');
+            $path = $request->file('ReqSrc')->store('public/Requisitos');
         }else{
             $path = "N";
         }
@@ -142,8 +142,17 @@ class RequisitosController extends Controller
             }
         }
 
+        $requisito->update($request->except(['ReqSrc', 'ComiImage']));
 
-        $requisito->update($request->all());
+
+        if ($request->hasFile('ReqSrc')){
+            $path = $request->file('ReqSrc')->store('public/Requisitos');
+            $comite->update(['ReqSrc' => $path]);
+        }else{
+           
+        }
+
+
         /*return $request;*/
 
         /*$areaid = $request->input('areas');*/
