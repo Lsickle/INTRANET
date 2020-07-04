@@ -143,7 +143,7 @@ class DocumentsController extends Controller
             $docActual = $document->DocSrc;
             Storage::disk('local')->delete($docActual);
 
-            $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
+            $path = $request->file('DocSrc')->store('public/documents');
 
             $archivo = $request->file('DocSrc');
             $mime = $archivo->getClientMimeType();

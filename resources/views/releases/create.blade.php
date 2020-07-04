@@ -25,9 +25,10 @@ Comunicados
 				  @include('alerts.feedback', ['field' => 'RelName'])
 				</div>
 				<div class="custom-input-file {{ $errors->has('RelSrc') ? ' has-danger' : '' }}">
-					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Imagen del anuncio</b>" data-content="Imagen referencia a la noticia o comunicado emitido. Este archivo debe ser de tipo: jpeg,jpg,png."><i class="far fa-question-circle"></i>Imagen del anuncio</label>
-					<input name="RelSrc" type="file" id="RelSrc" required="" class="form-control-alternative{{ $errors->has('RelSrc') ? ' is-invalid' : '' }}">
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Imagen del anuncio</b>" data-content="Adjuntar Imagen del anuncio. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Imagen del anuncio</label>
+					<input id="RelSrc" name="RelSrc" type="file" class="form-control form-control-alternative{{ $errors->has('RelSrc') ? ' is-invalid' : '' }}">
 					@include('alerts.feedback', ['field' => 'RelSrc'])
+					<a href="#"><img id="RelSrcOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
 				</div>
 				<div class="form-group{{ $errors->has('RelMessage') ? ' has-danger' : '' }}">
 				    <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Mensaje del anuncio</b>" data-content="Ingresar el mensaje que quiere comunicar en dicho anuncio. Máximo 512 caracteres."><i class="far fa-question-circle"></i> Mensaje del anuncio</label>
@@ -89,6 +90,27 @@ Comunicados
 				`);
 			}
 		}
+	</script>
+
+	<script type="text/javascript">
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+			var output = $('#'+input.id+'Output');
+			output.attr('src', e.target.result);
+			output.attr('class', 'd-block');
+		}
+
+		reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+	$('input[type="file"]').change(function(){
+		readURL(this);
+	});
 	</script>
 
 @endpush
