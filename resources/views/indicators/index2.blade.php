@@ -20,7 +20,9 @@ Indicadores Generales
 		  <h3 class="card-title"><strong>Indicadores Generales</strong></h3>
 		</div>
 		<div class="col-md-12">
-			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
+			@can('createIndicators')
+				<a href="{{ route('indicators.create') }}" class="fas fa-plus btn btn-success"> Crear</a>
+            @endcan
 		</div>
 
         @include('alerts.success')

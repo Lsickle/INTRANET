@@ -62,6 +62,16 @@ Procesos
 							<!-- End Level two -->
 							<!-- Level two dropdown-->
 							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Riesgos</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateRiesgo">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditRiesgo">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteRiesgo">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
 								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Politicas</a>
 								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 									<button class="dropdown-item" id="addpoliticbutton" onclick="addPolitica()">
@@ -69,14 +79,14 @@ Procesos
 									</button>
 								</ul>
 							</li>
-							<li class="dropdown-submenu dropleft">
+							{{-- <li class="dropdown-submenu dropleft">
 								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Riesgos</a>
 								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
 									<button class="dropdown-item" id="addriesgobutton" onclick="addRiesgo()">
 									Añadir riesgo
 									</button>
 								</ul>
-							</li>
+							</li> --}}
 							<!-- End Level two -->
 						</ul>
 					</div>
@@ -106,16 +116,40 @@ Procesos
 
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
+						<div class="custom-input-file {{ $errors->has('ProcImage') ? ' has-danger' : '' }}">
+							<label for="ProcImage" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Imagen de referencia</b>" data-content="Imagen representativa o Logo del Proceso. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Imagen de referencia</label>
+							<input id="ProcImage" name="ProcImage" type="file" class="form-control form-control-alternative{{ $errors->has('ProcImage') ? ' is-invalid' : '' }}">
+							@include('alerts.feedback', ['field' => 'ProcImage'])
+								@if($proceso->ProcImage === "")
+								<a href="#"><img id="ProcImageOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
+							@else
+								<a href="{{Storage::url($proceso->ProcImage)}}" target="_blank"> <img id="ProcImageOutput" src="{{Storage::url($proceso->ProcImage)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
+							@endif
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
+							<input class="form-control" id="ProcObjetivo" name="ProcObjetivo" value="{{$proceso->ProcObjetivo}}">
+							</input>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
 							<input  max="500" class="form-control" id="ProcAlcance" name="ProcAlcance" value="{{$proceso->ProcAlcance}}">
 						</div>
 					</div>
-
 					<div class="col-md-6 col-xs-12">
-						<div class="custom-input-file">
-							<label class="input-label" for="ProcImage">Imagen de referencia</label>
-							<input type="file" value="{{$proceso->ProcImage}}" class="form-control" id="ProcImage" placeholder="Imagen de Referencia" name="ProcImage">
+						<div class="form-group">
+							<label class="input-label" for="ProcTipo">Tipo de Proceso</label>
+							<select id="ProcTipo" required class="form-control" name="ProcTipo[]" placeholder="seleccione">
+								<option {{$proceso->ProcTipo =='De Apoyo' ? 'selected' : ''}} value="De Apoyo">De Apoyo</option>
+								<option {{$proceso->ProcTipo =='Estratégico' ? 'selected' : ''}} value="Estratégico">Estratégico</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -140,13 +174,15 @@ Procesos
 					
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
-							<select id="ProcAutoridad" required class="form-control" name="ProcAutoridad" placeholder="seleccione">
+							<label class="input-label" for="ProcParticipantes">Participantes del Proceso</label>
+							<select id="ProcParticipantes" required class="form-control" name="ProcParticipantes[]" placeholder="seleccione" multiple>
 								@foreach($cargos as $cargo)
 									<option 
-										@if ($proceso->ProcAutoridad == $cargo->CargoName)
-											selected
-										@endif
+										@foreach ($proceso->ProcParticipantes as $participante)
+											@if ($participante == $cargo->CargoName)
+												selected
+											@endif
+										@endforeach
 									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
@@ -158,7 +194,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRecursos">Recursos Necesarios</label>
-							<select multiple id="Recursos" class="form-control" name="Recursos[]" placeholder="seleccione">
+							<select multiple id="ProcRecursos" class="form-control" name="ProcRecursos[]" placeholder="seleccione">
 								@foreach($recursos as $recursoitem)
 									<option value="{{$recursoitem->id}}"
 										@foreach($proceso->recursos as $recurso)
@@ -183,65 +219,57 @@ Procesos
 							</select>
 						</div>
 					</div>
-
 					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
-							<select id="ProcElaboro" required class="form-control" name="ProcElaboro" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option 
-									@if ($proceso->ProcElaboro == $cargo->CargoName)
-										selected
-									@endif
-									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-							</select>
+						<div class="form-group{{ $errors->has('ProcLink') ? ' has-danger' : '' }}">
+							<label class="input-label" for="ProcLink">Link PHVA</label>
+						<input id="ProcLink" value="{{$proceso->ProcLink}}" placeholder="https://onedrive.live.com/embed?cid=C2421B24BB4BB872&resid=C2421B24BB4BB872%216887&authkey=AH-eik6VViNfZDQ&em=2" maxlength="200" value="{{ old('ProcLink') }}" name="ProcLink" type="text" class="text-center form-control form-control-alternative{{ $errors->has('ProcLink') ? ' is-invalid' : '' }}" required>
+							@include('alerts.feedback', ['field' => 'ProcLink'])
 						</div>
 					</div>
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcReviso">Revisado Por</label>
-							<select id="ProcReviso" required class="form-control" name="ProcReviso" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option 
-									@if ($proceso->ProcReviso == $cargo->CargoName)
-										selected
-									@endif
-									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
-							<select id="ProcAprobo" required class="form-control" name="ProcAprobo" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option 
-									@if ($proceso->ProcAprobo == $cargo->CargoName)
-										selected
-									@endif
-									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="form-row">
-
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
 							<input class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo" value="{{$proceso->ProcAmbienTrabajo}}">
 						</div>
 					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
+							<select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
+								@foreach($requisitos as $requisito)
+								<option @foreach($proceso->requisitos as $requiSelect)
+									@if($requiSelect->id == $requisito->id)
+									selected
+									@endif
+									@endforeach
+									value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
 				</div>
 
-				<div class="form-row">
+				<div class="form-row" id="containerDeRiesgos">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Riesgos">Riesgos</label>
+							<select multiple id="Riesgos" class="form-control" name="Riesgos[]" placeholder="seleccione">
+								@foreach($riesgos as $riesgo)
+								<option value="{{$riesgo->id}}"
+									@foreach($proceso->riesgos as $riesgoselect)
+										@if($riesgoselect->id == $riesgo->id)
+										selected
+										@endif
+									@endforeach
+									>{{$riesgo->RiesgDescrip}}
+								</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gambiental">Gestión Ambiental</label>
@@ -253,24 +281,15 @@ Procesos
 										selected
 										@endif
 									@endforeach
-									>{{$gambiental->GesName}} -
-									@switch($gambiental->GesType)
-									@case(0)
-									Aspectos Ambientales
-									@break
-									@case(1)
-									Impactos Ambientales
-									@break
-									@case(2)
-									Controles Operacionales
-									@break
-									@endswitch
+									>{{$gambiental->GesName}}
 								</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
-
+				</div>
+				
+				<div class="form-row" id="containerDePoliticas">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gseguridad">Gestión de Seguridad y Salud en el Trabajo</label>
@@ -282,25 +301,26 @@ Procesos
 										selected
 										@endif
 									@endforeach
-									>{{$gseguridad->SeguName}} -
-									@switch($gseguridad->SeguType)
-									@case(0)
-									Peligros
-									@break
-									@case(1)
-									Riesgos
-									@break
-									@case(2)
-									Controles Operacionales
-									@break
-									@endswitch
+									>{{$gseguridad->SeguName}}
 								</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
+					@foreach($proceso->ProcPolitOperacion as $operacion)
+					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
+						<div class="form-group">
+							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]" value="{{$operacion}}"> 
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					@endforeach
 				</div>
-
 
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
@@ -318,26 +338,6 @@ Procesos
 							</select>
 						</div>
 					</div>
-					
-					
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Soporte">Procesos de Soporte</label>
-							<select multiple id="Soporte" class="form-control" name="Soporte[]" placeholder="seleccione">
-								@foreach($soportes as $soporte)
-								<option @foreach($proceso->procesosDeSoporte as $sopoSelect)
-									@if($sopoSelect->id == $soporte->id)
-									selected
-									@endif
-									@endforeach
-									value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Docs">Documentación aplicable</label>
@@ -349,6 +349,80 @@ Procesos
 									@endif
 									@endforeach
 									value="{{$documento->id}}">{{$documento->DocName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
+							<select id="ProcElaboro" required class="form-control" name="ProcElaboro" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option 
+									@if ($proceso->ProcElaboro == $cargo->CargoName)
+										selected
+									@endif
+									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcReviso">Revisado Por</label>
+							<select id="ProcReviso" required class="form-control" name="ProcReviso" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option 
+									@if ($proceso->ProcReviso == $cargo->CargoName)
+										selected
+									@endif
+									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
+							<select id="ProcAprobo" required class="form-control" name="ProcAprobo" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option 
+									@if ($proceso->ProcAprobo == $cargo->CargoName)
+										selected
+									@endif
+									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcDate">Fecha</label>
+							<input type="date" id="ProcDate" name="ProcDate" class="form-control" value="{{$proceso->ProcDate}}">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Soporte">Procesos de Soporte</label>
+							<select multiple id="Soporte" class="form-control" name="Soporte[]" placeholder="seleccione">
+								@foreach($soportes as $soporte)
+									@if ($soporte->id !== $proceso->id)
+										<option @foreach($proceso->procesosDeSoporte as $sopoSelect)
+										@if($sopoSelect->id == $soporte->id)
+										selected
+										@endif
+										@endforeach
+										value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
+									@endif
 								@endforeach
 							</select>
 						</div>
@@ -371,9 +445,28 @@ Procesos
 					</div>
 				</div>
 
-
-
-				<div class="form-row" id="containerDePoliticas">
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcChangesDescription">Descripción del cambio</label>
+							<input type="text" class="form-control" id="ProcChangesDescription" placeholder="descripcion del cambio" name="ProcChangesDescription" value="{{$proceso->ProcChangesDescription}}">
+						</div>
+					</div>
+					{{-- @foreach($proceso->ProcRiesgos as $riesgo)
+					<div class="col-md-6 col-xs-12" id="riesgos0">
+						<div class="form-group">
+							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
+							<div class="input-group">
+								<input type="text" id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]" value="{{$riesgo}}">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(0)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					@endforeach --}}
+				</div>
+				{{-- <div class="form-row" id="containerDePoliticas">
 					@foreach($proceso->ProcPolitOperacion as $operacion)
 					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
 						<div class="form-group">
@@ -387,71 +480,8 @@ Procesos
 						</div>
 					</div>
 					@endforeach
-				</div>
-
-
-
-				<div class="form-row" id="containerDeRiesgos">
-					@foreach($proceso->ProcRiesgos as $riesgo)
-					<div class="col-md-6 col-xs-12" id="riesgos0">
-						<div class="form-group">
-							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
-							<div class="input-group">
-								<input type="text" id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]" value="{{$riesgo}}">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(0)">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					@endforeach
-				</div>
-
-
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							<select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione"
-								id="ProcRequsitos">
-								@foreach($requisitos as $requisito)
-								<option @foreach($proceso->requisitos as $requiSelect)
-									@if($requiSelect->id == $requisito->id)
-									selected
-									@endif
-									@endforeach
-									value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Fecha</label>
-							<input type="date" name="ProcDate" class="form-control" value="{{$proceso->ProcDate}}">
-						</div>
-					</div>
-				</div>
-
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
-							<input class="form-control" id="ProcObjetivo" name="ProcObjetivo" value="{{$proceso->ProcObjetivo}}">
-							</input>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcRevVersion">Descripción del cambio</label>
-							<input type="text" class="form-control" id="email" placeholder="descripcion del cambio" name="ProcChangesDescription" value="{{$proceso->ProcChangesDescription}}">
-						</div>
-					</div>
-				</div>
+				</div> --}}
 			</div>
-		</div>
 
 		<div class="card-footer">
 			   <button type="submit" class="btn btn-success">Enviar</button>
@@ -461,9 +491,31 @@ Procesos
 	</div>
 
 
-
-
 	{{-- Esta es la sección de los modal CREATE--}}
+
+	{{-- Este modal corresponde a los riesgos--}}
+	@component('layouts.partials.modalCreate')
+		@slot('idModal')
+			modalCreateRiesgo
+		@endslot
+		@slot('titulo')
+			Nuevo Riesgo
+		@endslot
+		@slot('action')
+			{{ route('riesgo.store')}}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<label>DESCRIPCION  DEL RIESGO</label>
+				<input type="text" name="RiesgDescrip" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>ACCIONES AIMPLEMENTAR</label>
+				<input type="text" name="RiesgAction" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
 
 	{{-- Este modal corresponde a los Gestión de seguridad y salud en el trabajo--}}
 	@component('layouts.partials.modalCreate')
@@ -553,6 +605,44 @@ Procesos
 
 
 	{{-- Parte del documento donde se encuentran los modales de EDIT --}}
+
+	{{-- Modal de edición de Gestión de Seguridad y Salud en el Trabajo --}}
+	@component('layouts.partials.modalEdit')
+		@slot('idModal')
+			modalEditRiesgo
+		@endslot
+		@slot('titulo')
+			Editar Riesgo
+		@endslot
+		@slot('action')
+			{{ route('riesgo.actualizar') }}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<select id="IdSelectRiesgo" class="form-control select" onchange="cambiarRiesgoId()">
+					@foreach($riesgos as $riesgo)
+						<option value="{{$riesgo->id}}">{{$riesgo->RiesgDescrip}}</option>
+					@endforeach
+				</select>
+			</div>
+			<input id="idocultoRiesgo" type="text" value="
+			@foreach($riesgos as $riesgo)
+				@if($loop->first)
+					{{$riesgo->id}}
+				@endif
+			@endforeach
+			" name="idocultoRiesgo" style="display:none;">
+			<div class="form-group">
+				<label>DESCRIPCION DEL RIESGO</label>
+				<input type="text" name="RiesgDescrip" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>ACCIONES A IMPLEMENTAR</label>
+				<input type="text" name="RiesgAction" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
 
 
 	{{-- Modal de edición de Gestión de Seguridad y Salud en el Trabajo --}}
@@ -688,7 +778,36 @@ Procesos
 
 	{{-- Seccion de modales de DELETE --}}
 
-
+	{{-- Modal de eliminar riesgos --}}
+	@component('layouts.partials.modalDelete')
+		@slot('idModal')
+			modalDeleteRiesgo
+		@endslot
+		@slot('idform')
+			formDeleteRiesgos
+		@endslot
+		@slot('titulo')
+			Eliminar Riesgo
+			@endslot
+		@slot('action')
+			{{ route('riesgo.destroy', 0) }}
+		@endslot
+		@slot('form')
+	         	@method('DELETE')
+				@csrf
+				<div class="form-group">
+					<select id="SelectEliminarRiesgo" class="form-control select" onchange="eliminarRiesgo()">
+						<option value="0" selected>Seleccionar Gestión de SST a Eliminar</option>
+						@foreach($riesgosDrop as $riesgoDrop)
+						<option value="{{$riesgoDrop->id}}">{{$riesgoDrop->RiesgDescrip}}</option>
+						@endforeach
+					</select>
+				</div>
+		@endslot
+		@slot('submitbutton')
+		<button form="formDeleteRiesgos" disabled id="eliminarSubmitRiesgos" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
+		@endslot
+	@endcomponent
 
 	{{-- Modal de eliminar recursos --}}
 	@component('layouts.partials.modalDelete')
@@ -836,12 +955,12 @@ Procesos
 @push('scripts')
 <script>
 	/*script para activar el select 2*/
-	$(document).ready(function() {
-		$('select').select2({
-			placeholder: 'Selecciona...',
+		$(document).ready(function() {
+			$('select').select2({
+				placeholder: 'Selecciona...',
+			});
+			$('.select2-container').width('100%');
 		});
-	});
-
 	// Parte de los script de actualizar 
 
 	function cambiarRecursoId(){
@@ -865,6 +984,12 @@ Procesos
 		// console.log(id);
 	};
 
+		function cambiarRiesgoId(){
+			var id = $('#IdSelectRiesgo').val();
+			var inputoculto = $('#idocultoRiesgo');
+			inputoculto.attr('value', id);
+			// console.log(id);
+		};
 
 	/*Parte de los scripts de ELIMINAR*/
 
@@ -908,6 +1033,19 @@ Procesos
 		// console.log(id);
 	};
 
+	function eliminarRiesgo(){
+		let formulario = $('#formDeleteRiesgos');
+		let botonsubmit = $('#eliminarSubmitRiesgos');
+		var id = $('#SelectEliminarRiesgo').val();
+		formulario.attr('action', '{{ url('riesgo') }}/'+id);
+		if (id > 0) {
+			botonsubmit.attr('disabled', false);
+		}else{
+			botonsubmit.attr('disabled', true);
+		}
+		// console.log(id);
+	};
+
 </script>
 <script>
 	$(document).ready( function(){
@@ -938,27 +1076,27 @@ Procesos
 
 
 <script type="text/javascript">
-	var contadorRiesgos = 0;
-	function addRiesgo(){
-		contadorRiesgos++
-		container = $('#containerDeRiesgos')
-		container.append(`<div class="col-md-6 col-xs-12" id="riesgos`+contadorRiesgos+`">
-						<div class="form-group">
-							<label class="input-label" for="ProcRiesgos`+contadorRiesgos+`">Riesgos</label>
-							<div class="input-group">
-								<input type="text" required id="ProcRiesgosinput`+contadorRiesgos+`" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(`+contadorRiesgos+`)">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div>`)
-	};
+// 	var contadorRiesgos = 0;
+// 	function addRiesgo(){
+// 		contadorRiesgos++
+// 		container = $('#containerDeRiesgos')
+// 		container.append(`<div class="col-md-6 col-xs-12" id="riesgos`+contadorRiesgos+`">
+// 						<div class="form-group">
+// 							<label class="input-label" for="ProcRiesgos`+contadorRiesgos+`">Riesgos</label>
+// 							<div class="input-group">
+// 								<input type="text" required id="ProcRiesgosinput`+contadorRiesgos+`" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+// 								<div class="input-group-append eliminarpolitica">
+// 								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(`+contadorRiesgos+`)">Borrar</button>
+// 								</div>
+// 							</div>
+// 						</div>
+// 					</div>`)
+// 	};
 
-	function dropRiesgo(id){
-		var id = $('#riesgos'+id).remove();
-	};
-</script>
+// 	function dropRiesgo(id){
+// 		var id = $('#riesgos'+id).remove();
+// 	};
+// </script>
 
 
 <script>
@@ -1001,5 +1139,24 @@ var dropUp = function() {
 $(window).load(dropUp);
 $(window).bind('resize scroll mousewheel', dropUp);
 </script>
+<script type="text/javascript">
+  function readURL(input) {
+    if (input.files && input.files[0]) {
 
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var output = $('#'+input.id+'Output');
+        output.attr('src', e.target.result);
+        output.attr('class', 'd-block');
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $('input[type="file"]').change(function(){
+    readURL(this);
+  });
+</script>
 @endpush

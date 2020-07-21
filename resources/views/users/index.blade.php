@@ -98,15 +98,19 @@ Usuarios
                                                             <i class="fas fa-ellipsis-v"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                            @can('updateUser')
+                                                                <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Editar') }}</a>
+                                                            @endcan
+                                                            @can('deleteUser')
                                                             <form action="{{ route('user.destroy', $user) }}" method="post">
                                                                 @csrf
                                                                 @method('delete')
-
-                                                                <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Editar') }}</a>
+                                                               
                                                                 <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
                                                                             {{ __('Eliminar') }}
                                                                 </button>
                                                             </form>
+                                                            @endcan
                                                         </div>
                                                     </div>
                                                 </td>

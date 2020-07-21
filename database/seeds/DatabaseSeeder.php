@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
         $this->call([AlertsSeeder::class]);
         $this->call([RecursosSeeder::class]);
         $this->call([ProveedorSeeder::class]);
-        $this->call([RecursosSeeder::class]);
         $this->call([GambientalSeeder::class]);
         $this->call([GseguridadSeeder::class]);
+        $this->call([RiesgoSeeder::class]);
         $this->call([ClienteSeeder::class]);
         $this->call([ProcessesSeeder::class]);
         $this->call([InformeSeeder::class]);

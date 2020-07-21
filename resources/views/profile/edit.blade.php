@@ -14,7 +14,7 @@ Perfil de usuario
             <div class="card">
                 <div class="card-header">
                     <h5 class="title pull-left">{{ __('Edit Profile') }}</h5>
-                    <button class="btn btn-primary pull-right">Editar roles</button>
+                    {{-- <button class="btn btn-primary pull-right">Editar roles</button> --}}
                 </div>
                 <form method="post" action="{{ route('profile.update') }}" autocomplete="off" enctype="multipart/form-data">
                     <div class="card-body">
@@ -40,10 +40,20 @@ Perfil de usuario
 
                             </div>
 
-                            <div class="form-group{{ $errors->has('Avatar') ? ' has-danger' : '' }}">
+                            {{-- <div class="form-group{{ $errors->has('Avatar') ? ' has-danger' : '' }}">
                                 <label>{{ __('  ') }}</label>
                                 <input type="file" id="Avatar" name="Avatar" class="form-control{{ $errors->has('Avatar') ? ' is-invalid' : '' }}" placeholder="{{ __('Avatar') }}" value="{{ old('Avatar', auth()->user()->Avatar) }}">
                                 @include('alerts.feedback', ['field' => 'Avatar'])
+                            </div> --}}
+                            <div class="custom-input-file {{ $errors->has('Avatar') ? ' has-danger' : '' }}">
+                                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Foto de perfil</b>" data-content="Adjuntar Foto de perfil. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Foto de perfil</label>
+                                <input id="Avatar" name="Avatar" type="file" class="form-control form-control-alternative{{ $errors->has('Avatar') ? ' is-invalid' : '' }}">
+                                @include('alerts.feedback', ['field' => 'Avatar'])
+                                    @if(auth()->user()->Avatar === "")
+                                    <a href="#"><img id="AvatarOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
+                                @else
+                                    <a href="{{Storage::url(auth()->user()->Avatar)}}" target="_blank"> <img id="AvatarOutput" src="{{Storage::url(auth()->user()->Avatar)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
+                                @endif
                             </div>
                     </div>
                     <div class="card-footer">
@@ -136,52 +146,11 @@ Perfil de usuario
                             <div class="block block-two-{{$colorblock}}" id="colors2"></div>
                             <div class="block block-three-{{$colorblock}}" id="colors3"></div>
                             <div class="block block-four-{{$colorblock}}" id="colors4"></div>
-                            
-                                <img class="avatar" style="width: 20em; height: 15em;" src="{{ auth()->user()->Avatar }}">
-                            <a href="#">
-                                @auth
-                                    @php
-                                    $colormainpanel="";
-                                    @endphp
-                                    @switch(Auth::user()->ColorUser)
-                                        @case(0)
-                                            @php
-                                            $colormainpanel="#86db3e";
-                                            @endphp
-                                            @break
-                                        @case(1)
-                                            @php
-                                            $colormainpanel="#359fe9";
-                                            @endphp
-                                            @break
-                                        @case(2)
-                                            @php
-                                            $colormainpanel="#42e7ab";
-                                            @endphp
-                                            @break
-                                        @case(3)
-                                            @php
-                                            $colormainpanel="red";
-                                            @endphp
-                                            @break
-                                        @case(4)
-                                            @php
-                                            $colormainpanel="orange";
-                                            @endphp
-                                            @break
-                                        @default
-                                            @php
-                                            $colormainpanel="green";
-                                            @endphp
-                                    @endswitch
-                                @endauth
-                                <i id="iconolapiz" class="tim-icons icon-pencil" style="background: {{$colormainpanel}}; border-radius: 50%; padding: 0.4em 0.4em 0.4em 0.4em; margin: 0em 0em 0em -1.5em; position: relative;" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Cambio de Avatar</b>" data-content="Ingrese una nueva imagen para actualizar su avatar."></i>
-                                {{--/images/{{$cita->usuario}}--}}
-                                <h5 class="title">{{ auth()->user()->name }}</h5>
-                                {{-- <h5 class="title">{{ auth()->user()->name }}</h5>
-                                <img class="avatar" src="{{ asset('black') }}/img/emilyz.jpg" alt="">
-                                <h5 class="title">{{ auth()->user()->name }}</h5> --}}
-                            </a>
+                            @if (auth()->user()->Avatar == 'robot400x400.gif')
+                            <img class="avatar" class="rounded img-fluid" style="width: auto; max-height: 100%;" src="{{ asset('white/img/robot400x400.gif') }}" alt="{{ __('Profile Photo')}}">
+                            @else
+                            <img class="avatar" class="rounded img-fluid" style="width: auto; max-height: 100%;" src="{{ Storage::url(auth()->user()->Avatar) }}" alt="{{ __('Profile Photo')}}">
+                            @endif
                             <p class="description">
                                 {{-- {{ __('Ceo/Co-Founder') }} --}}
                             </p>
@@ -206,9 +175,24 @@ Perfil de usuario
     </div>
 @endsection
 @push('scripts')
-<script>
-    $('#iconolapiz').on('click', function(){
-        $('#Avatar').click();
-    });
+<script type="text/javascript">
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var output = $('#'+input.id+'Output');
+        output.attr('src', e.target.result);
+        output.attr('class', 'd-block');
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $('input[type="file"]').change(function(){
+    readURL(this);
+  });
 </script>
 @endpush

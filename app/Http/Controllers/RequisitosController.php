@@ -6,6 +6,8 @@ use App\Requisitos;
 use App\Areas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class RequisitosController extends Controller
 {
@@ -63,7 +65,7 @@ class RequisitosController extends Controller
 
 
         if ($request->hasFile('ReqSrc')) {
-            $path = $request->file('ReqSrc')->store('public/'.'Requisitos');
+            $path = $request->file('ReqSrc')->store('public/Requisitos');
         }else{
             $path = "N";
         }
@@ -142,8 +144,19 @@ class RequisitosController extends Controller
             }
         }
 
+        $requisito->update($request->except(['ReqSrc', 'ComiImage']));
 
-        $requisito->update($request->all());
+
+        if ($request->hasFile('ReqSrc')){
+            $ReqSrcActual = $requisito->ReqSrc;
+            Storage::disk('local')->delete($ReqSrcActual);
+            $path = $request->file('ReqSrc')->store('public/Requisitos');
+            $requisito->update(['ReqSrc' => $path]);
+        }else{
+           
+        }
+
+
         /*return $request;*/
 
         /*$areaid = $request->input('areas');*/

@@ -37,7 +37,9 @@ class GseguridadController extends Controller
     {
         $gseguridad = new Gseguridad();
         $gseguridad->SeguName = $request->input('SeguName');
-        $gseguridad->SeguType = $request->input('SeguType');
+        $gseguridad->SeguImpact = $request->input('SeguImpact');
+        $gseguridad->SeguDescrip = $request->input('SeguDescrip');
+        $gseguridad->SeguControl = $request->input('SeguControl');
         $gseguridad->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Gestión de Seguridad y Salud en el trabajo creada correctamente'));
@@ -79,7 +81,9 @@ class GseguridadController extends Controller
         // return $request;
         $gseguridad = Gseguridad::find($request->input('idocultoGsegu'));
         $gseguridad->SeguName = $request->input('SeguName');
-        $gseguridad->SeguType = $request->input('SeguType');
+        $gseguridad->SeguImpact = $request->input('SeguImpact');
+        $gseguridad->SeguDescrip = $request->input('SeguDescrip');
+        $gseguridad->SeguControl = $request->input('SeguControl');
         $gseguridad->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Gestión de Seguridad y Salud en el Trabajo actualizada correctamente'));

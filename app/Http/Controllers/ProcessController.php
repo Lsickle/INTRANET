@@ -17,6 +17,7 @@ use App\Proveedor;
 use App\Recursos;
 use App\Gambiental;
 use App\Gseguridad;
+use App\Riesgo;
 use App\Cargo;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
@@ -65,8 +66,9 @@ class ProcessController extends Controller
             //$clientes = Cliente::all(['id', 'CliName', 'CliType']);
             //$proveedores = Proveedor::all(['id', 'ProvName', 'ProvType']);
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
-            $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
-            $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
+            $gambientales = Gambiental::all(['id', 'GesName']);
+            $gseguridades = Gseguridad::all(['id', 'SeguName']);
+            $riesgos = Riesgo::all(['id', 'RiesgDescrip']);
             $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
 
             /* variables para los formularios de destroy */
@@ -79,11 +81,12 @@ class ProcessController extends Controller
             $recursosDrop = Recursos::doesntHave('procesos')->get();
             $gambientalesDrop = Gambiental::doesntHave('procesos')->get();
             $gseguridadesDrop = Gseguridad::doesntHave('procesos')->get();
+            $riesgosDrop = Riesgo::doesntHave('procesos')->get();
 
             $usuario = Auth::user()->id;
 
             // return view('process.createwithIframe', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop', 'cargos']));
-            return view('process.create', compact(['roles', 'requisitos', 'documentos', 'indicadores', 'soportes', 'areas', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop', 'cargos']));
+            return view('process.create', compact(['roles', 'requisitos', 'documentos', 'indicadores', 'soportes', 'areas', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop', 'riesgosDrop', 'cargos' ,'riesgos']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }
@@ -98,20 +101,18 @@ class ProcessController extends Controller
     public function store(Request $request)
     {
 
-        /*return $request;*/
+        // return $request;
         $path = $request->file('ProcImage')->store('public/Procesos');
 
         // se crea el registro del documento en la base de datos
         $process = new Process();
         $process->ProcName = $request->input('ProcName');
         $process->ProcRevVersion = $request->input('ProcRevVersion');
-        /*$process->ProcChangesDescription = $request->input('ProcChangesDescription');*/
         $process->ProcObjetivo = $request->input('ProcObjetivo');
         $process->ProcAlcance = $request->input('ProcAlcance');
         $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcResponsable = $request->input('ProcResponsable');
         $process->ProcParticipantes = $request->input('ProcParticipantes');
-        // $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
 
         $process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
@@ -126,6 +127,7 @@ class ProcessController extends Controller
         $process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
         $process->ProcLink = $request->input('ProcLink');
         $process->ProcChangesDescription = 'creado el '.now();
+        $process->ProcTipo = $request->input('ProcTipo');
         $process->save();
 
         $process->entradas()->attach($request->input('Entradas'));
@@ -141,6 +143,7 @@ class ProcessController extends Controller
         $process->recursos()->attach($request->input('ProcRecursos'));
         $process->gambientals()->attach($request->input('Gambiental'));
         $process->gseguridads()->attach($request->input('Gseguridad'));
+        $process->riesgos()->attach($request->input('Riesgo'));
         // $process->seguimientos()->attach($request->input('Seguimientos'));
         /*$document->assignAreas($areas);*/
 
@@ -187,16 +190,18 @@ class ProcessController extends Controller
             $indicadores = Indicators::all(['id', 'IndName']);
             $soportes = Process::all(['id', 'ProcName']);
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
-            $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
-            $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
+            $gambientales = Gambiental::all(['id', 'GesName']);
+            $gseguridades = Gseguridad::all(['id', 'SeguName']);
+            $riesgos = Riesgo::all(['id', 'RiesgDescrip']);
             $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
 
             $recursosDrop = Recursos::doesntHave('procesos')->get();
             $gambientalesDrop = Gambiental::doesntHave('procesos')->get();
             $gseguridadesDrop = Gseguridad::doesntHave('procesos')->get();
+            $riesgosDrop = Riesgo::doesntHave('procesos')->get();
 
             /*return $proceso->entradas;*/
-            return view('process.edit', compact(['roles', 'requisitos', 'documentos', 'indicadores', 'soportes', 'areas', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop', 'cargos']));
+            return view('process.edit', compact(['roles', 'requisitos', 'documentos', 'indicadores', 'soportes', 'areas', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop', 'riesgos', 'riesgosDrop', 'cargos']));
 
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar Procesos');
@@ -214,11 +219,22 @@ class ProcessController extends Controller
      */
     public function update(Request $request, Process $proceso)
     {
-        /*$proceso->update($request->all());*/
+        // return $request;
         $proceso->update($request->except(['ProcImage']));
 
-        $path = $request->file('ProcImage')->store('public/Procesos');
-        $proceso->update(['ProcImage' => $path]);
+        if ($request->hasFile('ComiSrc')){
+            $ComiSrcActual = $proceso->ComiSrc;
+            Storage::disk('local')->delete($ComiSrcActual);
+            $path = $request->file('ProcImage')->store('public/Procesos');
+            $proceso->update(['ProcImage' => $path]);
+        }else{
+           
+        }
+
+        if (!$request->input('ProcPolitOperacion')){
+            $proceso->update(['ProcPolitOperacion' => ['no tiene politicas de operacion']]);
+        }
+        
 
         // $proceso->entradas()->sync($request->input('Entradas'));
         // $proceso->salidas()->sync($request->input('Salidas'));
@@ -231,6 +247,9 @@ class ProcessController extends Controller
         $proceso->procesosDeSoporte()->sync($request->input('Soporte'));
         $proceso->requisitos()->sync($request->input('ProcRequsitos'));
         $proceso->recursos()->sync($request->input('ProcRecursos'));
+        $proceso->gambientals()->sync($request->input('Gambiental'));
+        $proceso->gseguridads()->sync($request->input('Gseguridad'));
+        $proceso->riesgos()->sync($request->input('Riesgo'));
 
 
         return redirect()->route('proceso.index')->withStatus(__('Proceso actualizado correctamente'));
@@ -247,13 +266,17 @@ class ProcessController extends Controller
         // $proceso->Actividades()->detach();
         // $proceso->Entradas()->detach();
         // $proceso->Salidas()->detach();
+        if (auth()->user()->can('deleteProcess')) {
+            $proceso->Areas()->detach();
+            $proceso->Documentos()->detach();
+            $proceso->Indicadores()->detach();
+            $proceso->procesosDeSoporte()->detach();
+            $proceso->Requisitos()->detach();
+            $proceso->delete();
+            return redirect()->route('proceso.index')->withStatus(__('Proceso eliminado correctamente'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para eliminar Procesos');
+        }
         
-        $proceso->Areas()->detach();
-        $proceso->Documentos()->detach();
-        $proceso->Indicadores()->detach();
-        $proceso->procesosDeSoporte()->detach();
-        $proceso->Requisitos()->detach();
-        $proceso->delete();
-        return redirect()->route('proceso.index')->withStatus(__('Proceso eliminado correctamente'));
     }
 }

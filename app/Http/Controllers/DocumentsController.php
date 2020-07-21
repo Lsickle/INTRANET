@@ -41,18 +41,8 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        // $permisos = Auth::user()->getPermissionsViaRoles();
-        // $array = (array) $permisos;
-        // return $array;
-
-        $user = User::where('id', '22')->first();
-        $user->givePermissionTo('createDocuments');
-
         if (auth()->user()->can('createDocuments')) {
-            # code...
-            $areas = Areas::get();
-            /*$areas = Documents::with('areas')->get();*/
-            /*return $areas;*/
+            $areas = Areas::all();
             return view('documents.create', compact('areas'));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear documentos');
@@ -124,11 +114,8 @@ class DocumentsController extends Controller
      */
     public function edit(Documents $document)
     {
-        $user = User::where('id', '22')->first();
-        $user->givePermissionTo('updateDocuments');
         if (auth()->user()->can('updateDocuments')) {
-            $areas = Areas::get();
-            /*return $document->areas;*/
+            $areas = Areas::all();
             return view('documents.edit', compact('document', 'areas'));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear documentos');
@@ -156,7 +143,7 @@ class DocumentsController extends Controller
             $docActual = $document->DocSrc;
             Storage::disk('local')->delete($docActual);
 
-            $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
+            $path = $request->file('DocSrc')->store('public/documents');
 
             $archivo = $request->file('DocSrc');
             $mime = $archivo->getClientMimeType();
@@ -194,10 +181,15 @@ class DocumentsController extends Controller
      */
     public function destroy(Documents $document)
     {
-        $document->Areas()->detach();
-        $docActual = $document->DocSrc;
-        Storage::disk('local')->delete($docActual);
-        $document->delete();
-        return redirect()->route('documents.index')->withStatus(__('Documento eliminado correctamente'));
+        if (auth()->user()->can('deleteDocuments')) {
+            $document->Areas()->detach();
+            $docActual = $document->DocSrc;
+            Storage::disk('local')->delete($docActual);
+            $document->delete();
+            return redirect()->route('documents.index')->withStatus(__('Documento eliminado correctamente'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para eliminar alertas');
+        }
+        
     }
 }

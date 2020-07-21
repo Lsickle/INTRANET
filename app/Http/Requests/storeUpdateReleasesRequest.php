@@ -29,7 +29,7 @@ class storeUpdateReleasesRequest extends FormRequest
         return [
             'RelName'     =>  'max:120|min:1',
             'RelMessage'  =>  'max:512|min:1',
-            'RelSrc'      =>  'max:512|min:1|mimes:jpeg,jpg,png',
+            'RelSrc'      =>  'max:1024|min:1|mimes:jpeg,jpg,png',
             'RelType'     =>  'max:512|min:1',
             'RelGeneral'  =>  'integer',
         ];
@@ -39,13 +39,14 @@ class storeUpdateReleasesRequest extends FormRequest
     public function messages()
     {
         return [
-            'RelName.max'    => 'El campo Nombre no debe contener más de 120 caracteres',
-            'RelName.min'    => 'El campo Nombre no debe contener menos de 1 caracter',
-            'RelMessage.max' => 'El campo Objetivo no debe contener más de 512 caracteres',
-            'RelMessage.min' => 'El campo Objetivo no debe contener menos de 1 caracter',
-            'RelSrc.mimes'   => 'El Archivo debe ser de tipo: jpeg,jpg,png',
-            'RelType.max'    => 'El campo Analisis no debe contener más de 512 caracteres',
-            'RelType.min'    => 'El campo Analisis no debe contener menos de 1 caracter', 
+            'RelName.max'    => 'El campo Nombre debe contener menos de 120 caracteres',
+            'RelName.min'    => 'El campo Nombre debe contener más de 1 caracter',
+            'RelMessage.max' => 'El campo Objetivo debe contener menos de 512 caracteres',
+            'RelMessage.min' => 'El campo Objetivo debe contener más de 1 caracter',
+            'RelSrc.mimes'   => 'La imagen debe estar en formato: jpeg,jpg,png',
+            'RelSrc.max'     => 'La imagen debe pesar menos de 1 Mb',
+            'RelType.max'    => 'El campo Analisis debe contener menos de 512 caracteres',
+            'RelType.min'    => 'El campo Analisis debe contener más de 1 caracter', 
         ];
     }
 }

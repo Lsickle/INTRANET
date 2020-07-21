@@ -15,7 +15,7 @@ class Alerts extends Model
      * @var array
      */
     protected $fillable = [
-        'AlertName', 'AlertDateEvent', 'AlertDescription', 'AlertDateNotifi', 'AlertNotification',
+        'AlertName', 'AlertDateEvent', 'AlertDescription', 'AlertDateNotifi', 'AlertNotification', 'AlertType'
     ];
 
 

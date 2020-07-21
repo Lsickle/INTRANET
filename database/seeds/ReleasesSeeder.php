@@ -19,7 +19,7 @@ class ReleasesSeeder extends Seeder
         $release->RelSrc = '';
         $release->RelType = 'Comunicado';
         $release->RelGeneral = 0;
-        $release->user_id = 2;
+        $release->user_id = 1;
         $release->save();
 
 

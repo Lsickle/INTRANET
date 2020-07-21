@@ -42,7 +42,9 @@ Alertas
 		        <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Fecha de Notificación</b>" data-content="Fecha en la cual se iniciaran las notificaciones de alerta.">Fecha Notificación</th>
                 <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Notificado</b>" data-content="Informa en que estado de notificación se encuentra la alerta.">Notificado</th>
 		        <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Realizado</b>" data-content="Permite marcar la notificación como <i>Realizada</i>, de este modo no se recibiran más notificaciones de dicha alerta.">Realizado</th>
-		        <th class="text-center">Editar</th>
+				@can('updateAlerts')
+    			    <th class="text-center">Editar</th>
+				@endcan
 			</thead>
 			<tbody>
 				@foreach($alerts as $alert)
@@ -85,18 +87,18 @@ Alertas
 							</td>
 							<td class="text-center" id="Boton-alert-{{$alert->id}}">
 								@if($alert->AlertNotification === 5)
-                                <i><strong>NO Realizado</strong>
-									@else
+                                	<i><strong>NO Realizado</strong>
+								@else
 									@if($alert->AlertRealizado === 0)
-                                    <button class="btn btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
+										<button class="btn btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
 									@else
-                                    <i><strong>Realizado</strong></i>
+										<i><strong>Realizado</strong></i>
 									@endif
-									@endif
-								</td>
-								@if($alert->user_id === Auth::user()->id)
-									<td class="text-center"><a href="alerts/{{$alert->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
 								@endif
+								</td>
+								@can('updateAlerts')
+									<td class="text-center"><a href="alerts/{{$alert->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
+								@endcan
 							</tr>
 							@endforeach
 						</tbody>
