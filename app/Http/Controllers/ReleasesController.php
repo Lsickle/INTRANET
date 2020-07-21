@@ -25,7 +25,7 @@ class ReleasesController extends Controller
     public function index()
     {
         $releases = DB::table('releases')->get();
-        return view('releases.index', compact('releases'));
+        return view('releases.index2', compact('releases'));
     }
 
     /**
