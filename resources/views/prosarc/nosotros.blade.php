@@ -9,34 +9,35 @@ Nosotros
 @endsection
 
 @section('content')
-	<div class="col-md-12">
-		<div class="text-center letra-titulo">
-			<h2>PROSARC S.A. ESP</h2>
-		</div>
-		<div class="col-md-12">
-			<div class="col-md-10" style="margin-left: auto;">
-				<img src="white/img/DJI_0123.jpg" class="responsive imagen-prosarc" width="600" height="400">
-				<br><br><br><br>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col text-center letra-titulo">
+				<h2>PROSARC S.A. ESP</h2>
 			</div>
 		</div>
-
-		<div class="col-md-12">
-			<div class="row mx-auto">
-				<div class="politicas mx-auto col-md-5">
-					<div class="col-md-12 text-center letra-titulo">
-						<h3>Misión</h3>
-					</div>
-					<div class="col-md-12 text-justify letra-contenido">
-						<p> Ejecutar políticas, planes, programas y proyectos ambientales, a través de la implementación de la Licencia Ambiental y normas ambientales, para contribuir a brindar soluciones integrales a la Industria en General para el Manejo de Residuos Peligrosos.</p>
-					</div>
+		<div class="row h-auto">
+			<div class="mb-md-4 mb-2 col"></div>
+			<div class="mb-md-4 mb-2 col-md-10 text-center" style="">
+				{{-- <img src="" class="responsive imagen-prosarc" width="600" height="400"> --}}
+				<img src="white/img/DJI_0123.jpg" class="img-fluid h-auto w-100 imagen-prosarc" alt="Responsive image">
+			</div>
+			<div class="mb-md-4 mb-2 col"></div>
+		</div>
+		<div class="row h-auto">
+			<div class="politicas col mr-md-3 mb-2">
+				<div class="col-md-12 text-center letra-titulo">
+					<h3>Misión</h3>
 				</div>
-				<div class="politicas mx-auto col-md-5">
-					<div class="col-md-12 text-center letra-titulo">
-						<h3>Visión</h3>
-					</div>
-					<div class="col-md-12 text-justify letra-contenido">
-						<p> PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIA S.A. ESP – PROSARC S.A. ESP, en el 2023 habrá incidido en la consolidación de un modelo viable, prospero, equitativo y sostenible, a través de una cultura ambiental responsable en la solución integral para el Manejo de Residuos Peligrosos.</p>
-					</div>
+				<div class="col-md-12 text-justify letra-contenido">
+					<p> Ejecutar políticas, planes, programas y proyectos ambientales, a través de la implementación de la Licencia Ambiental y normas ambientales, para contribuir a brindar soluciones integrales a la Industria en General para el Manejo de Residuos Peligrosos.</p>
+				</div>
+			</div>
+			<div class="politicas col ml-md-3 mb-2">
+				<div class="col-md-12 text-center letra-titulo">
+					<h3>Visión</h3>
+				</div>
+				<div class="col-md-12 text-justify letra-contenido">
+					<p> PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIA S.A. ESP – PROSARC S.A. ESP, en el 2023 habrá incidido en la consolidación de un modelo viable, prospero, equitativo y sostenible, a través de una cultura ambiental responsable en la solución integral para el Manejo de Residuos Peligrosos.</p>
 				</div>
 			</div>
 		</div>
