@@ -179,12 +179,25 @@ estilo de imput para input personalizade del documentos.edit*/
 }
 
 .politicas {
-  background-image: linear-gradient(to bottom right, #63ff00, #82ff31, #9eff60) !important;
+  background-image: linear-gradient(to bottom right, #63ff00, #82ff31, #9eff60);
   border-radius: 10px;
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
   15px 15px 16px gray !important;
   border: 1px solid #4cc400;
   margin: 3em 0em 3em 0em;
+  padding: 3em 3em 3em 3em;
+}
+
+.bg-gradient-success {
+  background-image: linear-gradient(to bottom right, #63ff00, #82ff31, #9eff60);
+  border: 1px solid #4cc400;
+}
+
+.tablet-plastic{
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  15px 15px 16px gray !important;
+  /* margin: 3em 0em 3em 0em; */
   padding: 3em 3em 3em 3em;
 }
 

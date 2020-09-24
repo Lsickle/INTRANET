@@ -179,7 +179,7 @@ estilo de imput para input personalizade del documentos.edit*/
 }
 
 .politicas {
-  background-image: linear-gradient(to bottom right, #63ff00, #82ff31, #9eff60) !important;
+  background-image: linear-gradient(to bottom right, #63ff00, #82ff31, #9eff60);
   border-radius: 10px;
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
   15px 15px 16px gray !important;

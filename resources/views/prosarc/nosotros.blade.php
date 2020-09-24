@@ -24,6 +24,16 @@ Nosotros
 			<div class="mb-md-4 mb-2 col"></div>
 		</div>
 		<div class="row h-auto">
+			<div class="bg-light tablet-plastic col mb-0">
+				<div class="col-md-12 text-center letra-titulo">
+					<h3>Politica General</h3>
+				</div>
+				<div class="col-md-12 text-justify letra-contenido">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam debitis vero consectetur assumenda, doloribus maxime earum adipisci, totam, explicabo quaerat iste voluptas ratione sint? Est aperiam dolores quibusdam excepturi omnis!</p>
+				</div>
+			</div>
+		</div>
+		<div class="row h-auto">
 			<div class="politicas col mr-md-3 mb-2">
 				<div class="col-md-12 text-center letra-titulo">
 					<h3>Misión</h3>
