@@ -4353,7 +4353,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #ffffff;
-  background-color: #c6e14e;
+  background-color: #337ab7;
 }
 
 .nav-fill .nav-item {
@@ -17211,6 +17211,10 @@ Copyright (c) 2015 Daniel Eden
 .white-content .wtable>thead>tr>th,
 .white-content .wtable button.btn-neutral.btn-link {
   color: rgba(34, 42, 66, 0.7);
+}
+
+.white-content .wtable>thead.thead-dark>tr>th {
+  color: #e9ecef;
 }
 
 .white-content .footer ul li a {
