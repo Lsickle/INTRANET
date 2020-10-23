@@ -10,11 +10,6 @@ Nosotros
 
 @section('content')
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col text-center letra-titulo">
-				<h2>PROSARC S.A. ESP</h2>
-			</div>
-		</div>
 		<div class="row h-auto">
 			<div class="mb-md-4 mb-2 col"></div>
 			<div class="mb-md-4 mb-2 col-md-10 text-center" style="">
@@ -23,301 +18,367 @@ Nosotros
 			</div>
 			<div class="mb-md-4 mb-2 col"></div>
 		</div>
-		<div class="row h-auto">
-			<div class="bg-light tablet-plastic col mb-0">
-				<div class="col-md-12 text-center letra-titulo">
-					<h3>Politica General</h3>
+		<div class="row">
+			<ul class="nav nav-pills mb-3 mt-3 flex-column flex-sm-row w-100" id="pills-tab" role="tablist">
+				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+				  <a class="nav-link active" id="pills-General-tab" data-toggle="pill" href="#pills-General" role="tab" aria-controls="pills-General" aria-selected="true">Generalidades de Prosarc</a>
+				</li>
+				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+					<a class="nav-link" id="pills-PoliticasSG-tab" data-toggle="pill" href="#pills-PoliticasSG" role="tab" aria-controls="pills-PoliticasSG" aria-selected="false">Politicas SG</a>
+				  </li>
+				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+				  <a class="nav-link" id="pills-Mision-tab" data-toggle="pill" href="#pills-Mision" role="tab" aria-controls="pills-Mision" aria-selected="false">Mision</a>
+				</li>
+				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+				  <a class="nav-link" id="pills-Vision-tab" data-toggle="pill" href="#pills-Vision" role="tab" aria-controls="pills-Vision" aria-selected="false">Vision</a>
+				</li>
+				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Objetivos</a>
+					<div class="dropdown-menu nav-item w-100"  role="presentation">
+						<a class="dropdown-item" id="pills-ObjetivoGeneral-tab" data-toggle="pill" href="#pills-ObjetivoGeneral" role="tab" aria-controls="pills-ObjetivoGeneral" aria-selected="false">OBJETIVOS GENERALES</a>
+						<a class="dropdown-item" id="pills-Objetivo1-tab" data-toggle="pill" href="#pills-Objetivo1" role="tab" aria-controls="pills-Objetivo1" aria-selected="false">Objetivo 1</a>
+						<a class="dropdown-item" id="pills-Objetivo2-tab" data-toggle="pill" href="#pills-Objetivo2" role="tab" aria-controls="pills-Objetivo2" aria-selected="false">Objetivo 2</a>
+						<a class="dropdown-item" id="pills-Objetivo3-tab" data-toggle="pill" href="#pills-Objetivo3" role="tab" aria-controls="pills-Objetivo3" aria-selected="false">Objetivo 3</a>
+					</div>
+				</li>
+				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+					<a class="nav-link" id="pills-Mapa-tab" data-toggle="pill" href="#pills-Mapa" role="tab" aria-controls="pills-Mapa" aria-selected="false">Mapa de Procesos</a>
+				</li>
+				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Politicas</a>
+					<div class="dropdown-menu nav-item w-100"  role="presentation">
+						<a class="dropdown-item" id="pills-Politica1-tab" data-toggle="pill" href="#pills-Politica1" role="tab" aria-controls="pills-Politica1" aria-selected="false">Politica1</a>
+						<a class="dropdown-item" id="pills-Politica2-tab" data-toggle="pill" href="#pills-Politica2" role="tab" aria-controls="pills-Politica2" aria-selected="false">Politica2</a>
+						<a class="dropdown-item" id="pills-Politica3-tab" data-toggle="pill" href="#pills-Politica3" role="tab" aria-controls="pills-Politica3" aria-selected="false">Politica3</a>
+						<a class="dropdown-item" id="pills-Politica4-tab" data-toggle="pill" href="#pills-Politica4" role="tab" aria-controls="pills-Politica4" aria-selected="false">Politica4</a>
+						<a class="dropdown-item" id="pills-Politica5-tab" data-toggle="pill" href="#pills-Politica5" role="tab" aria-controls="pills-Politica5" aria-selected="false">Politica5</a>
+						<a class="dropdown-item" id="pills-Politica6-tab" data-toggle="pill" href="#pills-Politica6" role="tab" aria-controls="pills-Politica6" aria-selected="false">Politica6</a>
+						<a class="dropdown-item" id="pills-Politica7-tab" data-toggle="pill" href="#pills-Politica7" role="tab" aria-controls="pills-Politica7" aria-selected="false">Politica7</a>
+						<a class="dropdown-item" id="pills-Politica8-tab" data-toggle="pill" href="#pills-Politica8" role="tab" aria-controls="pills-Politica8" aria-selected="false">Politica8</a>
+						<a class="dropdown-item" id="pills-Politica9-tab" data-toggle="pill" href="#pills-Politica9" role="tab" aria-controls="pills-Politica9" aria-selected="false">Politica9</a>
+					</div>
+				</li>
+			  </ul>
+			  <div class="tab-content" id="pills-tabContent">
+				<div class="tab-pane fade show active"  id="pills-General" role="tabpanel" aria-labelledby="pills-General-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<h3 class="card-title">GENERALIDADES DE PROSARC S.A. ESP</h3>
+							<p class="card-text text-justify" style="text-indent:2.5em">
+								<b>PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIAN S.A ESP - PROSARC S.A. ESP</b> 
+								, se constituyó a través de la Escritura Pública No. 000848 Notaria 34 de Bogotá D.C., del 24 de marzo de 2006, inscrita el 31 de marzo de 2006 bajo el número 01047615 del Libro IX, con el objeto de trabajar por la conservación y protección del medio ambiente, los recursos naturales en Colombia.
+							</p>
+							<br>
+							<p class="card-text text-justify" style="text-indent:2.5em">
+								Que a través de la Resolución No. 3077 del 7 de noviembre de 2006, la Corporación Autónoma Regional de Cundinamarca – CAR, otorgó Licencia Ambiental a favor de la Sociedad 
+								<b>PROTECCIÓN SERVICIOS AMBINETALES RESPEL DE COLOMBIA – PROSARC S.A. ESP</b> 
+								, con Nit. 900.079.188 – 0, para la instalación, operación y puesta en marcha de una planta de incineración de residuos industriales, en el predio localizado en la vereda Balsillas, del municipio de Mosquera, Cundinamarca, por el tiempo de vida útil del proyecto, el cual cobijará las fases de construcción, operación, mantenimiento, desmantelamiento y abandono.
+							</p>
+							<br>
+							<p class="card-text text-justify" style="text-indent:2.5em">
+								Que 
+								<b>PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIA – PROSARC S.A. ESP</b> 
+								, cuenta con catorce (14) años prestando servicio de recolección, transporte, manejo, tratamiento e incineración y destrucción de toda clase de desechos y residuos, tanto sólidos, semisólidos y líquidos de los sectores industriales y hospitalarios, entendiendo como tales la predestrucción e incineración y destrucción total de medicamentos, elementos médico – quirúrgicos, materia prima obsoleta, solventes, reactivos, moldes, envases, empaques, materiales biológicos, tóxicos y no tóxicos, radiactivos y no radiactivos, incluyendo aquellos considerados como peligrosos, entendiendo para ello el conjunto de operaciones y actividades necesarias para la recolección puerta a puerta, a granel, transporte ya sea en vehículos propios o contratados, manipulación, tratamiento, aprovechamiento, reciclaje, transformación, manual industrial, incineración y destrucción, así como comercialización de los mismos, entre otros servicios.
+							</p>
+							<br>
+							<p class="card-text text-justify" style="text-indent:2.5em">
+								En el desarrollo del objeto social 
+								<b>PROTECCIÓN SERVICIOS AMBIENTALES RELLENOS DE COLOMBIA – PROSARC S.A. ESP</b> 
+								se compromete en: 
+								<ol class="text-justify mr-3" type="a">
+									<li>Hacer lo necesario, conexo y complementario para el mantenimiento, recuperación y control del medio ambiente comprometidos con el desarrollo sostenible dentro y fuera del territorio Nacional; </li>
+									<li>La prestación de los servicios públicos de aseo, así como las actividades conexas y complementarias a este; </li>
+									<li>Los servicios de asesorías, consultarías, interventorías, elaboración de estudios, proyectos, diseños, fabricación y montaje de máquinas y equipos de todo tipo, así como la ejecución, Gestión Gerenciamiento o Administración para sí o para terceros, en cualquiera de los aspectos complementados relacionados al objeto social; </li>
+									<li>El diseño, organización, control y administración de todas las actividades necesarias para la prestación del servicio de aseo a Entidades Públicas y/o Privadas, así como el suministro y comercialización de los elementos requeridos para tales fines dentro y fuera del territorio Nacional; </li>
+									<li>La prestación de servicios técnicos y/o profesionales, consultoría e interventoría administrativos, financieros y comerciales a compañías o Entidades Públicas o Privadas que desarrollen actividades relacionadas con el objeto social de esta y con las actividades conexas o complementarias, ya sea dentro o fuera del territorio Nacional; </li>
+									<li>Capacitar, seleccionar, suministrar y administrar personal a las Empresas Públicas o Privadas encargadas de la prestación de los servicios Públicos o Privadas encargadas de la Prestación de los Servicios Públicos y de aquellas actividades conexas o complementarias al objeto social, </li>
+									<li>La compra, venta, importación, exportación, alquiler, permuta, fabricación, ensamblaje, servicio, mantenimiento, reparación, incluyendo las representaciones de firmas nacionales y extranjeras y en general todo acto licito de comercio. </li>
+								</ol>
+							</p>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-12 text-justify letra-contenido">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam debitis vero consectetur assumenda, doloribus maxime earum adipisci, totam, explicabo quaerat iste voluptas ratione sint? Est aperiam dolores quibusdam excepturi omnis!</p>
+				<div class="tab-pane fade" id="pills-PoliticasSG" role="tabpanel" aria-labelledby="pills-PoliticasSG-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<h3 class="card-title">Politica del Sistema de Gestión Integral</h3>
+							<p class="card-text text-justify" style="text-indent:2.5em"> texto pendiente de la politica general para el sistema de gestión integral</p>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row h-auto">
-			<div class="politicas col mr-md-3 mb-2">
-				<div class="col-md-12 text-center letra-titulo">
-					<h3>Misión</h3>
+				<div class="tab-pane fade" id="pills-Mision" role="tabpanel" aria-labelledby="pills-Mision-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<h3 class="card-title">Misión</h3>
+							<p class="card-text text-justify" style="text-indent:2.5em"> Ejecutar políticas, planes, programas y proyectos ambientales, a través de la implementación de la Licencia Ambiental y normas ambientales, para contribuir a brindar soluciones integrales a la Industria en General para el Manejo de Residuos Peligrosos.</p>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-12 text-justify letra-contenido">
-					<p> Ejecutar políticas, planes, programas y proyectos ambientales, a través de la implementación de la Licencia Ambiental y normas ambientales, para contribuir a brindar soluciones integrales a la Industria en General para el Manejo de Residuos Peligrosos.</p>
+				<div class="tab-pane fade" id="pills-Vision" role="tabpanel" aria-labelledby="pills-Vision-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<h3 class="card-title">Visión</h3>
+							<p class="card-text text-justify" style="text-indent:2.5em">PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIA S.A. ESP – PROSARC S.A. ESP, en el 2023 habrá incidido en la consolidación de un modelo viable, prospero, equitativo y sostenible, a través de una cultura ambiental responsable en la solución integral para el Manejo de Residuos Peligrosos.</p>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="politicas col ml-md-3 mb-2">
-				<div class="col-md-12 text-center letra-titulo">
-					<h3>Visión</h3>
+				<div class="tab-pane fade" id="pills-ObjetivoGeneral" role="tabpanel" aria-labelledby="pills-ObjetivoGeneral-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<h3 class="card-title">Objetivos Generales</h3>
+							<p class="card-text text-justify" style="text-indent:2.5em">Garantizar la confiabilidad de los resultados a los tratamientos emitidos y cumplimiento de las normas de calidad y ambiental en la prestación de sus servicios, de acuerdo con las necesidades del cliente y la utilización adecuada de los recursos disponible, dentro de una cultura empresarial de prevención, en todos los niveles, tanto de los riesgos ocupacionales identificados, así como de sus impactos ambientales, así como garantizar la gestión eficaz de los requisitos y compromisos legales de la normatividad aplicable vigente y generar confianza por su desempeño y gestión empresarial, se ha diseñado el Sistema Integrado de Gestión de <b>PROSARC S.A. ESP.</b></p>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-12 text-justify letra-contenido">
-					<p> PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIA S.A. ESP – PROSARC S.A. ESP, en el 2023 habrá incidido en la consolidación de un modelo viable, prospero, equitativo y sostenible, a través de una cultura ambiental responsable en la solución integral para el Manejo de Residuos Peligrosos.</p>
+				<div class="tab-pane fade" id="pills-Objetivo1" role="tabpanel" aria-labelledby="pills-Objetivo1-tab">
+					<div class="card">
+						<div class="row">
+							<div class="col-md-2">
+								<div class="card-header nav flex-column nav-pills mb-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+									<a class="nav-link" id="v-pills-obj1Descripcion-tab" data-toggle="pill" href="#v-pills-obj1Descripcion" role="tab" aria-controls="v-pills-home" aria-selected="true">Descripción</a>
+									<a class="nav-link" id="v-pills-obj1Actividades-tab" data-toggle="pill" href="#v-pills-obj1Actividades" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actividades</a>
+									{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
+									{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
+								</div>
+							</div>
+							<div class="col-md-10">
+								<div class="card-body tab-content" id="v-pills-tabContent">
+									<div class="tab-pane fade" id="v-pills-obj1Descripcion" role="tabpanel" aria-labelledby="v-pills-obj1Descripcion-tab">
+										<h3>Objetivo 1</h3>
+										<h4>Pólitica de Seguridad y Salud en el Trabajo</h4>
+										<p>
+										Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales.
+										</p>
+									</div>
+									<div class="tab-pane fade" id="v-pills-obj1Actividades" role="tabpanel" aria-labelledby="v-pills-obj1Actividades-tab">
+										<table class="wtable wtable-sm wtable-hover wtable-bordered">
+											<thead class="thead-dark">
+												<tr>
+													<th class="text-center" scope="col">Procesos Implicados</th>
+													<th class="text-center" scope="col">actividades</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>SST</li>
+														</ul>
+													</th>
+													<td>Evaluar los puestos de trabajo mediante la ejecución de las  mediciones ocupacionales, mejorando las condiciones con la implementación  de las recomendaciones dadas en cada uno de los estudios realizados</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>MANTENIMIENTO</li>
+														</ul>
+													</th>
+													<td>Realiza mantenimiento predictivo y preventivo a las instalaciones locativas, maquinarias y equipos que puedan causar accidentes</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>TODOS</li>
+														</ul>
+													</th>
+													<td>Evitar accidentes o enfermedades laborales en el desarrollo de nuestras actividades.</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>GESTIÓN HUMANA</li>
+															<li>SST</li>
+														</ul>
+													</th>
+													<td>Desarrollar actividades orientadas al auto-cuidado y a la prevención de riesgos. </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									{{-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio placeat quaerat sequi, dolor tempora saepe magni iusto eum distinctio impedit ipsam nobis laboriosam delectus. Laborum illo reprehenderit libero. Ducimus, cumque.</div> --}}
+									{{-- <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aut animi esse, quasi ullam culpa voluptatem minima dolore molestiae fugit, velit, non neque architecto distinctio dolorem voluptate quibusdam obcaecati perspiciatis?</div> --}}
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+				<div class="tab-pane fade" id="pills-Objetivo2" role="tabpanel" aria-labelledby="pills-Objetivo2-tab">
+					<div class="card">
+						<div class="row">
+							<div class="col-md-2">
+								<div class="card-header nav flex-column nav-pills mb-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+									<a class="nav-link" id="v-pills-obj3Descripcion-tab" data-toggle="pill" href="#v-pills-obj2Descripcion" role="tab" aria-controls="v-pills-home" aria-selected="true">Descripción</a>
+									<a class="nav-link" id="v-pills-obj2Actividades-tab" data-toggle="pill" href="#v-pills-obj2Actividades" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actividades</a>
+									{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
+									{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
+								</div>
+							</div>
+							<div class="col-md-10">
+								<div class="card-body tab-content" id="v-pills-tabContent">
+									<div class="tab-pane fade" id="v-pills-obj2Descripcion" role="tabpanel" aria-labelledby="v-pills-obj2Descripcion-tab">
+										<h3>Objetivo 2</h3>
+										<h4>Pólitica de Calidad</h4>
+										<p>
+											Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales.
+										</p>
+									</div>
+									<div class="tab-pane fade" id="v-pills-obj2Actividades" role="tabpanel" aria-labelledby="v-pills-obj2Actividades-tab">
+										<table class="wtable wtable-sm wtable-hover wtable-bordered">
+											<thead class="thead-dark">
+												<tr>
+													<th class="text-center" scope="col">Procesos Implicados</th>
+													<th class="text-center" scope="col">actividades</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>TRATAMIENTO TERMICO</li>
+															<li>GESTIÓN AMBIENTAL</li>
+														</ul>
+													</th>
+													<td>Realizar seguimiento, monitoreo y mejoras al cumplimiento de emisiones derivadas al proceso de termo-destrucción.</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>PDA</li>
+														</ul>
+													</th>
+													<td>Gestionar de forma eficiente el almacenamiento temporal, el alistamiento y la distribución para los procesos de disposición final adecuados de todos los residuos entregados por nuestros clientes.</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>GESTIÓN AMBIENTAL</li>
+														</ul>
+													</th>
+													<td>Generar conciencia ambiental por parte de los trabajadores mediante el desarrollo de actividades y campañas educativas</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>TODOS</li>
+														</ul> 
+													</th>
+													<td>Proporcionar mejoras locativas y operativas que ayuden a reducir impactos generados al medio ambiente.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									{{-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio placeat quaerat sequi, dolor tempora saepe magni iusto eum distinctio impedit ipsam nobis laboriosam delectus. Laborum illo reprehenderit libero. Ducimus, cumque.</div> --}}
+									{{-- <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aut animi esse, quasi ullam culpa voluptatem minima dolore molestiae fugit, velit, non neque architecto distinctio dolorem voluptate quibusdam obcaecati perspiciatis?</div> --}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Objetivo3" role="tabpanel" aria-labelledby="pills-Objetivo3-tab">
+					<div class="card">
+						<div class="row">
+							<div class="col-md-2">
+								<div class="card-header nav flex-column nav-pills mb-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+									<a class="nav-link" id="v-pills-obj3Descripcion-tab" data-toggle="pill" href="#v-pills-obj3Descripcion" role="tab" aria-controls="v-pills-home" aria-selected="true">Descripción</a>
+									<a class="nav-link" id="v-pills-obj3Actividades-tab" data-toggle="pill" href="#v-pills-obj3Actividades" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actividades</a>
+									{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
+									{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
+								</div>
+							</div>
+							<div class="col-md-10">
+								<div class="card-body tab-content" id="v-pills-tabContent">
+									<div class="tab-pane fade" id="v-pills-obj3Descripcion" role="tabpanel" aria-labelledby="v-pills-obj3Descripcion-tab">
+										<h3>Objetivo 3</h3>
+										<h4>Pólitica Ambiental</h4>
+										<p>
+											Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes.
+										</p>
+									</div>
+									<div class="tab-pane fade" id="v-pills-obj3Actividades" role="tabpanel" aria-labelledby="v-pills-obj3Actividades-tab">
+										<table class="wtable wtable-sm wtable-hover wtable-bordered">
+											<thead class="thead-dark">
+												<tr>
+													<th class="text-center" scope="col">Procesos Implicados</th>
+													<th class="text-center" scope="col">actividades</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>SEVICIO AL CLIENTE</li>
+															<li>PDA</li>
+															<li>TERMODESTRUCCIÓN</li>
+															<li>COMERCIAL</li>
+															<li>GESTIÓN DE CALIDAD</li>
+														</ul>
+													</th>
+													<td>Realizar seguimiento, monitoreo y mejoras al cumplimiento de emisiones derivadas al proceso de termo-destrucción.</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>PDA</li>
+														</ul>
+													</th>
+													<td>Gestionar de forma eficiente el almacenamiento temporal, el alistamiento y la distribución para los procesos de disposición final adecuados de todos los residuos entregados por nuestros clientes.</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>GESTIÓN AMBIENTAL</li>
+														</ul>
+													</th>
+													<td>Generar conciencia ambiental por parte de los trabajadores mediante el desarrollo de actividades y campañas educativas</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<ul class="processlist">
+															<li>TODOS</li>
+														</ul>
+													</th>
+													<td>Proporcionar mejoras locativas y operativas que ayuden a reducir impactos generados al medio ambiente.</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									{{-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio placeat quaerat sequi, dolor tempora saepe magni iusto eum distinctio impedit ipsam nobis laboriosam delectus. Laborum illo reprehenderit libero. Ducimus, cumque.</div> --}}
+									{{-- <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aut animi esse, quasi ullam culpa voluptatem minima dolore molestiae fugit, velit, non neque architecto distinctio dolorem voluptate quibusdam obcaecati perspiciatis?</div> --}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Mapa" role="tabpanel" aria-labelledby="pills-Mapa-tab">
+					<div class="card w-100 mx-auto">
+						<div class="card-body">
+							<h3 class="card-title">
+								Mapa de Procesos
+							</h3>
+							<a href="https://picsum.photos/1920/1080">
+								{{-- <img src="white/img/Mapa_proceso.png" class="responsive imagen-prosarc w-100" alt="Responsive image"> --}}
+								<img class="" src="https://picsum.photos/1920/1080" alt="">
+							</a>
+							<div class="img-zoom-container">
+								<img id="myimage" src="white/img/Mapa_proceso.png" width="300" height="240" alt="Girl">
+								<div id="myresult" class="img-zoom-result"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica1" role="tabpanel" aria-labelledby="pills-Politica1-tab">Politica1</div>
+				<div class="tab-pane fade" id="pills-Politica2" role="tabpanel" aria-labelledby="pills-Politica2-tab">Politica2</div>
+				<div class="tab-pane fade" id="pills-Politica3" role="tabpanel" aria-labelledby="pills-Politica3-tab">Politica3</div>
+				<div class="tab-pane fade" id="pills-Politica4" role="tabpanel" aria-labelledby="pills-Politica4-tab">Politica4</div>
+				<div class="tab-pane fade" id="pills-Politica5" role="tabpanel" aria-labelledby="pills-Politica5-tab">Politica5</div>
+				<div class="tab-pane fade" id="pills-Politica6" role="tabpanel" aria-labelledby="pills-Politica6-tab">Politica6</div>
+				<div class="tab-pane fade" id="pills-Politica7" role="tabpanel" aria-labelledby="pills-Politica7-tab">Politica7</div>
+				<div class="tab-pane fade" id="pills-Politica8" role="tabpanel" aria-labelledby="pills-Politica8-tab">Politica8</div>
+				<div class="tab-pane fade" id="pills-Politica9" role="tabpanel" aria-labelledby="pills-Politica9-tab">Politica9</div>
+			  </div>
 		</div>
 	</div>
 	<br>
-
-
-	{{-- Div Objetivo General --}}
-	<div class="col-md-12" style="background-color: rgba(0, 158, 255, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;">
-		<div class="col-md-12 text-center letra-titulo">
-			<h1>OBJETIVOS</h1>
-		</div>
-		<div class="col-md-12 text-justify letra-contenido">
-			<p>Garantizar la confiabilidad de los resultados a los tratamientos emitidos y cumplimiento de las normas de calidad y ambiental en la prestación de sus servicios, de acuerdo con las necesidades del cliente y la utilización adecuada de los recursos disponible, dentro de una cultura empresarial de prevención, en todos los niveles, tanto de los riesgos ocupacionales identificados, así como de sus impactos ambientales, así como garantizar la gestión eficaz de los requisitos y compromisos legales de la normatividad aplicable vigente y generar confianza por su desempeño y gestión empresarial, se ha diseñado el Sistema Integrado de Gestión de <strong>PROSARC S.A. ESP.</strong> </p>
-			<br>
-			<p><strong>PROSARC S.A. ESP</strong>, para el cumplimiento de su Política y Objetivo General del Sistema Integrado de Gestión, tiene como objetivos específicos los siguientes:</p>
-		</div>
-	</div>
-
-
-
-	{{-- Div Objetivo #1 --}}<hr>
-
-	<div class="col-md-12">
-		<div class="col-md-12">
-			<div class="text-left">
-				<a class="btn btn-success letra-titulo" data-toggle="collapse" href="#collapseObjetivo" role="button" aria-expanded="false" aria-controls="collapseObjetivo">
-					<h2>Objetivo #1</h2><br>
-				</a>
-			</div>
-		</div>
-		<div class="collapse" id="collapseObjetivo">
-		    <div class="col-md-12 mx-auto text-justify letra-contenido" style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;"> 
-		    	Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales.
-			</div>
-			<div class="row">
-				<div class="col-md-8 mx-auto text-justify">
-					<a class="btn btn-success letra-titulo" data-toggle="collapse" href="#collapseActividad" role="button" aria-expanded="false" aria-controls="collapseActividad">
-					    Actividad
-					</a>
-
-					<div class="collapse" id="collapseActividad"> 
-					  	<div class="col-md-12 mx-auto"  style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;">
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-titulo">
-				    			<br><strong>ACTIVIDADES</strong>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-titulo">
-				    			<br><strong>PROCESOS IMPLICADOS</strong>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Evaluar los puestos de trabajo mediante la ejecución de las mediciones ocupacionales, mejorando las condiciones con la implementación  de las recomendaciones dadas en cada uno de los estudios realizados.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>SST</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Realiza mantenimiento predictivo y preventivo a las instalaciones locativas, maquinarias y equipos que puedan causar accidentes.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>MANTENIMIENTO</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Evitar accidentes o enfermedades laborales en el desarrollo de nuestras actividades.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>TODOS LOS PROCESOS</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Desarrollar actividades orientadas al auto-cuidado y a la prevención de riesgos.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>GESTIÓN HUMANA / SST</p>
-				    			</div>
-				    		</div>
-					    </div> 
-					</div>
-				</div>
-				<div class="col-md-4 mx-auto text-justify">
-					<a class="btn btn-success letra-titulo" data-toggle="collapse" href="#collapsePolitica" role="button" aria-expanded="false" aria-controls="collapsePolitica">
-					    Pólitica
-					</a>
-
-					<div class="collapse" id="collapsePolitica"> 
-					  	<div class="col-md-12 mx-auto text-center letra-contenido" style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;">
-					    	<h1>Pólitica de Seguridad y Salud en el Trabajo</h1>
-					    </div> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	{{-- Div Objetivo #2 --}}<hr>
-
-	<div class="col-md-12">
-		<div class="col-md-12">
-			<div class="text-center">
-				<a class="btn btn-success mx-auto letra-titulo" data-toggle="collapse" href="#collapseObjetivo2" role="button" aria-expanded="false" aria-controls="collapseObjetivo2">
-					<h2>Objetivo #2</h2><br>
-				</a>
-			</div>
-		</div>
-		<div class="collapse" id="collapseObjetivo2">
-		    <div class="col-md-12 mx-auto text-justify letra-contenido" style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;"> 
-		    	Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales 
-			</div>
-			<div class="row">
-				<div class="col-md-8 mx-auto text-justify">
-					<a class="btn btn-success letra-titulo" data-toggle="collapse" href="#collapseActividad2" role="button" aria-expanded="false" aria-controls="collapseActividad2">
-					    Actividad
-					</a>
-
-					<div class="collapse" id="collapseActividad2"> 
-					  	<div class="col-md-12 mx-auto"  style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;">
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-titulo">
-				    			<br><strong>ACTIVIDADES</strong>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-titulo">
-				    			<br><strong>PROCESOS IMPLICADOS</strong>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Realizar seguimiento, monitoreo y mejoras al cumplimiento de emisiones derivadas al proceso de termo-destrucción.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>TRATAMIENTO TERMICO/GESTIÓN AMBIENTAL</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Gestionar de forma eficiente el almacenamiento temporal, el alistamiento y la distribución para los procesos de disposición final adecuados de todos los residuos entregados por nuestros clientes.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>PDA</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Generar conciencia ambiental por parte de los trabajadores mediante el desarrollo de actividades y campañas educativas.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>GESTIÓN AMBIENTAL</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Proporcionar mejoras locativas y operativas que ayuden a reducir impactos generados al medio ambiente.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>TODOS LOS PROCESOS</p>
-				    			</div>
-				    		</div>
-					    </div> 
-					</div>
-				</div>
-				<div class="col-md-4 mx-auto text-justify">
-					<a class="btn btn-success letra-titulo" data-toggle="collapse" href="#collapsePolitica2" role="button" aria-expanded="false" aria-controls="collapsePolitica2">
-					    Pólitica
-					</a>
-
-					<div class="collapse" id="collapsePolitica2"> 
-					  	<div class="col-md-12 mx-auto text-center letra-contenido" style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;">
-					    	<h1>Pólitica de Calidad</h1>
-					    </div> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	{{-- Div Objetivo #3 --}}<hr>
-
-	<div class="col-md-12">
-		<div class="col-md-12">
-			<div class="text-right">
-				<a class="btn btn-success letra-titulo" data-toggle="collapse" href="#collapseObjetivo3" role="button" aria-expanded="false" aria-controls="collapseObjetivo3">
-					<h2>Objetivo #3</h2><br>
-				</a>
-			</div>
-		</div>
-		<div class="collapse" id="collapseObjetivo3">
-		    <div class="col-md-12 mx-auto text-justify letra-contenido" style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;"> 
-		    	Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes.
-			</div>
-			<div class="row">
-				<div class="col-md-8 mx-auto text-justify">
-					<a class="btn btn-success letra-titulo" data-toggle="collapse" href="#collapseActividad3" role="button" aria-expanded="false" aria-controls="collapseActividad3">
-					    Actividad
-					</a>
-
-					<div class="collapse" id="collapseActividad3"> 
-					  	<div class="col-md-12 mx-auto"  style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;">
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-titulo">
-				    			<br><strong>ACTIVIDADES</strong>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra letra-titulo">
-				    			<br><strong>PROCESOS IMPLICADOS</strong>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Atender de manera oportuna y eficaz los requerimientos del cliente con el fin de medir su grado de satisfacción.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>SEVICIO AL CLIENTE/PDA / TERMODESTRUCCIÓN / COMERCIAL/GESTIÓN DE CALIDAD</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Garantizar eficacia en cada proceso y/o subproceso para la correcta prestación de nuestros servicios.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>TODOS LOS PROCESOS</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Fortalecer canales de comunicación para cliente interno y externo con enfoque al servicio al cliente.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>TODOS LOS PROCESOS</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Garantizar acciones de seguimiento y verificación de nuestros requisitos legales.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>TODOS LOS PROCESOS</p>
-				    			</div>
-				    		</div>
-				    		<div class="col-md-12 row">
-				    			<div class="col-md-5 mx-auto text-center actividades letra-contenido">
-				    			<br><p>Mantener trazabilidad a cada actividad realizada dentro de cada proceso para la gestión de la operación.</p>
-				    			</div>
-				    			<div class="col-md-5 mx-auto text-center procesos letra-contenido">
-				    			<br><p>TODOS LOS PROCESOS</p>
-				    			</div>
-				    		</div>
-					    </div> 
-					</div>
-				</div>
-				<div class="col-md-4 mx-auto text-justify">
-					<a class="btn btn-success letra-titulo" data-toggle="collapse" href="#collapsePolitica3" role="button" aria-expanded="false" aria-controls="collapsePolitica3">
-					    Pólitica
-					</a>
-
-					<div class="collapse" id="collapsePolitica3"> 
-					  	<div class="col-md-12 mx-auto text-center letra-contenido" style="background-color: rgba(0, 255, 0, .1); border-radius: 20px 20px 20px 20px; padding: 20px 20px 20px 20px;">
-					    	<h1>Pólitica Ambiental</h1>
-					    </div> 
-					</div>
-				</div>
-			</div>
-		</div><br>
-	</div>
-
-	{{-- Fin de los Div's de Objetivos --}}<hr>
 	
 	<h2 class=" letra-titulo">POLÍTICAS</h2>
 
@@ -518,19 +579,68 @@ Nosotros
 	</div>
 
 
-	{{-- Div correspondiente al mapa de procesos --}}	
-	<div class="col-md-12 mx-auto">
-		<div class="col-md-12 mx-auto text-center letra-titulo">
-			<h2>MAPA DE PROCESOS</h2>
-		</div>
-		<div class="col-md-10 mx-auto">
-			<img src="white/img/Mapa_proceso.png" class="responsive imagen-prosarc">
-		</div>
-	</div>
-
 
 @endsection
 
 @push('scripts')
-	
+	<script>
+		function imageZoom(imgID, resultID) {
+			var img, lens, result, cx, cy;
+			img = document.getElementById(imgID);
+			result = document.getElementById(resultID);
+			/* Create lens: */
+			lens = document.createElement("DIV");
+			lens.setAttribute("class", "img-zoom-lens");
+			/* Insert lens: */
+			img.parentElement.insertBefore(lens, img);
+			/* Calculate the ratio between result DIV and lens: */
+			cx = result.offsetWidth / lens.offsetWidth;
+			cy = result.offsetHeight / lens.offsetHeight;
+			/* Set background properties for the result DIV */
+			result.style.backgroundImage = "url('" + img.src + "')";
+			result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+			/* Execute a function when someone moves the cursor over the image, or the lens: */
+			lens.addEventListener("mousemove", moveLens);
+			img.addEventListener("mousemove", moveLens);
+			/* And also for touch screens: */
+			lens.addEventListener("touchmove", moveLens);
+			img.addEventListener("touchmove", moveLens);
+			function moveLens(e) {
+				var pos, x, y;
+				/* Prevent any other actions that may occur when moving over the image */
+				e.preventDefault();
+				/* Get the cursor's x and y positions: */
+				pos = getCursorPos(e);
+				/* Calculate the position of the lens: */
+				x = pos.x - (lens.offsetWidth / 2);
+				y = pos.y - (lens.offsetHeight / 2);
+				/* Prevent the lens from being positioned outside the image: */
+				if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+				if (x < 0) {x = 0;}
+				if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+				if (y < 0) {y = 0;}
+				/* Set the position of the lens: */
+				lens.style.left = x + "px";
+				lens.style.top = y + "px";
+				/* Display what the lens "sees": */
+				result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+			}
+			function getCursorPos(e) {
+				var a, x = 0, y = 0;
+				e = e || window.event;
+				/* Get the x and y positions of the image: */
+				a = img.getBoundingClientRect();
+				/* Calculate the cursor's x and y coordinates, relative to the image: */
+				x = e.pageX - a.left;
+				y = e.pageY - a.top;
+				/* Consider any page scrolling: */
+				x = x - window.pageXOffset;
+				y = y - window.pageYOffset;
+				return {x : x, y : y};
+			}
+		}
+		$(document).ready(function() {
+			imageZoom("myimage", "myresult");
+		});
+	</script>
 @endpush

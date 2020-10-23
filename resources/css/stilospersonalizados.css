@@ -537,3 +537,10 @@ estilo de imput para input personalizade del documentos.edit*/
 @media (min-width: 1200px) {
     .text-responsive { font-size: 1.5rem; }
 }
+
+/*lista re procesos en tabla*/
+.processlist {
+  list-style-type: square;
+  margin: 0;
+  padding: 10px;
+}
