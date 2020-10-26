@@ -21,7 +21,7 @@ Nosotros
 		<div class="row">
 			<ul class="nav nav-pills mb-3 mt-3 flex-column flex-sm-row w-100" id="pills-tab" role="tablist">
 				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
-				  <a class="nav-link active" id="pills-General-tab" data-toggle="pill" href="#pills-General" role="tab" aria-controls="pills-General" aria-selected="true">Generalidades de Prosarc</a>
+				  <a class="nav-link active" id="pills-General-tab" data-toggle="pill" href="#pills-General" role="tab" aria-controls="pills-General" aria-selected="true">Generalidades</a>
 				</li>
 				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
 					<a class="nav-link" id="pills-PoliticasSG-tab" data-toggle="pill" href="#pills-PoliticasSG" role="tab" aria-controls="pills-PoliticasSG" aria-selected="false">Politicas SG</a>
@@ -45,21 +45,21 @@ Nosotros
 					<a class="nav-link" id="pills-Mapa-tab" data-toggle="pill" href="#pills-Mapa" role="tab" aria-controls="pills-Mapa" aria-selected="false">Mapa de Procesos</a>
 				</li>
 				<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Politicas</a>
-					<div class="dropdown-menu nav-item w-100"  role="presentation">
-						<a class="dropdown-item" id="pills-Politica1-tab" data-toggle="pill" href="#pills-Politica1" role="tab" aria-controls="pills-Politica1" aria-selected="false">Politica1</a>
-						<a class="dropdown-item" id="pills-Politica2-tab" data-toggle="pill" href="#pills-Politica2" role="tab" aria-controls="pills-Politica2" aria-selected="false">Politica2</a>
-						<a class="dropdown-item" id="pills-Politica3-tab" data-toggle="pill" href="#pills-Politica3" role="tab" aria-controls="pills-Politica3" aria-selected="false">Politica3</a>
-						<a class="dropdown-item" id="pills-Politica4-tab" data-toggle="pill" href="#pills-Politica4" role="tab" aria-controls="pills-Politica4" aria-selected="false">Politica4</a>
-						<a class="dropdown-item" id="pills-Politica5-tab" data-toggle="pill" href="#pills-Politica5" role="tab" aria-controls="pills-Politica5" aria-selected="false">Politica5</a>
-						<a class="dropdown-item" id="pills-Politica6-tab" data-toggle="pill" href="#pills-Politica6" role="tab" aria-controls="pills-Politica6" aria-selected="false">Politica6</a>
-						<a class="dropdown-item" id="pills-Politica7-tab" data-toggle="pill" href="#pills-Politica7" role="tab" aria-controls="pills-Politica7" aria-selected="false">Politica7</a>
-						<a class="dropdown-item" id="pills-Politica8-tab" data-toggle="pill" href="#pills-Politica8" role="tab" aria-controls="pills-Politica8" aria-selected="false">Politica8</a>
-						<a class="dropdown-item" id="pills-Politica9-tab" data-toggle="pill" href="#pills-Politica9" role="tab" aria-controls="pills-Politica9" aria-selected="false">Politica9</a>
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Otras Politicas</a>
+					<div class="dropdown-menu dropdown-menu-right nav-item"  role="presentation">
+						<a class="dropdown-item" id="pills-Politica1-tab" data-toggle="pill" href="#pills-Politica1" role="tab" aria-controls="pills-Politica1" aria-selected="false">POLÍTICA DE ACCIONES <br> CORRECTIVAS Y PREVENTIVAS</a>
+						<a class="dropdown-item" id="pills-Politica2-tab" data-toggle="pill" href="#pills-Politica2" role="tab" aria-controls="pills-Politica2" aria-selected="false">POLÍTICA DE COMPETENCIA,<br> JUICIO E INTEGRIDAD DEL PERSONAL</a>
+						<a class="dropdown-item" id="pills-Politica3-tab" data-toggle="pill" href="#pills-Politica3" role="tab" aria-controls="pills-Politica3" aria-selected="false">POLÍTICA DE COMPRA DE <br> SERVICIOS Y SUMINISTRO</a>
+						<a class="dropdown-item" id="pills-Politica4-tab" data-toggle="pill" href="#pills-Politica4" role="tab" aria-controls="pills-Politica4" aria-selected="false">POLÍTICA DE CONFLICTO DE INTERESES</a>
+						<a class="dropdown-item" id="pills-Politica5-tab" data-toggle="pill" href="#pills-Politica5" role="tab" aria-controls="pills-Politica5" aria-selected="false">POLÍTICA DE INDEPENDENCIA <br> E IMPARCIALIDAD</a>
+						<a class="dropdown-item" id="pills-Politica6-tab" data-toggle="pill" href="#pills-Politica6" role="tab" aria-controls="pills-Politica6" aria-selected="false">POLÍTICA DE QUEJAS Y RECLAMOS</a>
+						<a class="dropdown-item" id="pills-Politica7-tab" data-toggle="pill" href="#pills-Politica7" role="tab" aria-controls="pills-Politica7" aria-selected="false">POLÍTICA DE REVISIÓN DE <br> PEDIDOS Y CONTRATOS</a>
+						<a class="dropdown-item" id="pills-Politica8-tab" data-toggle="pill" href="#pills-Politica8" role="tab" aria-controls="pills-Politica8" aria-selected="false">POLÍTICA DE TRABAJO NO CONFORME</a>
+						<a class="dropdown-item" id="pills-Politica9-tab" data-toggle="pill" href="#pills-Politica9" role="tab" aria-controls="pills-Politica9" aria-selected="false">POLÍTICAS DE CONFIDENCIALIDAD</a>
 					</div>
 				</li>
-			  </ul>
-			  <div class="tab-content" id="pills-tabContent">
+			</ul>
+			<div class="tab-content" id="pills-tabContent">
 				<div class="tab-pane fade show active"  id="pills-General" role="tabpanel" aria-labelledby="pills-General-tab">
 					<div class="card w-100">
 						<div class="card-body">
@@ -361,220 +361,153 @@ Nosotros
 						</div>
 					</div>
 				</div>
-				<div class="tab-pane fade" id="pills-Politica1" role="tabpanel" aria-labelledby="pills-Politica1-tab">Politica1</div>
-				<div class="tab-pane fade" id="pills-Politica2" role="tabpanel" aria-labelledby="pills-Politica2-tab">Politica2</div>
-				<div class="tab-pane fade" id="pills-Politica3" role="tabpanel" aria-labelledby="pills-Politica3-tab">Politica3</div>
-				<div class="tab-pane fade" id="pills-Politica4" role="tabpanel" aria-labelledby="pills-Politica4-tab">Politica4</div>
-				<div class="tab-pane fade" id="pills-Politica5" role="tabpanel" aria-labelledby="pills-Politica5-tab">Politica5</div>
-				<div class="tab-pane fade" id="pills-Politica6" role="tabpanel" aria-labelledby="pills-Politica6-tab">Politica6</div>
-				<div class="tab-pane fade" id="pills-Politica7" role="tabpanel" aria-labelledby="pills-Politica7-tab">Politica7</div>
-				<div class="tab-pane fade" id="pills-Politica8" role="tabpanel" aria-labelledby="pills-Politica8-tab">Politica8</div>
-				<div class="tab-pane fade" id="pills-Politica9" role="tabpanel" aria-labelledby="pills-Politica9-tab">Politica9</div>
-			  </div>
+				<div class="tab-pane fade" id="pills-Politica1" role="tabpanel" aria-labelledby="pills-Politica1-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<div class="row d-block">
+								<div class="col-md-3 float-md-right float-lg-right">
+									<img src="white/img/correctivas.png">
+								</div>
+								<div class="col-md-9">
+									<h3 class="card-title">Política de acciones correctivas y preventivas</h3>
+									<p class="card-text text-justify">Es política de <strong>PROSARC S.A. ESP</strong>, respetar la propiedad del cliente, controlar y evitar bajo cualquier circunstancia que la información generada por concepto de requerimiento de tratamiento de incineración, celdas, entre otras, haya sido solicitada por el cliente, sea entregada a otro, incluyendo a la misma empresa. Para lo anterior, <strong>PROSARC S.A. ESP</strong>, ha identificado los posibles conflictos de interés internos y externos, por lo que establecemos controles, las responsabilidades y las acciones correspondientes para solventar cualquier deficiencia que pueda generar un incumplimiento a esta política.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica2" role="tabpanel" aria-labelledby="pills-Politica2-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<div class="row d-block">
+								<div class="col-md-3 float-md-left float-lg-left">
+									<img src="white/img/integridad.jpg">
+								</div>
+								<div class="col-md-9">
+									<h3 class="card-title">Política de competencia, juicio e integridad del personal</h3>
+									<p class="card-text text-justify" <b>PROSARC S.A. ESP</b>, se compromete a capacitar el personal de forma continua, determinando las necesidades del mismo, mediante evaluaciones periódicas o sugerencias de ellos mismos. La programación de la capacitación la establece el responsable del Sistema Integrado de Gestión mediante un programa de capacitación. Esta capacitación puede llevarse a cabo fuera en las instalaciones de <b>PROSARC S.A. ESP</b> Para llevarse a cabalidad con esto, la Empresa ha establecido un procedimiento XXXX Procedimiento para Entrenamiento de Personal y el procedimiento XXXX Competencia y Detección de Necesidades de Formación.</p>
+									<br>
+									<p class="card-text text-justify">El Proceso de Tratamiento de <strong>PROSARC S.A. ESP</strong> y el área Comercial, tiene como política no acceder a amenazas o cualquier medio de coacción implícita o explícita, así como no intervenir en actividades que puedan afectar la confiabilidad de los resultados que emite a sus clientes y la competencia. Esto se manifiesta a través de la libertad que tienen para ejercer las funciones establecidas en los perfiles de cargo.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica3" role="tabpanel" aria-labelledby="pills-Politica3-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<div class="row d-block">
+								<div class="col-md-3 float-md-right float-lg-right">
+									<img src="white/img/compras.jpg">
+								</div>
+								<div class="col-md-9">
+									<h3 class="card-title">Política de compra de servicios y suministro</h3>
+									<p class="card-text text-justify"><strong>PROSARC S.A. ESP</strong>, tiene como política la adquisición de materiales, insumos, suministros y servicios de la calidad, con el fin que no se vea afectado directa o indirectamente la confiabilidad de los resultados que se emiten; siguiendo los procedimientos legales vigentes, realizando las verificaciones y aprobaciones pertinentes que garanticen el cumplimiento de las especificaciones solicitadas, así como emitir el concepto de la evaluación de proveedores a las diferentes partes interesadas, incluyendo los requisitos ambientales y de salud y de seguridad en el trabajo.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica4" role="tabpanel" aria-labelledby="pills-Politica4-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<div class="row d-block">
+								<div class="col-md-3 float-md-left float-lg-left">
+									<img src="white/img/conflicto.jpg">
+								</div>
+								<div class="col-md-9">
+									<h3 class="card-title">política de conflicto de intereses</h3>
+									<p class="card-text text-justify">Es política de <strong>PROSARC S.A ESP</strong>, respetar la propiedad del cliente, controlar y evitar bajo cualquier circunstancia que la información generada por concepto de requerimiento de tratamiento de incineración, celdas, entre otras, haya sido solicitada por el cliente, sea entregada a otro, incluyendo a la misma empresa. Para lo anterior, <strong>PROSARC S.A. ESP</strong>, ha identificado los posibles conflictos de interés internos y externos, por lo que establecemos controles, las responsabilidades y las acciones correspondientes para solventar cualquier deficiencia que pueda generar un incumplimiento a esta política.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica5" role="tabpanel" aria-labelledby="pills-Politica5-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<div class="row d-block">
+								<div class="col-md-3 float-md-right float-lg-right">
+									<img src="white/img/imparcial.png">
+								</div>
+								<div class="col-md-9">
+									<h3 class="card-title">política de independencia e imparcialidad</h3>
+									<p class="card-text text-justify">El Proceso de Tratamiento de <b>PROSARC S.A. ESP</b> y el área Comercial, tiene como política no acceder a amenazas o cualquier medio de coacción implícita o explícita, así como no intervenir en actividades que puedan afectar la confiabilidad de los resultados que emite a sus clientes y la competencia. Esto se manifiesta a través de la libertad que tienen para ejercer las funciones establecidas en los perfiles de cargo.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica6" role="tabpanel" aria-labelledby="pills-Politica6-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<div class="row d-block">
+								<div class="col-md-3 float-md-left float-lg-left">
+									<img src="white/img/quejas.jpg">
+								</div>
+								<div class="col-md-9">
+									<h3 class="card-title">Política de quejas y reclamos</h3>
+									<p class="card-text text-justify">Es política de <strong>PROSARC S.A. ESP</strong>, trabajar en procura de la disminución efectiva de las quejas y reclamos de los clientes internos y externos y cuando estos reclamos se presenten, trabajar en conjunto con los clientes para resolver de forma oportuna, pronta y efectiva cualquier deficiencia que haya sido presentada, para aumentar su satisfacción y la imagen de la Empresa. Para esto, hemos establecido el procedimiento XXXX Gestión de Quejas, como instrumento para dar tratamiento a este tipo de situaciones.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica7" role="tabpanel" aria-labelledby="pills-Politica7-tab">
+					<div class="card w-100">
+						<div class="card-body">
+							<div class="row d-block">
+								<div class="col-md-3 float-md-right float-lg-right">
+									<img src="white/img/revición.jpg">
+								</div>
+								<div class="col-md-9">
+									<h3 class="card-title">Política de revisión de pedidos y contratos</h3>
+									<p class="card-text text-justify"><strong>PROSARC S.A. ESP</strong>, como política tiene revisar las diferentes solicitudes y/o requerimientos de muestreo y análisis de sus clientes internos y externos conservando registros de las revisiones e informando al cliente de las desviaciones que se presentan en la ejecución de sus actividades con respecto a los requerimientos iniciales, determinando la capacidad de análisis y velando por el aumento de la satisfacción de sus clientes.</p>
+									<br>
+									<p class="card-text text-justify">Para esto se cuenta con procedimientos para la revisión de los requerimientos y contratos dentro de los procedimientos establecidos por <strong>PROSARC S.A. ESP</strong> y con personal consiente y capacitado para tal fin.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica8" role="tabpanel" aria-labelledby="pills-Politica8-tab">
+					<div class="card-body">
+						<div class="row d-block">
+							<div class="col-md-3 float-md-left float-lg-left">
+								<img src="white/img/conforme.jpg">
+							</div>
+							<div class="col-md-9">
+								<h3 class="card-title">Política de trabajo no conforme</h3>
+								<p class="card-text text-justify">Es política de <strong>PROSARC S.A. ESP</strong>, evitar bajo cualquier circunstancia la ocurrencia de trabajo no conformes. Sin embargo, en caso de que ocurran se deberá prestar atención pronta, se asignan responsables y se toman las acciones correspondientes para solventar cualquier deficiencia que pueda afectar de forma directa o indirecta los procedimientos del sistema integrado de gestión. Para esto, se ha establecido el procedimiento XXXXX Procedimiento de Control de Trabajo NO Conforme, como instrumento para dar tratamiento a estas situaciones.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-Politica9" role="tabpanel" aria-labelledby="pills-Politica9-tab">
+					<div class="card-body">
+						<div class="row d-block">
+							<div class="col-md-3 float-md-right float-lg-right">
+								<img src="white/img/confidencial.jpg">
+							</div>
+							<div class="col-md-9">
+								<h3 class="card-title">políticas de confidencialidad</h3>
+								<p class="card-text text-justify">Todo el personal y quien labore en PROSARC S.A. ESP, desde la Gerencia General y directivos, se comprometen a mantener la confidencialidad de los resultados de sus diferentes clientes, así como a proteger dicha información de un uso contrario al autorizado, pérdida, acceso no autorizado, alteración y destrucción. Sólo se utilizará la información obtenida en los análisis para responder a los requerimientos y consultas y procesar las solicitudes de los clientes.</p>
+								<br>
+								<p class="card-text text-justify">El personal y quien labore en <strong>PROSARC S.A. ESP</strong>, sea contratista y/o temporal, asume con mucha seriedad la responsabilidad de mantener la confidencialidad de sus datos y con este fin toma precauciones razonables y cuenta con procedimientos y mecanismos para protegerlos, también para que el personal involucrado, guarde confidencialidad absoluta al respecto, así como también, para que no divulguen la dicha información a terceros y no la utilice para otro propósito que no sea ofrecerle bienes y servicios específicos a los clientes de <strong>PROSARC S.A. ESP</strong>.</p> 
+								<br>
+								<p class="card-text text-justify">Para esto el personal ha firmado compromisos en la “Carta de Compromiso” y acuerdos de confidencialidad de la información en el “Acuerdo de Confiabilidad”, que reposan en las carpetas de cada hoja de vida. </p>
+								<br>
+								<p class="card-text text-justify">En el caso de los datos y resultados almacenados o distribuidos en medios electrónicos, se protegen contra alteraciones o daños mediante back ups periódicos y por medio de claves personalizadas se protegen contra accesos sin autorización.</p>
+								<br>
+								<p class="card-text text-justify">Sólo se podrá divulgar la información cuando la misma sea requerida para proteger y defender los derechos y la seguridad de <strong>PROSARC S.A. ESP</strong>, sus clientes y el personal a cargo. Excepto por las circunstancias previamente mencionadas, la información recolectada no se divulgará a terceros.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<br>
-	
-	<h2 class=" letra-titulo">POLÍTICAS</h2>
-
-	<div class="accordion" id="accordionExample">
-	  
-		{{-- Políica #1 --}}
-		<div class="card">
-			<div class="card-header" id="headingOne">
-				<h2 class="mb-0">
-					<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-					<strong class="letra-titulo">POLÍTICAS DE CONFIDENCIALIDAD</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-				<div class="row">
-					<div class="col-md-3">
-						<img src="white/img/confidencial.jpg" style="margin: 10px 10px 10px 10px;">
-					</div>
-					<div class="card-body col-md-8 text-justify letra-contenido" style="margin: 10px">
-						<p>Todo el personal y quien labore en PROSARC S.A. ESP, desde la Gerencia General y directivos, se comprometen a mantener la confidencialidad de los resultados de sus diferentes clientes, así como a proteger dicha información de un uso contrario al autorizado, pérdida, acceso no autorizado, alteración y destrucción. Sólo se utilizará la información obtenida en los análisis para responder a los requerimientos y consultas y procesar las solicitudes de los clientes.</p>
-						<br>
-						<p>El personal y quien labore en <strong>PROSARC S.A. ESP</strong>, sea contratista y/o temporal, asume con mucha seriedad la responsabilidad de mantener la confidencialidad de sus datos y con este fin toma precauciones razonables y cuenta con procedimientos y mecanismos para protegerlos, también para que el personal involucrado, guarde confidencialidad absoluta al respecto, así como también, para que no divulguen la dicha información a terceros y no la utilice para otro propósito que no sea ofrecerle bienes y servicios específicos a los clientes de <strong>PROSARC S.A. ESP</strong>.</p> 
-						<br>
-						<p>Para esto el personal ha firmado compromisos en la “Carta de Compromiso” y acuerdos de confidencialidad de la información en el “Acuerdo de Confiabilidad”, que reposan en las carpetas de cada hoja de vida. </p>
-						<br>
-						<p>En el caso de los datos y resultados almacenados o distribuidos en medios electrónicos, se protegen contra alteraciones o daños mediante back ups periódicos y por medio de claves personalizadas se protegen contra accesos sin autorización.</p>
-						<br>
-						<p>Sólo se podrá divulgar la información cuando la misma sea requerida para proteger y defender los derechos y la seguridad de <strong>PROSARC S.A. ESP</strong>, sus clientes y el personal a cargo. Excepto por las circunstancias previamente mencionadas, la información recolectada no se divulgará a terceros.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		{{-- Política #2 --}}
-		<div class="card">
-			<div class="card-header" id="headingTwo">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-					<strong class="letra-titulo">POLÍTICA DE INDEPENDENCIA <br> E IMPARCIALIDAD</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-				<div class="row">
-					<div class="card-body col-md-9 text-justify letra-contenido" style="margin: 10px 10px 10px 20px;">
-						El Proceso de Tratamiento de <strong>PROSARC S.A. ESP</strong> y el área Comercial, tiene como política no acceder a amenazas o cualquier medio de coacción implícita o explícita, así como no intervenir en actividades que puedan afectar la confiabilidad de los resultados que emite a sus clientes y la competencia. Esto se manifiesta a través de la libertad que tienen para ejercer las funciones establecidas en los perfiles de cargo.
-					</div>
-					<div class="col-md-2">
-						<img src="white/img/imparcial.png" style="margin: 10px;">
-					</div>
-				</div>
-			</div>
-		</div>
-		{{-- Política #3 --}}
-		<div class="card">
-			<div class="card-header" id="headingThree">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-					<strong class="letra-titulo">POLÍTICA DE REVISIÓN DE <br> PEDIDOS Y CONTRATOS</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-				<div class="row">
-					<div class="col-md-3">
-						<img src="white/img/revición.jpg" style="margin: 10px 10px 10px 10px;">
-					</div>
-					<div class="card-body col-md-8 text-justify letra-contenido">
-						<p><strong>PROSARC S.A. ESP</strong>, como política tiene revisar las diferentes solicitudes y/o requerimientos de muestreo y análisis de sus clientes internos y externos conservando registros de las revisiones e informando al cliente de las desviaciones que se presentan en la ejecución de sus actividades con respecto a los requerimientos iniciales, determinando la capacidad de análisis y velando por el aumento de la satisfacción de sus clientes.</p>
-						<br>
-						<p>Para esto se cuenta con procedimientos para la revisión de los requerimientos y contratos dentro de los procedimientos establecidos por <strong>PROSARC S.A. ESP</strong> y con personal consiente y capacitado para tal fin.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		{{-- Polílica #4 --}}
-		<div class="card">
-			<div class="card-header" id="headingFour">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-					<strong class="letra-titulo">POLÍTICA DE COMPRA DE <br> SERVICIOS Y SUMINISTRO</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-				<div class="row">
-					<div class="card-body col-md-9 text-justify letra-contenido" style="margin: 10px 10px 10px 20px;">
-						<p><strong>PROSARC S.A. ESP</strong>, tiene como política la adquisición de materiales, insumos, suministros y servicios de la calidad, con el fin que no se vea afectado directa o indirectamente la confiabilidad de los resultados que se emiten; siguiendo los procedimientos legales vigentes, realizando las verificaciones y aprobaciones pertinentes que garanticen el cumplimiento de las especificaciones solicitadas, así como emitir el concepto de la evaluación de proveedores a las diferentes partes interesadas, incluyendo los requisitos ambientales y de salud y de seguridad en el trabajo.</p>
-					</div>
-					<div class="col-md-2">
-						<img src="white/img/compras.jpg">
-					</div>
-				</div>
-			</div>
-		</div>
-		{{-- Política #5 --}}
-		<div class="card">
-			<div class="card-header" id="headingFive">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-					<strong class="letra-titulo">POLÍTICA DE QUEJAS Y RECLAMOS</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-				<div class="row">
-					<div class="col-md-3">
-						<img src="white/img/quejas.jpg" style="margin: 10px 10px 10px 10px;">
-					</div>
-					<div class="card-body col-md-8 text-justify letra-contenido">
-						<p>Es política de <strong>PROSARC S.A. ESP</strong>, trabajar en procura de la disminución efectiva de las quejas y reclamos de los clientes internos y externos y cuando estos reclamos se presenten, trabajar en conjunto con los clientes para resolver de forma oportuna, pronta y efectiva cualquier deficiencia que haya sido presentada, para aumentar su satisfacción y la imagen de la Empresa. Para esto, hemos establecido el procedimiento XXXX Gestión de Quejas, como instrumento para dar tratamiento a este tipo de situaciones.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		{{-- Política #6 --}}
-		<div class="card">
-			<div class="card-header" id="headingSix">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-					<strong class="letra-titulo">POLÍTICA DE TRABAJO NO CONFORME</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
-				<div class="row">
-					<div class="card-body col-md-9 text-justify letra-contenido" style="margin: 10px 10px 10px 20px;">
-						<p>Es política de <strong>PROSARC S.A. ESP</strong>, evitar bajo cualquier circunstancia la ocurrencia de trabajo no conformes. Sin embargo, en caso de que ocurran se deberá prestar atención pronta, se asignan responsables y se toman las acciones correspondientes para solventar cualquier deficiencia que pueda afectar de forma directa o indirecta los procedimientos del sistema integrado de gestión. Para esto, se ha establecido el procedimiento XXXXX Procedimiento de Control de Trabajo NO Conforme, como instrumento para dar tratamiento a estas situaciones.</p>
-					</div>
-					<div class="col-md-2">
-						<img src="white/img/conforme.jpg">
-					</div>
-				</div>
-			</div>
-		</div>
-		{{-- Política #7 --}}
-		<div class="card">
-			<div class="card-header" id="headingSeven">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-					<strong class="letra-titulo">POLÍTICA DE CONFLICO DE INTERESES</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
-				<div class="row">
-					<div class="col-md-3">
-						<img src="white/img/conflicto.jpg" style="margin: 10px 10px 10px 10px;">
-					</div>
-					<div class="card-body col-md-8 text-justify letra-contenido">
-						<p>Es política de <strong>PROSARC S.A ESP</strong>, respetar la propiedad del cliente, controlar y evitar bajo cualquier circunstancia que la información generada por concepto de requerimiento de tratamiento de incineración, celdas, entre otras, haya sido solicitada por el cliente, sea entregada a otro, incluyendo a la misma empresa. Para lo anterior, <strong>PROSARC S.A. ESP</strong>, ha identificado los posibles conflictos de interés internos y externos, por lo que establecemos controles, las responsabilidades y las acciones correspondientes para solventar cualquier deficiencia que pueda generar un incumplimiento a esta política.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		{{-- Política #8 --}}
-		<div class="card">
-			<div class="card-header" id="headingEight">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-					<strong class="letra-titulo">POLÍTICA DE ACCIONES <br> CORRECTIVAS Y PREVENTIVAS</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
-				<div class="row">
-					<div class="card-body col-md-9 text-justify letra-contenido" style="margin: 10px 10px 10px 20px;">
-						<p>Es política de <strong>PROSARC S.A. ESP</strong>, respetar la propiedad del cliente, controlar y evitar bajo cualquier circunstancia que la información generada por concepto de requerimiento de tratamiento de incineración, celdas, entre otras, haya sido solicitada por el cliente, sea entregada a otro, incluyendo a la misma empresa. Para lo anterior, <strong>PROSARC S.A. ESP</strong>, ha identificado los posibles conflictos de interés internos y externos, por lo que establecemos controles, las responsabilidades y las acciones correspondientes para solventar cualquier deficiencia que pueda generar un incumplimiento a esta política.</p>
-					</div>
-					<div class="col-md-2">
-						<img src="white/img/correctivas.png">
-					</div>
-				</div>
-			</div>
-		</div>
-		{{-- Política #9 --}}
-		<div class="card">
-			<div class="card-header" id="headingNine">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-					<strong class="letra-titulo">POLÍTICA DE COMPETENCIA, JUICIO <br>E INTEGRIDAD DEL PERSONAL</strong>
-					</button>
-				</h2>
-			</div>
-			<div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
-				<div class="row">
-					<div class="col-md-3">
-						<img src="white/img/integridad.jpg" style="margin: 10px 10px 10px 10px;">
-					</div>
-					<div class="card-body col-md-8 text-justify letra-contenido">
-						<p><strong>PROSARC S.A. ESP</strong>, se compromete a capacitar el personal de forma continua, determinando las necesidades del mismo, mediante evaluaciones periódicas o sugerencias de ellos mismos. La programación de la capacitación la establece el responsable del Sistema Integrado de Gestión mediante un programa de capacitación. Esta capacitación puede llevarse a cabo fuera en las instalaciones de <strong>PROSARC S.A. ESP</strong> Para llevarse a cabalidad con esto, la Empresa ha establecido un procedimiento XXXX Procedimiento para Entrenamiento de Personal y el procedimiento XXXX Competencia y Detección de Necesidades de Formación.</p>
-						<br>
-						<p><strong>PROSARC S.A. ESP</strong>, se compromete igualmente a incluir dentro de estas capacitaciones, la sensibilización del personal en aspectos como el compromiso adquirido por todo el personal que ingresa a la Empresa, a realizar sus actividades en forma imparcial e integral, guardando estrictamente la confidencialidad y empleando una buena práctica profesional, sin presiones interno o externas comerciales, financieras u otras que puedan tener una influencia negativa sobre la calidad del trabajo.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
 @endsection
 
 @push('scripts')
