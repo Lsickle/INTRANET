@@ -110,7 +110,7 @@ Nosotros
 					<div class="card w-100">
 						<div class="card-body">
 							<h3 class="card-title">Misión</h3>
-							<p class="card-text text-justify" style="text-indent:2.5em"> Ejecutar políticas, planes, programas y proyectos ambientales, a través de la implementación de la Licencia Ambiental y normas ambientales, para contribuir a brindar soluciones integrales a la Industria en General para el Manejo de Residuos Peligrosos.</p>
+							<p class="card-text text-justify" style="text-indent:2.5em; font-size: 18px;"> Ejecutar políticas, planes, programas y proyectos ambientales, a través de la implementación de la Licencia Ambiental y normas ambientales, para contribuir a brindar soluciones integrales a la Industria en General para el Manejo de Residuos Peligrosos.</p>
 						</div>
 					</div>
 				</div>
@@ -118,7 +118,7 @@ Nosotros
 					<div class="card w-100">
 						<div class="card-body">
 							<h3 class="card-title">Visión</h3>
-							<p class="card-text text-justify" style="text-indent:2.5em">PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIA S.A. ESP – PROSARC S.A. ESP, en el 2023 habrá incidido en la consolidación de un modelo viable, prospero, equitativo y sostenible, a través de una cultura ambiental responsable en la solución integral para el Manejo de Residuos Peligrosos.</p>
+							<p class="card-text text-justify" style="text-indent:2.5em; font-size: 18px;">PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIA S.A. ESP – PROSARC S.A. ESP, en el 2023 habrá incidido en la consolidación de un modelo viable, prospero, equitativo y sostenible, a través de una cultura ambiental responsable en la solución integral para el Manejo de Residuos Peligrosos.</p>
 						</div>
 					</div>
 				</div>
@@ -134,16 +134,16 @@ Nosotros
 					<div class="card">
 						<div class="row">
 							<div class="col-md-2">
-								<div class="card-header nav flex-column nav-pills mb-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-									<a class="nav-link" id="v-pills-obj1Descripcion-tab" data-toggle="pill" href="#v-pills-obj1Descripcion" role="tab" aria-controls="v-pills-home" aria-selected="true">Descripción</a>
-									<a class="nav-link" id="v-pills-obj1Actividades-tab" data-toggle="pill" href="#v-pills-obj1Actividades" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actividades</a>
+								<div class="card-header nav flex-column nav-pills mb-3" id="obj1-pills-tab" role="tablist" aria-orientation="vertical">
+									<a class="nav-link active" id="v-pills-obj1Descripcion-tab" data-toggle="pill" href="#v-pills-obj1Descripcion" role="tab" aria-controls="v-pills-obj1Descripcion" aria-selected="true">Descripción</a>
+									<a class="nav-link" id="v-pills-obj1Actividades-tab" data-toggle="pill" href="#v-pills-obj1Actividades" role="tab" aria-controls="v-pills-obj1Actividades" aria-selected="false">Actividades</a>
 									{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
 									{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
 								</div>
 							</div>
 							<div class="col-md-10">
 								<div class="card-body tab-content" id="v-pills-tabContent">
-									<div class="tab-pane fade" id="v-pills-obj1Descripcion" role="tabpanel" aria-labelledby="v-pills-obj1Descripcion-tab">
+									<div class="tab-pane fade show active" id="v-pills-obj1Descripcion" role="tabpanel" aria-labelledby="v-pills-obj1Descripcion-tab">
 										<h3>Objetivo 1</h3>
 										<h4>Pólitica de Seguridad y Salud en el Trabajo</h4>
 										<p>
@@ -206,16 +206,16 @@ Nosotros
 					<div class="card">
 						<div class="row">
 							<div class="col-md-2">
-								<div class="card-header nav flex-column nav-pills mb-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-									<a class="nav-link" id="v-pills-obj3Descripcion-tab" data-toggle="pill" href="#v-pills-obj2Descripcion" role="tab" aria-controls="v-pills-home" aria-selected="true">Descripción</a>
-									<a class="nav-link" id="v-pills-obj2Actividades-tab" data-toggle="pill" href="#v-pills-obj2Actividades" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actividades</a>
+								<div class="card-header nav flex-column nav-pills mb-3" id="obj2-pills-tab" role="tablist" aria-orientation="vertical">
+									<a class="nav-link active" id="v-pills-obj2Descripcion-tab" data-toggle="pill" href="#v-pills-obj2Descripcion" role="tab" aria-controls="v-pills-obj2Descripcion" aria-selected="true">Descripción</a>
+									<a class="nav-link" id="v-pills-obj2Actividades-tab" data-toggle="pill" href="#v-pills-obj2Actividades" role="tab" aria-controls="v-pills-obj2Actividades" aria-selected="false">Actividades</a>
 									{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
 									{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
 								</div>
 							</div>
 							<div class="col-md-10">
 								<div class="card-body tab-content" id="v-pills-tabContent">
-									<div class="tab-pane fade" id="v-pills-obj2Descripcion" role="tabpanel" aria-labelledby="v-pills-obj2Descripcion-tab">
+									<div class="tab-pane fade show active" id="v-pills-obj2Descripcion" role="tabpanel" aria-labelledby="v-pills-obj2Descripcion-tab">
 										<h3>Objetivo 2</h3>
 										<h4>Pólitica de Calidad</h4>
 										<p>
@@ -278,16 +278,16 @@ Nosotros
 					<div class="card">
 						<div class="row">
 							<div class="col-md-2">
-								<div class="card-header nav flex-column nav-pills mb-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-									<a class="nav-link" id="v-pills-obj3Descripcion-tab" data-toggle="pill" href="#v-pills-obj3Descripcion" role="tab" aria-controls="v-pills-home" aria-selected="true">Descripción</a>
-									<a class="nav-link" id="v-pills-obj3Actividades-tab" data-toggle="pill" href="#v-pills-obj3Actividades" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actividades</a>
+								<div class="card-header nav flex-column nav-pills mb-3" id="obj3-pills-tab" role="tablist" aria-orientation="vertical">
+									<a class="nav-link active" id="v-pills-obj3Descripcion-tab" data-toggle="pill" href="#v-pills-obj3Descripcion" role="tab" aria-controls="v-pills-obj3Descripcion" aria-selected="true">Descripción</a>
+									<a class="nav-link" id="v-pills-obj3Actividades-tab" data-toggle="pill" href="#v-pills-obj3Actividades" role="tab" aria-controls="v-pills-obj3Actividades" aria-selected="false">Actividades</a>
 									{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
 									{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
 								</div>
 							</div>
 							<div class="col-md-10">
 								<div class="card-body tab-content" id="v-pills-tabContent">
-									<div class="tab-pane fade" id="v-pills-obj3Descripcion" role="tabpanel" aria-labelledby="v-pills-obj3Descripcion-tab">
+									<div class="tab-pane fade show active" id="v-pills-obj3Descripcion" role="tabpanel" aria-labelledby="v-pills-obj3Descripcion-tab">
 										<h3>Objetivo 3</h3>
 										<h4>Pólitica Ambiental</h4>
 										<p>
@@ -350,18 +350,13 @@ Nosotros
 					</div>
 				</div>
 				<div class="tab-pane fade" id="pills-Mapa" role="tabpanel" aria-labelledby="pills-Mapa-tab">
-					<div class="card w-100 mx-auto">
+					<div class="card w-100">
 						<div class="card-body">
 							<h3 class="card-title">
 								Mapa de Procesos
 							</h3>
-							<a href="https://picsum.photos/1920/1080">
-								{{-- <img src="white/img/Mapa_proceso.png" class="responsive imagen-prosarc w-100" alt="Responsive image"> --}}
-								<img class="" src="https://picsum.photos/1920/1080" alt="">
-							</a>
 							<div class="img-zoom-container">
-								<img id="myimage" src="white/img/Mapa_proceso.png" width="300" height="240" alt="Girl">
-								<div id="myresult" class="img-zoom-result"></div>
+								<a target="_blank" href="white/img/mapa2.png"><img class="img-fluid" id="myimage" src="white/img/mapa2.png" alt="Mapa de Procesos PRosarc S.A. ESP"></a>
 							</div>
 						</div>
 					</div>
@@ -583,64 +578,5 @@ Nosotros
 @endsection
 
 @push('scripts')
-	<script>
-		function imageZoom(imgID, resultID) {
-			var img, lens, result, cx, cy;
-			img = document.getElementById(imgID);
-			result = document.getElementById(resultID);
-			/* Create lens: */
-			lens = document.createElement("DIV");
-			lens.setAttribute("class", "img-zoom-lens");
-			/* Insert lens: */
-			img.parentElement.insertBefore(lens, img);
-			/* Calculate the ratio between result DIV and lens: */
-			cx = result.offsetWidth / lens.offsetWidth;
-			cy = result.offsetHeight / lens.offsetHeight;
-			/* Set background properties for the result DIV */
-			result.style.backgroundImage = "url('" + img.src + "')";
-			result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
-			/* Execute a function when someone moves the cursor over the image, or the lens: */
-			lens.addEventListener("mousemove", moveLens);
-			img.addEventListener("mousemove", moveLens);
-			/* And also for touch screens: */
-			lens.addEventListener("touchmove", moveLens);
-			img.addEventListener("touchmove", moveLens);
-			function moveLens(e) {
-				var pos, x, y;
-				/* Prevent any other actions that may occur when moving over the image */
-				e.preventDefault();
-				/* Get the cursor's x and y positions: */
-				pos = getCursorPos(e);
-				/* Calculate the position of the lens: */
-				x = pos.x - (lens.offsetWidth / 2);
-				y = pos.y - (lens.offsetHeight / 2);
-				/* Prevent the lens from being positioned outside the image: */
-				if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-				if (x < 0) {x = 0;}
-				if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-				if (y < 0) {y = 0;}
-				/* Set the position of the lens: */
-				lens.style.left = x + "px";
-				lens.style.top = y + "px";
-				/* Display what the lens "sees": */
-				result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-			}
-			function getCursorPos(e) {
-				var a, x = 0, y = 0;
-				e = e || window.event;
-				/* Get the x and y positions of the image: */
-				a = img.getBoundingClientRect();
-				/* Calculate the cursor's x and y coordinates, relative to the image: */
-				x = e.pageX - a.left;
-				y = e.pageY - a.top;
-				/* Consider any page scrolling: */
-				x = x - window.pageXOffset;
-				y = y - window.pageYOffset;
-				return {x : x, y : y};
-			}
-		}
-		$(document).ready(function() {
-			imageZoom("myimage", "myresult");
-		});
-	</script>
+	
 @endpush
