@@ -379,13 +379,13 @@ Nosotros
 				<div class="tab-pane fade" id="pills-Politica2" role="tabpanel" aria-labelledby="pills-Politica2-tab">
 					<div class="card w-100">
 						<div class="card-body">
-							<div class="row d-block">
+							<div class="row">
 								<div class="col-md-3 float-md-left float-lg-left">
-									<img src="white/img/integridad.jpg">
+									<img class="img-fluid" src="white/img/integridad.jpg">
 								</div>
 								<div class="col-md-9">
 									<h3 class="card-title">Política de competencia, juicio e integridad del personal</h3>
-									<p class="card-text text-justify" <b>PROSARC S.A. ESP</b>, se compromete a capacitar el personal de forma continua, determinando las necesidades del mismo, mediante evaluaciones periódicas o sugerencias de ellos mismos. La programación de la capacitación la establece el responsable del Sistema Integrado de Gestión mediante un programa de capacitación. Esta capacitación puede llevarse a cabo fuera en las instalaciones de <b>PROSARC S.A. ESP</b> Para llevarse a cabalidad con esto, la Empresa ha establecido un procedimiento XXXX Procedimiento para Entrenamiento de Personal y el procedimiento XXXX Competencia y Detección de Necesidades de Formación.</p>
+									<p class="card-text text-justify"><b>PROSARC S.A. ESP</b>, se compromete a capacitar el personal de forma continua, determinando las necesidades del mismo, mediante evaluaciones periódicas o sugerencias de ellos mismos. La programación de la capacitación la establece el responsable del Sistema Integrado de Gestión mediante un programa de capacitación. Esta capacitación puede llevarse a cabo fuera en las instalaciones de <b>PROSARC S.A. ESP</b> Para llevarse a cabalidad con esto, la Empresa ha establecido un procedimiento XXXX Procedimiento para Entrenamiento de Personal y el procedimiento XXXX Competencia y Detección de Necesidades de Formación.</p>
 									<br>
 									<p class="card-text text-justify">El Proceso de Tratamiento de <strong>PROSARC S.A. ESP</strong> y el área Comercial, tiene como política no acceder a amenazas o cualquier medio de coacción implícita o explícita, así como no intervenir en actividades que puedan afectar la confiabilidad de los resultados que emite a sus clientes y la competencia. Esto se manifiesta a través de la libertad que tienen para ejercer las funciones establecidas en los perfiles de cargo.</p>
 								</div>
@@ -411,9 +411,9 @@ Nosotros
 				<div class="tab-pane fade" id="pills-Politica4" role="tabpanel" aria-labelledby="pills-Politica4-tab">
 					<div class="card w-100">
 						<div class="card-body">
-							<div class="row d-block">
+							<div class="row">
 								<div class="col-md-3 float-md-left float-lg-left">
-									<img src="white/img/conflicto.jpg">
+									<img class="img-fluid" src="white/img/conflicto.jpg">
 								</div>
 								<div class="col-md-9">
 									<h3 class="card-title">política de conflicto de intereses</h3>
@@ -441,9 +441,9 @@ Nosotros
 				<div class="tab-pane fade" id="pills-Politica6" role="tabpanel" aria-labelledby="pills-Politica6-tab">
 					<div class="card w-100">
 						<div class="card-body">
-							<div class="row d-block">
+							<div class="row">
 								<div class="col-md-3 float-md-left float-lg-left">
-									<img src="white/img/quejas.jpg">
+									<img class="img-fluid" src="white/img/quejas.jpg">
 								</div>
 								<div class="col-md-9">
 									<h3 class="card-title">Política de quejas y reclamos</h3>
@@ -472,9 +472,9 @@ Nosotros
 				</div>
 				<div class="tab-pane fade" id="pills-Politica8" role="tabpanel" aria-labelledby="pills-Politica8-tab">
 					<div class="card-body">
-						<div class="row d-block">
+						<div class="row">
 							<div class="col-md-3 float-md-left float-lg-left">
-								<img src="white/img/conforme.jpg">
+								<img class="img-fluid" src="white/img/conforme.jpg">
 							</div>
 							<div class="col-md-9">
 								<h3 class="card-title">Política de trabajo no conforme</h3>
