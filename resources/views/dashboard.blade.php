@@ -9,6 +9,8 @@ Home
 @endsection
 
 @section('content')
+<div class="row align-items-center">
+	<div class="col-md-6">
 		<div class="div-slider-pro">
 			<div class="col-md-12 card-body">
 				<h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
@@ -16,131 +18,183 @@ Home
 					<div class="sp-slides">
 						<!-- Slide 1 -->
 						<div class="sp-slide">
-							<img class="sp-image" style="border-radius: 5px !important;" src="white/img/DJI_0127.jpg" alt="First slide">
+							<img class="sp-image" style="border-radius: 5px !important;" src="white/img/DJI_0127.jpg"
+								alt="First slide">
 
-							<a href="/nosotros"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;"
-								data-width="200" data-horizontal="15%" data-vertical="28%"
-								data-show-transition="right" data-hide-transition="up" data-show-delay="500">
-								Conoce PROSARC
-							</p></a>
+							<a href="/nosotros">
+								<p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click"
+									style="color:white;" data-width="200" data-horizontal="15%" data-vertical="28%"
+									data-show-transition="right" data-hide-transition="up" data-show-delay="500">
+									Conoce PROSARC
+								</p>
+							</a>
 						</div>
 						<!-- Slide 2 -->
 						<div class="sp-slide">
-							<img class="sp-image" style="border-radius: 5px !important;" src="white/img/bombero.png" alt="Second slide">
+							<img class="sp-image" style="border-radius: 5px !important;" src="white/img/bombero.png"
+								alt="Second slide">
 						</div>
 						<!-- Slide 3 -->
 						<div class="sp-slide">
-							<img class="sp-image" style="border-radius: 5px !important;" src="{{(($indicator->IndGraphic == '') || ($indicator->IndGraphic == Null)) ? 'white/img/no_image.png' : Storage::url($indicator->IndGraphic)}}">
-							<a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
-								@if ($indicator->created_at == $indicator->updated_at)
+							<img class="sp-image" style="border-radius: 5px !important;"
+								src="{{(($indicator->IndGraphic == '') || ($indicator->IndGraphic == Null)) ? 'white/img/no_image.png' : Storage::url($indicator->IndGraphic)}}">
+							<a href="indicators/{{$indicator->id}}">
+								<p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click"
+									style="color:white;" data-position="centerCenter" data-show-transition="left"
+									data-show-delay="500" data-vertical="-50" data-hide-transition="left"
+									data-show-duration="750">
+									@if ($indicator->created_at == $indicator->updated_at)
 									Nuevo Indicador
-								@else
+									@else
 									Indicador actualizado
-								@endif
+									@endif
 								</p>
 							</a>
-							
-							<a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
-								{{$indicator->IndName}}
+
+							<a href="indicators/{{$indicator->id}}">
+								<p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click"
+									data-position="centerCenter" data-show-transition="right" data-show-delay="500"
+									data-vertical="50" data-hide-transition="right" data-show-duration="750">
+									{{$indicator->IndName}}
 								</p>
 							</a>
 						</div>
 						<!-- Slide 4 -->
 						<div class="sp-slide">
-							<img class="sp-image" style="border-radius: 5px !important;" src="{{($comitesCarousel->ComiImage == '') || ($comitesCarousel->ComiImage == Null) ? 'white/img/no_image.png' : Storage::url($comitesCarousel->ComiImage)}}" alt="Fourth slide">
-							<a href="comites/{{$comitesCarousel->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
-								@if ($comitesCarousel->created_at == $comitesCarousel->updated_at)
+							<img class="sp-image" style="border-radius: 5px !important;"
+								src="{{($comitesCarousel->ComiImage == '') || ($comitesCarousel->ComiImage == Null) ? 'white/img/no_image.png' : Storage::url($comitesCarousel->ComiImage)}}"
+								alt="Fourth slide">
+							<a href="comites/{{$comitesCarousel->id}}">
+								<p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click"
+									style="color:white;" data-position="centerCenter" data-show-transition="left"
+									data-show-delay="500" data-vertical="-50" data-hide-transition="left"
+									data-show-duration="750">
+									@if ($comitesCarousel->created_at == $comitesCarousel->updated_at)
 									Nuevo Comite
-								@else
+									@else
 									Comite actualizado
-								@endif
+									@endif
 								</p>
 							</a>
-							
-							<a href="comites/{{$comitesCarousel->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
-								{{$comitesCarousel->ComiName}}
+
+							<a href="comites/{{$comitesCarousel->id}}">
+								<p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click"
+									data-position="centerCenter" data-show-transition="right" data-show-delay="500"
+									data-vertical="50" data-hide-transition="right" data-show-duration="750">
+									{{$comitesCarousel->ComiName}}
 								</p>
 							</a>
 						</div>
 						<!-- Slide 5 -->
 						<div class="sp-slide">
-							<img class="sp-image" style="border-radius: 5px !important;" src="{{($release->RelSrc == '') || ($release->RelSrc == Null) ? 'white/img/no_image.png' : Storage::url($release->RelSrc)}}" alt="Five slide">
-								<a href="releases/{{$release->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
+							<img class="sp-image" style="border-radius: 5px !important;"
+								src="{{($release->RelSrc == '') || ($release->RelSrc == Null) ? 'white/img/no_image.png' : Storage::url($release->RelSrc)}}"
+								alt="Five slide">
+							<a href="releases/{{$release->id}}">
+								<p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click"
+									style="color:white;" data-position="centerCenter" data-show-transition="left"
+									data-show-delay="500" data-vertical="-50" data-hide-transition="left"
+									data-show-duration="750">
 									@if ($release->created_at == $release->updated_at)
-										@if($release->RelType === 'Comunicado')
-											Nuevo {{$release->RelType}}
-										@else
-											Nueva {{$release->RelType}}
-										@endif
+									@if($release->RelType === 'Comunicado')
+									Nuevo {{$release->RelType}}
 									@else
-										@if($release->RelType === 'Comunicado')
-											{{$release->RelType}} actualizado
-										@else
-											{{$release->RelType}} actualizada
-										@endif
+									Nueva {{$release->RelType}}
 									@endif
-									</p>
-								</a>
-								
-								<a href="releases/{{$release->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
+									@else
+									@if($release->RelType === 'Comunicado')
+									{{$release->RelType}} actualizado
+									@else
+									{{$release->RelType}} actualizada
+									@endif
+									@endif
+								</p>
+							</a>
+
+							<a href="releases/{{$release->id}}">
+								<p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click"
+									data-position="centerCenter" data-show-transition="right" data-show-delay="500"
+									data-vertical="50" data-hide-transition="right" data-show-duration="750">
 									{{$release->RelName}}
-									</p>
-								</a>
+								</p>
+							</a>
 						</div>
 						<!-- Slide 6 -->
 						<div class="sp-slide">
-							<img class="sp-image" style="border-radius: 5px !important;" src="white/img/docu.jpg" alt="Six slide">
-							<a href="documents/{{$document->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
-								@if ($document->created_at == $document->updated_at)
+							<img class="sp-image" style="border-radius: 5px !important;" src="white/img/docu.jpg"
+								alt="Six slide">
+							<a href="documents/{{$document->id}}">
+								<p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click"
+									style="color:white;" data-position="centerCenter" data-show-transition="left"
+									data-show-delay="500" data-vertical="-50" data-hide-transition="left"
+									data-show-duration="750">
+									@if ($document->created_at == $document->updated_at)
 									Nuevo Documento
-								@else
+									@else
 									Documento actualizado
-								@endif
+									@endif
 								</p>
 							</a>
-							
-							<a href="documents/{{$document->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
-								{{$document->DocName}}
+
+							<a href="documents/{{$document->id}}">
+								<p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click"
+									data-position="centerCenter" data-show-transition="right" data-show-delay="500"
+									data-vertical="50" data-hide-transition="right" data-show-duration="750">
+									{{$document->DocName}}
 								</p>
 							</a>
 						</div>
 						<!-- Slide 7 -->
 						<div class="sp-slide">
-							<img class="sp-image" style="border-radius: 5px !important;" src="white/img/requisito.png" alt="Six slide">
-								<a href="requisitos/{{$requisito->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
-								@if ($requisito->created_at == $requisito->updated_at)
+							<img class="sp-image" style="border-radius: 5px !important;" src="white/img/requisito.png"
+								alt="Six slide">
+							<a href="requisitos/{{$requisito->id}}">
+								<p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click"
+									style="color:white;" data-position="centerCenter" data-show-transition="left"
+									data-show-delay="500" data-vertical="-50" data-hide-transition="left"
+									data-show-duration="750">
+									@if ($requisito->created_at == $requisito->updated_at)
 									Nuevo Requisito
-								@else
+									@else
 									Requisito actualizado
-								@endif
+									@endif
 								</p>
 							</a>
-							
-							<a href="requisitos/{{$requisito->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
-								{{$requisito->ReqName}}
+
+							<a href="requisitos/{{$requisito->id}}">
+								<p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click"
+									data-position="centerCenter" data-show-transition="right" data-show-delay="500"
+									data-vertical="50" data-hide-transition="right" data-show-duration="750">
+									{{$requisito->ReqName}}
 								</p>
 							</a>
 						</div>
 						<!-- Slide 8 -->
 						<div class="sp-slide">
-							<img class="sp-image" style="border-radius: 5px !important;"
-								@if($proceso->ProcImage == "")
-									src="/white/img/no_image.png" 
-								@else
-									src="{{Storage::url($proceso->ProcImage)}}"
-								@endif 
-								alt="Six slide">
-								<a href="proceso/{{$proceso->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
-								@if ($proceso->created_at == $proceso->updated_at)
+							<img class="sp-image" style="border-radius: 5px !important;" @if($proceso->ProcImage == "")
+							src="/white/img/no_image.png"
+							@else
+							src="{{Storage::url($proceso->ProcImage)}}"
+							@endif
+							alt="Six slide">
+							<a href="proceso/{{$proceso->id}}">
+								<p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click"
+									style="color:white;" data-position="centerCenter" data-show-transition="left"
+									data-show-delay="500" data-vertical="-50" data-hide-transition="left"
+									data-show-duration="750">
+									@if ($proceso->created_at == $proceso->updated_at)
 									Nuevo Proceso
-								@else
+									@else
 									Proceso actualizado
-								@endif
+									@endif
 								</p>
 							</a>
-							
-							<a href="proceso/{{$proceso->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
-								{{$proceso->ProcName}}
+
+							<a href="proceso/{{$proceso->id}}">
+								<p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click"
+									data-position="centerCenter" data-show-transition="right" data-show-delay="500"
+									data-vertical="50" data-hide-transition="right" data-show-duration="750">
+									{{$proceso->ProcName}}
 								</p>
 							</a>
 						</div>
@@ -148,92 +202,95 @@ Home
 					<div class="sp-thumbnails">
 						<!-- thumbnail 1 -->
 						<div class="sp-thumbnail">
-							<img class="sp-thumbnail-image" src="white/img/DJI_0127.jpg"/>
+							<img class="sp-thumbnail-image" src="white/img/DJI_0127.jpg" />
 							<p class="sp-thumbnail-text">Conoce PROSARC S.A. ESP</p>
 						</div>
 
 						<!-- thumbnail 2 -->
 						<div class="sp-thumbnail">
-							<img class="sp-thumbnail-image" src="white/img/bombero.png"/>
+							<img class="sp-thumbnail-image" src="white/img/bombero.png" />
 							<p class="sp-thumbnail-text">Numeros de Emergencia</p>
 						</div>
 
 						<!-- thumbnail 3 -->
 						<div class="sp-thumbnail">
-							<img class="sp-thumbnail-image" src="{{($indicator->IndGraphic == '') || ($indicator->IndGraphic == Null) ? 'white/img/no_image.png' : Storage::url($indicator->IndGraphic)}}"/>
+							<img class="sp-thumbnail-image"
+								src="{{($indicator->IndGraphic == '') || ($indicator->IndGraphic == Null) ? 'white/img/no_image.png' : Storage::url($indicator->IndGraphic)}}" />
 							<p class="sp-thumbnail-text">
 								@if ($indicator->created_at == $indicator->updated_at)
-									Nuevo Indicador
+								Nuevo Indicador
 								@else
-									Indicador actualizado
+								Indicador actualizado
 								@endif
 							</p>
 						</div>
 
 						<!-- thumbnail 4 -->
 						<div class="sp-thumbnail">
-							<img class="sp-thumbnail-image" src="{{($comitesCarousel->ComiImage == '') || ($comitesCarousel->ComiImage == Null) ? 'white/img/no_image.png' : Storage::url($comitesCarousel->ComiImage)}}"/>
+							<img class="sp-thumbnail-image"
+								src="{{($comitesCarousel->ComiImage == '') || ($comitesCarousel->ComiImage == Null) ? 'white/img/no_image.png' : Storage::url($comitesCarousel->ComiImage)}}" />
 							<p class="sp-thumbnail-text">
 								@if ($comitesCarousel->created_at == $comitesCarousel->updated_at)
-									Nuevo Comite
+								Nuevo Comite
 								@else
-									Comite actualizado
+								Comite actualizado
 								@endif
 							</p>
 						</div>
 
 						<!-- thumbnail 5 -->
 						<div class="sp-thumbnail">
-							<img class="sp-thumbnail-image" src="{{($release->RelSrc == '') || ($release->RelSrc == Null) ? 'white/img/no_image.png' : Storage::url($release->RelSrc)}}"/>
+							<img class="sp-thumbnail-image"
+								src="{{($release->RelSrc == '') || ($release->RelSrc == Null) ? 'white/img/no_image.png' : Storage::url($release->RelSrc)}}" />
 							<p class="sp-thumbnail-text">
 								@if ($release->created_at == $release->updated_at)
-									@if($release->RelType === 'Comunicado')
-										Nuevo {{$release->RelType}}
-									@else
-										Nueva {{$release->RelType}}
-									@endif
+								@if($release->RelType === 'Comunicado')
+								Nuevo {{$release->RelType}}
 								@else
-									@if($release->RelType === 'Comunicado')
-										{{$release->RelType}} actualizado
-									@else
-										{{$release->RelType}} actualizada
-									@endif
+								Nueva {{$release->RelType}}
+								@endif
+								@else
+								@if($release->RelType === 'Comunicado')
+								{{$release->RelType}} actualizado
+								@else
+								{{$release->RelType}} actualizada
+								@endif
 								@endif
 							</p>
 						</div>
 
 						<!-- thumbnail 6 -->
 						<div class="sp-thumbnail">
-							<img class="sp-thumbnail-image" src="white/img/docu.jpg"/>
+							<img class="sp-thumbnail-image" src="white/img/docu.jpg" />
 							<p class="sp-thumbnail-text">
 								@if ($document->created_at == $document->updated_at)
-									Nuevo Documento
+								Nuevo Documento
 								@else
-									Documento actualizado
+								Documento actualizado
 								@endif
 							</p>
 						</div>
 
 						<!-- thumbnail 7 -->
 						<div class="sp-thumbnail">
-							<img class="sp-thumbnail-image" src="white/img/requisito.png"/>
+							<img class="sp-thumbnail-image" src="white/img/requisito.png" />
 							<p class="sp-thumbnail-text">
 								@if ($requisito->created_at == $requisito->updated_at)
-									Nuevo Requisito
+								Nuevo Requisito
 								@else
-									Requisito actualizado
+								Requisito actualizado
 								@endif
 							</p>
 						</div>
 
 						<!-- thumbnail 8 -->
 						<div class="sp-thumbnail">
-							<img class="sp-thumbnail-image" src="white/img/requisito.png"/>
+							<img class="sp-thumbnail-image" src="white/img/requisito.png" />
 							<p class="sp-thumbnail-text">
 								@if ($proceso->created_at == $proceso->updated_at)
-									Nuevo Proceso
+								Nuevo Proceso
 								@else
-									Proceso actualizado
+								Proceso actualizado
 								@endif
 							</p>
 						</div>
@@ -241,73 +298,122 @@ Home
 				</div>
 			</div>
 		</div>
-		<div class="text-center">
-			<div class="div-conoce-pro">
-				<h2 class="text-center">Conoce a Prosarc</h2>
-				<div class="row">
-					<div class="col-md-6">
-						<a href="{{ route('prosarc.nosotros') }}"><img src="white/img/logo.png" class="botones-conoce"></a>
-						<br>
-						<h4>Nosotros</h4>
-					</div>
-					<div class="col-md-6">
-						<a href="{{ route('requisitos.index') }}"><img src="white/img/RL.jpg" class="botones-conoce"></a>
-						<br>
-						<h4>Requisitos legales</h4>
-					</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card" style="max-width: 540px;">
+			<div class="row no-gutters">
+				<div class="col-4 px-3 my-auto">
+					<a href="{{ route('prosarc.nosotros') }}"><img src="white/img/logo.png" class="card-img" alt="Logo Prosarc"></a>
 				</div>
-			</div>
-			<div class="div-conoce-pro">
-				<h2 class="text-center">Nuestra Gestión</h2>
-				<div class="row">
-					<div class="col-md-3 mx-auto">
-						<a href="{{ route('prosarc.GHumana') }}"><img src="white/img/GH.jpg" class="botones-conoce"></a>
-						<br>
-						<h4>Gestión Humana</h4>         
+				<div class="col-8 text-right">
+					<div class="card-body">
+						<h4 class="card-title">
+							<b><a href="{{ route('prosarc.nosotros') }}" class="btn btn-info btn-sm"><small>Acerca de Prosarc</small></a></b>
+						</h4>
+						<p class="card-text">Página con información de generalidades, misión, visión, objetivos,
+							políticas, mapa de procesos, entre otros.</p>
 					</div>
-
-					<div class="col-md-3 mx-auto">
-						<a href="{{ route('prosarc.GAmbiental') }}"><img src="white/img/GA.jpg" class="botones-conoce"></a>
-						<br>
-						<h4>Gestión Ambiental</h4>          
-					</div>
-
-					<div class="col-md-3 mx-auto">
-						<a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a>
-						<br>
-						<h4>Gestión de Calidad</h4>
-					</div>
-
-					<div class="col-md-3 mx-auto">
-						<a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a>
-						<br>
-						<h4>Seguridad y salud <br> en el trabajo</h4>
-					</div>
-				</div>
-			</div>
-
-			<div class="div-comites-ahora text-center">
-				<div class="col-lg-12">
-					<h2 class="text-center">Comites PROSARC</h2>
-					@foreach($comites as $comite)
-						<a href="comites/{{$comite->id}}" class="btn btn-success">{{$comite->ComiName}}</a>
-					@endforeach
-					<br>
 				</div>
 			</div>
 		</div>
+		<div class="card" style="max-width: 540px;">
+			<div class="row no-gutters">
+				<div class="col-4 px-3 my-auto">
+					<a href="{{ route('requisitos.index') }}"><img src="white/img/RL.jpg" class="card-img" alt="requisitos image"></a>
+				</div>
+				<div class="col-8 text-right">
+					<div class="card-body">
+						<h4 class="card-title">
+							<b><a href="{{ route('requisitos.index') }}" class="btn btn-info btn-sm"><small>Lista de Requisitos</small></a></b>
+						</h4>
+						<p class="card-text">Lista de requisitos que deben ser cumplidos por la empresa.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="card text-white">
+					<div class="card-header bg-dark">
+						<ul class="nav nav-tabs card-header-tabs">
+							<li class="nav-item">
+								<a class="nav-link active" href="#">Active</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Link</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+							</li>
+						</ul>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Special title treatment</h5>
+						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="text-center">
+	<div class="div-conoce-pro">
+		<h2 class="text-center">Nuestra Gestión</h2>
+		<div class="row">
+			<div class="col-md-3 mx-auto">
+				<a href="{{ route('prosarc.GHumana') }}"><img src="white/img/GH.jpg" class="botones-conoce"></a>
+				<br>
+				<h4>Gestión Humana</h4>
+			</div>
+
+			<div class="col-md-3 mx-auto">
+				<a href="{{ route('prosarc.GAmbiental') }}"><img src="white/img/GA.jpg" class="botones-conoce"></a>
+				<br>
+				<h4>Gestión Ambiental</h4>
+			</div>
+
+			<div class="col-md-3 mx-auto">
+				<a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a>
+				<br>
+				<h4>Gestión de Calidad</h4>
+			</div>
+
+			<div class="col-md-3 mx-auto">
+				<a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a>
+				<br>
+				<h4>Seguridad y salud <br> en el trabajo</h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="div-comites-ahora text-center">
+		<div class="col-lg-12">
+			<h2 class="text-center">Comites PROSARC</h2>
+			@foreach($comites as $comite)
+			<a href="comites/{{$comite->id}}" class="btn btn-success">{{$comite->ComiName}}</a>
+			@endforeach
+			<br>
+		</div>
+	</div>
+</div>
 @endsection
 
 @push('css')
-		<link rel="stylesheet" href="{{ asset('css') }}/sliderPro.css"/>
+<link rel="stylesheet" href="{{ asset('css') }}/sliderPro.css" />
 @endpush
 
 @push('js')
-		<script src="{{ asset('white') }}/js/plugins/chartjs.min.js"></script>
-		<script src="{{ asset('js') }}/sliderPro.js"></script>
- 
-		<script type="text/javascript">     
-				$('#my-slider').sliderPro({
+<script src="{{ asset('white') }}/js/plugins/chartjs.min.js"></script>
+<script src="{{ asset('js') }}/sliderPro.js"></script>
+
+<script type="text/javascript">
+	$('#my-slider').sliderPro({
 					width: 960, 
 					height: 400,
 					orientation: 'horizontal',
@@ -343,5 +449,5 @@ Home
 						}
 					}
 				});
-		</script>
+</script>
 @endpush

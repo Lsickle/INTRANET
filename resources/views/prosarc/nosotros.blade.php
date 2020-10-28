@@ -19,23 +19,23 @@ Nosotros
 	</div>
 	<div class="row">
 		<ul class="nav nav-pills mb-3 mt-3 flex-column flex-sm-row w-100" id="pills-tab" role="tablist">
-			<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+			<li class="nav-item flex-sm-fill mx-1 my-1 text-center" role="presentation">
 				<a class="nav-link active" id="pills-General-tab" data-toggle="pill" href="#pills-General" role="tab"
 					aria-controls="pills-General" aria-selected="true">Generalidades</a>
 			</li>
-			<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+			<li class="nav-item flex-sm-fill mx-1 my-1 text-center" role="presentation">
 				<a class="nav-link" id="pills-PoliticasSG-tab" data-toggle="pill" href="#pills-PoliticasSG" role="tab"
 					aria-controls="pills-PoliticasSG" aria-selected="false">Politicas SG</a>
 			</li>
-			<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+			<li class="nav-item flex-sm-fill mx-1 my-1 text-center" role="presentation">
 				<a class="nav-link" id="pills-Mision-tab" data-toggle="pill" href="#pills-Mision" role="tab"
 					aria-controls="pills-Mision" aria-selected="false">Mision</a>
 			</li>
-			<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+			<li class="nav-item flex-sm-fill mx-1 my-1 text-center" role="presentation">
 				<a class="nav-link" id="pills-Vision-tab" data-toggle="pill" href="#pills-Vision" role="tab"
 					aria-controls="pills-Vision" aria-selected="false">Vision</a>
 			</li>
-			<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center dropdown">
+			<li class="nav-item flex-sm-fill mx-1 my-1 text-center dropdown">
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 					aria-expanded="false">Objetivos</a>
 				<div class="dropdown-menu nav-item w-100" role="presentation">
@@ -50,11 +50,11 @@ Nosotros
 						role="tab" aria-controls="pills-Objetivo3" aria-selected="false">Objetivo 3</a>
 				</div>
 			</li>
-			<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center" role="presentation">
+			<li class="nav-item flex-sm-fill mx-1 my-1 text-center" role="presentation">
 				<a class="nav-link" id="pills-Mapa-tab" data-toggle="pill" href="#pills-Mapa" role="tab"
 					aria-controls="pills-Mapa" aria-selected="false">Mapa de Procesos</a>
 			</li>
-			<li class="nav-item flex-sm-fill mx-1 my-1 text-sm-center dropdown">
+			<li class="nav-item flex-sm-fill mx-1 my-1 text-center dropdown">
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 					aria-expanded="false">Otras Politicas</a>
 				<div class="dropdown-menu dropdown-menu-right nav-item" role="presentation">
@@ -92,7 +92,7 @@ Nosotros
 			<div class="tab-pane fade show active" id="pills-General" role="tabpanel"
 				aria-labelledby="pills-General-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<h3 class="card-title">GENERALIDADES DE PROSARC S.A. ESP</h3>
 						<p class="card-text text-justify" style="text-indent:2.5em">
 							<b>PROTECCIÓN SERVICIOS AMBIENTALES RESPEL DE COLOMBIAN S.A ESP - PROSARC S.A. ESP</b>
@@ -165,7 +165,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-PoliticasSG" role="tabpanel" aria-labelledby="pills-PoliticasSG-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<h3 class="card-title">Politica del Sistema de Gestión Integral</h3>
 						<p class="card-text text-justify" style="text-indent:2.5em"> texto pendiente de la politica
 							general para el sistema de gestión integral</p>
@@ -174,7 +174,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Mision" role="tabpanel" aria-labelledby="pills-Mision-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<h3 class="card-title">Misión</h3>
 						<p class="card-text text-justify" style="text-indent:2.5em; font-size: 18px;"> Ejecutar
 							políticas, planes, programas y proyectos ambientales, a través de la implementación de la
@@ -185,7 +185,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Vision" role="tabpanel" aria-labelledby="pills-Vision-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<h3 class="card-title">Visión</h3>
 						<p class="card-text text-justify" style="text-indent:2.5em; font-size: 18px;">PROTECCIÓN
 							SERVICIOS AMBIENTALES RESPEL DE COLOMBIA S.A. ESP – PROSARC S.A. ESP, en el 2023 habrá
@@ -198,7 +198,7 @@ Nosotros
 			<div class="tab-pane fade" id="pills-ObjetivoGeneral" role="tabpanel"
 				aria-labelledby="pills-ObjetivoGeneral-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<h3 class="card-title">Objetivos Generales</h3>
 						<p class="card-text text-justify" style="text-indent:2.5em">Garantizar la confiabilidad de los
 							resultados a los tratamientos emitidos y cumplimiento de las normas de calidad y ambiental
@@ -227,7 +227,7 @@ Nosotros
 							</div>
 						</div>
 						<div class="col-md-10">
-							<div class="card-body tab-content" id="v-pills-tabContent">
+							<div class="card-body usCards tab-content" id="v-pills-tabContent">
 								<div class="tab-pane fade show active" id="v-pills-obj1Descripcion" role="tabpanel"
 									aria-labelledby="v-pills-obj1Descripcion-tab">
 									<h3>Objetivo 1</h3>
@@ -310,7 +310,7 @@ Nosotros
 							</div>
 						</div>
 						<div class="col-md-10">
-							<div class="card-body tab-content" id="v-pills-tabContent">
+							<div class="card-body usCards tab-content" id="v-pills-tabContent">
 								<div class="tab-pane fade show active" id="v-pills-obj2Descripcion" role="tabpanel"
 									aria-labelledby="v-pills-obj2Descripcion-tab">
 									<h3>Objetivo 2</h3>
@@ -394,7 +394,7 @@ Nosotros
 							</div>
 						</div>
 						<div class="col-md-10">
-							<div class="card-body tab-content" id="v-pills-tabContent">
+							<div class="card-body usCards tab-content" id="v-pills-tabContent">
 								<div class="tab-pane fade show active" id="v-pills-obj3Descripcion" role="tabpanel"
 									aria-labelledby="v-pills-obj3Descripcion-tab">
 									<h3>Objetivo 3</h3>
@@ -469,7 +469,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Mapa" role="tabpanel" aria-labelledby="pills-Mapa-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<h3 class="card-title">
 							Mapa de Procesos
 						</h3>
@@ -482,7 +482,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Politica1" role="tabpanel" aria-labelledby="pills-Politica1-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<div class="row d-block">
 							<div class="col-md-3 float-md-right float-lg-right">
 								<img src="white/img/correctivas.png">
@@ -505,7 +505,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Politica2" role="tabpanel" aria-labelledby="pills-Politica2-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<div class="row">
 							<div class="col-md-3 float-md-left float-lg-left">
 								<img class="img-fluid" src="white/img/integridad.jpg">
@@ -535,7 +535,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Politica3" role="tabpanel" aria-labelledby="pills-Politica3-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<div class="row d-block">
 							<div class="col-md-3 float-md-right float-lg-right">
 								<img src="white/img/compras.jpg">
@@ -557,7 +557,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Politica4" role="tabpanel" aria-labelledby="pills-Politica4-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<div class="row">
 							<div class="col-md-3 float-md-left float-lg-left">
 								<img class="img-fluid" src="white/img/conflicto.jpg">
@@ -580,7 +580,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Politica5" role="tabpanel" aria-labelledby="pills-Politica5-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<div class="row d-block">
 							<div class="col-md-3 float-md-right float-lg-right">
 								<img src="white/img/imparcial.png">
@@ -600,7 +600,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Politica6" role="tabpanel" aria-labelledby="pills-Politica6-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<div class="row">
 							<div class="col-md-3 float-md-left float-lg-left">
 								<img class="img-fluid" src="white/img/quejas.jpg">
@@ -621,7 +621,7 @@ Nosotros
 			</div>
 			<div class="tab-pane fade" id="pills-Politica7" role="tabpanel" aria-labelledby="pills-Politica7-tab">
 				<div class="card w-100">
-					<div class="card-body">
+					<div class="card-body usCards">
 						<div class="row d-block">
 							<div class="col-md-3 float-md-right float-lg-right">
 								<img src="white/img/revición.jpg">
@@ -645,61 +645,82 @@ Nosotros
 				</div>
 			</div>
 			<div class="tab-pane fade" id="pills-Politica8" role="tabpanel" aria-labelledby="pills-Politica8-tab">
-				<div class="card-body">
-					<div class="row">
-						<div class="col-md-3 float-md-left float-lg-left">
-							<img class="img-fluid" src="white/img/conforme.jpg">
-						</div>
-						<div class="col-md-9">
-							<h3 class="card-title">Política de trabajo no conforme</h3>
-							<p class="card-text text-justify">Es política de <strong>PROSARC S.A. ESP</strong>, evitar
-								bajo cualquier circunstancia la ocurrencia de trabajo no conformes. Sin embargo, en caso
-								de que ocurran se deberá prestar atención pronta, se asignan responsables y se toman las
-								acciones correspondientes para solventar cualquier deficiencia que pueda afectar de
-								forma directa o indirecta los procedimientos del sistema integrado de gestión. Para
-								esto, se ha establecido el procedimiento XXXXX Procedimiento de Control de Trabajo NO
-								Conforme, como instrumento para dar tratamiento a estas situaciones.</p>
+				<div class="card w-100">
+					<div class="card-body usCards">
+						<div class="row">
+							<div class="col-md-3 float-md-left float-lg-left">
+								<img class="img-fluid" src="white/img/conforme.jpg">
+							</div>
+							<div class="col-md-9">
+								<h3 class="card-title">Política de trabajo no conforme</h3>
+								<p class="card-text text-justify">Es política de <strong>PROSARC S.A. ESP</strong>,
+									evitar
+									bajo cualquier circunstancia la ocurrencia de trabajo no conformes. Sin embargo, en
+									caso
+									de que ocurran se deberá prestar atención pronta, se asignan responsables y se toman
+									las
+									acciones correspondientes para solventar cualquier deficiencia que pueda afectar de
+									forma directa o indirecta los procedimientos del sistema integrado de gestión. Para
+									esto, se ha establecido el procedimiento XXXXX Procedimiento de Control de Trabajo
+									NO
+									Conforme, como instrumento para dar tratamiento a estas situaciones.</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="tab-pane fade" id="pills-Politica9" role="tabpanel" aria-labelledby="pills-Politica9-tab">
-				<div class="card-body">
-					<div class="row d-block">
-						<div class="col-md-3 float-md-right float-lg-right">
-							<img src="white/img/confidencial.jpg">
-						</div>
-						<div class="col-md-9">
-							<h3 class="card-title">políticas de confidencialidad</h3>
-							<p class="card-text text-justify">Todo el personal y quien labore en PROSARC S.A. ESP, desde
-								la Gerencia General y directivos, se comprometen a mantener la confidencialidad de los
-								resultados de sus diferentes clientes, así como a proteger dicha información de un uso
-								contrario al autorizado, pérdida, acceso no autorizado, alteración y destrucción. Sólo
-								se utilizará la información obtenida en los análisis para responder a los requerimientos
-								y consultas y procesar las solicitudes de los clientes.</p>
-							<br>
-							<p class="card-text text-justify">El personal y quien labore en <strong>PROSARC S.A.
-									ESP</strong>, sea contratista y/o temporal, asume con mucha seriedad la
-								responsabilidad de mantener la confidencialidad de sus datos y con este fin toma
-								precauciones razonables y cuenta con procedimientos y mecanismos para protegerlos,
-								también para que el personal involucrado, guarde confidencialidad absoluta al respecto,
-								así como también, para que no divulguen la dicha información a terceros y no la utilice
-								para otro propósito que no sea ofrecerle bienes y servicios específicos a los clientes
-								de <strong>PROSARC S.A. ESP</strong>.</p>
-							<br>
-							<p class="card-text text-justify">Para esto el personal ha firmado compromisos en la “Carta
-								de Compromiso” y acuerdos de confidencialidad de la información en el “Acuerdo de
-								Confiabilidad”, que reposan en las carpetas de cada hoja de vida. </p>
-							<br>
-							<p class="card-text text-justify">En el caso de los datos y resultados almacenados o
-								distribuidos en medios electrónicos, se protegen contra alteraciones o daños mediante
-								back ups periódicos y por medio de claves personalizadas se protegen contra accesos sin
-								autorización.</p>
-							<br>
-							<p class="card-text text-justify">Sólo se podrá divulgar la información cuando la misma sea
-								requerida para proteger y defender los derechos y la seguridad de <strong>PROSARC S.A.
-									ESP</strong>, sus clientes y el personal a cargo. Excepto por las circunstancias
-								previamente mencionadas, la información recolectada no se divulgará a terceros.</p>
+				<div class="card w-100">
+					<div class="card-body usCards">
+						<div class="row d-block">
+							<div class="col-md-3 float-md-right float-lg-right">
+								<img src="white/img/confidencial.jpg">
+							</div>
+							<div class="col-md-9">
+								<h3 class="card-title">políticas de confidencialidad</h3>
+								<p class="card-text text-justify">Todo el personal y quien labore en PROSARC S.A. ESP,
+									desde
+									la Gerencia General y directivos, se comprometen a mantener la confidencialidad de
+									los
+									resultados de sus diferentes clientes, así como a proteger dicha información de un
+									uso
+									contrario al autorizado, pérdida, acceso no autorizado, alteración y destrucción.
+									Sólo
+									se utilizará la información obtenida en los análisis para responder a los
+									requerimientos
+									y consultas y procesar las solicitudes de los clientes.</p>
+								<br>
+								<p class="card-text text-justify">El personal y quien labore en <strong>PROSARC S.A.
+										ESP</strong>, sea contratista y/o temporal, asume con mucha seriedad la
+									responsabilidad de mantener la confidencialidad de sus datos y con este fin toma
+									precauciones razonables y cuenta con procedimientos y mecanismos para protegerlos,
+									también para que el personal involucrado, guarde confidencialidad absoluta al
+									respecto,
+									así como también, para que no divulguen la dicha información a terceros y no la
+									utilice
+									para otro propósito que no sea ofrecerle bienes y servicios específicos a los
+									clientes
+									de <strong>PROSARC S.A. ESP</strong>.</p>
+								<br>
+								<p class="card-text text-justify">Para esto el personal ha firmado compromisos en la
+									“Carta
+									de Compromiso” y acuerdos de confidencialidad de la información en el “Acuerdo de
+									Confiabilidad”, que reposan en las carpetas de cada hoja de vida. </p>
+								<br>
+								<p class="card-text text-justify">En el caso de los datos y resultados almacenados o
+									distribuidos en medios electrónicos, se protegen contra alteraciones o daños
+									mediante
+									back ups periódicos y por medio de claves personalizadas se protegen contra accesos
+									sin
+									autorización.</p>
+								<br>
+								<p class="card-text text-justify">Sólo se podrá divulgar la información cuando la misma
+									sea
+									requerida para proteger y defender los derechos y la seguridad de <strong>PROSARC
+										S.A.
+										ESP</strong>, sus clientes y el personal a cargo. Excepto por las circunstancias
+									previamente mencionadas, la información recolectada no se divulgará a terceros.</p>
+							</div>
 						</div>
 					</div>
 				</div>

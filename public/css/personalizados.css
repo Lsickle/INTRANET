@@ -100,7 +100,7 @@ estilo de imput para input personalizade del documentos.edit*/
   background-image: linear-gradient(to bottom right, rgb(230, 244, 255), rgb(243, 250, 255), rgb(250, 253, 255), white);
   border-radius: 10px;
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
-  15px 15px 16px gray;
+  10px 10px 11px gray;
   border: 1px solid silver;
   margin: 0em 0em 3em 0em;
 }
@@ -545,3 +545,9 @@ estilo de imput para input personalizade del documentos.edit*/
 }
 
 * {box-sizing: border-box;}
+
+/* degradado para la cards de la vista de nosotros */
+.usCards {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 255, 0.05));
+  border-radius: calc(0.2857rem - 0.0625rem);
+}
