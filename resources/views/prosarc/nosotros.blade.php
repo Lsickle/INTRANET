@@ -13,7 +13,6 @@ Nosotros
 	<div class="row h-auto">
 		<div class="mb-md-4 mb-2 col"></div>
 		<div class="mb-md-4 mb-2 col-md-10 text-center" style="">
-			{{-- <img src="" class="responsive imagen-prosarc" width="600" height="400"> --}}
 			<img src="white/img/DJI_0123.jpg" class="img-fluid h-auto w-100 imagen-prosarc" alt="Responsive image">
 		</div>
 		<div class="mb-md-4 mb-2 col"></div>
@@ -225,8 +224,6 @@ Nosotros
 								<a class="nav-link" id="v-pills-obj1Actividades-tab" data-toggle="pill"
 									href="#v-pills-obj1Actividades" role="tab" aria-controls="v-pills-obj1Actividades"
 									aria-selected="false">Actividades</a>
-								{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
-								{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
 							</div>
 						</div>
 						<div class="col-md-10">
@@ -310,8 +307,6 @@ Nosotros
 								<a class="nav-link" id="v-pills-obj2Actividades-tab" data-toggle="pill"
 									href="#v-pills-obj2Actividades" role="tab" aria-controls="v-pills-obj2Actividades"
 									aria-selected="false">Actividades</a>
-								{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
-								{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
 							</div>
 						</div>
 						<div class="col-md-10">
@@ -396,8 +391,6 @@ Nosotros
 								<a class="nav-link" id="v-pills-obj3Actividades-tab" data-toggle="pill"
 									href="#v-pills-obj3Actividades" role="tab" aria-controls="v-pills-obj3Actividades"
 									aria-selected="false">Actividades</a>
-								{{-- <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> --}}
-								{{-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
 							</div>
 						</div>
 						<div class="col-md-10">
