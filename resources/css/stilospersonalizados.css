@@ -98,9 +98,9 @@ estilo de imput para input personalizade del documentos.edit*/
 
 .div-slider-pro {
   background-image: linear-gradient(to bottom right, rgb(230, 244, 255), rgb(243, 250, 255), rgb(250, 253, 255), white);
-  border-radius: 10px;
+  border-radius: 7px;
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
-  10px 10px 11px gray;
+  7px 7px 8px gray;
   border: 1px solid silver;
   margin: 0em 0em 3em 0em;
 }

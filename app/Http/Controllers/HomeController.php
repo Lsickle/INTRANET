@@ -33,7 +33,7 @@ class HomeController extends Controller
         $release = Releases::orderBy('updated_at', 'DESC')->where('RelGeneral', 0)->first();
         $document = Documents::orderBy('updated_at', 'DESC')->get()->first();
         $comitesCarousel = Comites::orderBy('updated_at', 'DESC')->get()->first();
-        $comites = Comites::all('id', 'ComiName');
+        $comites = Comites::all();
         $requisito = Requisitos::orderBy('updated_at', 'DESC')->get()->first();
         $proceso = Process::orderBy('updated_at', 'DESC')->get()->first();
         // return $indicator;

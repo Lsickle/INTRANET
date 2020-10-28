@@ -303,12 +303,14 @@ Home
 		<div class="card" style="max-width: 540px;">
 			<div class="row no-gutters">
 				<div class="col-4 px-3 my-auto">
-					<a href="{{ route('prosarc.nosotros') }}"><img src="white/img/logo.png" class="card-img" alt="Logo Prosarc"></a>
+					<a href="{{ route('prosarc.nosotros') }}"><img src="white/img/logo.png" class="card-img"
+							alt="Logo Prosarc"></a>
 				</div>
 				<div class="col-8 text-right">
 					<div class="card-body">
 						<h4 class="card-title">
-							<b><a href="{{ route('prosarc.nosotros') }}" class="btn btn-info btn-sm"><small>Acerca de Prosarc</small></a></b>
+							<b><a href="{{ route('prosarc.nosotros') }}" class="btn btn-info btn-sm"><small>Acerca de
+										Prosarc</small></a></b>
 						</h4>
 						<p class="card-text">Página con información de generalidades, misión, visión, objetivos,
 							políticas, mapa de procesos, entre otros.</p>
@@ -319,12 +321,14 @@ Home
 		<div class="card" style="max-width: 540px;">
 			<div class="row no-gutters">
 				<div class="col-4 px-3 my-auto">
-					<a href="{{ route('requisitos.index') }}"><img src="white/img/RL.jpg" class="card-img" alt="requisitos image"></a>
+					<a href="{{ route('requisitos.index') }}"><img src="white/img/RL.jpg" class="card-img"
+							alt="requisitos image"></a>
 				</div>
 				<div class="col-8 text-right">
 					<div class="card-body">
 						<h4 class="card-title">
-							<b><a href="{{ route('requisitos.index') }}" class="btn btn-info btn-sm"><small>Lista de Requisitos</small></a></b>
+							<b><a href="{{ route('requisitos.index') }}" class="btn btn-info btn-sm"><small>Lista de
+										Requisitos</small></a></b>
 						</h4>
 						<p class="card-text">Lista de requisitos que deben ser cumplidos por la empresa.</p>
 					</div>
@@ -336,72 +340,101 @@ Home
 
 <div class="row">
 	<div class="col-md-12">
-		<div class="card">
+		<div class="card"
+			style="background-image: linear-gradient(to bottom right, rgb(230, 244, 255), rgb(243, 250, 255), rgb(250, 253, 255), white); border-radius: 7px; box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 7px 7px 8px gray; border: 1px solid silver; margin: 0em 0em 3em 0em;">
+			<div class="card-header text-center py-0"
+				style="border-radius: 7px 7px 0px 0px; background-image: linear-gradient(#0092e0, #0066a0, #003355);">
+				<h3 class="my-2 text-white">Nuestra Gestión</h3>
+			</div>
 			<div class="card-body">
-				<div class="card text-white">
-					<div class="card-header bg-dark">
-						<ul class="nav nav-tabs card-header-tabs">
-							<li class="nav-item">
-								<a class="nav-link active" href="#">Active</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-							</li>
-						</ul>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">Special title treatment</h5>
-						<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
+				<div class="row">
+					<div class="col-md-3"><a href="{{ route('prosarc.GHumana') }}"
+							class="btn btn-info btn-info-bisel text-white w-100 px-md-2">Gestión Humana</a></div>
+					<div class="col-md-3"><a href="{{ route('prosarc.GAmbiental') }}"
+							class="btn btn-info btn-info-bisel text-white w-100 px-md-2">Gestión Ambiental</a></div>
+					<div class="col-md-3"><a href="{{ route('prosarc.GCalidad') }}"
+							class="btn btn-info btn-info-bisel text-white w-100 px-md-2">Gestión de Calidad</a></div>
+					<div class="col-md-3"><a href="{{ route('prosarc.SST') }}"
+							class="btn btn-info btn-info-bisel text-white w-100 px-md-2">SST</a></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="text-center">
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card"
+			style="background-image: linear-gradient(to bottom right, rgb(222, 255, 219), rgb(236, 255, 232), rgb(232, 255, 232), white); border-radius: 7px; box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 7px 7px 8px gray; border: 1px solid silver; margin: 0em 0em 3em 0em;">
+			<div class="card-header text-center py-0"
+				style="border-radius: 7px 7px 0px 0px; background-image: linear-gradient(#23af00, #0b8000, #115500);">
+				<h3 class="my-2 text-white">Comites</h3>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					@foreach($comites as $comite)
+					<div class="col-md-3">
+						<div class="card">
+							@if($comite->ComiSrc === "")
+							<img src="/white/img/empresa.jpg">
+							@else
+							<img alt="logo del Comite" src="{{Storage::url($comite->ComiSrc)}}">
+							@endif
+							<div class="card-body">
+								<p class="card-text">
+									<h6><b>Objetivo:</b></h6> {{$comite->ComiParaQueSirve}}.
+								</p>
+								<a href="comites/{{$comite->id}}" class="btn btn-primary btn-sm float-right"><b>{{$comite->ComiName}}</b></a>
+							</div>
+						</div>
+					</div>
+					@endforeach
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{{-- <div class="text-center">
 	<div class="div-conoce-pro">
 		<h2 class="text-center">Nuestra Gestión</h2>
 		<div class="row">
 			<div class="col-md-3 mx-auto">
-				<a href="{{ route('prosarc.GHumana') }}"><img src="white/img/GH.jpg" class="botones-conoce"></a>
+				<a href=""><img src="white/img/GH.jpg" class="botones-conoce"></a>
 				<br>
 				<h4>Gestión Humana</h4>
 			</div>
 
 			<div class="col-md-3 mx-auto">
 				<a href="{{ route('prosarc.GAmbiental') }}"><img src="white/img/GA.jpg" class="botones-conoce"></a>
-				<br>
-				<h4>Gestión Ambiental</h4>
-			</div>
+<br>
+<h4>Gestión Ambiental</h4>
+</div>
 
-			<div class="col-md-3 mx-auto">
-				<a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a>
-				<br>
-				<h4>Gestión de Calidad</h4>
-			</div>
+<div class="col-md-3 mx-auto">
+	<a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a>
+	<br>
+	<h4>Gestión de Calidad</h4>
+</div>
 
-			<div class="col-md-3 mx-auto">
-				<a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a>
-				<br>
-				<h4>Seguridad y salud <br> en el trabajo</h4>
-			</div>
-		</div>
-	</div>
+<div class="col-md-3 mx-auto">
+	<a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a>
+	<br>
+	<h4>Seguridad y salud <br> en el trabajo</h4>
+</div>
+</div>
+</div>
 
-	<div class="div-comites-ahora text-center">
-		<div class="col-lg-12">
-			<h2 class="text-center">Comites PROSARC</h2>
-			@foreach($comites as $comite)
-			<a href="comites/{{$comite->id}}" class="btn btn-success">{{$comite->ComiName}}</a>
-			@endforeach
-			<br>
-		</div>
+<div class="div-comites-ahora text-center">
+	<div class="col-lg-12">
+		<h2 class="text-center">Comites PROSARC</h2>
+		@foreach($comites as $comite)
+		<a href="comites/{{$comite->id}}" class="btn btn-success">{{$comite->ComiName}}</a>
+		@endforeach
+		<br>
 	</div>
 </div>
+</div> --}}
 @endsection
 
 @push('css')
