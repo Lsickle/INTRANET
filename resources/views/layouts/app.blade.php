@@ -40,7 +40,7 @@
         {{-- stilos personalizados ojo con el Important! --}}
         <link href="{{ asset('css') }}/personalizados.css" rel="stylesheet"/>
     </head>
-    <body class="white-content {{ $class ?? '' }} tipo-letra">
+    <body id="bodyContenido" class="white-content {{ $class ?? '' }} tipo-letra">
         @auth()
             <div class="wrapper">
                 @php
