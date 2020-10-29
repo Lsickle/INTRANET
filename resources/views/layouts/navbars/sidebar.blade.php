@@ -184,8 +184,8 @@
                 </a>
             </li>
 
-            <li class=" {{ $pageSlug == 'releases' ? 'active' : '' }}">
-                <a href="{{ route('releases.index') }}">
+            <li class=" {{ $pageSlug == 'comunicados' ? 'active' : '' }}">
+                <a href="{{ route('comunicados.index') }}">
                     <i class="far fa-newspaper"></i>
                     <p>{{ __('Comunicados') }}</p>
                 </a>

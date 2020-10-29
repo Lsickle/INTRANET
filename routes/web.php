@@ -78,6 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('salida','OutputController');
 	Route::resource('actividad','ActivityController');
 	Route::resource('releases','ReleasesController');
+	Route::resource('comunicados','ReleasesController');
 	Route::resource('requisitos','RequisitosController');
 	Route::resource('alerts','AlertsController');
 	Route::resource('seguimiento','SeguimientoController');
