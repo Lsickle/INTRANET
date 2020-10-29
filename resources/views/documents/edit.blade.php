@@ -104,9 +104,9 @@ Documentos
 				</div>
 				<div class="form-group" id="div-contenedor">
 					@if($document->DocGeneral == 0)
-					<label class="form-control-label" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas a la que pertenece el documento</b>" data-content="Ingresar las áreas a las cuales pertenece el documento y en caso de que este sea restringido, solo los usuarios pertenecientes a dicha área tendran permitido visualizar el documento."><i class="far fa-question-circle"></i> Áreas a la que pertenece el documento</label>
+					<label class="form-control-label" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas a la que pertenece el documento</b>" data-content="Ingresar las áreas a las cuales pertenece el documento y en caso de que este sea restringido, solo los usuarios pertenecientes a dicha área tendran permitido visualizar el documento."><i class="far fa-question-circle"></i> Procesos que manejan el documento</label>
 
-					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}">
+					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los procesos que manejan el documento')}}" value="{{ old('areas[]') }}">
 						@foreach($areas as $area)
 							<option 
 							@foreach($document->areas as $areaSelect)

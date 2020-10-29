@@ -34,7 +34,7 @@ Documentos
     			     <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Publicado</b>" data-content="Informa si el documento se encuentra publicado (general) o en restringido.">Publicado</th>
                     @endcan
     			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de documento</b>" data-content="Categoria a la cual pertenece el documento">Tipo de documento</th>
-    			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas</b>" data-content="Áreas a las cuales pertenece el documento.">Áreas</th>
+    			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas</b>" data-content="Áreas a las cuales pertenece el documento.">Responsable</th>
                     <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Código</b>" data-content="Código referencia a dicho documento.">Código</th>
     			    @can('updateDocuments')
     			    	<th class="text-center">Editar</th>
