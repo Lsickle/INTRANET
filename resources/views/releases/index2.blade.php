@@ -28,34 +28,42 @@ Comunicados
 @endpush
 
 @section('content')
-<header class="blog-header">
-	<div class="nav-scroller py-1 mb-2">
-		<nav id="categoriesNavbar" class="nav d-flex justify-content-between">
-			<a class="p-2 text-muted" href="#">Almacen</a>
-			<a class="p-2 text-muted" href="#">Calidad</a>
-			<a class="p-2 text-muted" href="#">Clientes</a>
-			<a class="p-2 text-muted" href="#">Comercial</a>
-			<a class="p-2 text-muted" href="#">Comuniciones</a>
-			<a class="p-2 text-muted" href="#">Dirección</a>
-			<a class="p-2 text-muted" href="#">Documentacion</a>
-			<a class="p-2 text-muted" href="#">Gerencia</a>
-			<a class="p-2 text-muted" href="#">HSEQ</a>
-			<a class="p-2 text-muted" href="#">Logistica</a>
-			<a class="p-2 text-muted" href="#">Mantenimiento</a>
-			<a class="p-2 text-muted" href="#">Miscelaneos</a>
-			<a class="p-2 text-muted" href="#">Normas</a>
-			<a class="p-2 text-muted" href="#">Operaciones</a>
-			<a class="p-2 text-muted" href="#">Procedimientos</a>
-			<a class="p-2 text-muted" href="#">RecepciónPDA</a>
-			<a class="p-2 text-muted" href="#">RRHH</a>
-			<a class="p-2 text-muted" href="#">SisPRO</a>
-		</nav>
+<div class="row">
+	<div class="col-md-12">
+			<div class="nav-scroller py-1 mb-2">
+				<nav id="categoriesNavbar" class="nav d-flex justify-content-between">
+					<a class="p-2 text-muted" href="#">Almacen</a>
+					<a class="p-2 text-muted" href="#">Calidad</a>
+					<a class="p-2 text-muted" href="#">Clientes</a>
+					<a class="p-2 text-muted" href="#">Comercial</a>
+					<a class="p-2 text-muted" href="#">Comuniciones</a>
+					<a class="p-2 text-muted" href="#">Dirección</a>
+					<a class="p-2 text-muted" href="#">Documentacion</a>
+					<a class="p-2 text-muted" href="#">Gerencia</a>
+					<a class="p-2 text-muted" href="#">HSEQ</a>
+					<a class="p-2 text-muted" href="#">Logistica</a>
+					<a class="p-2 text-muted" href="#">Mantenimiento</a>
+					<a class="p-2 text-muted" href="#">Miscelaneos</a>
+					<a class="p-2 text-muted" href="#">Normas</a>
+					<a class="p-2 text-muted" href="#">Operaciones</a>
+					<a class="p-2 text-muted" href="#">Procedimientos</a>
+					<a class="p-2 text-muted" href="#">RecepciónPDA</a>
+					<a class="p-2 text-muted" href="#">RRHH</a>
+					<a class="p-2 text-muted" href="#">SisPRO</a>
+				</nav>
+			</div>
 	</div>
-</header>
+</div>
+<div class="row">
+	<div id="separador" style="min-height: 0px">
+
+	</div>
+</div>
 
 
 
-<div class="jumbotron p-4 p-md-5 text-white rounded bg-light"
+
+<div id="mainJumbo" class="jumbotron p-4 p-md-5 text-white rounded bg-light w-100"
 	style="background-image: url('https://picsum.photos/1000/400'); background-size: cover;">
 	<div class="col-md-6 px-0">
 		<h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
@@ -252,19 +260,28 @@ Comunicados
 
 @push('scripts')
 <script>
-var contenido = document.getElementById("bodyContenido");
-contenido.onscroll = function() {stickNavbar();console.log('activated');};
-
+var mainPanel = document.getElementById("mainPanel");
+var mainContainer = document.getElementById("mainContainer");
+var mainJumbo = document.getElementById("mainJumbo");
 var navbarCategories = document.getElementById("categoriesNavbar");
+var separador = document.getElementById("separador");
+
+mainPanel.onscroll = function() {stickNavbar()};
+
 var sticky = navbarCategories.offsetTop;
 
+
 function stickNavbar() {
-  if (contenido.pageYOffset >= sticky) {
-    navbarCategories.classList.add("sticky")
+ console.log(mainJumbo.offsetWidth);
+  if (mainPanel.scrollTop-80 >= sticky) {
+	navbarCategories.classList.add("sticky");
+	navbarCategories.style.width = mainJumbo.offsetWidth+'px';
+	separador.style.height = navbarCategories.clientHeight+'px';
   } else {
-    navbarCategories.classList.remove("sticky");
+	navbarCategories.classList.remove("sticky");
+	navbarCategories.style.width = '100%';
+	separador.style.height = '0px';
   }
-  console.log(navbarCategories.offsetTop);
 }
 </script>
 @endpush

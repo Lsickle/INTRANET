@@ -40,7 +40,7 @@
         {{-- stilos personalizados ojo con el Important! --}}
         <link href="{{ asset('css') }}/personalizados.css" rel="stylesheet"/>
     </head>
-    <body id="bodyContenido" class="white-content {{ $class ?? '' }} tipo-letra">
+    <body class="white-content {{ $class ?? '' }} tipo-letra">
         @auth()
             <div class="wrapper">
                 @php
@@ -79,13 +79,13 @@
                 @endswitch
                 
                 @include('layouts.navbars.sidebar')
-                <div class="main-panel" data="{{$colormainpanel}}">
+                <div id="mainPanel" class="main-panel" data="{{$colormainpanel}}">
                     @include('layouts.navbars.navbar')
 
                     {{-- estructura de contenido --}}
                     {{-- @include('layouts.partials.loading') --}}
                     <div class="content" id="contenido" style="display: none;">
-                        <div class="container">
+                        <div id="mainContainer" class="container">
                             @yield('content')
                         </div>
                     </div>
