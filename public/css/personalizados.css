@@ -673,11 +673,11 @@ estilo
 
 .sticky {
     position: fixed;
-    top: 0px;
+    top: 1px;
     /* width: 75%; */
     z-index: 1000;
 }
 
 .sticky + .content {
-    padding-top: 0px;
+    padding-top: 1px;
 }
