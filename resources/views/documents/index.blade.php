@@ -42,6 +42,36 @@ Documentos
                 </thead>
                     @can('indexDocuments')
                         <tbody>
+							@foreach($documentosEspecificos as $DocumentEspecifico)
+							<tr>
+								<td class="text-center">{{$DocumentEspecifico->DocName}}</td>
+								<td class="text-center">
+									@if($DocumentEspecifico->DocSrc === "")
+									<p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
+									@else
+									<p><a target="_blank" href="{{$DocumentEspecifico->DocSrc}}">{{$DocumentEspecifico->DocOriginalName}}</a></p>
+									@endif
+								</td>
+								<td class="text-center">{{$DocumentEspecifico->DocVersion}}</td>
+								<td class="text-center">{{ $DocumentEspecifico->DocPublisher === 0 ? "Borrador" : "Publicado" }}</td>
+								<td class="text-center">{{$DocumentEspecifico->DocType}}</td>
+								<td class="text-center">
+									<ul class="list-group list-group-flush">
+										@foreach($DocumentEspecifico->areas as $area)
+										<li class="list-group-item" style="background-color: #ffffff;">
+											<font color="#525f7f">{{$area->AreaName}}</font>
+										</li>
+										@endforeach
+									</ul>
+								</td>
+								<td class="text-center">
+									{{$DocumentEspecifico->DocCodigo}}
+								</td>
+								@can('updateDocuments')
+								<td class="text-center"><a href="{{$DocumentEspecifico->DocSrc}}" class="btn btn-fill btn-info"> Ver</a></td>
+								@endcan
+							</tr>
+							@endforeach
                             @foreach($Documents as $Document)
                             <tr>
             			        <td class="text-center">{{$Document->DocName}}</td>

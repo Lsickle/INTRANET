@@ -34,6 +34,8 @@ Auth::routes([
 ]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
+
+
 Route::group(['middleware' => 'auth'], function () {
 
 	/*rutas de muestra de la plantilla*/
@@ -95,6 +97,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('GAmbiental', ['as' => 'prosarc.GAmbiental', 'uses' => 'ProsarcController@GAmbiental']);
 	Route::get('GCalidad', ['as' => 'prosarc.GCalidad', 'uses' => 'ProsarcController@GCalidad']);
 	Route::get('search', ['as' => 'prosarc.search', 'uses' => 'ProsarcController@search']);
+	Route::get('Compromisos', ['as' => 'prosarc.Compromisos', 'uses' => 'ProsarcController@Compromisos']);
 	Route::get('SST', ['as' => 'prosarc.SST', 'uses' => 'ProsarcController@SST']);
 	Route::get('index2', ['as' => 'indicators.index2', 'uses' => 'IndicatorsController@index2']);
 	Route::get('calendario', ['as' => 'alerts.calendario', 'uses' => 'AlertsController@calendario']);

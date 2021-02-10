@@ -58,4 +58,9 @@ class ProsarcController extends Controller
 
         return view('prosarc.search', compact('documents', 'indicators', 'comunicados', 'procesos', 'requisitos', 'alerts'));
     }
+
+    public function Compromisos()
+    {
+        return view('prosarc.Compromisos');
+    }
 }

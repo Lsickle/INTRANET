@@ -30,8 +30,18 @@ class DocumentsController extends Controller
        $user->givePermissionTo('indexDocuments');
        /*$users = User::with('roles')->paginate(10);*/
 
+       $documentosEspecificos = collect([(object)[
+               'DocName' => 'CuadrodeCompromisos',
+               'DocOriginalName' => 'CuadrodeCompromisos.xlsx',
+               'DocSrc' => route('prosarc.Compromisos'),
+               'DocVersion' => '1',
+               'DocPublisher' => 'HSEQ',
+               'DocType' => 'Formatos',
+               'DocCodigo' => 'Pendiente',
+               'areas' => collect([(object)['AreaName' => 'HSEQ']])
+       ]]);
 
-       return view('documents.index', compact('Documents', 'publicadodocumentos', 'user'));
+       return view('documents.index', compact('Documents', 'publicadodocumentos', 'user', 'documentosEspecificos'));
     }
 
     /**
