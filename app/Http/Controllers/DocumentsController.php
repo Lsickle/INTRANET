@@ -21,15 +21,10 @@ class DocumentsController extends Controller
      */
     public function index()
     {
-       /*$Documents = DB::table('documents')->get();*/
        $Documents = Documents::with('areas')->paginate(10);
-       $publicadodocumentos = Documents::where('DocPublisher', 1)->get();/*Muestra los publicados*/
-       /*return $borradordocumentos;*/
-       /*return $Documents;*/
+       $publicadodocumentos = Documents::where('DocPublisher', 1)->get();/* 1 Muestra los publicados*/
        $user = User::where('id', [1, 2, 22])->first();
        $user->givePermissionTo('indexDocuments');
-       /*$users = User::with('roles')->paginate(10);*/
-
        $documentosEspecificos = collect([(object)[
                'DocName' => 'CuadrodeCompromisos',
                'DocOriginalName' => 'CuadrodeCompromisos.xlsx',
